@@ -1,5 +1,5 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2022
-(1.S992/6.S083/12.S083/16.S686/18.S191/22.S093)
+(1.S992/6.S083/12.S083/16.S686/18.S191/22.S093) TR 1-2:30, 2-131
 Prerequisite: 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)
 
 A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
@@ -20,31 +20,31 @@ Class is appropriate for those who enjoy math and wish to see math being used in
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic|
 |-|-|-|-|-|
-|1|H|9/8|Edelman|Intro to Julia|
+|1|R|9/8|Edelman|Intro to Julia|
 |2|T|9/13|Edelman|Matrix Calculus|
-|3|H|9/15|Edelman|Matrix Calculus|
+|3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
-|5|H|9/22|Edelman|Automatic Differentiation for Machine Learning  |
+|5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
 |6|T|9/27|Persson||
-|7|H|9/29|Persson||
+|7|R|9/29|Persson||
 |8|T|10/4|Ferrari|Greenhouse Effect|
-|9|H|10/6|Ferrari|Equilibrium and transient climate sensitivity|
+|9|R|10/6|Ferrari|Equilibrium and transient climate sensitivity|
 ||T|10/11|*Student Holiday*||
-|10|H|10/13|Silvestri|Climate Science|
+|10|R|10/13|Silvestri|Climate Science|
 |11|T|10/18|Silvestri|Climate Science|
-|12|H|10/20|Edelman|Economic Model of Climate|
+|12|R|10/20|Edelman|Economic Model of Climate|
 |13|T|10/25|Edelman|HPC and GPUs|
-|14|H|10/27|Edelman|HPC and GPUs|
+|14|R|10/27|Edelman|HPC and GPUs|
 |15|T|11/1|Edelman|Imaging and Convolutions|
-|16|H|11/3|Edelman|Convolutions and PDEs |
+|16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
-|18|H|11/10|Williams|Apache Arrow in Julia for massive datastores|
+|18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
 |19|T|11/15|Urschel||
-|20|H|11/17|Urschel||
+|20|R|11/17|Urschel||
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
-||H|11/24|*Thanksgiving*||
+||R|11/24|*Thanksgiving*||
 |22|T|11/29|TBA||
-|23|H|12/1|TBA|
+|23|R|12/1|TBA|
 |24|T|12/6|TBA||
-|25|H|12/8|TBA||
+|25|R|12/8|TBA||
 |26|T|12/13|TBA||
