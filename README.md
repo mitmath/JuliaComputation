@@ -19,6 +19,7 @@ Class is appropriate for those who enjoy math and wish to see math being used in
 
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic|
+|-|-|-|-|-|
 |1|H|9/8|Edelman|Intro to Julia|
 |2|T|9/13|Edelman|Matrix Calculus|
 |3|H|9/15|Edelman|Matrix Calculus|
