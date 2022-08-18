@@ -1,6 +1,6 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2022
 (1.S992/6.S083/12.S083/16.S686/18.S191/22.S093) TR 1-2:30, 2-131
-Prerequisite: 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)
+**Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)
 
 A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
 
