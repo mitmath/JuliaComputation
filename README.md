@@ -1,15 +1,18 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2022
-(1.S992/6.S083/12.S083/16.S686/18.S191/22.S093) TR 1-2:30, 2-131
-**Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)
-
-A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
-
-Starting Fall 2023, this course is planned as C25 in the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).
+**MIT's numbering scheme gone nuts**: (1.S992/6.S083/12.S083/16.S686/18.S191/22.S093)  
+Starting Fall 2023, this course is planned as C25 in the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).  
+**Class hours**: TR 1-2:30 in 2-131  
+**Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
+**Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
+**TA:** TBA  
+**Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
+**Links:** Worth bookmarking.  
 
 | [Piazza](piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
 |-|-|-|-|
 |Discussion|HW submission |Language|GPUs|
 
+**Description:**  
 Focuses on algorithms and techniques for writing and using modern technical software in a job, lab, or research group environment that may consist of interdisciplinary teams, where performance may be critical, and where the software needs to be flexible and adaptable. Topics include automatic differentiation, matrix calculus, scientific machine learning, parallel and GPU computing, and performance optimization with introductory applications to climate science, economics, agent-based modeling, and other areas. Labs and projects focus on performant, readable, composable algorithms and software. Programming will be in Julia. Expects students have some familiarity with Python, Matlab, or R. No Julia experience necessary.
 
 Counts as an elective for CEE students, an advanced subject (18.100 and higher) for Math students, an advanced elective for EECS students, and a computation restricted elective for NSE students. AeroAstro students can petition department to count this class as a professional subject in the computing area.
