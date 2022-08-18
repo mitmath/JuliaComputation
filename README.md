@@ -22,6 +22,11 @@ Counts as an elective for CEE students, an advanced subject (18.100 and higher) 
 
 Class is appropriate for those who enjoy math and wish to see math being used in modern contexts.
 
+# Homeworks at a Glance
+|#|Assigned|Due|Topic|
+|-|-|-|-|
+|0| More soon: but start downloading Julia and add 1+1|
+
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic|
 |-|-|-|-|-|
