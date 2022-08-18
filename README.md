@@ -49,12 +49,12 @@ Class is appropriate for those who enjoy math and wish to see math being used in
 |16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
 |18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|Urschel||
-|20|R|11/17|Urschel||
+|19|T|11/15|TBA||
+|20|R|11/17|TBA||
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
 ||R|11/24|*Thanksgiving*||
 |22|T|11/29|TBA||
-|23|R|12/1|TBA|
-|24|T|12/6|TBA||
+|23|R|12/1|Urschel|
+|24|T|12/6|Urschel||
 |25|R|12/8|TBA||
 |26|T|12/13|TBA||
