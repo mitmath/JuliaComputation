@@ -6,7 +6,9 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
 **TA:** TBA  
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
+**Lecture Recordings:** We are arranging to have these available.  
 **Links:** Worth bookmarking.  
+
 
 | [Piazza](piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
 |-|-|-|-|
