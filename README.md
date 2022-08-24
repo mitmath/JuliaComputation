@@ -22,7 +22,7 @@ Counts as an elective for CEE students, an advanced subject (18.100 and higher) 
 
 Class is appropriate for those who enjoy math and wish to see math being used in modern contexts.
 
-While not exactly the same as our past [Computational Thinking Class] (https://computationalthinking.mit.edu/Spring21/).  Not entirely different either.
+While not exactly the same as our past [Computational Thinking Class](https://computationalthinking.mit.edu/Spring21/).  Not entirely different either.
 
 # Homeworks at a Glance
 |#|Assigned|Due|Topic|
