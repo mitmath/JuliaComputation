@@ -35,7 +35,7 @@ begin
 end
 
 # ╔═╡ 12db97b2-d610-4e84-9bba-84f3c86fdebc
-md"## 2. Transform"
+md"## 2. Transform the Corgi!"
 
 # ╔═╡ 9d9ca208-8124-4992-a623-b6568340df79
 md"θ=$(@bind θ Slider(-360:10:360;default=0, show_value=true)) degrees"
