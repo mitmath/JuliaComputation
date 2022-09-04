@@ -15,7 +15,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 81f4b64e-2b9c-11ed-019a-fb5ad22925bc
-using PlutoUI,  FileIO, Images, StaticArrays, Plots
+using PlutoUI,  FileIO, Images, Plots
 
 # ╔═╡ d6bdc777-e55c-42aa-8adc-0a53b885cf3b
 TableOfContents(title="📚 Table of Contents", indent=true, depth=4, aside=true)
@@ -45,14 +45,14 @@ md"## 3. Math Transformations"
 
 # ╔═╡ 4f22047e-6017-435e-b9b4-a3f084cedcf6
 begin
-	 translate(α,β)  = ((x, y),) -> SA[x+α, y+β]
+	 translate(α,β)  = ((x, y),) -> [x+α, y+β]
 	 
-	 scale(α)  = ((x, y),) -> SA[α*x, α*y]
-	 swap((x, y))  = SA[y, x]
-	 flipy((x, y)) = SA[x, -y]
+	 scale(α)  = ((x, y),) -> [α*x, α*y]
+	 swap((x, y))  = [y, x]
+	 flipy((x, y)) = [x, -y]
 
-	 rotate(θ) = ((x, y),) -> SA[cos(θ)*x + sin(θ)*y, -sin(θ)*x + cos(θ)*y]
-	 hyperbolic_rotate(θ) = ((x, y),) -> SA[cosh(θ)*x + sinh(θ)*y, sinh(θ)*x + cosh(θ)*y]
+	 rotate(θ) = ((x, y),) -> [cos(θ)*x + sin(θ)*y, -sin(θ)*x + cos(θ)*y]
+	 hyperbolic_rotate(θ) = ((x, y),) -> [cosh(θ)*x + sinh(θ)*y, sinh(θ)*x + cosh(θ)*y]
 end
 
 # ╔═╡ 4fff63cc-7872-4498-9a40-fecab32c0672
@@ -144,14 +144,12 @@ FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
 FileIO = "~1.15.0"
 Images = "~0.25.2"
 Plots = "~1.31.7"
 PlutoUI = "~0.7.40"
-StaticArrays = "~1.5.6"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -160,7 +158,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.0-rc4"
 manifest_format = "2.0"
-project_hash = "dd9e23c768433e86c68d0fd4bc7e6229e59eaf7b"
+project_hash = "6f7914ff4916507338cba38d21eb966672a94a5d"
 
 [[deps.AbstractFFTs]]
 deps = ["ChainRulesCore", "LinearAlgebra"]
