@@ -53,6 +53,8 @@ begin
 
 	 rotate(θ) = ((x, y),) -> [cos(θ)*x + sin(θ)*y, -sin(θ)*x + cos(θ)*y]
 	 hyperbolic_rotate(θ) = ((x, y),) -> [cosh(θ)*x + sinh(θ)*y, sinh(θ)*x + cosh(θ)*y]
+	nonlin_shear(θ) = ((x, y),) -> [x, y + θ*x^2]
+	warp(θ)    = ((x, y),) -> rotate(θ*√(x^2+y^2))([x, y])
 end
 
 # ╔═╡ 4fff63cc-7872-4498-9a40-fecab32c0672
@@ -117,9 +119,11 @@ end
 
 # ╔═╡ d44608ba-6294-41e4-a2b5-f525f3ed4aa2
 begin
-	# T = rotate(θ*π/180)
-	T = hyperbolic_rotate(θ/100)
-    
+	 T = rotate(θ*π/180)
+	# T = hyperbolic_rotate(θ/100)
+    # T = nonlin_shear(θ)
+	# T = warp(θ/10)  ## Corgi in the Washing Machine
+	
 	plot(transform_image(T,pic), axis=nothing, size=(800,800))
 
 	plot!(xlims=(0,800),ylims=(0,800))
