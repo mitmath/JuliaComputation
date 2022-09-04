@@ -51,7 +51,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
 |18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|TBA||
+|19|T|11/15|Guillaume Dalle|Combinatorial optimization|
 |20|R|11/17|TBA||
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
 ||R|11/24|*Thanksgiving*||
