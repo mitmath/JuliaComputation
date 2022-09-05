@@ -27,7 +27,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 # Homeworks at a Glance
 |#|Assigned|Due|Topic|
 |-|-|-|-|
-|[Hw0](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Homeworks/hw0.jl) | Sep 8| Sep 15 | Getting Started|
+|[Hw0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
 
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic| Notebooks |
