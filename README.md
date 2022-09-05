@@ -32,7 +32,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic| Notebooks |
 |-|-|-|-|-|-|
-|1|R|9/8|Edelman|Intro to Julia| [Hyperbolic Corgi](https://mitmath.github.io/JuliaComputation/Class%20Notebooks/1.HyperbolicCorgi.html) |
+|1|R|9/8|Edelman|Intro to Julia| [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi) |
 |2|T|9/13|Edelman|Matrix Calculus|
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
