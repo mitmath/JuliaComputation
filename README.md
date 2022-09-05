@@ -37,8 +37,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
-|6|T|9/27|Persson||
-|7|R|9/29|Persson||
+|6|T|9/27|Persson|Mesh Generation|
+|7|R|9/29|Persson|Mesh Generation|
 |8|T|10/4|Ferrari|Greenhouse Effect|
 |9|R|10/6|Ferrari|Equilibrium and transient climate sensitivity|
 ||T|10/11|*Student Holiday*||
