@@ -32,13 +32,13 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic| Notebooks |
 |-|-|-|-|-|-|
-|1|R|9/8|Edelman|Intro to Julia| [Hyperbolic Corgi](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/1.HypergolicCorgi.jl) |
+|1|R|9/8|Edelman|Intro to Julia| [Hyperbolic Corgi](https://mitmath.github.io/JuliaComputation/Class%20Notebooks/1.HyperbolicCorgi.html) |
 |2|T|9/13|Edelman|Matrix Calculus|
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
-|6|T|9/27|Persson||
-|7|R|9/29|Persson||
+|6|T|9/27|Persson|Mesh Generation|
+|7|R|9/29|Persson|Mesh Generation|
 |8|T|10/4|Ferrari|Greenhouse Effect|
 |9|R|10/6|Ferrari|Equilibrium and transient climate sensitivity|
 ||T|10/11|*Student Holiday*||
@@ -51,7 +51,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
 |18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|TBA||
+|19|T|11/15|Guillaume Dalle|Combinatorial optimization|
 |20|R|11/17|TBA||
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
 ||R|11/24|*Thanksgiving*||
