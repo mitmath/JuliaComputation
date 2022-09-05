@@ -21,7 +21,7 @@ using PlutoUI,  FileIO, Images, Plots
 TableOfContents(title="📚 Table of Contents", indent=true, depth=4, aside=true)
 
 # ╔═╡ e4c56119-24c7-4572-b0e6-7626f3acc4c0
-md"# Make mathematics your playground!"
+md"# Make mathematics your playground (with software)!"
 
 # ╔═╡ 192cee86-fb75-4ca9-832d-e413630ecf50
 md"## 1. Grab a favorite photo"
@@ -119,10 +119,10 @@ end
 
 # ╔═╡ d44608ba-6294-41e4-a2b5-f525f3ed4aa2
 begin
-	 T = rotate(θ*π/180)
+	# T = rotate(θ*π/180)
 	# T = hyperbolic_rotate(θ/100)
     # T = nonlin_shear(θ)
-	# T = warp(θ/10)  ## Corgi in the Washing Machine
+	 T = warp(θ/10)  ## Corgi in the Washing Machine
 	
 	plot(transform_image(T,pic), axis=nothing, size=(800,800))
 
