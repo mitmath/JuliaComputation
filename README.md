@@ -3,14 +3,14 @@
 Starting Fall 2023, this course is planned as C25 in the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).  
 **Class hours**: TR 1-2:30 in 2-131  
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
-**Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams
-**TA:** TBA  
+**Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
+**TA:** J. DeGreeff  
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** We are arranging to have these available.  
 **Links:** Worth bookmarking.  
 
 
-| [Piazza](piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
 |-|-|-|-|
 |Discussion|HW submission |Language|GPUs|
 
