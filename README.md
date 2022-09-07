@@ -4,7 +4,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Class hours**: TR 1-2:30 in 2-131  
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
-**TA:** J. DeGreeff  
+**TA:** J. DeGreeff, [G. Dalle](https://gdalle.github.io/)  
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** We are arranging to have these available.  
 **Links:** Worth bookmarking.  
@@ -51,8 +51,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
 |18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|Guillaume Dalle|Combinatorial optimization|
-|20|R|11/17|TBA||
+|19|T|11/15|Guillaume Dalle|Combinatorial optimization (graphs)|
+|20|R|11/17|Guillaume Dalle|Combinatorial optimization (linear programming)|
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
 ||R|11/24|*Thanksgiving*||
 |22|T|11/29|TBA||
