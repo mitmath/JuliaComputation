@@ -42,6 +42,7 @@ jobs:
               run: |
                 julia -e 'using Pkg
                   Pkg.activate("pluto-slider-server-environment")
+                  Pkg.instantiate()
                   
                   import PlutoSliderServer
 
