@@ -44,6 +44,8 @@ jobs:
                   Pkg.activate(mktempdir())
                   Pkg.add([
                     Pkg.PackageSpec(name="PlutoSliderServer", version="0.3.2-0.3"),
+                    Pkg.PackageSpec(name="Pluto", rev="75261d3296f9392e6fa97a9607f2c3a247500e2c"),
+                    
                   ])
 
                   import PlutoSliderServer
