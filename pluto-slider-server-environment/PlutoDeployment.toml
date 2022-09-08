@@ -1,4 +1,7 @@
 [Export]
 baked_notebookfile = false
-baked_statefile = false
+baked_state = false
 
+[SliderServer]
+port = 80
+host = "0.0.0.0"
