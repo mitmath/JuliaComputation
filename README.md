@@ -32,7 +32,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 # Lectures at a Glance
 |#|Day|Date|Lecturer|Topic| Links |
 |-|-|-|-|-|-|
-|1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/) , [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction) |
+|1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/) , [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction),[Intro Julia](https://gdalle.github.io/IntroJulia/)|
 |2|T|9/13|Edelman|Matrix Calculus|
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
