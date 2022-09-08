@@ -283,7 +283,9 @@ version = "1.8.0"
 
 [[deps.Pluto]]
 deps = ["Base64", "Configurations", "Dates", "Distributed", "FileWatching", "FuzzyCompletions", "HTTP", "HypertextLiteral", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "MsgPack", "Pkg", "PrecompileSignatures", "REPL", "RelocatableFolders", "Sockets", "TOML", "Tables", "URIs", "UUIDs"]
-git-tree-sha1 = "c189ae928e2cfc3495b13e85d9e90ddedeac0a4d"
+git-tree-sha1 = "c5082ca45fef5b318a9481e3247a8926a9ea393c"
+repo-rev = "ab85efca962d009c741d4ec66508d687806e9579"
+repo-url = "https://github.com/fonsp/Pluto.jl.git"
 uuid = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
 version = "0.19.11"
 
