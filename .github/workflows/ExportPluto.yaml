@@ -1,6 +1,8 @@
 name: Export Pluto notebooks
 on:
     push:
+        paths-ignore:
+            - "README.md"
         branches:
             - main
             - master
