@@ -108,6 +108,18 @@ Of course, these are just a few examples of _one_. People have been representing
 The difference between these ones to me is clear. In fact, I just articulated it to you. Now, let's turn to how a computer sees _one_ differently based on what I type.
 "
 
+# ╔═╡ 637975a0-72f6-4284-bf88-df1a039859ef
+md"On a computer we can see the difference between 1 and 1.0 in terms of the 64 bits of storage:"
+
+# ╔═╡ 960ad23c-14ab-4a0b-9591-926e529e538c
+bitstring(1)
+
+# ╔═╡ 4c866972-f588-4233-b44b-36871eac6ceb
+bitstring(1.0)
+
+# ╔═╡ a4316001-1c58-47e5-992e-b7fe9ed00ba3
+md"Obviously the computer is storing something different for 1.0.  The type tells the computer how to interpret the pattern of 0's and 1's."
+
 # ╔═╡ 9ebc079a-70f0-11eb-07d9-f9e80f3f4584
 md"So to a computer, all of these are different types."
 
@@ -136,7 +148,11 @@ Now, I want to make a collection of ones for some reason. Below is a way for you
 # ╔═╡ bd6ae241-5ad0-4660-895b-492ec7716c7f
 md"## Steve Strogatz Essay
 Check out [Sesame St](https://youtu.be/fFYYVgdro5w?t=918)
-and Steve Strogatz' essay [From Fish to Infinity](https://archive.nytimes.com/opinionator.blogs.nytimes.com/2010/01/31/from-fish-to-infinity/?_php=true&_type=blogs&_r=0)"
+and Steve Strogatz' gorgeous essay [From Fish to Infinity](https://blogs.baruch.cuny.edu/authenticityandastonishment/files/2012/09/From-Fish-to-Infinity.-Steven-Strogatz.pdf)"
+
+# ╔═╡ d637f69c-e388-4d45-9611-31d1563c9c14
+md"MORAL OF THE STORY:  Humphrey asks does the idea of counting work on Cinammon Rolls, Cream Pies, Spark Plugs? When a concept is separated from the underlying representation, we have abstraction.  All too often computer programs are unnecessarily specialized either by force from the computer language or 
+because the programmer is thinking unnecessarily narrowly."
 
 # ╔═╡ 3c1a3cf8-70f8-11eb-3c18-375207f321eb
 md"""
@@ -1123,6 +1139,10 @@ version = "17.4.0+0"
 # ╠═0504ac94-70ee-11eb-1c4e-977d9e7d35c9
 # ╟─6fcac482-70ee-11eb-0b80-ff41c708053b
 # ╠═0b1668ba-ec42-11ea-3e50-ed97c5b17ced
+# ╟─637975a0-72f6-4284-bf88-df1a039859ef
+# ╠═960ad23c-14ab-4a0b-9591-926e529e538c
+# ╠═4c866972-f588-4233-b44b-36871eac6ceb
+# ╟─a4316001-1c58-47e5-992e-b7fe9ed00ba3
 # ╟─9ebc079a-70f0-11eb-07d9-f9e80f3f4584
 # ╠═b2239b96-70ef-11eb-0b85-21ecab25dc9f
 # ╠═4251f668-70aa-11eb-3d89-35f8d53b7d9b
@@ -1130,7 +1150,8 @@ version = "17.4.0+0"
 # ╠═ab02d850-ec41-11ea-10b2-a1b600b12658
 # ╟─f6886d90-70ed-11eb-07c4-471ee267e7c1
 # ╟─15f7f90a-70f0-11eb-0d41-63677e4023f4
-# ╠═bd6ae241-5ad0-4660-895b-492ec7716c7f
+# ╟─bd6ae241-5ad0-4660-895b-492ec7716c7f
+# ╟─d637f69c-e388-4d45-9611-31d1563c9c14
 # ╟─3c1a3cf8-70f8-11eb-3c18-375207f321eb
 # ╠═19f4ddb0-ec44-11ea-20b9-5d97fb2b1cf4
 # ╠═424f5f10-ec44-11ea-076d-f3cba4435e0c
