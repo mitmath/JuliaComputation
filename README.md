@@ -10,7 +10,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Links:** Worth bookmarking.  
 
 
-| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) , [Matrix Jacobians](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/2.%20Matrix%20Jacobians.jl)
+| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) 
 |-|-|-|-|
 |Discussion|HW submission |Language|GPUs|
 
@@ -33,7 +33,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |#|Day|Date|Lecturer|Topic| Links |
 |-|-|-|-|-|-|
 |1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/) , [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction),[Intro Julia](https://gdalle.github.io/IntroJulia/)|
-|2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p)|
+|2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p),[Matrix Jacobians]( [Matrix Jacobians](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/2.%20Matrix%20Jacobians.jl))|
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
