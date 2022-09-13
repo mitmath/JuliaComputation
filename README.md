@@ -10,7 +10,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Links:** Worth bookmarking.  
 
 
-| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) , [Matrix Jacobians](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/2.%20Matrix%20Jacobians.jl)
 |-|-|-|-|
 |Discussion|HW submission |Language|GPUs|
 
