@@ -31,7 +31,7 @@ student = (name = "Jazzy Doe", kerberos_id = "jazz")
 # press the ▶ button in the bottom right of this cell to run your edits
 # or use Shift+Enter
 
-# you might need to wait until all other cells in this notebook have completed running. 
+# you might need to wait until all other cells in this notebook have completed running.
 # scroll down the page to see what's up
 
 # ╔═╡ cdff6730-e785-11ea-2546-4969521b33a7
@@ -52,12 +52,12 @@ First of all, **_welcome to the course!_** We are excited to teach you about rea
 
 We'd like everyone to **submit this zeroth homework assignment**. It will not affect your grade, but it will help us get everything running smoothly when the course starts. If you're stuck or don't have much time, just fill in your name and ID and submit 🙂
 
-Without submitting anything we'd also like you to login and try out Juliahub, which we will use later especially when we use GPUs.  You might also try vscode on your own computer. 
+Without submitting anything we'd also like you to login and try out Juliahub, which we will use later especially when we use GPUs.  You might also try vscode on your own computer.
 """
 
 # ╔═╡ 31a8fbf8-e6ce-11ea-2c66-4b4d02b41995
 md"""## Homework Logistics
-Homeworks are in the form of [Pluto notebooks](https://github.com/fonsp/Pluto.jl). Your must complete them and submit them on [Canvas](https://canvas.mit.edu/courses/5637) (if you are an MIT student.). 
+Homeworks are in the form of [Pluto notebooks](https://github.com/fonsp/Pluto.jl). Your must complete them and submit them on [Canvas](https://canvas.mit.edu/courses/5637) (if you are an MIT student.).
 
 Homeworks will be released on Thursdays and due on Thursdays 11:59pm Eastern time.
 
@@ -67,14 +67,14 @@ HW0 is for you to get your system set up correctly and to test our grading softw
 # ╔═╡ f9d7250a-706f-11eb-104d-3f07c59f7174
 md"## Requirements of this HW0
 
-- Install Julia and set up Pluto    
+- Install Julia and set up Pluto
 - Do the required Exercise 0.
 
 That’s it, but if you like you can do the _OPTIONAL_ exercises that follow."
 
 # ╔═╡ 430a260e-6cbb-11eb-34af-31366543c9dc
 md"""# Installation
-Before being able to run this notebook succesfully locally, you will need to [set up Julia and Pluto.](/Spring21/installation/)
+Before being able to run this notebook succesfully locally, you will need to [set up Julia and Pluto.](https://computationalthinking.mit.edu/Spring21/installation/)
 
 One you have Julia and Pluto installed, you can click the button at the top right of this page and follow the instructions to edit this notebook locally and submit.
 """
@@ -165,9 +165,9 @@ This is because the square root must be between the numbers `x/a` and `a`. Why?
 # ╔═╡ bccf0e88-e754-11ea-3ab8-0170c2d44628
 ex_1_1 = md"""
 your answer here as to why the square root must be between x/a and a.
-""" 
+"""
 
-# you might need to wait until all other cells in this notebook have completed running. 
+# you might need to wait until all other cells in this notebook have completed running.
 # scroll down the page to see what's up
 
 # ╔═╡ e7abd366-e7a6-11ea-30d7-1b6194614d0a
@@ -246,9 +246,9 @@ md"Just like the definition above, our `sierpinksi` function is _recursive_: it 
 complexity = 3
 
 # ╔═╡ 1eb79812-e7b5-11ea-1c10-63b24803dd8a
-if complexity == 3 
+if complexity == 3
 	md"""
-Try changing the value of **`complexity` to `5`** in the cell above. 
+Try changing the value of **`complexity` to `5`** in the cell above.
 
 Hit `Shift+Enter` to affect the change.
 	"""
