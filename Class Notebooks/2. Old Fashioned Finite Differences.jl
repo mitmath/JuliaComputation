@@ -100,6 +100,11 @@ md"""
 (Sometimes when it's too klunky to put in the form of a matrix, it is called a linearization but also Jacobian can be used)
 """
 
+# ╔═╡ 586b13fa-d7b7-4d2e-b27d-46f744ebeccb
+md"""
+## For starters think about the matrix Square Function A→A²
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -360,5 +365,6 @@ version = "17.4.0+0"
 # ╠═221bb602-77f5-4ecf-95c4-3f9fba654eff
 # ╠═0acbaeed-3f9c-4a35-b178-8a443a5882e9
 # ╟─13750938-b1b7-4914-867b-a77895389a10
+# ╟─586b13fa-d7b7-4d2e-b27d-46f744ebeccb
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
