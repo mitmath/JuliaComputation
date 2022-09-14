@@ -6,7 +6,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
 **TA:** J. DeGreeff, [G. Dalle](https://gdalle.github.io/)  
-**Office Hours:** T 5-6 (Jeremiah), R 5-6 (Guillaume)
+**Office Hours:** T 5-6 (Jeremiah), R 5-6 (Guillaume) in 32-G750.
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
