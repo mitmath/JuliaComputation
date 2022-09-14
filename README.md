@@ -1,4 +1,5 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2022
+
 **MIT's numbering scheme gone nuts**: (1.S992/6.S083/12.S083/16.S686/18.S191/22.S093)  
 Starting Fall 2023, this course is planned as C25 in the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).  
 **Class hours**: TR 1-2:30 in 2-131  
@@ -8,7 +9,6 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
 **Links:** Worth bookmarking.  
-
 
 | [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) 
 |-|-|-|-|
@@ -22,18 +22,20 @@ Counts as an elective for CEE students, an advanced subject (18.100 and higher) 
 
 Class is appropriate for those who enjoy math and wish to see math being used in modern contexts.
 
-While not exactly the same as our past [Computational Thinking Class](https://computationalthinking.mit.edu/Spring21/).  Not entirely different either.
+While not exactly the same as our past [Computational Thinking Class](https://computationalthinking.mit.edu/Spring21/)... not entirely different either.
 
-# Homeworks at a Glance
+## Homeworks at a Glance
+
 |#|Assigned|Due|Topic|
 |-|-|-|-|
 |[Hw0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
 
-# Lectures at a Glance
+## Lectures at a Glance
+
 |#|Day|Date|Lecturer|Topic| Links |
 |-|-|-|-|-|-|
-|1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/) , [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction),[Intro Julia](https://gdalle.github.io/IntroJulia/)|
-|2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p),[Matrix Jacobians]( https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/2.%20Matrix%20Jacobians.jl),[old fashioned finite differences](https://github.com/mitmath/JuliaComputation/blob/main/Class%20Notebooks/2.%20Old%20Fashioned%20Finite%20Differences.jl)|
+|1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/), [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction), [Intro Julia](https://gdalle.github.io/IntroJulia/)|
+|2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p), [Matrix Jacobians](<https://mit-c25.netlify.app/class notebooks/2. matrix jacobians>), [Old-fashioned Finite Differences](<https://mit-c25.netlify.app/class%20notebooks/2.%20old%20fashioned%20finite%20differences>)|
 |3|R|9/15|Edelman|Matrix Calculus|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
@@ -51,8 +53,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |16|R|11/3|Edelman|Convolutions and PDEs |
 |17|T|11/8|Williams|Handling Satellite Climate Data|
 |18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|Guillaume Dalle|Combinatorial optimization (graphs)|
-|20|R|11/17|Guillaume Dalle|Combinatorial optimization (linear programming)|
+|19|T|11/15|Dalle|Combinatorial optimization (graphs)|
+|20|R|11/17|Dalle|Combinatorial optimization (linear programming)|
 |21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
 ||R|11/24|*Thanksgiving*||
 |22|T|11/29|TBA||
