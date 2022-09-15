@@ -6,7 +6,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
 **TA:** J. DeGreeff, [G. Dalle](https://gdalle.github.io/)  
-**Office Hours:** T 5-6 (Jeremiah), R 5-6 (Guillaume) in 32-G750.
+**Office Hours:** Tuesdays 5-6 PM (Jeremiah), Thursdays 5-6 PM (Guillaume), room TBA
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
@@ -30,7 +30,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 |#|Assigned|Due|Topic|
 |-|-|-|-|
-|[Hw0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
+|[HW0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
+|[HW1a](https://mit-c25.netlify.app/class%20homeworks/hw1a), HW1b (coming soon) | Sep 15| Sep 22 | Pokémon + Matrix calculus|
 
 ## Lectures at a Glance
 
@@ -38,7 +39,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |-|-|-|-|-|-|
 |1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/), [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction), [Intro Julia](https://gdalle.github.io/IntroJulia/)|
 |2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p), [Matrix Jacobians](<https://mit-c25.netlify.app/class notebooks/2. matrix jacobians>), [Old-fashioned Finite Differences](<https://mit-c25.netlify.app/class%20notebooks/2.%20old%20fashioned%20finite%20differences>)|
-|3|R|9/15|Edelman|Matrix Calculus| [Matrix Calc More Slides](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0)|
+|3|R|9/15|Edelman|Matrix Calculus| [Matrix Calc More Slides](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0),[Linear Transformations](https://mit-c25.netlify.app/class%20notebooks/3.%20lineartransformations),[eigenproblems](https://mit-c25.netlify.app/class%20notebooks/3.%20lineartransformations)|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
 |6|T|9/27|Persson|Mesh Generation|
