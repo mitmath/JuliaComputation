@@ -38,7 +38,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |-|-|-|-|-|-|
 |1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/), [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction), [Intro Julia](https://gdalle.github.io/IntroJulia/)|
 |2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p), [Matrix Jacobians](<https://mit-c25.netlify.app/class notebooks/2. matrix jacobians>), [Old-fashioned Finite Differences](<https://mit-c25.netlify.app/class%20notebooks/2.%20old%20fashioned%20finite%20differences>)|
-|3|R|9/15|Edelman|Matrix Calculus| [Matrix Calc More Slides](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0)|
+|3|R|9/15|Edelman|Matrix Calculus| [Matrix Calc More Slides](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0),(Linear Transformations)[https://mit-c25.netlify.app/class%20notebooks/3.%20lineartransformations]|
 |4|T|9/20|Edelman|Automatic Differentiation Calculus done differently|
 |5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  |
 |6|T|9/27|Persson|Mesh Generation|
