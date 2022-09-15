@@ -6,7 +6,7 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
 **TA:** J. DeGreeff, [G. Dalle](https://gdalle.github.io/)  
-**Office Hours:** T 5-6 (Jeremiah), R 5-6 (Guillaume) in 32-G750.
+**Office Hours:** Tuesdays 5-6 PM (Jeremiah), Thursdays 5-6 PM (Guillaume), room TBA
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
@@ -30,7 +30,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 |#|Assigned|Due|Topic|
 |-|-|-|-|
-|[Hw0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
+|[HW0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8| Sep 15 | Getting Started|
+|[HW1a](https://mit-c25.netlify.app/class%20homeworks/hw1a), HW1b (coming soon) | Sep 15| Sep 22 | Pokémon + Matrix calculus|
 
 ## Lectures at a Glance
 
