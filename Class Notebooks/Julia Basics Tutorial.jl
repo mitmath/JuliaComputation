@@ -6,6 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ 5b0d8c7e-5b74-4bc5-9f3a-d84d44b68605
 begin
+	using AbstractTrees
 	using LinearAlgebra
 	using Plots
 	using PlutoUI
@@ -16,15 +17,55 @@ md"""
 # Julia Basics Tutorial
 This is a tutorial notebook designed for [Julia: Solving Real-World Problems with Computation, Fall 2022](https://github.com/mitmath/JuliaComputation).
 
-This notebook is targetted at students who are already experienced with basic programming language concepts and have used one or more languages but are new to Julia. We focus on the semantics that are different from other languages and may be surprising to new Julia programmers. More advanced topics such as generic types, macros, multithreaded code, and performance analysis will be saved for later in the term.
+This notebook is targeted at students who are already experienced with basic programming language concepts and have used one or more languages but are new to Julia. We focus on the semantics that are different from other languages and may be surprising to new Julia programmers. More advanced topics such as generic types, macros, multithreaded code, and performance analysis will be saved for later in the term.
 """
 
 # ╔═╡ e1f9ae36-225e-42dd-8206-41c8a1a8e97c
 TableOfContents()
 
+# ╔═╡ 3ebc35e4-73be-48c1-9d3b-b99d89413810
+md"""
+# Pluto
+"""
+
+# ╔═╡ ec2750c6-bcd6-40bd-b09c-4055852e186b
+md"""
+This document you see is a notebook created with [Pluto.jl](https://github.com/fonsp/Pluto.jl).
+It is a mixture of Julia code and web components, designed to make the programming experience more fun and interactive.
+
+In this notebook, you have access to a structured equivalent of Julia's REPL (Read-Eval-Print Loop), i.e. the interactive console. Here, you can divide your code in cells to modify and run each one separately.
+Press `Ctrl + Shift + ?` (or `Cmd + Shift + ?` on a Mac) to open the list of keyboard shortcuts.
+"""
+
+# ╔═╡ f0bcdf1c-f77d-4ffe-b5b7-fd7ec2bbf815
+md"""
+## Some quirks
+
+The behaviors described below are specific to Pluto notebooks and do not apply to Julia as a whole:
+-  To put several lines in a Pluto cell, you must wrap them in a `begin ... end` block.
+- You cannot redefine a variable with the same name twice in the same notebook.
+- If you want interactivity to work, avoid modifying variables in another cell that the one containing their definition.
+- By default, the output of a cell is the value of its last expression, you can hide it by ending the cell with `;`.
+- Usually, packages have to be installed (with `import Pkg; Pkg.add("MyPackage")`) before they can be used. However, Pluto takes care of that for us, so when you need a package, just write `using MyPackage` in a cell. This package will then be downloaded and installed in a local environment specific to the current notebook.
+"""
+
+# ╔═╡ 9c801be7-2387-4665-8421-c1eee596a592
+md"""
+## Help and documentation
+
+Pluto offers you a `Live Docs` tab on the bottom right corner of the screen. If you expand it and click a function or variable, you will be able to explore the documentation associated with it. The same goes if you type `?` before a command in the REPL.
+
+For details on Pluto itself, check out the [FAQ](https://github.com/fonsp/Pluto.jl/wiki).
+"""
+
 # ╔═╡ 1b5740a7-d0c3-487f-8a6a-8b2a9861ddc7
 md"""
-# Misc. Syntax
+# Basic syntax
+"""
+
+# ╔═╡ a2998593-f16c-4dc0-abb6-0534dd3e710a
+md"""
+Unicode
 """
 
 # ╔═╡ 08e99dfa-61c9-49b7-93db-3546a2850eef
@@ -33,6 +74,11 @@ let
 	α = 3  # type \alpha <TAB>
 	👽 = "abc"  # type \:alien: <TAB>
 end;
+
+# ╔═╡ 43fb2f38-3150-44e1-90fd-cdf68d4c8f89
+md"""
+Loops, `if/then` statements, functions and other blocks are not delimited by the indentation, but by an `end` keyword. Don't forget it!
+"""
 
 # ╔═╡ 026c9439-5ffa-459d-8353-63bffc80306f
 begin
@@ -43,6 +89,33 @@ begin
 	end
 	# Notice that you can put multiple loop iterators in one line.
 end
+
+# ╔═╡ 29098bf7-6a4f-4819-8b1b-d569b7bbfbc3
+md"""
+Null object
+"""
+
+# ╔═╡ fb1f9e35-4538-44f9-8795-ab60805c3211
+isnothing(nothing)
+
+# ╔═╡ 8028f4e6-4e16-4004-b1cd-80793920b12c
+typeof(nothing)
+
+# ╔═╡ 0589e51d-e420-4e9a-ba6d-e08dd063fc0f
+md"""
+Overflow
+"""
+
+# ╔═╡ 8ed5706e-1b2c-4c83-8c6c-7e8190d31405
+typemax(Int)
+
+# ╔═╡ f55948fa-ae0e-4d5d-b9ca-347dd39ed138
+typemax(Int) + 1
+
+# ╔═╡ 7890c7b6-0d66-4b25-b30b-98542de9a32f
+md"""
+For more surprises, check out the [noteworthy differences from Python](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python).
+"""
 
 # ╔═╡ e8906a7c-18e6-469c-99a8-0d21b76182e2
 md"""
@@ -95,6 +168,9 @@ md"""
 # ╔═╡ 8cae53e5-e5d0-48ef-b33f-c9c78200dcbc
 [x for x in 1:10 if x % 3 == 1]  # (same syntax list comprehension in Python)
 
+# ╔═╡ 3df5875a-55e2-4a6f-bf6d-aa2192126a30
+[i + j for i in 1:4, j in 1:3]  # (also works for matrices)
+
 # ╔═╡ 459b8c60-e16d-429a-ae1d-9a99d57cf554
 md"""
 ### Constructors
@@ -139,14 +215,14 @@ end
 
 # ╔═╡ 6d4e8e1f-9fa3-440d-bf83-c8b3e07fc71d
 md"""
-### `rand` Function
+### The `rand` function
 """
 
 # ╔═╡ 8842dd3f-9b7f-4916-aaf7-067a4be8bb0c
 rand(UInt8)  # single random number of type UInt8
 
 # ╔═╡ 96e678e9-ff11-4cec-a115-15d4a334b7fe
-rand(3)  # random 3 vector of Float64
+rand(3)  # random 3-vector of Float64
 
 # ╔═╡ c45ba9aa-13ab-4d03-a345-955659c6ff41
 rand(Int16, 2, 3, 4)  # random 2x3x4 Array of Int16
@@ -293,6 +369,9 @@ md"""
 ## Set Theory Operators
 """
 
+# ╔═╡ c8a252b5-c7a0-4403-9636-e8459c1251be
+4 in 1:2:7
+
 # ╔═╡ 76ea45e0-f8ca-495f-bdbb-8ace33a76cbf
 4 ∈ 1:2:7  # \in <TAB>
 
@@ -395,6 +474,31 @@ let
 	f(; x...)  # works for kwargs too
 end
 
+# ╔═╡ f4244d75-9d09-4a38-aa97-53062b0fe388
+md"""
+## Mutating functions
+"""
+
+# ╔═╡ 83070622-c71b-4757-8349-e7364ec5cb55
+md"""
+You will often come across functions with a `!` at the end of their name.
+This is a style convention which indicates that at least one of the function's arguments is modified in-place.
+"""
+
+# ╔═╡ 33d8d8d2-4343-4ae2-8174-ac245a5d3de9
+let
+	a = [3, 2, 1]
+	b = sort(a)
+	a, b
+end
+
+# ╔═╡ 27049ede-8943-4e3c-9538-c9b67dd3da05
+let
+	a = [3, 2, 1]
+	sort!(a)
+	a
+end
+
 # ╔═╡ 171d4a16-ea05-42ff-ba10-081500ef4b2f
 md"""
 ## Higher-Order Functions
@@ -460,6 +564,7 @@ sqrt.(1:9)
 
 # ╔═╡ bf292bf8-5a3e-4913-a1b2-dfe55f46e438
 [1, 2, 3] .* [3, 2, 1]  # works for functions of multiple variables as well
+						# in this case multiplication
 
 # ╔═╡ fadb3713-3ab3-44d7-a8e6-e0b146a86c75
 [1, 2, 3] .+ zeros(Int, 3, 2, 2)  # for arrays of different sizes,
@@ -475,12 +580,47 @@ end
 
 # ╔═╡ e21a076f-3dcd-466e-be82-d00646f2457f
 md"""
-# Structs
+# Structs and types
+"""
+
+# ╔═╡ 98a825e8-b0a6-483f-b980-1b9600a42c9a
+md"""
+## Types
+"""
+
+# ╔═╡ 0202b549-7960-4e4d-b76a-71b3b4256473
+md"""
+Julia's type system does not have classes and inheritance like in Python or Java.
+Instead, it is built as hierarchy of abstract types, which can be thought of as interfaces, and concrete types (or structs), which actually store data.
+"""
+
+# ╔═╡ 669a2b4f-0faa-4c67-8def-ee762b521eb3
+AbstractTrees.children(x::Type) = subtypes(x)
+
+# ╔═╡ 025a2137-8fee-435b-a295-853ce8b29b77
+print_tree(Number)
+
+# ╔═╡ d7a5d1b5-e67f-4b4b-b299-987a031fd9a4
+md"""
+In the cell above, only the rightmost types (at the bottom of the hierarchy) are concrete, which means you can instantiate them.
+The other levels are mainly used for dispatch purposes.
+More on this in HW1.
+"""
+
+# ╔═╡ 26c08688-8966-42d6-84b9-a96d17e9f41b
+isconcretetype(Number)
+
+# ╔═╡ 1582f8d6-95e7-4b07-a7a5-927dda90ee43
+isconcretetype(Float64)
+
+# ╔═╡ ba8e4203-f889-4036-b042-35c4c160f75a
+md"""
+## Structs
 """
 
 # ╔═╡ e3d1b330-b678-45e9-b0c4-ab1d2bd842e6
 md"""
-The basic way to package data together in Julia into custom types is by creating structs. Julia does not have classes and inheritence like in Python or Java. Instead you define your data (structs) and your generic functions, and multiple dispatch glues everything together at runtime. We won't go into detail about Julia's type system and multiple dispatch here, but you'll learn more in HW 1.
+We now show how to define a concrete type.
 """
 
 # ╔═╡ 370d3ce1-467b-4caa-a10b-d13218dfb1fe
@@ -580,13 +720,63 @@ begin
 	Point5(coordinates)
 end
 
+# ╔═╡ 501d14cd-3747-4997-99cb-6bbca56b31b5
+md"""
+# Miscellaneous
+"""
+
+# ╔═╡ a9244d09-d458-44c9-9c9f-a271e7951b35
+md"""
+## Macros
+"""
+
+# ╔═╡ fd8a9c43-9ab5-4b80-931c-9b772656c186
+md"""
+In Julia, macros are special language constructs that transform the source code itself.
+You don't need to understand them, just learn to recognize them: they always begin with a `@` character.
+Here are some useful examples:
+"""
+
+# ╔═╡ b5c66512-6b86-4342-9816-05ff6bc649e8
+begin
+	@info "Hello"
+	@warn "Goodbye"
+end
+
+# ╔═╡ 4b17015d-d56b-43d9-a86a-82c25a7bb4f5
+let
+	x = 1
+	y = 2
+	@error "Noooooo" x y
+end
+
+# ╔═╡ 06309625-ce0a-4465-a366-114a4a9cc2ab
+
+
 # ╔═╡ ec7bec64-3d25-421f-878e-60b381bdaee0
 md"""
-# Plots
+## Plots
+"""
+
+# ╔═╡ 351813ef-6075-4d38-be38-e53a5651209f
+md"""
+The standard plotting library in Julia is called Plots.jl, and its syntax is quite similar to Python's Matplotlib.
+"""
+
+# ╔═╡ 4a96d787-de19-4beb-aeb5-ba92bc54502f
+plot(1:10, exp.(1:10), xlabel="x", ylabel="exp(x)", title="this grows fast", label=nothing)
+
+# ╔═╡ c6ef3656-e026-42ed-82e0-a85499bdfe02
+md"""
+It is very easy to build plots incrementally by using the in-place syntax, which implicitly modify the current plot.
 """
 
 # ╔═╡ d062c5e3-7261-4ff4-b16d-764744be9924
-# TODO
+begin
+	plot(1:10, rand(10), color="blue", label="line1")
+	plot!(1:10, rand(10), color="green", label="line2")
+	scatter!(1:10, rand(10), color="red", label="dots")
+end
 
 # ╔═╡ 850492bd-baf6-49db-aae4-23bfdb544528
 md"""
@@ -616,11 +806,13 @@ md"""
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
+AbstractTrees = "~0.4.2"
 Plots = "~1.33.0"
 PlutoUI = "~0.7.40"
 """
@@ -631,13 +823,18 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.1"
 manifest_format = "2.0"
-project_hash = "4199a66cf8e9efb5f7aa3d2322581f430331fdb9"
+project_hash = "5cdcf7d1a38b69f1b4dacb9813e46b679bb40c14"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
 git-tree-sha1 = "8eaf9f1b4921132a4cff3f36a1d9ba923b14a481"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
 version = "1.1.4"
+
+[[deps.AbstractTrees]]
+git-tree-sha1 = "5c0b629df8a5566a06f5fef5100b53ea56e465a0"
+uuid = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
+version = "0.4.2"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -1561,9 +1758,22 @@ version = "1.4.1+0"
 # ╟─05b0eb5c-37ae-11ed-2a1e-e565ae78b5db
 # ╠═5b0d8c7e-5b74-4bc5-9f3a-d84d44b68605
 # ╠═e1f9ae36-225e-42dd-8206-41c8a1a8e97c
+# ╟─3ebc35e4-73be-48c1-9d3b-b99d89413810
+# ╟─ec2750c6-bcd6-40bd-b09c-4055852e186b
+# ╟─f0bcdf1c-f77d-4ffe-b5b7-fd7ec2bbf815
+# ╟─9c801be7-2387-4665-8421-c1eee596a592
 # ╟─1b5740a7-d0c3-487f-8a6a-8b2a9861ddc7
+# ╟─a2998593-f16c-4dc0-abb6-0534dd3e710a
 # ╠═08e99dfa-61c9-49b7-93db-3546a2850eef
+# ╟─43fb2f38-3150-44e1-90fd-cdf68d4c8f89
 # ╠═026c9439-5ffa-459d-8353-63bffc80306f
+# ╟─29098bf7-6a4f-4819-8b1b-d569b7bbfbc3
+# ╠═fb1f9e35-4538-44f9-8795-ab60805c3211
+# ╠═8028f4e6-4e16-4004-b1cd-80793920b12c
+# ╟─0589e51d-e420-4e9a-ba6d-e08dd063fc0f
+# ╠═8ed5706e-1b2c-4c83-8c6c-7e8190d31405
+# ╠═f55948fa-ae0e-4d5d-b9ca-347dd39ed138
+# ╟─7890c7b6-0d66-4b25-b30b-98542de9a32f
 # ╟─e8906a7c-18e6-469c-99a8-0d21b76182e2
 # ╟─cd88584f-c46b-414c-84a7-53038a6b8e38
 # ╠═9df547e0-5c95-474f-b74a-f6dfe0e9fc39
@@ -1576,6 +1786,7 @@ version = "1.4.1+0"
 # ╠═736f87c1-f8db-4d16-bad6-95baaa6dd908
 # ╟─0987f560-01ae-468e-ba50-3ede19bc2ed9
 # ╠═8cae53e5-e5d0-48ef-b33f-c9c78200dcbc
+# ╠═3df5875a-55e2-4a6f-bf6d-aa2192126a30
 # ╟─459b8c60-e16d-429a-ae1d-9a99d57cf554
 # ╠═0ddcd01a-dc34-48b6-83e5-6def28fce78e
 # ╠═f3c3ad60-9c87-40e5-ba15-d9f72c3bae60
@@ -1622,6 +1833,7 @@ version = "1.4.1+0"
 # ╠═64d33d2e-8079-458f-926a-d9db16ae72c4
 # ╠═4257aac6-ba4a-4df7-9a93-1c091ab55b70
 # ╟─897bfd00-bc16-4c6f-8d10-eaa17a74e9fc
+# ╠═c8a252b5-c7a0-4403-9636-e8459c1251be
 # ╠═76ea45e0-f8ca-495f-bdbb-8ace33a76cbf
 # ╠═b137aa6f-a683-4d73-8c56-2f052e7cc534
 # ╠═e3368777-ecca-4273-9501-836789ccdb3f
@@ -1639,6 +1851,10 @@ version = "1.4.1+0"
 # ╠═b8c22481-c851-4abb-986b-6766d7e71b88
 # ╠═c1c8dd57-0b8e-4d76-ae1e-f7f93452aeb0
 # ╠═3a0151a0-c837-44ea-8d2a-529756550989
+# ╟─f4244d75-9d09-4a38-aa97-53062b0fe388
+# ╟─83070622-c71b-4757-8349-e7364ec5cb55
+# ╠═33d8d8d2-4343-4ae2-8174-ac245a5d3de9
+# ╠═27049ede-8943-4e3c-9538-c9b67dd3da05
 # ╟─171d4a16-ea05-42ff-ba10-081500ef4b2f
 # ╠═67ef0b42-e3fd-4777-a49e-090a6a874ffe
 # ╠═fea409ec-e042-4723-8cd5-48cc6ac94a1b
@@ -1656,6 +1872,14 @@ version = "1.4.1+0"
 # ╠═fadb3713-3ab3-44d7-a8e6-e0b146a86c75
 # ╠═c1072ede-5c7a-4c1f-82f6-ac81fcf037d3
 # ╟─e21a076f-3dcd-466e-be82-d00646f2457f
+# ╟─98a825e8-b0a6-483f-b980-1b9600a42c9a
+# ╟─0202b549-7960-4e4d-b76a-71b3b4256473
+# ╠═669a2b4f-0faa-4c67-8def-ee762b521eb3
+# ╠═025a2137-8fee-435b-a295-853ce8b29b77
+# ╟─d7a5d1b5-e67f-4b4b-b299-987a031fd9a4
+# ╠═26c08688-8966-42d6-84b9-a96d17e9f41b
+# ╠═1582f8d6-95e7-4b07-a7a5-927dda90ee43
+# ╟─ba8e4203-f889-4036-b042-35c4c160f75a
 # ╟─e3d1b330-b678-45e9-b0c4-ab1d2bd842e6
 # ╠═370d3ce1-467b-4caa-a10b-d13218dfb1fe
 # ╠═60ced228-90d5-460c-95c0-8ddea2e9e9fc
@@ -1671,7 +1895,16 @@ version = "1.4.1+0"
 # ╠═c04c353d-8db8-4e1d-a409-df10e46a5c21
 # ╠═e83e153f-8269-4020-a8b4-afc4c5cd6828
 # ╠═edf980c3-a838-4c3f-9321-2c5142bce2e2
+# ╟─501d14cd-3747-4997-99cb-6bbca56b31b5
+# ╟─a9244d09-d458-44c9-9c9f-a271e7951b35
+# ╟─fd8a9c43-9ab5-4b80-931c-9b772656c186
+# ╠═b5c66512-6b86-4342-9816-05ff6bc649e8
+# ╠═4b17015d-d56b-43d9-a86a-82c25a7bb4f5
+# ╠═06309625-ce0a-4465-a366-114a4a9cc2ab
 # ╟─ec7bec64-3d25-421f-878e-60b381bdaee0
+# ╟─351813ef-6075-4d38-be38-e53a5651209f
+# ╠═4a96d787-de19-4beb-aeb5-ba92bc54502f
+# ╟─c6ef3656-e026-42ed-82e0-a85499bdfe02
 # ╠═d062c5e3-7261-4ff4-b16d-764744be9924
 # ╟─850492bd-baf6-49db-aae4-23bfdb544528
 # ╟─abbf92ab-6261-4cbf-bbfd-8d5257b2b268
