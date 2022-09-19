@@ -65,12 +65,11 @@ md"""
 
 # ╔═╡ a2998593-f16c-4dc0-abb6-0534dd3e710a
 md"""
-Unicode
+Julia has Unicode support for identifiers
 """
 
 # ╔═╡ 08e99dfa-61c9-49b7-93db-3546a2850eef
 let
-	# Julia has Unicode support for identifiers
 	α = 3  # type \alpha <TAB>
 	👽 = "abc"  # type \:alien: <TAB>
 end;
@@ -103,14 +102,20 @@ typeof(nothing)
 
 # ╔═╡ 0589e51d-e420-4e9a-ba6d-e08dd063fc0f
 md"""
-Overflow
+Integer types have a fixed number of bits, so they can overflow. The default `Int` type uses 64 bits, so it can express an integer in the range $[-2^{63}, 2^{63} - 1]$. If you actually need arbitrary-precision integers, you can use `BigInt`.
 """
 
 # ╔═╡ 8ed5706e-1b2c-4c83-8c6c-7e8190d31405
 typemax(Int)
 
+# ╔═╡ 7166a14e-87bf-42ff-a88f-bde7a1d3c6ca
+2^63 - 1
+
 # ╔═╡ f55948fa-ae0e-4d5d-b9ca-347dd39ed138
 typemax(Int) + 1
+
+# ╔═╡ ceddc242-445d-4bbf-bcb5-2bf9a264ea3d
+- 2^63
 
 # ╔═╡ 7890c7b6-0d66-4b25-b30b-98542de9a32f
 md"""
@@ -550,7 +555,7 @@ end
 (sqrt ∘ +)(9, 16)
 
 # ╔═╡ 897679bf-ef08-4c7d-8078-2de9adfedcf9
-# |> is the pipe operator
+# |> is the pipe operator which is used for function chaining
 "PooRly formattED TEXT  " |> strip |> lowercase
 
 # ╔═╡ f0a08ec8-3c3a-4fc2-9efe-6eb5c55b96e8
@@ -750,9 +755,6 @@ let
 	@error "Noooooo" x y
 end
 
-# ╔═╡ 06309625-ce0a-4465-a366-114a4a9cc2ab
-
-
 # ╔═╡ ec7bec64-3d25-421f-878e-60b381bdaee0
 md"""
 ## Plots
@@ -823,7 +825,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.1"
 manifest_format = "2.0"
-project_hash = "5cdcf7d1a38b69f1b4dacb9813e46b679bb40c14"
+project_hash = "0965981cedbde2a482a8025d1912fff804545dff"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -1772,7 +1774,9 @@ version = "1.4.1+0"
 # ╠═8028f4e6-4e16-4004-b1cd-80793920b12c
 # ╟─0589e51d-e420-4e9a-ba6d-e08dd063fc0f
 # ╠═8ed5706e-1b2c-4c83-8c6c-7e8190d31405
+# ╠═7166a14e-87bf-42ff-a88f-bde7a1d3c6ca
 # ╠═f55948fa-ae0e-4d5d-b9ca-347dd39ed138
+# ╠═ceddc242-445d-4bbf-bcb5-2bf9a264ea3d
 # ╟─7890c7b6-0d66-4b25-b30b-98542de9a32f
 # ╟─e8906a7c-18e6-469c-99a8-0d21b76182e2
 # ╟─cd88584f-c46b-414c-84a7-53038a6b8e38
@@ -1900,7 +1904,6 @@ version = "1.4.1+0"
 # ╟─fd8a9c43-9ab5-4b80-931c-9b772656c186
 # ╠═b5c66512-6b86-4342-9816-05ff6bc649e8
 # ╠═4b17015d-d56b-43d9-a86a-82c25a7bb4f5
-# ╠═06309625-ce0a-4465-a366-114a4a9cc2ab
 # ╟─ec7bec64-3d25-421f-878e-60b381bdaee0
 # ╟─351813ef-6075-4d38-be38-e53a5651209f
 # ╠═4a96d787-de19-4beb-aeb5-ba92bc54502f
