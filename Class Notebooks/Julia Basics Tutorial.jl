@@ -218,6 +218,14 @@ let
 	x
 end
 
+# ╔═╡ 071c630e-d45d-4820-b483-104d2ae78670
+let
+	# this would be a good way to avoid the issue from the previous cell
+	x = [[1,2,3] for _ in 1:3]
+	x[1][2] = 10
+	x
+end
+
 # ╔═╡ 6d4e8e1f-9fa3-440d-bf83-c8b3e07fc71d
 md"""
 ### The `rand` function
@@ -472,10 +480,19 @@ let
 	f(x...)  # this is the splat operator
 end
 
+# ╔═╡ 73e5f533-fe6c-41c5-ae1a-0d49296ec5ac
+let
+	x = [rand(3) for i = 1:3]
+	# this is one use of the splat operator, converting vector of vectors to a matrix
+	hcat(x...)
+	# this is equivalent to hcat(x[1], x[2], x[3]) but it is more concise
+	# and more general because we don't need to know the length of x
+end
+
 # ╔═╡ 3a0151a0-c837-44ea-8d2a-529756550989
 let
 	f(; a, b, c) = a + b + c
-	x = (; a=1, b=2, c=3)
+	x = (a=1, b=2, c=3)
 	f(; x...)  # works for kwargs too
 end
 
@@ -535,6 +552,9 @@ map(sqrt, [1, 16, 4, 25])
 map(1:10, 11:20) do x, y
 	x + y
 end
+# the following are also equivalent to this syntax
+# map((x, y) -> x + y, 1:10, 11:20)
+# map(+, 1:10, 11:20)
 
 # ╔═╡ 1ac98406-dc58-4594-a462-93525a6cf2d0
 reduce(*, [3, 4, 5, 6])
@@ -568,7 +588,7 @@ md"""
 sqrt.(1:9)
 
 # ╔═╡ bf292bf8-5a3e-4913-a1b2-dfe55f46e438
-[1, 2, 3] .* [3, 2, 1]  # works for functions of multiple variables as well
+[1, 5, 3] .* [7, 2, 1]  # works for functions of multiple variables as well
 						# in this case multiplication
 
 # ╔═╡ fadb3713-3ab3-44d7-a8e6-e0b146a86c75
@@ -1801,6 +1821,7 @@ version = "1.4.1+0"
 # ╠═8c25ac44-6a59-4442-be4c-3ed8effdb20d
 # ╠═1b1d8481-0eff-446d-b932-8bd52817cbfc
 # ╠═59cd4167-d100-4dfc-ac7c-02e1887af0c8
+# ╠═071c630e-d45d-4820-b483-104d2ae78670
 # ╟─6d4e8e1f-9fa3-440d-bf83-c8b3e07fc71d
 # ╠═8842dd3f-9b7f-4916-aaf7-067a4be8bb0c
 # ╠═96e678e9-ff11-4cec-a115-15d4a334b7fe
@@ -1854,6 +1875,7 @@ version = "1.4.1+0"
 # ╟─ee85e0bf-f985-41b0-be55-92d6faa4eede
 # ╠═b8c22481-c851-4abb-986b-6766d7e71b88
 # ╠═c1c8dd57-0b8e-4d76-ae1e-f7f93452aeb0
+# ╠═73e5f533-fe6c-41c5-ae1a-0d49296ec5ac
 # ╠═3a0151a0-c837-44ea-8d2a-529756550989
 # ╟─f4244d75-9d09-4a38-aa97-53062b0fe388
 # ╟─83070622-c71b-4757-8349-e7364ec5cb55
