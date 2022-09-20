@@ -2,13 +2,12 @@
 
 **MIT's numbering scheme gone nuts**: (1.S992/6.S083/12.S083/16.S686/18.S191/22.S093)  
 Starting Fall 2023, this course is planned as C25 in the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).  
-**Lectures:**: TR 1-2:30 in 2-131  
+**Lectures:**: Tuesdays & Thursdays 1-2:30 PM in room 2-131  
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg)  
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
-**TA:** J. DeGreeff, [G. Dalle](https://gdalle.github.io/)  
-**Office Hours:** Tuesdays 5-6 PM (Jeremiah), Thursdays 5-6 PM (Guillaume), room TBA
-
-**Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas.  No exams.  
+**Teaching Assistants:** Jeremiah DeGreeff, [Guillaume Dalle](https://gdalle.github.io/)  
+**Office Hours:** Tuesdays (Jeremiah) & Thursdays (Guillaume) 5-6 PM in room 2-361 + on Zoom
+**Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas. No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
 **Links:** Worth bookmarking.  
 
