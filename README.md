@@ -39,6 +39,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |[HW0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8 | Sep 15 | Getting Started|
 |[HW1a](https://mit-c25.netlify.app/class%20homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/class%20homeworks/hw1b) | Sep 15 | Sep 22 | Pokémon + Matrix calculus|
 
+Each student gets to turn in one homework late without justification. Further latenesses must be justified.
+
 ## Lectures at a glance
 
 |#|Day|Date|Lecturer|Topic| Links |
