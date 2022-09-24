@@ -38,6 +38,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 |-|-|-|-|
 |[HW0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8 | Sep 15 | Getting Started|
 |[HW1a](https://mit-c25.netlify.app/class%20homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/class%20homeworks/hw1b) | Sep 15 | Sep 22 | Pokémon + Matrix calculus|
+|[HW2](https://mit-c25.netlify.app/class%20homeworks/hw2) | Sep 24 | Oct 1 | Automatic differentiation|
 
 Each student gets to turn in one homework late without justification. Further latenesses must be justified.
 
