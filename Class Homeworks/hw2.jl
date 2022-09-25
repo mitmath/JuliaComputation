@@ -14,11 +14,11 @@ begin
 	using ChainRulesCore
 	using ForwardDiff
 	using LinearAlgebra
-	using Plots
+	using Plots  # may take a long time to load
 	using PlutoTeachingTools
 	using PlutoUI
 	using ProgressLogging
-	using Zygote
+	using Zygote  # may take a long time to load
 end
 
 # ╔═╡ ddbba011-f413-4804-b29b-fdc4efe2b3b3
@@ -35,6 +35,12 @@ Submission by: Jazzy Doe (jazz@mit.edu)
 # ╔═╡ 9a1453a3-bfad-4212-ac19-a4b6c7df5b16
 student = (name = "Jazzy Doe", kerberos_id = "jazz")
 
+# ╔═╡ 9f6254b5-bc06-469c-a0ef-5ee31ac75233
+md"""
+The following cell is quite slow, so go grab a coffee while it runs!
+Package loading times are one of the main pain points of Julia, and people are actively working to make them shorter.
+"""
+
 # ╔═╡ f447c167-2bcb-4bf3-86cd-0f40f4e54c97
 TableOfContents()
 
@@ -47,6 +53,8 @@ md"""
 md"""
 Throughout this homework, whenever a new function (or macro) is introduced, it is a good idea to check out its documentation using Pluto.
 Just create a new cell and type in `?` followed by the function name, then the "Live docs" tab will open automatically.
+Once the "Live docs" tab is open, clicking on a function name also displays its documentation.
+
 We also try to include the link to the GitHub repository of every external package we use.
 Once you're on the repository, look for a badge like [![docs-stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://youtu.be/dQw4w9WgXcQ) or [![docs-dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://youtu.be/dQw4w9WgXcQ), it will take you to the appropriate documentation page.
 """
@@ -218,12 +226,16 @@ This benchmark shows zero allocation, which is what we actually expect.
 # ╔═╡ 1d1d83b0-8669-452c-90ca-26c1396c822a
 md"""
 !!! danger "Task"
-	Write a function that compares the speed of matrix addition and multiplication for a given size $n$.
+	Write a function that compares matrix addition and multiplication based on the time per operation.
 """
 
 # ╔═╡ 2ded206d-e563-4752-a0b1-19402e1e4f52
 hint(md"
 Unlike `@btime`, which prints a bunch of information but returns the result of the function, `@belapsed` actually returns the elapsed CPU time.
+Don't forget to interpolate the arguments.
+
+Remember that for a given size $n$, addition requires $n^2$ operations while multiplication requires $2n^3$ operations.
+You should divide the output of `@belapsed` by these factors.
 ")
 
 # ╔═╡ 5b47082b-d080-4243-90a2-5d98b82451d4
@@ -240,7 +252,7 @@ compare_add_mul(100)
 # ╔═╡ fe1f4c0e-becb-4058-a069-be213622aa92
 md"""
 !!! danger "Task"
-	Plot addition and multiplication CPU times for $n \in \{3, 10, 30, 100, 300\}$, normalized by the number of operations ($n^2$ and $n^3$ respectively). Comment on what you observe.
+	Plot the normalized time per operation for matrix addition and multiplication, using sizes $n \in \{3, 10, 30, 100, 300\}$. Comment on what you observe.
 """
 
 # ╔═╡ eb0d58fc-3348-47f9-966c-e7f9f316ddb7
@@ -249,7 +261,7 @@ The loop over $n$ may take a little time, don't be scared.
 You can put the `@progress` macro from [`ProgressLogging`](https://github.com/JuliaLogging/ProgressLogging.jl) in front of the `for` keyword if you want to track its progress.
 
 Use the [`Plots.jl`](https://github.com/JuliaPlots/Plots.jl) package for visualization.
-The function `plot` will let you create an empty plot with the properties you need (like `xscale=:log10`).
+The function `plot` will let you create an empty plot with the properties you need (like `xscale=:log10` or `xlabel=\"size\"`).
 The function `scatter!` will allow you to modify it by adding series of dots.
 ")
 
@@ -308,18 +320,21 @@ md"""
 
 # ╔═╡ ecfe4d79-b1c6-4a6d-a9d7-a563a26e32cd
 md"""
-Whenever possible, you may also want to use / write mutating versions of critical functions.
+Whenever possible, you may also want to use or write mutating versions of critical functions.
 By convention, such functions get a `!` suffix to warn about their side effects.
 """
 
 # ╔═╡ 83423082-2d3a-42a1-b1db-ed267399cb31
 md"""
 !!! danger "Task"
-	Write a function that compares the speed of mutating and non-mutating matrix multiplication for a given size $n$.
+	Write a function that compares mutating and non-mutating matrix multiplication.
 """
 
 # ╔═╡ fb416cfd-f9ee-4d7d-9e83-056e81c422e0
-hint(md"Take a look at the documentation for the three-argument function `mul!`.")
+hint(md"
+Take a look at the documentation for the three-argument function `mul!(C, A, B)`, and compare it with `A * B`.
+Don't forget to interpolate the arguments
+")
 
 # ╔═╡ d0020df6-62a1-4000-b8cf-ceacb8014a0b
 # write your code here
@@ -362,10 +377,7 @@ function powersum(x; p=5)
 end
 
 # ╔═╡ d0d580d4-8e92-4d46-8177-67f52fbb3934
-let
-	x = 0.5 .* ones(3)
-	powersum(x)
-end
+powersum(1:3)
 
 # ╔═╡ c5784ec1-17cf-4897-8cd3-ff81998b9d9c
 let
@@ -394,16 +406,18 @@ md"""
 	Write a function that does the same computation as `powersum`, but for which `ForwardDiff.jl` will throw an error.
 """
 
+# ╔═╡ 728c8956-9911-47d5-a021-df224e3f5b90
+hint(md"
+Modify the type annotation of `x` to avoid accepting generic numbers.
+")
+
 # ╔═╡ 3716d3cc-8706-41bf-873d-193543cb0514
-function powersum_breakforwarddiff
+function powersum_breakforwarddiff(x; p=5)
 	# write your code here
 end
 
 # ╔═╡ 87c72b22-8c81-4062-8a9c-40902f83a623
-let
-	x = 0.5 .* ones(3)
-	powersum(x), powersum_breakforwarddiff(x)
-end
+powersum(1:3), powersum_breakforwarddiff(1:3)
 
 # ╔═╡ 1362cd95-6a87-44e3-980d-014496afce85
 let
@@ -418,16 +432,18 @@ md"""
 	Write a function that does the same computation as `powersum`, but for which `Zygote.jl` will throw an error.
 """
 
+# ╔═╡ f8ba8857-ece1-4cec-b7f2-2a8bc8bfb1d9
+hint(md"
+Set up an answer vector `y` initialized to `ones(eltype(x), length(x))`, and write a loop that updates it with successive powers of `x`.
+")
+
 # ╔═╡ cf13543a-9dd4-40ef-9523-5953e9db2c78
-function powersum_breakzygote
+function powersum_breakzygote(x; p=5)
 	# write your code here
 end
 
 # ╔═╡ 0736648c-a181-4352-8b4e-bacf745fda64
-let
-	x = 0.5 .* ones(3)
-	powersum(x), powersum_breakzygote(x)
-end
+powersum(1:3), powersum_breakzygote(1:3)
 
 # ╔═╡ 95dd7822-ef43-4629-bb42-ddb15bd1f965
 let
@@ -469,34 +485,31 @@ This will allow `Zygote.jl` to differentiate it "blindly", without looking insid
 # ╔═╡ 55160454-2738-4911-be15-29f484f610db
 md"""
 Without further ado, we show the definition of a custom reverse rule for the following function.
-It is identical to the one that used to break `Zygote.jl` earlier.
+It probably similar to the one that you used to break `Zygote.jl` earlier, so of course it will behave in the same way until we give it a differentiation rule.
 """
 
 # ╔═╡ e90098ec-a9c3-4204-95f7-88adeb74ee50
 function powersum_okayzygote(x; p=5)
 	y = zeros(eltype(x), length(x))
 	for i in 0:p
-		y .+= x.^i
+		y .+= x .^ i
 	end
 	return y
 end
 
 # ╔═╡ 7b92051d-4015-4e22-b6b9-41462e2cc54f
-let
-	x = rand(3)
-	powersum(x), powersum_okayzygote(x)
-end
+powersum(1:3), powersum_okayzygote(1:3)
 
 # ╔═╡ 4eef090f-29b1-44e1-929a-98162719ae93
 md"""
-Of course, if we want to teach a derivative to Julia, we have to know how to compute it.
+If we want to teach a derivative to `Zygote.jl`, we have to know how to compute it.
 """
 
 # ╔═╡ 32f6a219-f69b-4085-ba4b-5c7dc3ca2155
 function powersum_okayzygote_jacobian(x; p=5)
 	J = zeros(eltype(x), length(x), length(x))
 	for i in 1:p
-		J .+= Diagonal(i .* x.^(i-1))
+		J .+= Diagonal(i .* (x .^ (i-1)))
 	end
 	return J
 end
@@ -596,7 +609,7 @@ One way to measure the quality of the approximation for a given $x$ is to comput
 Let us denote by $\odot$ the componentwise product between vectors (which is the same as `.*` in Julia).
 We define the function
 
-$$f: x \in \mathbb{R}^n \longmapsto (Mx - y) \odot (Mx - y) = \left((Mx - y)_i^2 \right)_{i \in [m]} \in \mathbb{R}^m$$
+$$f: x \in \mathbb{R}^n \longmapsto (Mx - y) \odot (Mx - y) = \begin{pmatrix} (Mx - y)_1^2 \\ \vdots \\ (Mx - y)_m^2 \end{pmatrix} \in \mathbb{R}^m$$
 """
 
 # ╔═╡ 9ef1e014-5a7d-4b17-98de-0cf51d788bfa
@@ -723,8 +736,11 @@ md"""
 """
 
 # ╔═╡ 2f95afd6-1418-44bb-9868-970dbe888500
-hint(md"A componentwise product between two vectors $a \odot b$ can also be interpreted as the multiplication by a diagonal matrix $D(a) b$.
-Using this with $a = 2(Mx - y)$ and $b = Mh$ should help you recognize the Jacobian matrix.")
+hint(md"
+A componentwise product between two vectors $a \odot b$ can also be interpreted as the multiplication by a diagonal matrix $D(a) b$.
+Using this with $a = 2(Mx - y)$ and $b = Mh$ should help you recognize the Jacobian matrix.
+For checking, remember that $M$ has size $m \times n$.
+")
 
 # ╔═╡ 06e91432-935f-4d7c-899f-d7968a10a78e
 md"""
@@ -734,7 +750,7 @@ md"""
 # ╔═╡ c7efc656-ae9b-4eef-b0cd-3afe3852d396
 md"""
 !!! danger "Task"
-	Implement a function computing the Jacobian matrix $J_f$ at a point $x$.
+	Implement a function computing the Jacobian matrix $J_f(x)$ at a point $x$.
 	Check your result using finite differences.
 """
 
@@ -881,6 +897,26 @@ md"""
 
 # ╔═╡ c79e7017-4acc-4562-817a-50245ce654dc
 # write your code here
+
+# ╔═╡ ac115404-0115-4c94-9b51-9a8674ac4b05
+md"""
+Now, if you wanted to, you could implement an `rrule` for `f2!` that uses `f_vjp`, and observe that Jacobian computations are accelerated.
+And as it turns out, you could even go one step further.
+"""
+
+# ╔═╡ dd01d4b4-b05a-43a3-9b76-65e13076535f
+md"""
+!!! danger "Task"
+	Explain how yet another speed up can be achieved within the `rrule` by mutualizing computations between $f$ and its VJP.
+"""
+
+# ╔═╡ 766e1909-5063-4ce2-821d-1f93be4db789
+hint(md"Try to identify a quantity that appears in both. Do we really need to compute it twice?")
+
+# ╔═╡ 2b83cccd-bdaf-4481-a7f5-391434220bd5
+md"""
+> Write your answer here
+"""
 
 # ╔═╡ 69a9ec45-d2ff-4362-9c3c-5c004e46ceb3
 md"""
@@ -2123,6 +2159,7 @@ version = "1.4.1+0"
 # ╔═╡ Cell order:
 # ╠═ddbba011-f413-4804-b29b-fdc4efe2b3b3
 # ╠═9a1453a3-bfad-4212-ac19-a4b6c7df5b16
+# ╟─9f6254b5-bc06-469c-a0ef-5ee31ac75233
 # ╠═ddbf8ae6-39b6-11ed-226e-0d38991ed784
 # ╠═f447c167-2bcb-4bf3-86cd-0f40f4e54c97
 # ╟─a405d214-4348-4692-999e-0e890bd91e5d
@@ -2182,10 +2219,12 @@ version = "1.4.1+0"
 # ╟─387d145f-e77c-4e13-89b7-fc8733215694
 # ╟─3790f106-9895-4425-a16f-5c5e0857e99e
 # ╟─945a16d3-805c-40c9-9166-5120743bd3d7
+# ╟─728c8956-9911-47d5-a021-df224e3f5b90
 # ╠═3716d3cc-8706-41bf-873d-193543cb0514
 # ╠═87c72b22-8c81-4062-8a9c-40902f83a623
 # ╠═1362cd95-6a87-44e3-980d-014496afce85
 # ╟─46075912-60b7-46d2-88c9-a13a8b015e0b
+# ╟─f8ba8857-ece1-4cec-b7f2-2a8bc8bfb1d9
 # ╠═cf13543a-9dd4-40ef-9523-5953e9db2c78
 # ╠═0736648c-a181-4352-8b4e-bacf745fda64
 # ╠═95dd7822-ef43-4629-bb42-ddb15bd1f965
@@ -2255,6 +2294,10 @@ version = "1.4.1+0"
 # ╠═9222d644-5d20-474a-83db-4b2e3bed45e2
 # ╟─c511e1c4-0306-46c7-800f-8257266c0091
 # ╠═c79e7017-4acc-4562-817a-50245ce654dc
+# ╟─ac115404-0115-4c94-9b51-9a8674ac4b05
+# ╟─dd01d4b4-b05a-43a3-9b76-65e13076535f
+# ╟─766e1909-5063-4ce2-821d-1f93be4db789
+# ╠═2b83cccd-bdaf-4481-a7f5-391434220bd5
 # ╟─69a9ec45-d2ff-4362-9c3c-5c004e46ceb3
 # ╟─cc167cfd-b776-4280-a308-d5908ceaec4b
 # ╟─8923a5ad-ddba-4ae2-886e-84526a3521ba
