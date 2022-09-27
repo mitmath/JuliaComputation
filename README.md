@@ -17,9 +17,9 @@ Starting Fall 2023, this course is planned as C25 in the [Common Ground](https:/
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
 **Links:** Worth bookmarking.  
 
-| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) 
-|-|-|-|-|
-|Discussion|HW submission |Language|GPUs|
+| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| ----------------------------------------------- | ---------------------------------------------- | ------------------------------- | ---------------------------------------- |
+| Discussion                                      | HW submission                                  | Language                        | GPUs                                     |
 
 ## Description
 
@@ -34,43 +34,44 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 ## Homeworks at a glance
 
-|#|Assigned|Due|Topic|
-|-|-|-|-|
-|[HW0](https://mit-c25.netlify.app/class%20homeworks/hw0) | Sep 8 | Sep 15 | Getting Started|
-|[HW1a](https://mit-c25.netlify.app/class%20homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/class%20homeworks/hw1b) | Sep 15 | Sep 22 | Pokémon + Matrix calculus|
-|[HW2](https://mit-c25.netlify.app/class%20homeworks/hw2) | Sep 24 | Oct 1 | Automatic differentiation|
+| #                                                                                                      | Assigned | Due    | Topic                     |
+| ------------------------------------------------------------------------------------------------------ | -------- | ------ | ------------------------- |
+| [HW0](https://mit-c25.netlify.app/homeworks/hw0)                                                       | Sep 8    | Sep 15 | Getting Started           |
+| [HW1a](https://mit-c25.netlify.app/homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/homeworks/hw1b) | Sep 15   | Sep 22 | Pokémon + Matrix calculus |
+| [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation |
 
 Each student gets to turn in one homework late without justification. Further latenesses must be justified.
 
 ## Lectures at a glance
 
-|#|Day|Date|Lecturer|Topic| Links |
-|-|-|-|-|-|-|
-|1|R|9/8|Edelman|Intro to Julia| [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/), [Hyperbolic Corgi](https://mit-c25.netlify.app/class%20notebooks/1.hyperboliccorgi), [Data and Arrays](https://mit-c25.netlify.app/class%20notebooks/1.%20images%20as%20data%20and%20arrays), [Abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction), [Intro Julia](https://gdalle.github.io/IntroJulia/)|
-|2|T|9/13|Edelman|Matrix Calculus| [Matrix Calc Slides](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p), [Matrix Jacobians](<https://mit-c25.netlify.app/class notebooks/2. matrix jacobians>), [Old-fashioned Finite Differences](<https://mit-c25.netlify.app/class%20notebooks/2.%20old%20fashioned%20finite%20differences>)|
-|3|R|9/15|Edelman|Matrix Calculus| [Matrix Calc More Slides](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0), [Linear Transformations](https://mit-c25.netlify.app/class%20notebooks/3.%20lineartransformations), [Eigenproblems](https://mit-c25.netlify.app/class%20notebooks/3.%20lineartransformations)|
-|4|T|9/20|Edelman|Automatic Differentiation Calculus done differently| [Scribed notes in progress](https://hackmd.io/L2asbUw4RMCtGbknFOmTWw)
-|5|R|9/22|Edelman|Automatic Differentiation for Machine Learning  | [AutoDiff Reverse Mode Demo Notebook](https://simeonschaub.github.io/ReverseModePluto/notebook.html)
-|6|T|9/27|Persson|Mesh Generation|
-|7|R|9/29|Persson|Mesh Generation|
-|8|T|10/4|Ferrari|Greenhouse Effect|
-|9|R|10/6|Ferrari|Equilibrium and transient climate sensitivity|
-||T|10/11|*Student Holiday*||
-|10|R|10/13|Silvestri|Climate Science|
-|11|T|10/18|Silvestri|Climate Science|
-|12|R|10/20|Edelman|Economic Model of Climate|
-|13|T|10/25|Edelman|HPC and GPUs|
-|14|R|10/27|Edelman|HPC and GPUs|
-|15|T|11/1|Edelman|Imaging and Convolutions|
-|16|R|11/3|Edelman|Convolutions and PDEs |
-|17|T|11/8|Williams|Handling Satellite Climate Data|
-|18|R|11/10|Williams|Apache Arrow in Julia for massive datastores|
-|19|T|11/15|Dalle|Combinatorial optimization (graphs)|
-|20|R|11/17|Dalle|Combinatorial optimization (linear programming)|
-|21|T|11/22|Edelman|Discrete and Continuous, are they so very different?|
-||R|11/24|*Thanksgiving*||
-|22|T|11/29|TBA||
-|23|R|12/1|Urschel|
-|24|T|12/6|Urschel||
-|25|R|12/8|TBA||
-|26|T|12/13|TBA||
+| #   | Day | Date  | Lecturer          | Topic                                                | Slides / Notes                                                                                                                      | Notebooks                                                                                                                                                                                                   |
+| --- | --- | ----- | ----------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0   |     |       | TAs               | Julia tutorial                                       | [Cheat Sheets](https://computationalthinking.mit.edu/Spring21/cheatsheets/)                                                         | [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Tutorial](https://mit-c25.netlify.app/notebooks/0_julia_tutorial)                                                                                  |
+| 1   | R   | 9/8   | Edelman           | Intro to Julia                                       |                                                                                                                                     | [Hyperbolic Corgi](https://mit-c25.netlify.app/notebooks/1_hyperbolic_corgi), [Images](https://mit-c25.netlify.app/notebooks/1_images), [Abstraction](https://mit-c25.netlify.app/notebooks/1_abstraction), |
+| 2   | T   | 9/13  | Edelman           | Matrix Calculus                                      | [Matrix Calc 1](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p)                | [Matrix Jacobians](<https://mit-c25.netlify.app/class notebooks/2_matrix_jacobians>), [Finite Differences](<https://mit-c25.netlify.app/notebooks/2_finite_differences>)                                    |
+| 3   | R   | 9/15  | Edelman           | Matrix Calculus                                      | [Matrix Calc 2](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0) | [Linear Transformations](https://mit-c25.netlify.app/notebooks/3_linear_transformations), [Symmetric Eigenproblems](https://mit-c25.netlify.app/notebooks/3_symmetric_eigenvalue_derivatives)               |
+| 4   | T   | 9/20  | Edelman           | Automatic Differentiation                            | [Scribed notes](https://hackmd.io/L2asbUw4RMCtGbknFOmTWw)                                                                           |
+| 5   | R   | 9/22  | Edelman           | Automatic Differentiation                            |                                                                                                                                     | [Reverse Mode AutoDiff Demo](https://simeonschaub.github.io/ReverseModePluto/notebook.html)                                                                                                                 |
+| 6   | T   | 9/27  | Persson           | Mesh Generation                                      | [Mesh generation](slides/mesh_generation.pdf)                                                                                       | [Computational Geometry](https://mit-c25.netlify.app/notebooks/4_computational_geometry)                                                                                                                    |
+| 7   | R   | 9/29  | Persson           | Mesh Generation                                      |
+| 8   | T   | 10/4  | Ferrari           | Greenhouse Effect                                    |
+| 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        |
+|     | T   | 10/11 | *Student Holiday* |                                                      |
+| 10  | R   | 10/13 | Silvestri         | Climate Science                                      |
+| 11  | T   | 10/18 | Silvestri         | Climate Science                                      |
+| 12  | R   | 10/20 | Edelman           | Economic Model of Climate                            |
+| 13  | T   | 10/25 | Edelman           | HPC and GPUs                                         |
+| 14  | R   | 10/27 | Edelman           | HPC and GPUs                                         |
+| 15  | T   | 11/1  | Edelman           | Imaging and Convolutions                             |
+| 16  | R   | 11/3  | Edelman           | Convolutions and PDEs                                |
+| 17  | T   | 11/8  | Williams          | Handling Satellite Climate Data                      |
+| 18  | R   | 11/10 | Williams          | Apache Arrow in Julia for massive datastores         |
+| 19  | T   | 11/15 | Dalle             | Combinatorial optimization (graphs)                  |
+| 20  | R   | 11/17 | Dalle             | Combinatorial optimization (linear programming)      |
+| 21  | T   | 11/22 | Edelman           | Discrete and Continuous, are they so very different? |
+|     | R   | 11/24 | *Thanksgiving*    |                                                      |
+| 22  | T   | 11/29 | TBA               |                                                      |
+| 23  | R   | 12/1  | Urschel           |                                                      |
+| 24  | T   | 12/6  | Urschel           |                                                      |
+| 25  | R   | 12/8  | TBA               |                                                      |
+| 26  | T   | 12/13 | TBA               |                                                      |
