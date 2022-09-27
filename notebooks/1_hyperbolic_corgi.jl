@@ -28,7 +28,7 @@ md"## 1. Grab a favorite photo"
 
 # ╔═╡ cd0f944a-d476-4f4b-95cf-d78884bb461a
 begin
-	url = "https://raw.githubusercontent.com/mitmath/JuliaComputation/main/Class%20Notebooks/20220422_philip.jpg"
+	url = "https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/20220422_philip.jpg"
 	bigphil = load(download(url))
 	smallphil = imresize(bigphil, (400, 300))
 	pic = smallphil
@@ -79,7 +79,7 @@ begin
 end
 
 # ╔═╡ 9c1cab17-7ff5-44a2-9d6f-391aa8933d1a
-md"## 4. Get Pixel "
+md"## 5. Get Pixel "
 
 # ╔═╡ 83a7a441-724e-4002-95b6-17e3f0f075ff
 begin
@@ -100,7 +100,7 @@ begin
 end
 
 # ╔═╡ c13ee678-f15e-45b8-b871-4a4abab5d615
-md"## 5. Code to Transform"
+md"## 6. Code to Transform"
 
 # ╔═╡ 0064e7bd-3a9e-4f4b-802d-09fb8d221499
 function transform_image(T,pic,pixels=800)
@@ -1613,18 +1613,18 @@ version = "1.4.1+0"
 # ╠═81f4b64e-2b9c-11ed-019a-fb5ad22925bc
 # ╠═d6bdc777-e55c-42aa-8adc-0a53b885cf3b
 # ╟─e4c56119-24c7-4572-b0e6-7626f3acc4c0
-# ╠═192cee86-fb75-4ca9-832d-e413630ecf50
+# ╟─192cee86-fb75-4ca9-832d-e413630ecf50
 # ╠═cd0f944a-d476-4f4b-95cf-d78884bb461a
 # ╟─12db97b2-d610-4e84-9bba-84f3c86fdebc
 # ╠═9d9ca208-8124-4992-a623-b6568340df79
 # ╠═d44608ba-6294-41e4-a2b5-f525f3ed4aa2
-# ╠═8dd287b7-52f4-4793-bb8c-7452016808ad
+# ╟─8dd287b7-52f4-4793-bb8c-7452016808ad
 # ╠═4f22047e-6017-435e-b9b4-a3f084cedcf6
-# ╠═4fff63cc-7872-4498-9a40-fecab32c0672
+# ╟─4fff63cc-7872-4498-9a40-fecab32c0672
 # ╠═96a678e6-c430-44b6-acce-661425b0cd01
-# ╠═9c1cab17-7ff5-44a2-9d6f-391aa8933d1a
+# ╟─9c1cab17-7ff5-44a2-9d6f-391aa8933d1a
 # ╠═83a7a441-724e-4002-95b6-17e3f0f075ff
-# ╠═c13ee678-f15e-45b8-b871-4a4abab5d615
+# ╟─c13ee678-f15e-45b8-b871-4a4abab5d615
 # ╠═0064e7bd-3a9e-4f4b-802d-09fb8d221499
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
