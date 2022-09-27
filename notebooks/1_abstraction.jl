@@ -200,7 +200,7 @@ md"""
 # ╔═╡ 1a2a9000-ec43-11ea-3f39-8312ea286a92
 begin
     oneimage = load(download("https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Decorative-Numbers/Cute_Number_One_PNG_Clipart_Image.png?m=1437447301"))
-	corgi = load(download("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/Class%20Notebooks/20220422_philip.jpg"))
+	corgi = load(download("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/20220422_philip.jpg"))
 	nothing
 end
 

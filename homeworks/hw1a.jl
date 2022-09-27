@@ -174,7 +174,7 @@ The right method is _dispatched_ "just in time" based on the types of all functi
 
 # ╔═╡ 3d748f13-ef9c-4899-99d3-16743f0e2f5a
 md"""
-Here is an example inspired by the notebook on [abstraction](https://mit-c25.netlify.app/class%20notebooks/1.%20abstraction) that you saw in the first class.
+Here is an example inspired by the notebook on [abstraction](https://mit-c25.netlify.app/notebooks/1_abstraction) that you saw in the first class.
 Let's ask Julia which method is chosen for addition, depending on what we try to add.
 """
 
