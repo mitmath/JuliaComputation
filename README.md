@@ -54,8 +54,8 @@ Each student gets to turn in one homework late without justification. Further la
 | 4   | T   | 9/20  | Edelman           | Automatic Differentiation                            | [Scribed notes](https://hackmd.io/L2asbUw4RMCtGbknFOmTWw)                                                                           |
 | 5   | R   | 9/22  | Edelman           | Automatic Differentiation                            | [Handwritten Notes (to be improved)](https://github.com/mitmath/JuliaComputation/blob/main/slides/ad_handwritten.pdf)               | [Reverse Mode AutoDiff Demo](https://simeonschaub.github.io/ReverseModePluto/notebook.html)                                                                                                                 |
 | 6   | T   | 9/27  | Persson           | Mesh Generation                                      | [Mesh generation](slides/mesh_generation.pdf)                                                                                       | [Computational Geometry](https://mit-c25.netlify.app/notebooks/4_computational_geometry)                                                                                                                    |
-| 7   | R   | 9/29  | Persson           | Mesh Generation                                      |
-| 8   | T   | 10/4  | Ferrari           | Greenhouse Effect                                    |
+| 7   | R   | 9/29  | Persson           | Mesh Generation                                      |  "     "
+| 8   | T   | 10/4  | Ferrari           | Greenhouse Effect                                    |[Greenhouse effect](https://mit-c25.netlify.app/notebooks/8_greenhouse_effect)
 | 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        |
 |     | T   | 10/11 | *Student Holiday* |                                                      |
 | 10  | R   | 10/13 | Silvestri         | Climate Science                                      |
