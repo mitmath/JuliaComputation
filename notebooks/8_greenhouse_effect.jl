@@ -482,13 +482,16 @@ We can easily add a perfect greenhouse gas atmosphere  to our Earth's heat budge
 ```where $C_a$ is the heat capacity of the atmosphere.
 """
 
-# ╔═╡ 12258739-0c5f-4fa2-aef8-36705ce08f77
-load("GHGmodel.png")
+# ╔═╡ b42cb878-c5af-4a6e-99cd-1da436d1bdf7
+md"""
+![GHGmodel.png]
+(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/GHGmodel.png)
+"""
 
 # ╔═╡ ca5954aa-eece-4797-939d-75fdef10a2a1
 begin
 	md"""
-	Consistent with the assumption that both the Earth and atmosphere behave as balckbodies in the infrared range, we have that $S=\sigma T_o^4$ and $A=\sigma T_a^4$. (Figure from Atmosphere, Ocean and Climate Dynamics by Masrhall and Plumb)
+	Consistent with the assumption that both the Earth and atmosphere behave as blackbodies in the infrared range, we have that $S=\sigma T_o^4$ and $A=\sigma T_a^4$. (Figure from Atmosphere, Ocean and Climate Dynamics by Masrhall and Plumb)
 	"""
 end
 
@@ -632,7 +635,10 @@ Earth's atmosphere does not behave like a perfect blackbody. At every wavelength
 """
 
 # ╔═╡ 23922b09-2277-4713-8271-a60e9fb16026
-load("LeakyGreenhouse.png")
+md"""
+![LeakyGreenhouse.png]
+(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/LeakyGreenhouse.png)
+"""
 
 # ╔═╡ 0b2883eb-a074-44bc-9d5c-9c78d8b46f43
 md"""
@@ -701,7 +707,7 @@ PlutoUI = "~0.7.38"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.0"
+julia_version = "1.8.0-rc4"
 manifest_format = "2.0"
 project_hash = "e18ff72c1fe0ad91e83872f0859e84e1468f3527"
 
@@ -1114,10 +1120,10 @@ uuid = "c87230d0-a227-11e9-1b43-d7ebe4e7570a"
 version = "0.4.1"
 
 [[deps.FFMPEG_jll]]
-deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "JLLWrappers", "LAME_jll", "Libdl", "Ogg_jll", "OpenSSL_jll", "Opus_jll", "Pkg", "Zlib_jll", "libaom_jll", "libass_jll", "libfdk_aac_jll", "libvorbis_jll", "x264_jll", "x265_jll"]
-git-tree-sha1 = "ccd479984c7838684b3ac204b716c89955c76623"
+deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "JLLWrappers", "LAME_jll", "Libdl", "Ogg_jll", "OpenSSL_jll", "Opus_jll", "PCRE2_jll", "Pkg", "Zlib_jll", "libaom_jll", "libass_jll", "libfdk_aac_jll", "libvorbis_jll", "x264_jll", "x265_jll"]
+git-tree-sha1 = "74faea50c1d007c85837327f6775bea60b5492dd"
 uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
-version = "4.4.2+0"
+version = "4.4.2+2"
 
 [[deps.FFTViews]]
 deps = ["CustomUnitRanges", "FFTW"]
@@ -1412,9 +1418,9 @@ version = "1.2.1"
 
 [[deps.ImageMagick_jll]]
 deps = ["Artifacts", "Ghostscript_jll", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Libtiff_jll", "Pkg", "Zlib_jll", "libpng_jll"]
-git-tree-sha1 = "f025b79883f361fa1bd80ad132773161d231fd9f"
+git-tree-sha1 = "124626988534986113cfd876e3093e4a03890f58"
 uuid = "c73af94c-d91f-53ed-93a7-00f77d67a9d7"
-version = "6.9.12+2"
+version = "6.9.12+3"
 
 [[deps.ImageMetadata]]
 deps = ["AxisArrays", "ImageAxes", "ImageBase", "ImageCore"]
@@ -1930,6 +1936,11 @@ deps = ["Adapt", "ArrayInterface", "ArrayInterfaceGPUArrays", "ArrayInterfaceSta
 git-tree-sha1 = "b706c49554e69e4ffcb836e3a9b6e6850691c365"
 uuid = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
 version = "6.23.0"
+
+[[deps.PCRE2_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
+version = "10.40.0+0"
 
 [[deps.PCRE_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -2814,7 +2825,7 @@ version = "1.4.1+0"
 # ╟─46fea650-c729-4698-8627-36ffdb6cf78f
 # ╟─6b860e7a-6e7d-48ac-addb-03e6115a037d
 # ╟─af893e1e-3bd7-4d05-83b6-f5f7e751b5e3
-# ╟─12258739-0c5f-4fa2-aef8-36705ce08f77
+# ╟─b42cb878-c5af-4a6e-99cd-1da436d1bdf7
 # ╟─ca5954aa-eece-4797-939d-75fdef10a2a1
 # ╠═efe73a33-02a8-4957-8a1a-2298dbefcb56
 # ╠═0c1b96af-73b3-441d-93f7-e38e6e01da2f
