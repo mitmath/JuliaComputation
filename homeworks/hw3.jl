@@ -16,9 +16,9 @@ end
 md"""
 Homework 3 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 29, 2022 (version 1)
+Release date: Thursday, Sep 29, 2022 (version 2)
 
-**Due date: Thursday, Oct 6, 2022 at 11:59pm EST**
+**Due date: Friday, Oct 7, 2022 at 11:59pm EST**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
@@ -247,11 +247,11 @@ Write a function with the syntax `p,t = pmesh(pv, hmax)` which generates a mesh 
 
 (d) Remove the triangles outside the polygon, by computing all the triangle centroids (using `tri_centroid`) and determining if they are inside (using `inpolygon`).
 
-(e) Find the triangle with largest area $A$ (using `tri_area`). If $A>h_\mathrm{max}^2/2$, add the circumcenter of the triangle to the list of node points `p`.
+(e) Find the triangle with largest area $A$ (using `tri_area`). If $A \geq h_\mathrm{max}^2/2$, add the circumcenter of the triangle to the list of node points `p`.
 
 (f) Repeat steps (c)-(d), that is, re-triangulate and remove outside triangles.
 
-(g) Repeat steps (e)-(f) until no triangle area $A>h_\mathrm{max}^2/2$.
+(g) Repeat steps (e)-(f) until no triangle area $A \geq h_\mathrm{max}^2/2$.
 """
 
 # ╔═╡ cf1e71b6-4eae-4e3f-bcf3-0c5208880f58
@@ -344,7 +344,7 @@ Triangulate = "~2.1.3"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.1"
+julia_version = "1.8.2"
 manifest_format = "2.0"
 project_hash = "6c3c95e67ea9cfc3fa7585d66974aecf7ba644b9"
 
@@ -1063,7 +1063,7 @@ version = "1.0.0"
 [[deps.Tar]]
 deps = ["ArgTools", "SHA"]
 uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-version = "1.10.0"
+version = "1.10.1"
 
 [[deps.TensorCore]]
 deps = ["LinearAlgebra"]

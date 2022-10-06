@@ -25,7 +25,7 @@ end
 md"""
 Homework 2 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Friday, Sep 24, 2022 (version 1)
+Release date: Friday, Sep 24, 2022 (version 2)
 
 **Due date: Friday, Oct 1, 2022 at 11:59pm EST**
 
@@ -1011,7 +1011,7 @@ Zygote = "~0.6.48"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.1"
+julia_version = "1.8.2"
 manifest_format = "2.0"
 project_hash = "0358675a58c2ec698bf356c09ed6e927f5069cd9"
 
@@ -1878,7 +1878,7 @@ version = "1.8.1"
 [[deps.Tar]]
 deps = ["ArgTools", "SHA"]
 uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-version = "1.10.0"
+version = "1.10.1"
 
 [[deps.TensorCore]]
 deps = ["LinearAlgebra"]
