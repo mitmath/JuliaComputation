@@ -276,7 +276,7 @@ md"""
 # ╔═╡ 48511240-20d1-41b6-bc7b-a8ecfc3aa06d
 md"""
 Since Julia is a high-level language, you don't need to care about memory to write correct code.
-New objects are allocated transparently, and once you no longer need them, the Garbage Collector (GC) automaticaly frees their memory slots.
+New objects are allocated transparently, and once you no longer need them, the Garbage Collector (GC) automatically frees their memory slots.
 
 However, in many cases, memory management is a performance bottleneck.
 If you want to write fast code, you might need to work "in place" (mutating existing arrays), as opposed to "out of place" (creating many temporary arrays).
@@ -396,7 +396,7 @@ md"""
 md"""
 Alas, every autodiff package comes with its own limitations.
 Here are the main ones you should be aware of:
-- `ForwardDiff.jl` requires functions that work with generic number types, not just `Float64` for example. The reason is that forward mode relies on numbers of type `Dual` (whch store both a quantity and its derivative)
+- `ForwardDiff.jl` requires functions that work with generic number types, not just `Float64` for example. The reason is that forward mode relies on numbers of type `Dual` (which store both a quantity and its derivative)
 - `Zygote.jl` requires functions that avoid mutating arrays. The reason is that array mutation gives rise to several nodes in the computational graph for a single variable in the code, which is complicated to handle from an implementation perspective. 
 """
 

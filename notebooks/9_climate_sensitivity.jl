@@ -80,7 +80,7 @@ md"""
 ---
 ---
 
-The energy budget of the atmopshere is quite remarkable in that most of the radiation received at the surface (mostly oceans) comes from the amtophere as thermal energy, not from the Sun as shortwave energy. This brings to the fore the importance of greenhouse gases that regulate the radiation emitted from the atmosphere.
+The energy budget of the atmosphere is quite remarkable in that most of the radiation received at the surface (mostly oceans) comes from the atmosphere as thermal energy, not from the Sun as shortwave energy. This brings to the fore the importance of greenhouse gases that regulate the radiation emitted from the atmosphere.
 
 """
 
@@ -91,9 +91,9 @@ html"""<img src="https://static.cambridge.org/binary/version/id/urn:cambridge.or
 md"""
 #### Energy levels and absorption of energy
 ---
-Here we revisit our discussion of why greehouse gases like water vapor and carbon dioxide play a key role in regulating the thermal radiation of the atmosphere, even though they make up for a paltry amount of the atmosphere by mass. The permanent gases that compose the atmosphere are : nitrogen (78%), oxygen (21%) and argon (0.9%). Carbon dioxide makes up barely 0.4%. Water vapor concentration varies from 0-4% of the atmosphere depending on where you are and what time of the day it is. Why are we concerned about small increases in carbon dioxide concentrations then?
+Here we revisit our discussion of why greenhouse gases like water vapor and carbon dioxide play a key role in regulating the thermal radiation of the atmosphere, even though they make up for a paltry amount of the atmosphere by mass. The permanent gases that compose the atmosphere are : nitrogen (78%), oxygen (21%) and argon (0.9%). Carbon dioxide makes up barely 0.4%. Water vapor concentration varies from 0-4% of the atmosphere depending on where you are and what time of the day it is. Why are we concerned about small increases in carbon dioxide concentrations then?
 
-Let us beging by reviewing how gases absorb radiation. This requires a review of quantum theory, a field that may not be the forte of some climate skeptics. Any given molecule of a gas can be at different energy levels, depdening on the levels occupied by its electrons, but also on the vibration and rotation modes of the meolecular bonds. Radiation arrives to a molecule in the form of a photon of energy $h/\lambda$ where $h$ is  Planck's constant and $\lambda$ the photon wavelength. The photon can be absorbed by the molecule only if its energy (and hence its wavelength) matches the amount of energy needed to cause the molecule to trasnition between its energy level and a higher one. Moving electrons to higher orbitals typically requires very energetic photons in the ultraviolet range (shortwaves). Exciting vibrations and rotations requires photons with weaker energies. In particular vibrations where the dipole moment of the moelcule changes are excited by photons in the thermal energy range (longwaves) and hence play a crucial role in the Earth's greenhouse effect.
+Let us begin by reviewing how gases absorb radiation. This requires a review of quantum theory, a field that may not be the forte of some climate skeptics. Any given molecule of a gas can be at different energy levels, depending on the levels occupied by its electrons, but also on the vibration and rotation modes of the molecular bonds. Radiation arrives to a molecule in the form of a photon of energy $h/\lambda$ where $h$ is  Planck's constant and $\lambda$ the photon wavelength. The photon can be absorbed by the molecule only if its energy (and hence its wavelength) matches the amount of energy needed to cause the molecule to transition between its energy level and a higher one. Moving electrons to higher orbitals typically requires very energetic photons in the ultraviolet range (shortwaves). Exciting vibrations and rotations requires photons with weaker energies. In particular vibrations where the dipole moment of the molecule changes are excited by photons in the thermal energy range (longwaves) and hence play a crucial role in the Earth's greenhouse effect.
 
 """
 
@@ -118,7 +118,7 @@ html"""<img src="http://www.dynamicscience.com.au/tester/solutions1/chemistry/gr
 # ╔═╡ a8b9d935-d951-493f-9e91-45743a471249
 md"""
 
-##### Absorption of radiation by the amtosphere
+##### Absorption of radiation by the atmosphere
 """
 
 # ╔═╡ 87c272a7-66bb-4c91-a8ee-30c74ce60461
@@ -161,7 +161,7 @@ collide to distribute the energy, and emit according to their temperature. EAPS 
 # ╔═╡ 37535223-1fce-402f-ab24-53d9609b2b9c
 md"""
 
-The emission spectrum in the thermal infrared range can therefore be used to infer the temperature at which radiation is emitted. The colder the emission temperature, the more efficient is the atmopshere to absorb and emit energy at that wavelength.
+The emission spectrum in the thermal infrared range can therefore be used to infer the temperature at which radiation is emitted. The colder the emission temperature, the more efficient is the atmosphere to absorb and emit energy at that wavelength.
 
 """
 
@@ -184,11 +184,11 @@ md"""
 #### Collisional broadening
 ---
 
-The atmopshere is saturated with respect to CO$_2$ absorption--that is, longwave photons emitted from the surface at the wavelengths of the CO$_2$ individual absortption lines are already fully absorbed by the atmosphere at preindustiral CO$_2$ concentrations. Why do we worry baout increasing CO$_2$ concentrations then?
+The atmosphere is saturated with respect to CO$_2$ absorption--that is, longwave photons emitted from the surface at the wavelengths of the CO$_2$ individual absorption lines are already fully absorbed by the atmosphere at preindustiral CO$_2$ concentrations. Why do we worry about increasing CO$_2$ concentrations then?
 
 It turns out that molecules can absorb photons with energy on a broader range around the precise energies corresponding to transitions between pairs of molecule energy levels (specifically the vibration modes for CO$_2$ in the infrared range). This is due to one major effect: collisional broadening of the absorption lines. If the arriving photon has slightly more energy than needed for energy level transition, the excess energy can be transferred to the colliding molecule, allowing to absorb photons that are not exactly at the right wavelength/energy. 
 
-As the concentration of CO$_2$ increases so does the number of collisions and the broadening of the absorption lines. And voila', the absorptivity/emissivity of the amtopshere increses in the CO$_2$ absorption wavelengths range.
+As the concentration of CO$_2$ increases so does the number of collisions and the broadening of the absorption lines. And voila', the absorptivity/emissivity of the atmosphere increases in the CO$_2$ absorption wavelengths range.
 """
 
 # ╔═╡ bb36eda4-91a2-4fd0-bce3-12891b610fb7
@@ -201,14 +201,14 @@ end
 
 # ╔═╡ 44515eae-805e-445a-ac35-f5d9c40df83e
 md"""
-Figure from slides accopanying "Global Warming Science" by Eli Tziperman.
+Figure from slides accompanying "Global Warming Science" by Eli Tziperman.
 """
 
 # ╔═╡ 37b5cafd-1147-4677-94d1-1a265736f794
 md"""
 #### Radiative forcing and logarithmic dependence on $CO_2$
 ---
-The width of the abosrption bands for each individual vibrational mode increases as a function of wavelengths due to the increased collisions. This increase results in a logarithmic deepndence of the emissivity on the CO$_2$ concentration well described by the formula:
+The width of the absorption bands for each individual vibrational mode increases as a function of wavelengths due to the increased collisions. This increase results in a logarithmic dependence of the emissivity on the CO$_2$ concentration well described by the formula:
 
 $\epsilon(CO_2) = ϵ₀ + ϵ₁ \,\,\log_2 \left(\frac{[CO_2]}{[CO_2]_{PI}}\right)$
 
@@ -223,11 +223,11 @@ md"""
 
 Although water vapor accounts for more than half of the Earth’s greenhouse warming effect, it does not control the Earth’s temperature. Instead, the amount of water vapor is controlled by the temperature. This is because the temperature of the atmosphere limits the maximum amount of water vapor the atmosphere can hold. If the temperature decrease any water vapor in excess of its saturation value will condense to form liquid water. This is why clouds form as warm air containing water vapor rises and cools at higher altitudes where the water condenses to the tiny droplets that make up clouds. According to Clausius-Clapeyron's relation the saturation specific humidity $q^*$--the mass (in kg) of moisture in 1 kg of mosit air at saturation--increases nearly exponentially with temperature $T$ in Kelvin:
 
-$$q^*(T) \simeq 1.58 \times 10^6 \,e^{-5415/T} \quad\text{ kg of moisture per kg of mosit air}$$
+$$q^*(T) \simeq 1.58 \times 10^6 \,e^{-5415/T} \quad\text{ kg of moisture per kg of moist air}$$
 
-Model calculations and physical arguments further show that the relative humidity--the ratio of the specific humidity and the saturation specific humidit--remains roughly unchanged as climate warms, implying that the water vapor in the amtosphere follows the Clausius-Clapeyron quasi-exponential relation. An increase in temperature due, for example, by an increase in another greenhouses gas CO$_2$ is therefore amplified by water vapor as illustrated in the loop below. In climate jargon we refer to water vapor as a positive feedback.
+Model calculations and physical arguments further show that the relative humidity--the ratio of the specific humidity and the saturation specific humidity--remains roughly unchanged as climate warms, implying that the water vapor in the atmosphere follows the Clausius-Clapeyron quasi-exponential relation. An increase in temperature due, for example, by an increase in another greenhouses gas CO$_2$ is therefore amplified by water vapor as illustrated in the loop below. In climate jargon we refer to water vapor as a positive feedback.
 
-We can fianlly capture the combined effects of CO$_2$ and water vapor on the emissivity and write:
+We can finally capture the combined effects of CO$_2$ and water vapor on the emissivity and write:
 
 ```math
 \begin{align}
@@ -260,7 +260,7 @@ md"""
 ---
 ---
 
-The $\text{\color{red}{climate sensitivity}}$ is defined as the increase in surface temperature in response to a change in radiative forcing, for example due to an icrease in greenhouse gases, once the climate has ajsuted to the new radiative forcing. It has uints of K dvided by W/m^2. This is more properly called the equilibrium climate sensitivity. In this section we discuss how the ocean affects the evolution of Earth's climate towards equilibrium and introduce the concepts of $\text{\color{red}{equilibrium climate sensitivity}}$ and $\text{\color{red}{transient climate sensitivity}}$.
+The $\text{\color{red}{climate sensitivity}}$ is defined as the increase in surface temperature in response to a change in radiative forcing, for example due to an increase in greenhouse gases, once the climate has adjusted to the new radiative forcing. It has units of K divided by W/m^2. This is more properly called the equilibrium climate sensitivity. In this section we discuss how the ocean affects the evolution of Earth's climate towards equilibrium and introduce the concepts of $\text{\color{red}{equilibrium climate sensitivity}}$ and $\text{\color{red}{transient climate sensitivity}}$.
 """
 
 # ╔═╡ 353e3341-5957-40e7-b2b9-800ba7a80063
@@ -275,7 +275,7 @@ md"""
 #### Equilibrium climate sensitivity
 ---
 
-The concept of climate sensitivity is introduced to quantify the response of the Earth's climate to pertubations inn greenhouse gas concentrations. We start with the evolution of a temperature pertubations of the ocean temperature, $\delta T_o$, that evolves accoring to the model we derived in the last lecture, assuming that the emissivity is the only parameter that can changes (we do not consider changes in solar forcing and albedo but is is a straightfoward extension). Substituting $T_o = T_{PI}+\delta T_o$, where $T_{PI}$ is the equilibrium temperature before the change in radiative forcing, we get:
+The concept of climate sensitivity is introduced to quantify the response of the Earth's climate to perturbations inn greenhouse gas concentrations. We start with the evolution of a temperature perturbations of the ocean temperature, $\delta T_o$, that evolves according to the model we derived in the last lecture, assuming that the emissivity is the only parameter that can changes (we do not consider changes in solar forcing and albedo but is is a straightforward extension). Substituting $T_o = T_{PI}+\delta T_o$, where $T_{PI}$ is the equilibrium temperature before the change in radiative forcing, we get:
 
 ```math
 \begin{align}
@@ -284,7 +284,7 @@ The concept of climate sensitivity is introduced to quantify the response of the
 ```
 where $\delta \epsilon$ is the change in emissivity due to changes in Co$_2$, water vapor, etcetera. 
 
-Remembering that $(1-\alpha)S_0/4 =(2-\epsilon_0)\sigma T_{PI}^4/2$, and dropping terms quadratic in preturbations ($\delta T_o^2, \,\,\delta T_o \delta \epsilon$), we have,
+Remembering that $(1-\alpha)S_0/4 =(2-\epsilon_0)\sigma T_{PI}^4/2$, and dropping terms quadratic in perturbations ($\delta T_o^2, \,\,\delta T_o \delta \epsilon$), we have,
 
 $$C_o \frac{d \delta T_o}{\delta t} = \delta F - \lambda \,\, \delta T_o.$$
 
@@ -292,7 +292,7 @@ where $\delta F$ is the radiative forcing in W/m$^2$:
 
 $$\delta F = \frac{1}{2} \sigma T_{PI}^4 \epsilon_1 \log_2\left(\frac{[CO₂]}{[CO₂]_{PI}}\right)$$
 
-and $\lambda$ is the equilibrium climate feedback paprameter which encapsulates how the temperature changes in response to the radiative perturbation:
+and $\lambda$ is the equilibrium climate feedback parameter which encapsulates how the temperature changes in response to the radiative perturbation:
 
 $$\lambda = \underbrace{4 \frac{2-\epsilon_0}{2} T_{PI}^3}_{\text{Plank feedback}} \quad - \underbrace{\frac{1}{2} T_{PI}^4 \epsilon_2}_{\text{water vapor feedback}}$$
 
@@ -343,14 +343,14 @@ This value is twice as large as that predicted without water vapor feedback:
 
 # ╔═╡ 3fbc0b72-8228-4d2a-ae8e-9ca73393664b
 md"""
-but still on the very low end of estmiates from comprehensive climate models which include the full vertical structure of the atmosphere and ocean and the motions of air and water. These aspects will be introduced in the next two lecture and add numerous additional feedbacks which affect the climate feedback parameter.
+but still on the very low end of estimates from comprehensive climate models which include the full vertical structure of the atmosphere and ocean and the motions of air and water. These aspects will be introduced in the next two lecture and add numerous additional feedbacks which affect the climate feedback parameter.
 """
 
 # ╔═╡ cd69218a-b7fb-4e70-8b17-3dadd0838d62
 md"""
 #### Transient climate sensitivity
 ---
-In the last lecture we assumed that the whole ocean warms in response to incoming solar radiation, but this is not the case. The ocean is a stratified fluid with warmer waters at the top. Once solar radiation hits its surface, warming affects only the surface mixed layer, the ocean upper layer where strong turbulence, driven by winds and heat loss, mixes heat in the vertical and keeps the vertical temperature profile constant. This upper layer has a depth of approximately h=100 m on average. Heat then diffuses in the deeper layers of the ocean at a much slower pace. A simple extension of the model for perturbations of the ocean temperature $\delta T_o$ in respnse to radiative forcing $\delta F$ is one in which the ocean is divided into an upper and a deep layer:
+In the last lecture we assumed that the whole ocean warms in response to incoming solar radiation, but this is not the case. The ocean is a stratified fluid with warmer waters at the top. Once solar radiation hits its surface, warming affects only the surface mixed layer, the ocean upper layer where strong turbulence, driven by winds and heat loss, mixes heat in the vertical and keeps the vertical temperature profile constant. This upper layer has a depth of approximately h=100 m on average. Heat then diffuses in the deeper layers of the ocean at a much slower pace. A simple extension of the model for perturbations of the ocean temperature $\delta T_o$ in response to radiative forcing $\delta F$ is one in which the ocean is divided into an upper and a deep layer:
 
 ```math
 \begin{align}
@@ -431,7 +431,7 @@ On short timescales the deep ocean temperature hardly changes and thus $\delta T
 &{C_u \frac{d δT_u}{dt}} = \delta F - (\lambda + \mu ) \delta T_u \\
 \end{align}
 ```
-Thus the transient climate sensitivity parameter which is relevant for short timesacles is given by (λ + μ). The addition of μ to the parameters represents the negative feedack of the deep ocean that takes heat out of the upper ocean and thus of the amtopshere, thereby slowly the warming for the time being. The transient equilibrium temperature is given by:
+Thus the transient climate sensitivity parameter which is relevant for short timesacles is given by (λ + μ). The addition of μ to the parameters represents the negative feedback of the deep ocean that takes heat out of the upper ocean and thus of the atmosphere, thereby slowly the warming for the time being. The transient equilibrium temperature is given by:
 
 $$
 \delta T_u^{tr} = \frac{\delta F}{\lambda + \mu}
@@ -480,7 +480,7 @@ which can be comined into a single equation for $\delta T_d$:
 \end{align}
 ```
 
-At equilibrium the deep ocean must have the same temperature peerturbation as the deep ocean and thus it is no surpise that the equilibrium sensitivity parameter for the two layer model is the same as the one layer model, becasue the two layers end up having the same temperature:
+At equilibrium the deep ocean must have the same temperature perturbation as the deep ocean and thus it is no surprise that the equilibrium sensitivity parameter for the two layer model is the same as the one layer model, because the two layers end up having the same temperature:
 
 ```math
 \delta T_d^{eq} = \delta T_u^{eq} = \frac{\delta F}{\lambda}
@@ -502,7 +502,7 @@ This equilibrium temperature is achieved on the much longer timescale:
 # ╔═╡ 96459714-eb2a-4b6f-9b64-7b1935ff2acc
 md"""
 
-Kostov and collaborators (geophycial research Letters, 2014) find that this two layer ocean model descrives quite accurately the sea surface temeprature reponse to quadrupling CO$_2$ perturbation experiments simulated with full climate models. 
+Kostov and collaborators (Geophysical Research Letters, 2014) find that this two layer ocean model describes quite accurately the sea surface temperature response to quadrupling CO$_2$ perturbation experiments simulated with full climate models. 
 
 """
 
@@ -525,7 +525,7 @@ md"""
 ---
 ---
 
-We now apply our simplwe model to see if it can predict the observed mean surface temperature increase in the last seventy years as a a function of CO$_2$ concentrations measured in the atmosphere over the same period.
+We now apply our simple model to see if it can predict the observed mean surface temperature increase in the last seventy years as a a function of CO$_2$ concentrations measured in the atmosphere over the same period.
  
 """
 
@@ -629,7 +629,7 @@ end
 
 # ╔═╡ e45e36f6-6d45-42e7-b8d9-aff28bc57345
 md"""
-For simplicity we will consider only the transient reponse (i.e. we will assume the temperature of the deep ocean does not change), because it has little effect on the timescales over which we have a record.
+For simplicity we will consider only the transient response (i.e. we will assume the temperature of the deep ocean does not change), because it has little effect on the timescales over which we have a record.
 """
 
 # ╔═╡ e174edd3-4c43-4fb0-9a6a-4ca53ad4aded

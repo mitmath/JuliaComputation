@@ -99,7 +99,7 @@ The goal is to predict the evolution of the average surface temperature of the E
 
 ``T=T(t)`` is the Earth's average surface temperature as a function of time $t$ 
 
-Inititally $t=0$, $T(0)=T_0$
+Initially $t=0$, $T(0)=T_0$
 
 We write ``T'`` for ``dT/dt`` and look for an equation of the form:
 
@@ -138,7 +138,7 @@ md"""
 \
 ``T' = a - bT + f(t)``$(html"<br>") Solution: ``T(t) = e^{-bt} \left( T_0 + \int_0^t  e^{bu}(a+f(u))\,\, {\rm d}u \right)``
 
-Comment:  No equilibrium solution as long as the forcing keeps chagning in time.
+Comment:  No equilibrium solution as long as the forcing keeps changing in time.
 
 ---
 """
@@ -214,7 +214,7 @@ md"""
 # ╔═╡ b6bb81f9-0ca2-4da6-909d-3d64bf22fde1
 md"""
 
-The energy (heat) budget of a planet without atmsophere is given by the simple equation:
+The energy (heat) budget of a planet without atmosphere is given by the simple equation:
 
 $\begin{align}
 \text{\color{brown}{change in heat content}} = & + \text{\color{red}{incoming solar radiation (energy from the Sun's rays)}} \newline
@@ -233,9 +233,9 @@ md"""
 ---
 #### 1) Change in heat content
 
-The heat content of the Earth per unit area is given by $C T$, where $C$ is the heat capacity per unit area and $T$ the planet's temperature in Kelvin degrees. The heat capaciy is the amount of heat a body needs to absorb to increase its temperature by one degree Kelvin. We take $C$ to be the heat capacity of the ocean which is 4000 m depth on average, but covers only 70% of the Earth surface. Given that the heat capacity of watre per unti volume is $4 \times 10^6$ J K$^{-1}$ m$^{-3}$, we exstimate $C= 4000 m \times 70\% \times 4\times 10^6 J K^{-1} m^{-3} = 11 \times 10^9$ J K$^{-1}$ m$^{-2}$ or $C= 355$ Wyr K$^{-1}$ m$^{-2}$. 
+The heat content of the Earth per unit area is given by $C T$, where $C$ is the heat capacity per unit area and $T$ the planet's temperature in Kelvin degrees. The heat capacity is the amount of heat a body needs to absorb to increase its temperature by one degree Kelvin. We take $C$ to be the heat capacity of the ocean which is 4000 m depth on average, but covers only 70% of the Earth surface. Given that the heat capacity of water per unit volume is $4 \times 10^6$ J K$^{-1}$ m$^{-3}$, we estimate $C= 4000 m \times 70\% \times 4\times 10^6 J K^{-1} m^{-3} = 11 \times 10^9$ J K$^{-1}$ m$^{-2}$ or $C= 355$ Wyr K$^{-1}$ m$^{-2}$. 
 
-The total heat content of the Earth's is therefore $CT$ multiplied by the Earths surface aread $4 \pi R^2$. The rate of change in heat content in the time interval $dt$ is given by:
+The total heat content of the Earth's is therefore $CT$ multiplied by the Earths surface area $4 \pi R^2$. The rate of change in heat content in the time interval $dt$ is given by:
 
 $$\text{\color{brown}{change in heat content}}
 \color{brown}{=\frac {d (4 \pi R^2 C T)}{dt}}$$
@@ -254,7 +254,7 @@ md"""
 ---
 #### 2) Blackbody radiation
 
-A blackbody is any object that is a perfect emitter and a perfect absorber of radiation. Its emission at each wavelength dependens only on temperature.
+A blackbody is any object that is a perfect emitter and a perfect absorber of radiation. Its emission at each wavelength depends only on temperature.
 """
 
 # ╔═╡ b7317177-27d7-46c9-bc45-e608ad7a85c0
@@ -262,7 +262,7 @@ html"""<img src="https://chem.libretexts.org/@api/deki/files/344337/1.1.2.svg?re
 
 # ╔═╡ c995d675-b6a3-48dc-a0a9-911960e73993
 md"""
-Electromagnetic radiation is composed of a "spectrum" of different wavelneghts.
+Electromagnetic radiation is composed of a "spectrum" of different wavelengths.
 """
 
 # ╔═╡ 6deac3f1-e2c6-40a5-b764-33c0b4004d91
@@ -271,11 +271,11 @@ html"""<img src="https://cdn.britannica.com/10/7710-050-C2D756A7.jpg"height=319>
 # ╔═╡ bf774878-28b5-4e9b-b5d8-f7e9be4c8787
 md"""
 
-The energy emitted by a blackbody per unti time and unit area at wavelength λ is given by the fomrula:
+The energy emitted by a blackbody per unit time and unit area at wavelength λ is given by the formula:
 
 $$P(\lambda,T) = \frac{2hc^2}{\lambda^5}\frac{1}{e^{h c / \kappa T \lambda}-1}$$
 
-where $c$ is the speed of light, $h$ is Planck constant, $\kappa$ is Boltzmann consnat, and $T$ is the body's temperature in Kelvin dgerees.
+where $c$ is the speed of light, $h$ is Planck constant, $\kappa$ is Boltzmann constant, and $T$ is the body's temperature in Kelvin degrees.
 
 """
 
@@ -303,12 +303,12 @@ end
 # ╔═╡ d19effc6-82ee-486d-8635-ede036c82462
 md"""
 
-Area under the curve is blackbody energy emitted per per unit area and unit time and is given by Stefan-Bolzman's law:
+Area under the curve is blackbody energy emitted per per unit area and unit time and is given by Stefan-Boltzmann's law:
 
 $$E = \sigma T^4$$ 
-where $\sigma$ is the Stefan-Boltzman constant and $T$ is absolute temperature in Kelvin degrees.
+where $\sigma$ is the Stefan-Boltzmann constant and $T$ is absolute temperature in Kelvin degrees.
 
-The peak in the curve indicates the wavelnegth of maximum blackbody energy emission and it is given by Wienz's displacement law:
+The peak in the curve indicates the wavelength of maximum blackbody energy emission and it is given by Wienz's displacement law:
 
 $\lambda_{max} T = constant.$
 
@@ -357,7 +357,7 @@ $\textcolor{black}{\text{absorbed solar radiation} \equiv S(1-\alpha)\pi R^2}$
 
 # ╔═╡ bb34869a-4bb6-4fcd-b841-c6b49cf02155
 md"""
-The The heat bugdte of the Earth due to the incimin solar radiation is thus given by:
+The The heat budget of the Earth due to the incoming solar radiation is thus given by:
 
 $$\color{brown}{4 \pi R^2 C \frac{d T}{dt}} \color{black}= \color{red} \pi R^2 (1-\alpha)S_0$$
 
@@ -416,7 +416,7 @@ md"""
 # ╔═╡ d76af110-ae17-4e74-b0f9-870d05bedb87
 md"""
 
-In the absence of an atmosphere, the Earth's would behave as a perfcet blackbody in the infrared range. The inmocing solar radiation is re-emitted as thermal radiation:
+In the absence of an atmosphere, the Earth's would behave as a perfect blackbody in the infrared range. The incoming solar radiation is re-emitted as thermal radiation:
 
 
 $$\color{brown}{C \frac{d T}{dt}} \color{black}{=} \color{red}{\frac{(1-\alpha)S_0}{4}} \color{black}{\,-\,} \color{blue}{\sigma \,T^4}$$
@@ -462,9 +462,9 @@ md"""
 
 ##### Greenhouse effect
 
-The next step in our climate model hierarchy is to add an atmosphere. For simplicity we start by considering an atmosphere filled with a perfect greenhouse gas, i.e. a gas that behaves like a blackbody in the the infrared (longwave) radiation spectrum, but is completely trasnparent in the visible (shorwave ) radiation spectrum. This introduces an important asymmetry in the energy budet. (Earth's atmosphere does not behave like a blackbody in the infrared and we will consider this correction below.)
+The next step in our climate model hierarchy is to add an atmosphere. For simplicity we start by considering an atmosphere filled with a perfect greenhouse gas, i.e. a gas that behaves like a blackbody in the the infrared (longwave) radiation spectrum, but is completely transparent in the visible (shortwave) radiation spectrum. This introduces an important asymmetry in the energy budget. (Earth's atmosphere does not behave like a blackbody in the infrared and we will consider this correction below.)
 
-When greenhouse gas molecules absorb thermal infrared energy, their temperature rises. Those gases then radiate an increased amount of thermal infrared energy in all directions. Heat radiated upward continues to encounter greenhouse gas molecules; those molecules also absorb the heat, and their temperature rises and the amount of heat they radiate increases. The atmosphere thins with altitude, and at someheight (roughly 5–6 kilometres in Earth's atmosphere), the concentration of greenhouse gases in the overlying atmosphere is so thin that heat can escape to space.
+When greenhouse gas molecules absorb thermal infrared energy, their temperature rises. Those gases then radiate an increased amount of thermal infrared energy in all directions. Heat radiated upward continues to encounter greenhouse gas molecules; those molecules also absorb the heat, and their temperature rises and the amount of heat they radiate increases. The atmosphere thins with altitude, and at some height (roughly 5–6 kilometres in Earth's atmosphere), the concentration of greenhouse gases in the overlying atmosphere is so thin that heat can escape to space.
 
 Because greenhouse gas molecules radiate infrared energy in all directions, some of it spreads downward and ultimately returns to the Earth's surface, where it is absorbed. Earth's in-situ surface temperatures are thus higher than they would be if governed only by direct solar heating. This supplemental heating is the natural greenhouse effect. It is as if the Earth is covered by a blanket that allows shortwave solar radiation to enter, but slows the rate at which the longwave infrared radiation leaves.
 
@@ -473,7 +473,7 @@ Because greenhouse gas molecules radiate infrared energy in all directions, some
 # ╔═╡ af893e1e-3bd7-4d05-83b6-f5f7e751b5e3
 md"""
 
-We can easily add a perfect greenhouse gas atmosphere  to our Earth's heat budget, by adding a heat budget equation for the amtopsheren. The atmosphere receives thermal radiation from the ocean and radiates it back downward toward the ocean and upward towards space. The ocean receives solar radiation, reflects a fraction $\alpha$ and radiates the rest back toward the amtopshere. This system is captured by two coupled equations:
+We can easily add a perfect greenhouse gas atmosphere  to our Earth's heat budget, by adding a heat budget equation for the atmosphere. The atmosphere receives thermal radiation from the ocean and radiates it back downward toward the ocean and upward towards space. The ocean receives solar radiation, reflects a fraction $\alpha$ and radiates the rest back toward the atmosphere. This system is captured by two coupled equations:
 ```math
 \begin{align}
 &\color{brown}{C_a \frac{d T_a}{dt}} \color{black}{=} \color{blue}{\sigma \,T_o^4} \color{black}{-} \color{blue}{2 \sigma T_a^4}\\
@@ -491,14 +491,14 @@ md"""
 # ╔═╡ ca5954aa-eece-4797-939d-75fdef10a2a1
 begin
 	md"""
-	Consistent with the assumption that both the Earth and atmosphere behave as blackbodies in the infrared range, we have that $S=\sigma T_o^4$ and $A=\sigma T_a^4$. (Figure from Atmosphere, Ocean and Climate Dynamics by Masrhall and Plumb)
+	Consistent with the assumption that both the Earth and atmosphere behave as blackbodies in the infrared range, we have that $S=\sigma T_o^4$ and $A=\sigma T_a^4$. (Figure from Atmosphere, Ocean and Climate Dynamics by Marshall and Plumb)
 	"""
 end
 
 # ╔═╡ efe73a33-02a8-4957-8a1a-2298dbefcb56
 begin
 	C_o = C; #Heat capacity of a 500 m deep ocean column
-	C_a = C_o/1000; # Heat capacity of an atmopsheric column
+	C_a = C_o/1000; # Heat capacity of an atmospheric column
 	To₀ = temp₀;
 	Ta₀ = To₀;
 end
@@ -542,13 +542,13 @@ end
 
 	##### Equilibrium temperature
 	
-	The presence of an atmopshere has raised the equilibrium Earth's surface temperature (actually the ocean temperature in our model) to:
+	The presence of an atmosphere has raised the equilibrium Earth's surface temperature (actually the ocean temperature in our model) to:
 
 	$$\color{blue}{T_o} ={\sqrt[4]{\frac{(1-\alpha)S_0}{4 \sigma}} = 255K = +30^{\circ}C}$$
 
-	The presence of an atmosphere increases the mean surface temperature by $30^{\circ}C$! This is (somewhat inaccurately) called the $\text{\color{green}{greenhouse effect}}$. The predcited Earth's mean surface temperature, however, is now too high. This is beacuse we assumed our atmopshere is a perfect blackbody in the infrared.
+	The presence of an atmosphere increases the mean surface temperature by $30^{\circ}C$! This is (somewhat inaccurately) called the $\text{\color{green}{greenhouse effect}}$. The predicted Earth's mean surface temperature, however, is now too high. This is because we assumed our atmosphere is a perfect blackbody in the infrared.
 
-	The atmospheric temperature is instead given by the value we calculated without an atmosphere, because this thick atmosphere absorbs all the energy it recieves from the ocean and is the only emitter towards space. So the top of the atmosphere is this model acts like the ocean in the model without an atmosphere,
+	The atmospheric temperature is instead given by the value we calculated without an atmosphere, because this thick atmosphere absorbs all the energy it receives from the ocean and is the only emitter towards space. So the top of the atmosphere is this model acts like the ocean in the model without an atmosphere,
 
 	$$\color{blue}{T_a} ={\sqrt[4]{\frac{(1-\alpha)S_0}{4 \sigma}} = 303K = -18^{\circ}C}$$	
 	
@@ -559,7 +559,7 @@ md"""
 
 ##### Timescale to reach equilibrium
 	
-The amtopshere has a much smaller heat capacity than the ocean: 1000 times smaller! As a result it reaches equilibrium much faster. Indeed we can assume that the atmosphere is always in equilibrium and get essentially the same solution for thocean temperature, i.e we start with the problem:
+The atmosphere has a much smaller heat capacity than the ocean: 1000 times smaller! As a result it reaches equilibrium much faster. Indeed we can assume that the atmosphere is always in equilibrium and get essentially the same solution for the ocean temperature, i.e we start with the problem:
 
 ```math
 \begin{align}
@@ -568,7 +568,7 @@ The amtopshere has a much smaller heat capacity than the ocean: 1000 times small
 \end{align}
 ```
 
-Where $\bar T_a$ denotes the atmospheric temperature assuming it is in equilibrium with the ocean. using the relatioship between atmospheric and ocean temperature from the first equation, we eliminate $\bar T_a$ fropm the second equation and write an ODE for the evolution of the ocean temperature Tₒ which no longer depends on the atmopsheric temperature:
+Where $\bar T_a$ denotes the atmospheric temperature assuming it is in equilibrium with the ocean. using the relationship between atmospheric and ocean temperature from the first equation, we eliminate $\bar T_a$ from the second equation and write an ODE for the evolution of the ocean temperature Tₒ which no longer depends on the atmospheric temperature:
 
 ```math
 \begin{align}
@@ -623,7 +623,7 @@ md"""
 ---
 #### 6) Earth's energy budget with a leaky atmosphere 
 
-Earth's atmosphere does not behave like a perfect blackbody. At every wavelength the gases that copmpose the atmosphere abrorb a fraction $\alpha <1$ less than a blackbody and emit a fraction $\epsilon<1$ than a blackbody. Kirchhoff’s law of thermal radiation states that the emissivity and the absorptivity of a surface in thermal equilibrium at a given temperature and wavelength are equal. If we ignore the wavelngth dependnece of $\epsilon=\alpha$, which depdneds on the gases pproperties that compose earth's atmosphere, then we can write the heat budget for a "leaky" atmosphere,
+Earth's atmosphere does not behave like a perfect blackbody. At every wavelength the gases that compose the atmosphere absorb a fraction $\alpha <1$ less than a blackbody and emit a fraction $\epsilon<1$ than a blackbody. Kirchhoff’s law of thermal radiation states that the emissivity and the absorptivity of a surface in thermal equilibrium at a given temperature and wavelength are equal. If we ignore the wavelength dependence of $\epsilon=\alpha$, which depends on the gases properties that compose earth's atmosphere, then we can write the heat budget for a "leaky" atmosphere,
 
 ```math
 \begin{align}
@@ -643,7 +643,7 @@ md"""
 # ╔═╡ 0b2883eb-a074-44bc-9d5c-9c78d8b46f43
 md"""
 
-Since the amtospheric heat capacity is so much smaller than the ocean heat capacity, we can once again assume that the atmnospheric temperature is awlays at equilibrium and reduce the budget to an equation fpor the ocean temperature only:
+Since the atmospheric heat capacity is so much smaller than the ocean heat capacity, we can once again assume that the atmospheric temperature is always at equilibrium and reduce the budget to an equation for the ocean temperature only:
 
 ```math
 \begin{align}
@@ -651,7 +651,7 @@ Since the amtospheric heat capacity is so much smaller than the ocean heat capac
 \end{align}
 ```
 
-The emissivity is a function of the water wapro, CO$_2$ concentrations, among other things, and can be set for preindustrial climate to $\epsilon = 0.75$.
+The emissivity is a function of the water vapor, CO$_2$ concentrations, among other things, and can be set for preindustrial climate to $\epsilon = 0.75$.
 """
 
 # ╔═╡ ee9724f1-5414-4c3d-85b9-e394afea2e72
