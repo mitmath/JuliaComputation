@@ -52,7 +52,7 @@ First of all, **_welcome to the course!_** We are excited to teach you about rea
 
 We'd like everyone to **submit this zeroth homework assignment**. It will not affect your grade, but it will help us get everything running smoothly when the course starts. If you're stuck or don't have much time, just fill in your name and ID and submit 🙂
 
-Without submitting anything we'd also like you to login and try out Juliahub, which we will use later especially when we use GPUs.  You might also try vscode on your own computer.
+Without submitting anything we'd also like you to login and try out JuliaHub, which we will use later especially when we use GPUs.  You might also try vscode on your own computer.
 """
 
 # ╔═╡ 31a8fbf8-e6ce-11ea-2c66-4b4d02b41995
@@ -74,7 +74,7 @@ That’s it, but if you like you can do the _OPTIONAL_ exercises that follow."
 
 # ╔═╡ 430a260e-6cbb-11eb-34af-31366543c9dc
 md"""# Installation
-Before being able to run this notebook succesfully locally, you will need to [set up Julia and Pluto.](https://computationalthinking.mit.edu/Spring21/installation/)
+Before being able to run this notebook successfully locally, you will need to [set up Julia and Pluto.](https://computationalthinking.mit.edu/Spring21/installation/)
 
 One you have Julia and Pluto installed, you can click the button at the top right of this page and follow the instructions to edit this notebook locally and submit.
 """
