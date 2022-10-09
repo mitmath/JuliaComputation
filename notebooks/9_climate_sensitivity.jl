@@ -91,9 +91,9 @@ html"""<img src="https://static.cambridge.org/binary/version/id/urn:cambridge.or
 md"""
 #### Energy levels and absorption of energy
 ---
-Here we revisit our discussion of why greehouse gases like water vapor and carbon dioxide play a key role in regulating the thermal radiation of the atmosphere, even though they make up for a paltry amount of the atmosphere by mass. The permanent gases that compose the atmosphere are : nitrogen (78%), oxygen (21%) and argon (0.9%). Carbon dioxide makes up barely 0.4%. Water vapor concentration varies from 0-4% of the atmosphere depending on where you are and what time of the day it is. Whay are we concerned about small increases in carbon dicoxide concentrations then?
+Here we revisit our discussion of why greehouse gases like water vapor and carbon dioxide play a key role in regulating the thermal radiation of the atmosphere, even though they make up for a paltry amount of the atmosphere by mass. The permanent gases that compose the atmosphere are : nitrogen (78%), oxygen (21%) and argon (0.9%). Carbon dioxide makes up barely 0.4%. Water vapor concentration varies from 0-4% of the atmosphere depending on where you are and what time of the day it is. Why are we concerned about small increases in carbon dioxide concentrations then?
 
-Let us beging by reviewing how gases absorb radiation. This requires a review of quantum theory, a field that may not be the forte of some climate skeptics. Any given molecule of a gas can be at different energy levels, depdening on the levels occupied by its electrons, but also on the vibration and rotations modes of the meolecular bonds. Radiation arrives to a molecule in the form of a photon of energy $h/\lambda$ where $h$ is the Plank constant and $\lambda$ the photon wavelenght. The photon can be absorved by the molecule only if its energy (and hence its wavelngth) matches the amount of energy needed to cause the molecule to trasnition between its energy level and a higher one. Moving electrons to higher orbitals typically requires very energetic photons in the ultraviolet range (shortwaves). Exciting vibrations and rotations requires photons with weaker energies. In particular vibrations where the dipole moment of the moelcule changes are excited by photons in the thermal energy range (longwaves) and hence play a crucial role in the Earth's greenhouse effect.
+Let us beging by reviewing how gases absorb radiation. This requires a review of quantum theory, a field that may not be the forte of some climate skeptics. Any given molecule of a gas can be at different energy levels, depdening on the levels occupied by its electrons, but also on the vibration and rotation modes of the meolecular bonds. Radiation arrives to a molecule in the form of a photon of energy $h/\lambda$ where $h$ is  Planck's constant and $\lambda$ the photon wavelength. The photon can be absorbed by the molecule only if its energy (and hence its wavelength) matches the amount of energy needed to cause the molecule to trasnition between its energy level and a higher one. Moving electrons to higher orbitals typically requires very energetic photons in the ultraviolet range (shortwaves). Exciting vibrations and rotations requires photons with weaker energies. In particular vibrations where the dipole moment of the moelcule changes are excited by photons in the thermal energy range (longwaves) and hence play a crucial role in the Earth's greenhouse effect.
 
 """
 
@@ -135,29 +135,41 @@ Figure: (a) The normalized blackbody emission spectra, T-4XBX, for the Sun (T = 
 # ╔═╡ 54d73952-c016-48f5-9fb5-83aaea4363de
 md"""
 
-##### Emission of radiation by the amtosphere
+##### Emission of radiation by the atmosphere
 
 
 You may often read that energy is absorbed and re-emitted by greenhouse gas molecules. This is not correct. Molecules absorb according to incident intensity,
-collide to distribute the energy, and emit according to their temperature. EAPS Prof. Tim Cronin has skecthed a nice skematic of the two desacriptions and why they are fundamentally different.
+collide to distribute the energy, and emit according to their temperature. EAPS Prof. Tim Cronin has sketched a nice schematic of the two descriptions and why they are fundamentally different.
 
 """
 
 # ╔═╡ 05c9f594-1005-4662-ab1d-49f218012add
-load("WrongPicture_TC.png")
+	md"""
+	![WrongPicture_TC.png]
+	(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/WrongPicture_TC.png)
+	"""
 
 # ╔═╡ 1147a6ad-e528-4b41-bca6-63caa02f3a68
-load("RightPicture_TC.png")
+
+	md"""
+	![RightPicture_TC.png]
+	(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/RightPicture_TC.png)
+	"""
+	
+	
 
 # ╔═╡ 37535223-1fce-402f-ab24-53d9609b2b9c
 md"""
 
-The emission spectrum in the thermal infrared range can therefore be used to infer the temeparture at which radiation is emitted. The colder the emission temperature, the more efficient is the atmopshere to absorb and emit energy at that wavelength.
+The emission spectrum in the thermal infrared range can therefore be used to infer the temperature at which radiation is emitted. The colder the emission temperature, the more efficient is the atmopshere to absorb and emit energy at that wavelength.
 
 """
 
 # ╔═╡ 487c6447-7d47-457f-8d0e-8ad25240a4d2
-load("Emission_TS.png")
+	md"""
+	![Emission_TS.png]
+	(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/Emission_TS.png)
+	"""
 
 # ╔═╡ c665a43c-5020-4cc9-8209-1a786e4c98ab
 md"""
@@ -172,15 +184,20 @@ md"""
 #### Collisional broadening
 ---
 
-The atmopshere is saturated with respect to CO$_2$ absorption--that is, longwave photons emitted from the surface at the wavelengths of the CO$_2$ individual absortption lines are already fully absorbed by the atmosphere at preindisutral CO$_2$ concenterations. Why do we worry nbaout increasing CO$_2$ iconcentrations then?
+The atmopshere is saturated with respect to CO$_2$ absorption--that is, longwave photons emitted from the surface at the wavelengths of the CO$_2$ individual absortption lines are already fully absorbed by the atmosphere at preindustiral CO$_2$ concentrations. Why do we worry baout increasing CO$_2$ concentrations then?
 
-It truns out that molecules can absorb photons with energy on a broader range around the precise energies corresponding to transitions between pairs of molecule energy levels (specifically the vibration modes for CO$_2$ in the infrared range). This is due to one major effect: collisional broadening of the absorption lines. f the arriving photon has slightly more energy than needed for energy level transition, the excess energy can be transferred to the colliding molecule, allowing to absorb photons that are not exactly at the right wavelneght/energy. 
+It turns out that molecules can absorb photons with energy on a broader range around the precise energies corresponding to transitions between pairs of molecule energy levels (specifically the vibration modes for CO$_2$ in the infrared range). This is due to one major effect: collisional broadening of the absorption lines. If the arriving photon has slightly more energy than needed for energy level transition, the excess energy can be transferred to the colliding molecule, allowing to absorb photons that are not exactly at the right wavelength/energy. 
 
-As the concentration of CO$_2$ increases so does the number of collision and the broadening of the absorption lines. And voila', the absorptivity/emissivity of the amtopshere incraeses in the CO$_2$ absorption wavelengths range.
+As the concentration of CO$_2$ increases so does the number of collisions and the broadening of the absorption lines. And voila', the absorptivity/emissivity of the amtopshere increses in the CO$_2$ absorption wavelengths range.
 """
 
 # ╔═╡ bb36eda4-91a2-4fd0-bce3-12891b610fb7
-load("Broadening.pdf")
+let
+	d=download("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/Broadening.pdf")
+	load(d)
+	
+	
+end
 
 # ╔═╡ 44515eae-805e-445a-ac35-f5d9c40df83e
 md"""
@@ -223,7 +240,10 @@ We can fianlly capture the combined effects of CO$_2$ and water vapor on the emi
 """
 
 # ╔═╡ 75a31c18-37c0-41db-afba-5d92f818be73
-load("WaterVapor.pdf")
+let
+	d=download("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/WaterVapor.pdf")
+    load(d)
+end
 
 # ╔═╡ 91441230-1b1c-4702-b3a7-2f9adf2ddaaa
 begin
@@ -342,8 +362,11 @@ In the last lecture we assumed that the whole ocean warms in response to incomin
 where $\delta T_u$ and $\delta T_o$ are the temperature perturbations of the upper and deep layers with the associated heat capacities.
 """
 
-# ╔═╡ aba3e804-9fe6-4081-8d7c-b4e4c3adf334
-load("2layerocean.png")
+# ╔═╡ 296e339f-296f-475c-884a-02ca5606fd36
+md"""
+![2layerocean.png](https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/2layerocean.png)
+"""
+
 
 # ╔═╡ 59e682aa-0ccd-46eb-91cf-0c18bcf79575
 md"""
@@ -2755,7 +2778,7 @@ version = "1.4.1+0"
 # ╟─2ecbad61-0f94-4e0a-9b35-0a5a60d4405c
 # ╟─2b7eeede-83ef-45ca-929b-19a3c369b105
 # ╟─a8b9d935-d951-493f-9e91-45743a471249
-# ╟─87c272a7-66bb-4c91-a8ee-30c74ce60461
+# ╠═87c272a7-66bb-4c91-a8ee-30c74ce60461
 # ╟─82e4f960-da7e-41ca-ab16-4d49636041a2
 # ╟─54d73952-c016-48f5-9fb5-83aaea4363de
 # ╟─05c9f594-1005-4662-ab1d-49f218012add
@@ -2768,7 +2791,7 @@ version = "1.4.1+0"
 # ╟─44515eae-805e-445a-ac35-f5d9c40df83e
 # ╟─37b5cafd-1147-4677-94d1-1a265736f794
 # ╟─e372b079-53fc-4f6e-9365-e43ad8281f3c
-# ╟─75a31c18-37c0-41db-afba-5d92f818be73
+# ╠═75a31c18-37c0-41db-afba-5d92f818be73
 # ╠═91441230-1b1c-4702-b3a7-2f9adf2ddaaa
 # ╟─576a94c7-64e7-41a8-b8cc-dc1b2e2380e2
 # ╠═353e3341-5957-40e7-b2b9-800ba7a80063
@@ -2785,8 +2808,8 @@ version = "1.4.1+0"
 # ╠═553084e1-863d-4d01-9670-a0909732278b
 # ╟─3fbc0b72-8228-4d2a-ae8e-9ca73393664b
 # ╠═cd69218a-b7fb-4e70-8b17-3dadd0838d62
-# ╟─aba3e804-9fe6-4081-8d7c-b4e4c3adf334
-# ╠═59e682aa-0ccd-46eb-91cf-0c18bcf79575
+# ╠═296e339f-296f-475c-884a-02ca5606fd36
+# ╟─59e682aa-0ccd-46eb-91cf-0c18bcf79575
 # ╠═06108680-874d-4eed-8524-8adb668095b4
 # ╠═fc8f0d12-c4c1-4686-8fe6-e8c1c51640e6
 # ╠═fd887ed0-0248-4849-b4a6-4d428650938f
@@ -2800,7 +2823,7 @@ version = "1.4.1+0"
 # ╠═96459714-eb2a-4b6f-9b64-7b1935ff2acc
 # ╠═f3f4733a-b962-43a7-8471-83db5a3b24be
 # ╟─2870c288-1d32-435c-85d4-9f9a96887686
-# ╠═b3f47df2-0575-4338-b10b-41a644fe6307
+# ╟─b3f47df2-0575-4338-b10b-41a644fe6307
 # ╟─393225c6-d748-45e3-951d-dc4f207b612c
 # ╠═b426d86c-301f-469b-a515-e24f61c4581c
 # ╠═df4e8359-af8b-4bd5-aca0-7f6dd84859d4
