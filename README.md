@@ -43,6 +43,10 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | HW4                                                                                                    | Oct 11   | Oct 18 | Earth energy budget       |
 
 Each student gets to turn in one homework late without justification. Further latenesses must be justified.
+Remember: just because the automated tests succeed doesn't mean your code is 100% correct.
+It is a necessary, but not sufficient condition.
+
+Homework solutions will be put online at <https://gdalle.github.io/JuliaComputationSolutions/> after each deadline.
 
 ## Lectures at a glance
 
