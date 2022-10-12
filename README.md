@@ -61,7 +61,7 @@ Homework solutions will be put online at <https://gdalle.github.io/JuliaComputat
 | 6   | T   | 9/27  | Persson           | Mesh Generation                                      | [Mesh generation](slides/mesh_generation.pdf)                                                                                       | [Computational Geometry](https://mit-c25.netlify.app/notebooks/4_computational_geometry)                                                                                                                    |
 | 7   | R   | 9/29  | Persson           | Mesh Generation                                      |                                                                                                                                     |
 | 8   | T   | 10/4  | Ferrari           | Greenhouse Effect                                    |                                                                                                                                     | [Greenhouse effect](https://mit-c25.netlify.app/notebooks/8_greenhouse_effect)                                                                                                                              |
-| 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        |
+| 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        || [Climate sensitivity](https://mit-c25.netlify.app/notebooks/9_climate_sensitivity.html)|
 |     | T   | 10/11 | *Student Holiday* |                                                      |
 | 10  | R   | 10/13 | Silvestri         | Climate Science                                      |
 | 11  | T   | 10/18 | Silvestri         | Climate Science                                      |
