@@ -238,10 +238,10 @@ We can fianlly capture the combined effects of CO$_2$ and water vapor on the emi
 """
 
 # ╔═╡ 75a31c18-37c0-41db-afba-5d92f818be73
-let
-	d=download("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/WaterVapor.pdf")
-    load(d)
-end
+md"""
+![WaterVapor.svg]
+(https://raw.githubusercontent.com/mitmath/JuliaComputation/main/notebooks/WaterVapor.svg)
+"""
 
 # ╔═╡ 91441230-1b1c-4702-b3a7-2f9adf2ddaaa
 begin
