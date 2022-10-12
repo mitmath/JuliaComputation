@@ -219,13 +219,13 @@ md"""
 #### Radiative forcing and water vapor feedback
 ---
 
-Although water vapor accounts for more than half of the Earth’s greenhouse warming effect, it does not control the Earth’s temperature. Instead, the amount of water vapor is controlled by the temperature. This is because the temperature of the atmosphere limits the maximum amount of water vapor the atmosphere can hold. If the temperature decrease any water vapor in excess of its saturation value will condense to form liquid water. This is why clouds form as warm air containing water vapor rises and cools at higher altitudes where the water condenses to the tiny droplets that make up clouds. According to Clausius-Clapeyron's relation the saturation specific humidity $q^*$--the mass (in kg) of moisture in 1 kg of mosit air at saturation--increases nearly exponentially with temperature $T$ in Kelvin:
+Although water vapor accounts for more than half of the Earth’s greenhouse warming effect, it does not control the Earth’s temperature. Instead, the amount of water vapor is controlled by the temperature. This is because the temperature of the atmosphere limits the maximum amount of water vapor the atmosphere can hold. If the temperature decreases any water vapor in excess of its saturation value will condense to form liquid water. This is why clouds form as warm air containing water vapor rises and cools at higher altitudes where the water condenses to the tiny droplets that make up clouds. According to Clausius-Clapeyron's relation the saturation specific humidity $q^*$--the mass (in kg) of moisture in 1 kg of mosit air at saturation--increases nearly exponentially with temperature $T$ in Kelvin:
 
 $$q^*(T) \simeq 1.58 \times 10^6 \,e^{-5415/T} \quad\text{ kg of moisture per kg of mosit air}$$
 
 Model calculations and physical arguments further show that the relative humidity--the ratio of the specific humidity and the saturation specific humidit--remains roughly unchanged as climate warms, implying that the water vapor in the amtosphere follows the Clausius-Clapeyron quasi-exponential relation. An increase in temperature due, for example, by an increase in another greenhouses gas CO$_2$ is therefore amplified by water vapor as illustrated in the loop below. In climate jargon we refer to water vapor as a positive feedback.
 
-We can fianlly capture the combined effects of CO$_2$ and water vapor on the emissivity and write:
+We can finally capture the combined effects of CO$_2$ and water vapor on the emissivity and write:
 
 ```math
 \begin{align}
@@ -705,7 +705,7 @@ md"Although the greenhouse effect due to human-caused CO₂ emissions is the dom
 # ╟─bb36eda4-91a2-4fd0-bce3-12891b610fb7
 # ╟─44515eae-805e-445a-ac35-f5d9c40df83e
 # ╟─37b5cafd-1147-4677-94d1-1a265736f794
-# ╟─e372b079-53fc-4f6e-9365-e43ad8281f3c
+# ╠═e372b079-53fc-4f6e-9365-e43ad8281f3c
 # ╟─75a31c18-37c0-41db-afba-5d92f818be73
 # ╠═91441230-1b1c-4702-b3a7-2f9adf2ddaaa
 # ╟─576a94c7-64e7-41a8-b8cc-dc1b2e2380e2
