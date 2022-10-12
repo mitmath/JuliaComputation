@@ -702,11 +702,11 @@ md"Although the greenhouse effect due to human-caused CO₂ emissions is the dom
 # ╠═487c6447-7d47-457f-8d0e-8ad25240a4d2
 # ╟─c665a43c-5020-4cc9-8209-1a786e4c98ab
 # ╟─ab4039d5-c564-4fcc-84b7-58fba714d735
-# ╠═bb36eda4-91a2-4fd0-bce3-12891b610fb7
+# ╟─bb36eda4-91a2-4fd0-bce3-12891b610fb7
 # ╟─44515eae-805e-445a-ac35-f5d9c40df83e
 # ╟─37b5cafd-1147-4677-94d1-1a265736f794
 # ╟─e372b079-53fc-4f6e-9365-e43ad8281f3c
-# ╠═75a31c18-37c0-41db-afba-5d92f818be73
+# ╟─75a31c18-37c0-41db-afba-5d92f818be73
 # ╠═91441230-1b1c-4702-b3a7-2f9adf2ddaaa
 # ╟─576a94c7-64e7-41a8-b8cc-dc1b2e2380e2
 # ╠═353e3341-5957-40e7-b2b9-800ba7a80063
