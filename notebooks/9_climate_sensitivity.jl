@@ -282,7 +282,7 @@ The concept of climate sensitivity is introduced to quantify the response of the
 ```
 where $\delta \epsilon$ is the change in emissivity due to changes in Co$_2$, water vapor, etcetera. 
 
-Remembering that $(1-\alpha)S_0/4 =(2-\epsilon_0)\sigma T_{PI}^4/2$, and dropping terms quadratic in preturbations ($\delta T_o^2, \,\,\delta T_o \delta \epsilon$), we have,
+Remembering that $(1-\alpha)S_0/4 =(2-\epsilon_0)\sigma T_{PI}^4/2$, and dropping terms quadratic in perturbations ($\delta T_o^2, \,\,\delta T_o \delta \epsilon$), we have,
 
 $$C_o \frac{d \delta T_o}{\delta t} = \delta F - \lambda \,\, \delta T_o.$$
 
@@ -290,9 +290,9 @@ where $\delta F$ is the radiative forcing in W/m$^2$:
 
 $$\delta F = \frac{1}{2} \sigma T_{PI}^4 \epsilon_1 \log_2\left(\frac{[CO₂]}{[CO₂]_{PI}}\right)$$
 
-and $\lambda$ is the equilibrium climate feedback paprameter which encapsulates how the temperature changes in response to the radiative perturbation:
+and $\lambda$ is the equilibrium climate feedback parameter which encapsulates how the temperature changes in response to the radiative perturbation:
 
-$$\lambda = \underbrace{4 \frac{2-\epsilon_0}{2} T_{PI}^3}_{\text{Plank feedback}} \quad - \underbrace{\frac{1}{2} T_{PI}^4 \epsilon_2}_{\text{water vapor feedback}}$$
+$$\lambda = \underbrace{4 \frac{2-\epsilon_0}{2} T_{PI}^3}_{\text{Planck feedback}} \quad - \underbrace{\frac{1}{2} T_{PI}^4 \epsilon_2}_{\text{water vapor feedback}}$$
 
 """
 
