@@ -258,7 +258,7 @@ md"""
 ---
 ---
 
-The $\text{\color{red}{climate sensitivity}}$ is defined as the increase in surface temperature in response to a change in radiative forcing, for example due to an icrease in greenhouse gases, once the climate has ajsuted to the new radiative forcing. It has uints of K dvided by W/m^2. This is more properly called the equilibrium climate sensitivity. In this section we discuss how the ocean affects the evolution of Earth's climate towards equilibrium and introduce the concepts of $\text{\color{red}{equilibrium climate sensitivity}}$ and $\text{\color{red}{transient climate sensitivity}}$.
+The $\text{\color{red}{climate sensitivity}}$ is defined as the increase in surface temperature in response to a change in radiative forcing, for example due to an icrease in greenhouse gases, once the climate has adjusted to the new radiative forcing. It has uints of K dvided by W/m^2. This is more properly called the equilibrium climate sensitivity. In this section we discuss how the ocean affects the evolution of Earth's climate towards equilibrium and introduce the concepts of $\text{\color{red}{equilibrium climate sensitivity}}$ and $\text{\color{red}{transient climate sensitivity}}$.
 """
 
 # ╔═╡ 353e3341-5957-40e7-b2b9-800ba7a80063
