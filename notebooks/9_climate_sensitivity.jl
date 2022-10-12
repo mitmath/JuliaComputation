@@ -273,7 +273,7 @@ md"""
 #### Equilibrium climate sensitivity
 ---
 
-The concept of climate sensitivity is introduced to quantify the response of the Earth's climate to pertubations inn greenhouse gas concentrations. We start with the evolution of a temperature pertubations of the ocean temperature, $\delta T_o$, that evolves accoring to the model we derived in the last lecture, assuming that the emissivity is the only parameter that can changes (we do not consider changes in solar forcing and albedo but is is a straightfoward extension). Substituting $T_o = T_{PI}+\delta T_o$, where $T_{PI}$ is the equilibrium temperature before the change in radiative forcing, we get:
+The concept of climate sensitivity is introduced to quantify the response of the Earth's climate to pertubations in greenhouse gas concentrations. We start with the evolution of a temperature pertubations of the ocean temperature, $\delta T_o$, that evolves accoring to the model we derived in the last lecture, assuming that the emissivity is the only parameter that can changes (we do not consider changes in solar forcing and albedo but is is a straightfoward extension). Substituting $T_o = T_{PI}+\delta T_o$, where $T_{PI}$ is the equilibrium temperature before the change in radiative forcing, we get:
 
 ```math
 \begin{align}
