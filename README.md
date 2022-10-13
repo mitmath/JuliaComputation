@@ -40,7 +40,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW1a](https://mit-c25.netlify.app/homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/homeworks/hw1b) | Sep 15   | Sep 22 | Pokémon + Matrix calculus |
 | [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation |
 | [HW3](https://mit-c25.netlify.app/homeworks/hw3)                                                       | Sep 29   | Oct 7  | Mesh generation           |
-| HW4                                                                                                    | Oct 11   | Oct 18 | Earth energy budget       |
+| HW4                                                                                                    | Oct 13   | Oct 20 | Earth energy budget       |
 
 Each student gets to turn in one homework late without justification. Further latenesses must be justified.
 Remember: just because the automated tests succeed doesn't mean your code is 100% correct.
@@ -61,7 +61,7 @@ Homework solutions will be put online at <https://gdalle.github.io/JuliaComputat
 | 6   | T   | 9/27  | Persson           | Mesh Generation                                      | [Mesh generation](slides/mesh_generation.pdf)                                                                                       | [Computational Geometry](https://mit-c25.netlify.app/notebooks/4_computational_geometry)                                                                                                                    |
 | 7   | R   | 9/29  | Persson           | Mesh Generation                                      |                                                                                                                                     |
 | 8   | T   | 10/4  | Ferrari           | Greenhouse Effect                                    |                                                                                                                                     | [Greenhouse effect](https://mit-c25.netlify.app/notebooks/8_greenhouse_effect)                                                                                                                              |
-| 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        |
+| 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        || [Climate sensitivity](https://mit-c25.netlify.app/notebooks/9_climate_sensitivity.html)|
 |     | T   | 10/11 | *Student Holiday* |                                                      |
 | 10  | R   | 10/13 | Silvestri         | Climate Science                                      |
 | 11  | T   | 10/18 | Silvestri         | Climate Science                                      |
