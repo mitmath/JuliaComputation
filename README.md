@@ -40,7 +40,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW1a](https://mit-c25.netlify.app/homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/homeworks/hw1b) | Sep 15   | Sep 22 | Pokémon + Matrix calculus |
 | [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation |
 | [HW3](https://mit-c25.netlify.app/homeworks/hw3)                                                       | Sep 29   | Oct 7  | Mesh generation           |
-| HW4                                                                                                    | Oct 13   | Oct 20 | Earth energy budget       |
+| HW4                                                                                                    | Oct 15   | Oct 22 | Earth energy budget       |
 
 Each student gets to turn in one homework late without justification. Further latenesses must be justified.
 Remember: just because the automated tests succeed doesn't mean your code is 100% correct.
