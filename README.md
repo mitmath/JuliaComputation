@@ -34,19 +34,20 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 ## Homeworks at a glance
 
-| #                                                                                                      | Assigned | Due    | Topic                     |
-| ------------------------------------------------------------------------------------------------------ | -------- | ------ | ------------------------- |
-| [HW0](https://mit-c25.netlify.app/homeworks/hw0)                                                       | Sep 8    | Sep 15 | Getting Started           |
-| [HW1a](https://mit-c25.netlify.app/homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/homeworks/hw1b) | Sep 15   | Sep 22 | Pokémon + Matrix calculus |
-| [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation |
-| [HW3](https://mit-c25.netlify.app/homeworks/hw3)                                                       | Sep 29   | Oct 7  | Mesh generation           |
-| [HW4](https://mit-c25.netlify.app/homeworks/hw4)                                                                                                    | Oct 15   | Oct 22 | Callable structs & climate ODEs       |
+| Homework                                                                                               | Assigned | Due    | Topic                           | Solution                                                                           |
+| ------------------------------------------------------------------------------------------------------ | -------- | ------ | ------------------------------- | ---------------------------------------------------------------------------------- |
+| [HW0](https://mit-c25.netlify.app/homeworks/hw0)                                                       | Sep 8    | Sep 15 | Getting Started                 | [HW0 sol](https://gdalle.github.io/JuliaComputationSolutions/hw0_solutions.html)   |
+| [HW1a](https://mit-c25.netlify.app/homeworks/hw1a), [HW1b](https://mit-c25.netlify.app/homeworks/hw1b) | Sep 15   | Sep 22 | Pokémon + Matrix calculus       | [HW1a sol](https://gdalle.github.io/JuliaComputationSolutions/hw1a_solutions.html) |
+| [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation       | [HW2 sol](https://gdalle.github.io/JuliaComputationSolutions/hw2_solutions.html)   |
+| [HW3](https://mit-c25.netlify.app/homeworks/hw3)                                                       | Sep 29   | Oct 7  | Mesh generation                 | [HW3 sol](https://gdalle.github.io/JuliaComputationSolutions/hw3_solutions.html)   |
+| [HW4](https://mit-c25.netlify.app/homeworks/hw4)                                                       | Oct 15   | Oct 22 | Callable structs & climate ODEs |
 
-Each student gets to turn in one homework late without justification. Further latenesses must be justified.
+Each student gets to turn in one homework late without justification.
+Further late turn ins must be justified.
 Remember: just because the automated tests succeed doesn't mean your code is 100% correct.
 It is a necessary, but not sufficient condition.
 
-Homework solutions will be put online at <https://gdalle.github.io/JuliaComputationSolutions/> after each deadline.
+Homework solutions will be put online after each deadline.
 
 ## Lectures at a glance
 
