@@ -135,7 +135,7 @@ supertypes(Float64)  # gives the chain of ancestors of a type
 # ╔═╡ 23a229b1-dcf2-4803-9bd6-8df2e60ba8f5
 md"""
 !!! danger "Task 1.0.1"
-	Implement a function `count_descendants(T)` which outputs the number of descendants (children, grandchildren, etc.) of a type `T` in the type tree.
+	Implement a function `count_descendants(T)` which outputs the number of descendants (the node itself + all of its children, grandchildren, etc.) of a type `T` in the type tree.
 	How many descendants does `Real` have?
 	Does this number depend on the packages we have imported?
 """
@@ -203,7 +203,7 @@ begin
 	struct Multiplier
 		a
 	end
-	
+
 	function (mult::Multiplier)(x)
 		return mult.a * x
 	end
@@ -244,7 +244,7 @@ We will encounter callable structs again in Sections 2 and 3, when we discuss ti
 md"""
 !!! danger "Task 1.1.2"
 	Implement a callable struct `FunctionWrapper` with a single field `f`.
-	Whenever it is called, it should simply apply the function `f` to the input arguments. 
+	Whenever it is called, it should simply apply the function `f` to the input arguments.
 """
 
 # ╔═╡ 30bad66b-0021-4bed-af8e-bbffebe2f84d
@@ -315,7 +315,7 @@ function choice(x)
 	else
 		return x
 	end
-end	
+end
 
 # ╔═╡ 5b4e99ea-2d3d-4841-b792-7c08dea43110
 
@@ -339,7 +339,7 @@ end
 
 # ╔═╡ b4b96d78-7f6f-4e3a-a711-51782c3a6cda
 md"""
-This is not easy to read, but what is important is the type of every intermediate quantity is correctly inferred as `Float64`. 
+This is not easy to read, but what is important is the type of every intermediate quantity is correctly inferred as `Float64`.
 """
 
 # ╔═╡ 86af8c5c-3bc8-4802-a934-22b487f74d2e
@@ -434,7 +434,7 @@ begin
 	struct SpecificMultiplier
 		a::Float64
 	end
-	
+
 	function (mult::SpecificMultiplier)(x)
 		return mult.a * x
 	end
@@ -485,7 +485,7 @@ begin
 	struct GenericMultiplier{T}
 		a::T
 	end
-	
+
 	function (mult::GenericMultiplier)(x)
 		return mult.a * x
 	end
@@ -736,7 +736,7 @@ end
 # ╔═╡ d1672de6-d58e-44d3-9d12-2a59f49481a3
 md"""
 !!! danger "Task 1.5.2"
-	Test the type-stability of your `Layer`. 
+	Test the type-stability of your `Layer`.
 """
 
 # ╔═╡ 846597f0-6840-4312-84a7-d877aada2589
@@ -748,7 +748,7 @@ let
 	W = rand(m, n)
 	b = rand(m)
 	σ = tanh
-	
+
 	if @isdefined Layer
 		try
 			layer = Layer(W, b, σ)
@@ -790,7 +790,7 @@ let
 		b2 = rand(m2)
 		σ = tanh
 		x = rand(n)
-	
+
 		layer1 = Layer(W1, b1, σ)
 		layer2 = Layer(W2, b2, σ)
 		network = Network([layer1, layer2])
@@ -930,7 +930,7 @@ end;
 
 # ╔═╡ 702c37fc-4607-4a72-9ca3-af99d59de028
 md"""
-We first give a simple data visualization, and then we use callable structs to make the plot nicer. 
+We first give a simple data visualization, and then we use callable structs to make the plot nicer.
 """
 
 # ╔═╡ 07fa38bf-a00d-49cd-bd56-891936cda37a
@@ -1094,7 +1094,7 @@ We consider the following models for $\text{CO}_2$ emissions and greenhouse effe
 """
 
 # ╔═╡ d5ca36a4-3467-43e2-b8d2-f367b9d23f45
-CO₂(t) = CO₂_preindustrial * (1 + ((t - t0) / 220)^3) 
+CO₂(t) = CO₂_preindustrial * (1 + ((t - t0) / 220)^3)
 
 # ╔═╡ 5a0b53b1-0fc9-4fae-bc65-09dc256f4efa
 greenhouse_effect(t) = forcing * log(CO₂(t) / CO₂_preindustrial)
@@ -1253,7 +1253,7 @@ begin
 	struct MyFunctionWrapper{F}
 		f::F
 	end
-	
+
 	(mfw::MyFunctionWrapper)(args...; kwargs...) = mfw.f(args...; kwargs...)
 end
 
@@ -1267,7 +1267,7 @@ let
 	W_tricky = BigFloat.(W)
 	b_tricky = BigFloat.(b)
 	σ_tricky = MyFunctionWrapper(σ)
-	
+
 	if @isdefined Layer
 		try
 			layer = Layer(W, b, σ)
@@ -1315,7 +1315,7 @@ begin
 		interp = cubic_spline_interpolation(first(years):last(years), values)
 		return TemperatureSeriesSpline(years, values, interp)
 	end
-	
+
 	function (temp::TemperatureSeriesSpline)(t::Number)
 		return temp.interp(t)
 	end
