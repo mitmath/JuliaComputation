@@ -65,8 +65,8 @@ Homework solutions will be put online after each deadline.
 | 9   | R   | 10/6  | Ferrari           | Equilibrium and transient climate sensitivity        |                                                                                                                                     | [Climate sensitivity](https://mit-c25.netlify.app/notebooks/9_climate_sensitivity.html)                                                                                                                     |
 |     | T   | 10/11 | *Student Holiday* |                                                      |
 | 10  | R   | 10/13 | Silvestri         | Climate Science                                      |                                                                                                                                     | [Solving the climate system](https://mit-c25.netlify.app/notebooks/10_climate_science)                                                                                                                      |
-| 11  | T   | 10/18 | Silvestri         | Climate Science                                      |
-| 12  | R   | 10/20 | Edelman           | Economic Model of Climate                            |
+| 11  | T   | 10/18 | Silvestri         | Climate Science                                      |  | "    "  |
+| 12  | R   | 10/20 | Edelman           | Economic Model of Climate                            | |  [Economic Model](https://computationalthinking.mit.edu/Spring21/inverse_climate_model/),[Optimization with JUMP](https://computationalthinking.mit.edu/Spring21/optimization_with_JuMP/)
 | 13  | T   | 10/25 | Edelman           | HPC and GPUs                                         |
 | 14  | R   | 10/27 | Edelman           | HPC and GPUs                                         |
 | 15  | T   | 11/1  | Edelman           | Imaging and Convolutions                             |
