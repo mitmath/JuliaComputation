@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.11
+# v0.19.12
 
 using Markdown
 using InteractiveUtils
@@ -231,6 +231,11 @@ md"""
 ### The `rand` function
 """
 
+# ╔═╡ a266a5d7-e8a3-4a90-a113-279b2f6eaba9
+md"""
+Run these cells a few times and see how the results change.
+"""
+
 # ╔═╡ 8842dd3f-9b7f-4916-aaf7-067a4be8bb0c
 rand(UInt8)  # single random number of type UInt8
 
@@ -246,28 +251,98 @@ let
 	rand(x)  # random selection from the collection x
 end
 
+# ╔═╡ ddf33d10-9b5e-456a-aea1-d0ce465487be
+md"""
+## Array Indexing
+"""
+
+# ╔═╡ 4df4f662-0ece-4f61-9f42-faa4999d29ab
+let
+	v = [1, 3, 5, 7, 9]
+	v[3]  # Julia is 1-indexed (by default)!
+end
+
+# ╔═╡ ccd607b8-c2a0-4c6b-9d78-4c264f555fb4
+let
+	M = [1 2 3
+		 4 5 6
+		 7 8 9]
+	M[6]  # this is called "linear indexing" because we only include one index
+		  # notice Julia uses a column-major ordering for multi-dimensional arrays
+end
+
+# ╔═╡ 0dbbe879-49a2-4ee7-9758-f3dffad3e075
+let
+	M = [1 2 3
+		 4 5 6
+		 7 8 9]
+	M[3, 2]  # this is called "cartesion indexing"
+			 # the first number is the row, and the second number is the column
+end
+
+# ╔═╡ cd75a2cd-a718-4d9a-98a4-2b6654680d7d
+let
+	M = [1 2 3
+		 4 5 6
+		 7 8 9]
+	M[:, 2]  # : in the first index means get the entire column
+end
+
+# ╔═╡ 32582dec-38a2-41b2-80f1-81eadaae41e1
+let
+	M = [1 2 3
+		 4 5 6
+		 7 8 9]
+	M[3, :]  # : in the second index means get the entire row
+end
+
+# ╔═╡ 3f945734-aedc-466b-8b80-0bf841142b74
+let
+	v = [1, 4, 3, 164, 14, 631, 752, 43, 1, 3]
+	indices = [1, 5, 7]
+	v[indices]  # you can get multiple values at once by passing a vector of indices
+end
+
+# ╔═╡ 61bcc9ca-1f68-45a2-9117-a1a3662354d8
+let
+	data = [1,2,3,4]
+	indicies = [true, false, false, true]
+	data[indicies]  # you can also index with a vector of boolean values
+end
+
+# ╔═╡ d593a687-519d-4693-bda4-ad6ac8e26a45
+let
+	data = [14, 146, 234, 6416, 3, 164, 3252, 675, 3]
+	data[data .> 100]  # this gives you a really compact way of filtering
+					   # .> is an example of broadcasting which we will cover below
+end
+
 # ╔═╡ 1a3ef85c-116a-4a74-9c96-28e88829fb7d
 md"""
 ## Basic Array Functions
 """
 
 # ╔═╡ 7ca9e326-064f-4f2e-9eb3-746e347fc693
-length([1 2; 3 4])
+length([1 2
+        3 4])
 
 # ╔═╡ 185c0731-3c06-4640-b19c-cdb1b3e0f3a5
-size([1 2; 3 4])
+size([1 2 3
+	  4 5 6])
 
 # ╔═╡ 060f65c7-40ac-4ad5-8a86-21d1931b7a2a
-vec([1 2; 3 4])
+vec([1 2
+	 3 4])  # notice that Julia uses column-major order
 
 # ╔═╡ 03f4a36c-669e-47e8-96f1-b58b1df8afb0
-reshape([1, 2, 3, 4], 2, 2)
+reshape([1, 2, 3, 4], 2, 2)  # notice that Julia uses column-major order
 
 # ╔═╡ f0351fc7-d3ce-4036-9be6-14e0458418c6
 reshape(1:12, 2, 3, 2)
 
 # ╔═╡ 5947547b-96f7-4e3e-bf61-87aea647eab0
-vcat([1, 2, 3], [4, 5, 6])
+vcat([1, 2, 3], [4, 5, 6])  # vcat mean "vertical concatenation"
+							# recall that vectors are treated as columns
 
 # ╔═╡ 383d0c2c-42f0-484d-8292-b6f6abae50cf
 [[1, 2, 3]; [4, 5, 6]]  # [a ; b] is the same as vcat(a, b)
@@ -279,7 +354,8 @@ vcat([1 2
 	  7 8])
 
 # ╔═╡ 48c2ddcf-5d02-499d-ba69-e1cc38391443
-hcat([1, 2, 3], [4, 5, 6])
+hcat([1, 2, 3], [4, 5, 6])  # hcat mean "horizontal concatenation"
+							# recall that vectors are treated as columns
 
 # ╔═╡ c3b13f6e-c245-49e6-b892-bc1b446d7a52
 [[1, 2, 3] [4, 5, 6]]  # [a b] is the same as hcat(a, b)
@@ -762,11 +838,11 @@ You don't need to understand them, just learn to recognize them: they always beg
 Here are some useful examples:
 """
 
-# ╔═╡ b5c66512-6b86-4342-9816-05ff6bc649e8
-begin
-	@info "Hello"
-	@warn "Goodbye"
-end
+# ╔═╡ 8b706854-ebe6-49e9-bf6c-7eb08318125e
+@info "Hello"
+
+# ╔═╡ 08fcfccd-f2ec-49ef-8df6-c9b9bc07bd59
+@warn "Goodbye"
 
 # ╔═╡ 4b17015d-d56b-43d9-a86a-82c25a7bb4f5
 let
@@ -774,6 +850,15 @@ let
 	y = 2
 	@error "Noooooo" x y
 end
+
+# ╔═╡ b4cc0368-cf8a-4502-a658-f4d229d89029
+@time rand(10, 10) * rand(10, 10)
+
+# ╔═╡ 4ec25214-8ebc-4d87-93fe-a84e8ea6e1c7
+@elapsed rand(10, 10) * rand(10, 10)
+
+# ╔═╡ f71b573d-9486-475d-8763-e3a517265c62
+@assert 1 + 1 == 3
 
 # ╔═╡ ec7bec64-3d25-421f-878e-60b381bdaee0
 md"""
@@ -786,7 +871,7 @@ The standard plotting library in Julia is called Plots.jl, and its syntax is qui
 """
 
 # ╔═╡ 4a96d787-de19-4beb-aeb5-ba92bc54502f
-plot(1:10, exp.(1:10), xlabel="x", ylabel="exp(x)", title="this grows fast", label=nothing)
+plot(1:10, exp, xlabel="x", ylabel="exp(x)", title="this grows fast", legend=false)
 
 # ╔═╡ c6ef3656-e026-42ed-82e0-a85499bdfe02
 md"""
@@ -795,10 +880,16 @@ It is very easy to build plots incrementally by using the in-place syntax, which
 
 # ╔═╡ d062c5e3-7261-4ff4-b16d-764744be9924
 begin
-	plot(1:10, rand(10), color="blue", label="line1")
+	plot(title="example plot", legend=:bottomright)
+	plot!(1:10, rand(10), color="blue", label="line1")
 	plot!(1:10, rand(10), color="green", label="line2")
 	scatter!(1:10, rand(10), color="red", label="dots")
 end
+
+# ╔═╡ 7504555a-f56e-46eb-85e3-134b4a14f35a
+md"""
+When you make plots in homework assignments or for any other projects, it is best practice to always include a title, axis labels, and an appropriate legend.
+"""
 
 # ╔═╡ 850492bd-baf6-49db-aae4-23bfdb544528
 md"""
@@ -981,10 +1072,10 @@ uuid = "c87230d0-a227-11e9-1b43-d7ebe4e7570a"
 version = "0.4.1"
 
 [[deps.FFMPEG_jll]]
-deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "JLLWrappers", "LAME_jll", "Libdl", "Ogg_jll", "OpenSSL_jll", "Opus_jll", "Pkg", "Zlib_jll", "libaom_jll", "libass_jll", "libfdk_aac_jll", "libvorbis_jll", "x264_jll", "x265_jll"]
-git-tree-sha1 = "ccd479984c7838684b3ac204b716c89955c76623"
+deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "JLLWrappers", "LAME_jll", "Libdl", "Ogg_jll", "OpenSSL_jll", "Opus_jll", "PCRE2_jll", "Pkg", "Zlib_jll", "libaom_jll", "libass_jll", "libfdk_aac_jll", "libvorbis_jll", "x264_jll", "x265_jll"]
+git-tree-sha1 = "74faea50c1d007c85837327f6775bea60b5492dd"
 uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
-version = "4.4.2+0"
+version = "4.4.2+2"
 
 [[deps.FileWatching]]
 uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
@@ -1333,6 +1424,11 @@ version = "1.3.2+0"
 git-tree-sha1 = "85f8e6578bf1f9ee0d11e7bb1b1456435479d47c"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 version = "1.4.1"
+
+[[deps.PCRE2_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
+version = "10.40.0+0"
 
 [[deps.PCRE_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -1823,10 +1919,20 @@ version = "1.4.1+0"
 # ╠═59cd4167-d100-4dfc-ac7c-02e1887af0c8
 # ╠═071c630e-d45d-4820-b483-104d2ae78670
 # ╟─6d4e8e1f-9fa3-440d-bf83-c8b3e07fc71d
+# ╟─a266a5d7-e8a3-4a90-a113-279b2f6eaba9
 # ╠═8842dd3f-9b7f-4916-aaf7-067a4be8bb0c
 # ╠═96e678e9-ff11-4cec-a115-15d4a334b7fe
 # ╠═c45ba9aa-13ab-4d03-a345-955659c6ff41
 # ╠═7f303cbc-22e4-4b4f-be9c-2585f50dd166
+# ╟─ddf33d10-9b5e-456a-aea1-d0ce465487be
+# ╠═4df4f662-0ece-4f61-9f42-faa4999d29ab
+# ╠═ccd607b8-c2a0-4c6b-9d78-4c264f555fb4
+# ╠═0dbbe879-49a2-4ee7-9758-f3dffad3e075
+# ╠═cd75a2cd-a718-4d9a-98a4-2b6654680d7d
+# ╠═32582dec-38a2-41b2-80f1-81eadaae41e1
+# ╠═3f945734-aedc-466b-8b80-0bf841142b74
+# ╠═61bcc9ca-1f68-45a2-9117-a1a3662354d8
+# ╠═d593a687-519d-4693-bda4-ad6ac8e26a45
 # ╟─1a3ef85c-116a-4a74-9c96-28e88829fb7d
 # ╠═7ca9e326-064f-4f2e-9eb3-746e347fc693
 # ╠═185c0731-3c06-4640-b19c-cdb1b3e0f3a5
@@ -1924,13 +2030,18 @@ version = "1.4.1+0"
 # ╟─501d14cd-3747-4997-99cb-6bbca56b31b5
 # ╟─a9244d09-d458-44c9-9c9f-a271e7951b35
 # ╟─fd8a9c43-9ab5-4b80-931c-9b772656c186
-# ╠═b5c66512-6b86-4342-9816-05ff6bc649e8
+# ╠═8b706854-ebe6-49e9-bf6c-7eb08318125e
+# ╠═08fcfccd-f2ec-49ef-8df6-c9b9bc07bd59
 # ╠═4b17015d-d56b-43d9-a86a-82c25a7bb4f5
+# ╠═b4cc0368-cf8a-4502-a658-f4d229d89029
+# ╠═4ec25214-8ebc-4d87-93fe-a84e8ea6e1c7
+# ╠═f71b573d-9486-475d-8763-e3a517265c62
 # ╟─ec7bec64-3d25-421f-878e-60b381bdaee0
 # ╟─351813ef-6075-4d38-be38-e53a5651209f
 # ╠═4a96d787-de19-4beb-aeb5-ba92bc54502f
 # ╟─c6ef3656-e026-42ed-82e0-a85499bdfe02
 # ╠═d062c5e3-7261-4ff4-b16d-764744be9924
+# ╟─7504555a-f56e-46eb-85e3-134b4a14f35a
 # ╟─850492bd-baf6-49db-aae4-23bfdb544528
 # ╟─abbf92ab-6261-4cbf-bbfd-8d5257b2b268
 # ╟─00000000-0000-0000-0000-000000000001
