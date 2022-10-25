@@ -67,7 +67,7 @@ Homework solutions will be put online after each deadline.
 | 10  | R   | 10/13 | Silvestri         | Climate Science                                      |                                                                                                                                     | [Solving the climate system](https://mit-c25.netlify.app/notebooks/10_climate_science)                                                                                                                      |
 | 11  | T   | 10/18 | Silvestri         | Climate Science                                      |  | "    "  |
 | 12  | R   | 10/20 | Edelman           | Economic Model of Climate                            | |  [Economic Model](https://computationalthinking.mit.edu/Spring21/inverse_climate_model/),[Optimization with JUMP](https://computationalthinking.mit.edu/Spring21/optimization_with_JuMP/)
-| 13  | T   | 10/25 | Edelman           | HPC and GPUs                                         |
+| 13  | T   | 10/25 | Edelman           | HPC and GPUs                                         | [HPC and GPU Slides](https://docs.google.com/presentation/d/1i6w4p26r_9lu_reHYZDIVnzh-4SdERVAoSI5i42lBU8/edit?usp=sharing)|
 | 14  | R   | 10/27 | Edelman           | HPC and GPUs                                         |
 | 15  | T   | 11/1  | Edelman           | Imaging and Convolutions                             |
 | 16  | R   | 11/3  | Edelman           | Convolutions and PDEs                                |
