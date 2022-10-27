@@ -32,6 +32,9 @@ student = (name = "Jazzy Doe", kerberos_id = "jazz")
 # ╔═╡ 1b452080-14eb-41f7-969b-e2727af54fa3
 PlutoUI.TableOfContents()
 
+# ╔═╡ 355479cd-7598-48e9-8283-da36d0e84393
+PlutoUI.Resource("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/homeworks/images/lineland.png")
+
 # ╔═╡ f205fe06-9849-435f-963c-d7596592c979
 # Your code here
 
@@ -253,11 +256,6 @@ For residents $i$ and $j$ to meet, the following conditions must be satisfied (w
 - all the other $k \in \{i+1,...,j-1\}$ must be in a bad mood
 Indeed, if even one resident $k$ between them is also in a good mood, $i$ will stop at $k$'s house on the way to $j$'s, and so the meeting between $i$ and $j$ will never happen.
 
-"""
-
-# ╔═╡ 355479cd-7598-48e9-8283-da36d0e84393
-md"""
-$(load("images/lineland.png"))
 """
 
 # ╔═╡ 33845853-3597-4998-b04b-c6886d64adea
@@ -639,7 +637,7 @@ To see different effects at play in the atmosphere we have to switch to a _layer
 
 # ╔═╡ 6e8b5dbe-4f1a-11ed-1d6d-898b90885e3d
 md"""
-$(load("images/atmosphere.png"))
+$(PlutoUI.Resource("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/homeworks/images/atmosphere.png"))
 **Figure:** Schematic showing the pathways of longwave (blue) and shortwave (red) radiation in a 4-layer climate model (1 surface layer + 3 atmosphere layers). 
 """
 
