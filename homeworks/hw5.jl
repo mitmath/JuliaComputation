@@ -1124,9 +1124,9 @@ md"""
 """
 
 # ╔═╡ 3b82d62e-26ca-42a2-b8dd-2e2cf53666e6
-hint(md"Run the `gpu_result` cell a few times and report the lowest values.
-The timing of this calculation will be noisy because the compilation time (only on first run) and garbage collection time (on some runs depending on memory usage) can be significant.
-You can see the impact of the GC if you look at `gpu_result.cpu_gctime` and `gpu_result.cpu_gcstats`.")
+hint(md"
+Look at the median time in the output of `@benchmark`.
+")
 
 # ╔═╡ 2cbe52a4-9959-4a96-bf65-39223aacefc7
 md"""
