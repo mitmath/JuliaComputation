@@ -6,8 +6,11 @@ using InteractiveUtils
 
 # ╔═╡ 956634aa-547b-11ed-2e14-1ff1f6d562d8
 begin
+	using BenchmarkTools
 	using Statistics
-end
+
+	BenchmarkTools.DEFAULT_PARAMETERS.seconds = 15.0
+end;
 
 # ╔═╡ 5950d5f0-e1f2-472b-ac4c-361c208bb9a7
 using CUDA
@@ -26,16 +29,8 @@ N = 3000
 # ╔═╡ 96fe138c-3e80-4cb5-b1d3-62dba08f2257
 A = rand(N, N)
 
-# ╔═╡ 5d95b636-9338-4baa-8e4c-6c4a2722b438
-md"""
-@timed gives us a bit more detailed info than the @time or @btime that you are familiar with.
-"""
-
 # ╔═╡ d1828384-d821-4a2a-b19c-5e2bb7a88c43
-cpu_result = @timed A*A  # click the arrow to the left to see all the fields
-
-# ╔═╡ d2d377ce-fd51-41e3-8051-31d49e46ce86
-md" $(round(1000 * cpu_result.time, digits=1)) msec"
+@benchmark $A * $A
 
 # ╔═╡ b1c5ce5a-d682-42d5-9bb5-cf07fb8313be
 md"""
@@ -47,17 +42,9 @@ CUDA.jl is the Julia package that lets you write Julia code that can run on CUDA
 A_gpu = CuArray(A)  # the first time you run this cell will take a minute to run
 					# while CUDA.jl compiles
 
-# ╔═╡ ab0532d9-3ae2-48da-98af-183113cff8ec
-md"""
-CUDA.@timed gives us accurate measurements for GPU calculations and also gives us some extra stats about GPU vs. CPU memory usage.
-"""
-
 # ╔═╡ 924713fa-068f-4112-8e50-9f5c78b0644d
-# run this cell a few times to get accurate results
-gpu_result = CUDA.@timed A_gpu * A_gpu  # expand the output to see all the fields
-
-# ╔═╡ 6a30196d-5353-4b14-9aa3-0755f8a27443
-md" $(round(1000 * gpu_result.time, digits=1)) msec"
+# We need to use CUDA.@sync to account for the GPU time in the benchmark.
+@benchmark CUDA.@sync $A_gpu * $A_gpu
 
 # ╔═╡ ec53920a-625b-446c-ae95-f2f5a78c81dc
 md"""
@@ -82,15 +69,17 @@ Running matrix multiplication on the GPU will calculate many things in parallel 
 # ╔═╡ ce9136e4-06c0-4caf-8e46-09653f40c7e4
 # the gpu_result.value is on the GPU, so we use Array(_) to move it back to the CPU
 # since you can't mix GPU memory and CPU memory in your calculation
-mean(abs.(Array(gpu_result.value) - cpu_result.value))
+mean(abs.(A * A - Array(A_gpu * A_gpu)))
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
+BenchmarkTools = "~1.3.1"
 CUDA = "~3.12.0"
 """
 
@@ -127,6 +116,12 @@ version = "0.2.0"
 
 [[deps.Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+
+[[deps.BenchmarkTools]]
+deps = ["JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
+git-tree-sha1 = "4c10eee4af024676200bc7752e536f858c6b8f93"
+uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+version = "1.3.1"
 
 [[deps.CEnum]]
 git-tree-sha1 = "eb4cb44a499229b3b8426dcfb5dd85333951ff90"
@@ -219,6 +214,12 @@ git-tree-sha1 = "abc9885a7ca2052a736a600f7fa66209f96506e1"
 uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
 version = "1.4.1"
 
+[[deps.JSON]]
+deps = ["Dates", "Mmap", "Parsers", "Unicode"]
+git-tree-sha1 = "3c837543ddb02250ef42f4738347454f95079d4e"
+uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+version = "0.21.3"
+
 [[deps.LLVM]]
 deps = ["CEnum", "LLVMExtra_jll", "Libdl", "Printf", "Unicode"]
 git-tree-sha1 = "e7e9184b0bf0158ac4e4aa9daf00041b5909bf1a"
@@ -275,6 +276,9 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 deps = ["Artifacts", "Libdl"]
 uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
 
+[[deps.Mmap]]
+uuid = "a63ad114-7e13-5084-954f-fe012c677804"
+
 [[deps.MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
 
@@ -295,6 +299,12 @@ git-tree-sha1 = "13652491f6856acfd2db29360e1bbcd4565d04f1"
 uuid = "efe28fd5-8261-553b-a9e1-b2916fc3738e"
 version = "0.5.5+0"
 
+[[deps.Parsers]]
+deps = ["Dates"]
+git-tree-sha1 = "3d5bf43e3e8b412656404ed9466f1dcbf7c50269"
+uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
+version = "2.4.0"
+
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
@@ -308,6 +318,10 @@ version = "1.3.0"
 [[deps.Printf]]
 deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[[deps.Profile]]
+deps = ["Printf"]
+uuid = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
 
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
@@ -410,15 +424,11 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─d89ee739-b144-48a3-9e53-423d8351f75f
 # ╠═801929aa-64be-4053-b3fa-8b00b9e4aa95
 # ╠═96fe138c-3e80-4cb5-b1d3-62dba08f2257
-# ╟─5d95b636-9338-4baa-8e4c-6c4a2722b438
 # ╠═d1828384-d821-4a2a-b19c-5e2bb7a88c43
-# ╠═d2d377ce-fd51-41e3-8051-31d49e46ce86
 # ╟─b1c5ce5a-d682-42d5-9bb5-cf07fb8313be
 # ╠═5950d5f0-e1f2-472b-ac4c-361c208bb9a7
 # ╠═31ea1880-46c4-4a44-b3f8-d595d4040654
-# ╟─ab0532d9-3ae2-48da-98af-183113cff8ec
 # ╠═924713fa-068f-4112-8e50-9f5c78b0644d
-# ╠═6a30196d-5353-4b14-9aa3-0755f8a27443
 # ╟─ec53920a-625b-446c-ae95-f2f5a78c81dc
 # ╠═c7afca91-ee61-4a66-9baf-4a11916a70e3
 # ╟─b8cfabde-d51d-45ee-8a56-3282cfbfdfbd
