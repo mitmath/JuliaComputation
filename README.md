@@ -41,6 +41,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW2](https://mit-c25.netlify.app/homeworks/hw2)                                                       | Sep 24   | Oct 1  | Automatic differentiation       | [HW2 sol](https://gdalle.github.io/JuliaComputationSolutions/hw2_solutions.html)   |
 | [HW3](https://mit-c25.netlify.app/homeworks/hw3)                                                       | Sep 29   | Oct 7  | Mesh generation                 | [HW3 sol](https://gdalle.github.io/JuliaComputationSolutions/hw3_solutions.html)   |
 | [HW4](https://mit-c25.netlify.app/homeworks/hw4)                                                       | Oct 15   | Oct 22 | Callable structs & climate ODEs |
+| [HW5](https://mit-c25.netlify.app/homeworks/hw5)                                                       | Oct 27   | Nov 3 | Matrix representations & atmospheric temperatures |
 
 Each student gets to turn in one homework late without justification.
 Further late turn ins must be justified.
