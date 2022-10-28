@@ -81,5 +81,5 @@ Homework solutions will be put online after each deadline.
 | 22  | T   | 11/29 | Dalle             | Implicit differentiation (?)                  |
 | 23  | R   | 12/1  | Urschel           |                                               |
 | 24  | T   | 12/6  | Urschel           |                                               |
-| 25  | R   | 12/8  | TBA               |                                               |
-| 26  | T   | 12/13 | TBA               |                                               |
+| 25  | R   | 12/8  | Edelman              | Discrete and Continuous, are they so very different?|                                              |
+| 26  | T   | 12/13 | Class Party?              |                                               |
