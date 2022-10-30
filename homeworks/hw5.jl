@@ -227,7 +227,7 @@ Base.getindex(ls::LazyMatrixSum, i, j) = ls.m1[i, j] + ls.m2[i, j]
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Oct 27, 2022 (version 1)
+Release date: Thursday, Oct 27, 2022 (version 2)
 
 **Due date: Thursday, Nov 3, 2022 at 11:59pm EST**
 
@@ -262,7 +262,7 @@ Indeed, if even one resident $k$ between them is also in a good mood, $i$ will s
 md"""
 In other words, the probability that $i$ and $j$ meet on a given day is
 ```math
-	M_{ij}(p) = p_i \left(\prod_{k=i+1}^{j-1} (1-p_k)\right) p_j
+	M_{ij}(p) = p_i \left(\prod_{k=\min(i,j)+1}^{\max(i,j)-1} (1-p_k)\right) p_j
 ```
 We also define $M_{ii}(p) = 0$.
 As an example, for $n = 5$, we have
@@ -386,7 +386,7 @@ end
 
 # ╔═╡ ddf2584f-63e0-4fe7-a895-a850ed97a0b8
 md"""
-Note that the Pluto (and REPL) display will compute a few coefficients of the `MeetingMatrix`, but these coefficients are not actually stored within the struct. 
+Note that the Pluto (and REPL) display will compute a few coefficients of the `MeetingMatrix`, but these coefficients are not actually stored within the struct.
 """
 
 # ╔═╡ 55d51ebf-8172-414f-b868-b7b24cbb787d
@@ -397,7 +397,7 @@ md"""
 """
 
 # ╔═╡ 3403402f-7a4c-4d00-873e-17a44ca8f7aa
-hint(md"Use the function `Base.summarisize`")
+hint(md"Use the function `Base.summarysize`")
 
 # ╔═╡ aef77331-eaea-4b34-a944-537f1c0b53a0
 md"""
@@ -624,7 +624,7 @@ md"""
 # ╔═╡ b7ea1640-01e3-4f9b-9232-51764024dcb0
 md"""
 In our study of the role of the atmosphere on Earth’s energy budget, we only considered the lower layer of the atmosphere, the troposphere.
-It contains most of the atmospheric mass and dominates the absorption/emission of thermal/longwave radiation. 
+It contains most of the atmospheric mass and dominates the absorption/emission of thermal/longwave radiation.
 
 In this problem, we will also consider the role played by the stratosphere, the atmospheric layer above the troposphere.
 Observations suggest that the stratosphere has been cooling over the last century, a trend opposite to what has been well documented in the troposphere.
@@ -638,7 +638,7 @@ To see different effects at play in the atmosphere we have to switch to a _layer
 # ╔═╡ 6e8b5dbe-4f1a-11ed-1d6d-898b90885e3d
 md"""
 $(PlutoUI.Resource("https://raw.githubusercontent.com/mitmath/JuliaComputation/main/homeworks/images/atmosphere.png"))
-**Figure:** Schematic showing the pathways of longwave (blue) and shortwave (red) radiation in a 4-layer climate model (1 surface layer + 3 atmosphere layers). 
+**Figure:** Schematic showing the pathways of longwave (blue) and shortwave (red) radiation in a 4-layer climate model (1 surface layer + 3 atmosphere layers).
 """
 
 # ╔═╡ 047f32ac-c8bf-4f36-9f9c-3a4ab2998371
@@ -695,7 +695,7 @@ We also define $\bar{B} = \prod_{k=1}^{n} \bar{\beta}_k$
 md"""
 ```math
 \begin{array}{llllllll}
-0 = 
+0 =
 & - \varepsilon_1 T_1^4
 & + \varepsilon_2 T_2^4 \varepsilon_1
 & + \varepsilon_3 T_3^4 \bar{\varepsilon}_2 \varepsilon_1
@@ -703,7 +703,7 @@ md"""
 & + \frac{S_0}{4\sigma} \bar{\beta}_4 \bar{\beta}_3 \bar{\beta}_2 \beta_1
 & + 0
 \\
-0 = 
+0 =
 & + \varepsilon_1 T_1^4 \varepsilon_2
 & - 2\varepsilon_2 T_2^4
 & + \varepsilon_3 T_3^4 \varepsilon_2
@@ -721,7 +721,7 @@ md"""
 \\
 0 =
 & + \varepsilon_1 T_1^4 \bar{\varepsilon}_2 \bar{\varepsilon}_3 \varepsilon_4
-& + \varepsilon_2 T_2^4 \bar{\varepsilon}_3 \varepsilon_4 
+& + \varepsilon_2 T_2^4 \bar{\varepsilon}_3 \varepsilon_4
 & + \varepsilon_3 T_3^4 \varepsilon_4
 & - 2\varepsilon_4 T_4^4
 & + \frac{S_0}{4\sigma} \beta_4
@@ -755,7 +755,7 @@ A = \begin{pmatrix}
 & \varepsilon_4 \varepsilon_3
 \\
 & \varepsilon_1 \bar{\varepsilon}_2 \bar{\varepsilon}_3 \varepsilon_4
-& \varepsilon_2 \bar{\varepsilon}_3 \varepsilon_4 
+& \varepsilon_2 \bar{\varepsilon}_3 \varepsilon_4
 & \varepsilon_3 \varepsilon_4
 & -2\varepsilon_4
 \end{pmatrix}
@@ -892,7 +892,7 @@ end
 # ╔═╡ 6e0c6e9f-ef00-44bb-956b-923af174000c
 md"""
 !!! danger "Task 2.4.2"
-	Define a function `LongwaveMatrix(ε)` (yes, it looks like a type constructor) which stores $A$ in a memory-efficient way. 
+	Define a function `LongwaveMatrix(ε)` (yes, it looks like a type constructor) which stores $A$ in a memory-efficient way.
 """
 
 # ╔═╡ 3ab919ee-6d9a-47e1-93fe-d1ce25c63236
@@ -928,7 +928,7 @@ end
 # ╔═╡ f3de07e7-9421-4eb5-b52b-8c450ece3511
 md"""
 !!! danger "Task 2.4.3"
-	Define a function `multiply_longwave_matrix(ε, x)` which takes a vector $x$ and returns $Ax$. 
+	Define a function `multiply_longwave_matrix(ε, x)` which takes a vector $x$ and returns $Ax$.
 """
 
 # ╔═╡ 3c98b50b-decb-4e0a-88a4-a08166e450cc
