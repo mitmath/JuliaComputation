@@ -73,7 +73,7 @@ Homework solutions will be put online after each deadline.
 | 14  | R   | 10/27 | Edelman           | HPC and GPUs                                         |
 | 15  | T   | 11/1  | Edelman           | Imaging and Convolutions                             |
 | 16  | R   | 11/3  | Edelman           | Convolutions and PDEs                                |
-| 17  | T   | 11/8  | Williams          | Handling Satellite Climate Data                      |
+| 17  | T   | 11/8  | Williams          | Handling Satellite Climate Data                      | [Google doc](https://docs.google.com/document/d/1G_FKAgjBiHD4XdCW6kH5-x_3rz2JiCIkil5xIxT0eEg/edit)                                  |
 | 18  | R   | 11/10 | Williams          | Apache Arrow in Julia for massive datastores         |
 | 19  | T   | 11/15 | Dalle             | Optimization 1 (convex / linear / integer)           |
 | 20  | R   | 11/17 | Dalle             | Optimization 2 (graphs) + Challenge                  |
