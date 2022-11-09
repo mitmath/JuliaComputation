@@ -24,7 +24,7 @@ Homework 5 of the MIT Course [_Julia: solving real-world problems with computati
 
 Release date: Saturday, Nov 5, 2022 (version 2)
 
-**Due date: Thursday, Oct 10, 2022 at 11:59pm EST**
+**Due date: Thursday, Nov 10, 2022 at 11:59pm EST**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
