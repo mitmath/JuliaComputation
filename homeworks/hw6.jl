@@ -22,7 +22,7 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Saturday, Nov 5, 2022 (version 1)
+Release date: Saturday, Nov 5, 2022 (version 2)
 
 **Due date: Thursday, Oct 10, 2022 at 11:59pm EST**
 
@@ -31,7 +31,8 @@ Submission by: Jazzy Doe (jazz@mit.edu)
 
 # ╔═╡ 11361b6d-7338-4f7c-a196-a87236887484
 md"""
-> Please run this notebook on [JuliaHub](https://juliahub.com/) and submit both the `.jl` and `.html` files generated there.
+> Please run this notebook on [JuliaHub](https://juliahub.com/) and generate both the `.jl` and `.html` files from there.
+> You can use the following link for the notebook: <https://raw.githubusercontent.com/mitmath/JuliaComputation/main/homeworks/hw6.jl>
 """
 
 # ╔═╡ ec43be3f-2ae1-41fa-b630-4de63271fbb3
@@ -242,7 +243,7 @@ md"""
 When looking at this kernel, it's important to note that there is no outer `for` loop.
 Instead, we are essentially programming what each individual core (called a thread) does.
 Because of this, the kernel needs to be configured to know:
-- How many cores you want to run with, which is called the `workgroupsize` (or `blocksize` in CUDA.jl). In the case of GPU computing, the `workgroupsize` is often on the order of 100s (so 256, for example), whereas for CPU computing, we better choose something like the number `Threads.nthreads()` of available threads.
+- How many cores you want to run with, which is called the `workgroupsize`. In the case of GPU computing, the `workgroupsize` is often on the order of 100s (so 256, for example), whereas for CPU computing, we better choose something like the number `Threads.nthreads()` of available threads.
 - The maximum size to "iterate over", which is called the `ndrange`. As an example, you might run a kernel with 256 unique computational threads (`workgroupsize = 256`) that needs to do something with an array of size 1024 (`ndrange = 1024`). In this case, each computational thread would need execute the kernel 4 times.
 """
 
@@ -266,7 +267,7 @@ end
 
 # ╔═╡ a8fa5ee2-0b88-4760-a7c1-3e7b8a31d6a2
 md"""
-If we want to migrate to the GPU, we only need to use the dedicated array type: `CuArray` from CUDA.jl. 
+If we want to migrate to the GPU, we only need to use the dedicated array type: `CuArray` from CUDA.jl.
 """
 
 # ╔═╡ a85927b0-152a-4a55-a23b-0ff560c40ead
@@ -420,7 +421,7 @@ end
 # ╔═╡ fe4b8a41-02a2-4c7f-996f-6913fc62713e
 md"""
 !!! danger "Task 2.2"
-	The `nbody!` function contains 3 nested loops: on `s`, `i` and `j`.
+	The `nbody!` function contains 3 nested loops: on `s`, `i` and `j` (the latter being inside the `update_acceleration!` subroutine).
 	Which one of them
 	1. can be parallelized easily?
 	1. could be parallelized if we modified the code a little bit?
