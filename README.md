@@ -43,6 +43,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW4](https://mit-c25.netlify.app/homeworks/hw4)                                                       | Oct 15   | Oct 22 | Callable structs & climate ODEs                   | [HW4 sol](https://gdalle.github.io/JuliaComputationSolutions/hw4_solutions.html)   |
 | [HW5](https://mit-c25.netlify.app/homeworks/hw5)                                                       | Oct 27   | Nov 3  | Matrix representations & atmospheric temperatures | [HW5 sol](https://gdalle.github.io/JuliaComputationSolutions/hw5_solutions.html)   |
 | [HW6](https://mit-c25.netlify.app/homeworks/hw6)                                                       | Nov 5    | Nov 10 | Parallel computing & n-body problem               |
+| [Course challenge](https://mit-c25.netlify.app/notebooks/gdalle/challenge)                             | Nov 15   | Dec 9  | Google Street View car routing                    |
 
 Each student gets to turn in one homework late without justification.
 Further late turn ins must be justified.
