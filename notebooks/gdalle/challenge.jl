@@ -41,7 +41,7 @@ See the official [task description](https://storage.googleapis.com/coding-compet
 
 # ╔═╡ e103f446-d3f9-432d-9fb6-dd0f67ee716b
 md"""
-I wrote a small package called [HashCode2014.jl](https://github.com/gdalle/HashCode2014.jl) to help you get started.
+We wrote a small package called [HashCode2014.jl](https://github.com/gdalle/HashCode2014.jl) to help you get started.
 It is not available on the general registry, so to install it, you need to use the URL:
 ```julia
 pkg> add https://github.com/gdalle/HashCode2014.jl
@@ -77,22 +77,6 @@ Make use of all the tools that you have discovered in the class.
 Don't be afraid to discuss the questions that you faced, and the answers that you found. 
 """
 
-# ╔═╡ b268179b-a2ea-481d-be0d-e1aed35d6a6c
-md"""
-# 2. Rules and advice
-"""
-
-# ╔═╡ cd6d305e-f5fb-46f7-abbc-3b175f42a325
-md"""
-## Teams
-"""
-
-# ╔═╡ 1e0f6c1a-694c-4802-91b2-45c67baa0305
-md"""
-This challenge can be tackled individually, or in teams of up to 3 students.
-If you struggle to find teammates, you can check out this [Piazza post](https://piazza.com/class/l6xyasad2hl2z7/post/120).
-"""
-
 # ╔═╡ 3eff3936-4713-43a8-b4c5-ac0245086fab
 md"""
 ## Deliverable
@@ -121,6 +105,22 @@ Multithreading is allowed, but GPU computing probably won't be necessary.
 As is often the case in combinatorial optimization, the biggest differences come from clever algorithms and implementations, not from having a bigger computer.
 
 As a rule of thumb, your entire code should never take more than one hour to run on your laptop, ideally less.
+"""
+
+# ╔═╡ b268179b-a2ea-481d-be0d-e1aed35d6a6c
+md"""
+# 2. Rules and advice
+"""
+
+# ╔═╡ cd6d305e-f5fb-46f7-abbc-3b175f42a325
+md"""
+## Teams
+"""
+
+# ╔═╡ 1e0f6c1a-694c-4802-91b2-45c67baa0305
+md"""
+This challenge can be tackled individually, or in teams of up to 3 students.
+If you struggle to find teammates, you can check out this [Piazza post](https://piazza.com/class/l6xyasad2hl2z7/post/120).
 """
 
 # ╔═╡ 648389db-8498-4848-b4aa-d3703facc2a7
@@ -180,6 +180,33 @@ md"""
 | Friday 12/09 | Package and documentation complete | Submit your final solution file | We will download and evaluate your repository |
 
 All dates are to be understood as 11:59 PM
+"""
+
+# ╔═╡ 4ad8e4c2-080d-496f-8b54-8a55ebd23923
+md"""
+## Troubleshooting
+"""
+
+# ╔═╡ cf53067e-dfe4-42a3-b433-27ca7b3dbec8
+md"""
+We recommend you initialize your package with [PkgTemplates.jl](https://github.com/JuliaCI/PkgTemplates.jl), as discussed in the tutorial on good coding practices.
+Before pushing, try running the tests and building the documentation locally.
+
+**Ignoring files**
+
+PkgTemplates.jl generates a file called `.gitignore`, which tells Git to avoid tracking certain files.
+You will need to make two modifications to it:
+- Remove the line `/Manifest.toml`. Since HashCode2014.jl is not a registered package, the `Project.toml` alone is not enough to tell people where to find it, so you need the `Manifest.toml` as well.
+- Insert a line containing `.CondaPkg`. When you add HashCode2014.jl as a dependency, some Python packages will be stored there, but you don't need to push them to GitHub.
+
+**Testing**
+
+Because you are working with an unregistered dependency (HashCode2014.jl), setting up test dependencies can be rather tricky.
+We recommend you do it the old-fashioned way, by adding an [`[extras]` section inside the main `Project.toml`](https://pkgdocs.julialang.org/v1/creating-packages/#Test-specific-dependencies-in-Julia-1.0-and-1.1).
+It is a [known pain point](https://github.com/JuliaLang/Pkg.jl/issues/1788) of the package manager.
+
+If you copied the basic `runtests.jl` structure we suggested, you might find that [Aqua.jl](https://github.com/JuliaTesting/Aqua.jl) is very picky on certain aspects.
+Read its documentation to understand why and how you can get the tests to pass.
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -534,13 +561,13 @@ version = "17.4.0+0"
 # ╟─ed66c4e6-17e8-4706-9cf4-56f4bc1d7b6c
 # ╟─9a15943f-5dad-4043-b540-546d0fc2f025
 # ╟─5aea0b2d-c3da-4496-9a9f-2fbc31fecf19
-# ╟─b268179b-a2ea-481d-be0d-e1aed35d6a6c
-# ╟─cd6d305e-f5fb-46f7-abbc-3b175f42a325
-# ╟─1e0f6c1a-694c-4802-91b2-45c67baa0305
 # ╟─3eff3936-4713-43a8-b4c5-ac0245086fab
 # ╟─a7cd1bb9-44b3-44ce-bf2e-e3575ae73efe
 # ╟─3cc76524-62e7-4476-9a62-02ad93915172
 # ╟─49ce7a51-815b-4d96-b217-e0bf65472828
+# ╟─b268179b-a2ea-481d-be0d-e1aed35d6a6c
+# ╟─cd6d305e-f5fb-46f7-abbc-3b175f42a325
+# ╟─1e0f6c1a-694c-4802-91b2-45c67baa0305
 # ╟─648389db-8498-4848-b4aa-d3703facc2a7
 # ╟─0f2d2902-a4d9-4a25-96ac-685e6a1da5dd
 # ╟─cdb75786-4fc0-491f-bbd7-fdf59d36b668
@@ -549,5 +576,7 @@ version = "17.4.0+0"
 # ╟─d011f5a4-3d5d-4bba-af45-de15efac5f98
 # ╟─a71422ea-f656-4338-a943-3ecf3e8ecf61
 # ╟─22701912-d47b-4baf-a97c-57d8d4a763be
+# ╟─4ad8e4c2-080d-496f-8b54-8a55ebd23923
+# ╟─cf53067e-dfe4-42a3-b433-27ca7b3dbec8
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
