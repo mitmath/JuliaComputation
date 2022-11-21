@@ -129,16 +129,15 @@ A polyhedron $\mathcal{P} = \{x \in \mathbb{R}^d: Ax \leq b\}$ is a finite inter
 ```
 """
 
-# ╔═╡ 8e163dba-4b0f-4509-b9af-fe603b3bf639
-begin
-	m_choice = md"""
-	m = $(@bind m Slider(1:20, default=10, show_value=true))
-	"""
-	legend_choice = md"""
+# ╔═╡ 0f8afcba-a835-4c5d-a538-891f3585b2a4
+m_choice = md"""
+m = $(@bind m Slider(1:20, default=10, show_value=true))
+"""
+
+# ╔═╡ 130f58cb-86c3-4f56-9f7d-07fe74ef8988
+legend_choice = md"""
 	legend = $(@bind display_legend CheckBox(true))
 	"""
-	TwoColumn(m_choice, legend_choice)
-end
 
 # ╔═╡ 4985e6b2-5def-416e-8616-87e7052834ee
 random_A, random_b = randn(m, 2), ones(m);
@@ -166,13 +165,13 @@ md"""
 The Minkowski-Weyl theorem gives another possible representation of a polyhedron: every bounded polyhedron can be expressed as the convex hull of its extreme points, or vertices.
 """
 
+# ╔═╡ 9a86b424-5799-418f-98bc-302a3474ebab
+n_choice = md"""
+``n = `` $(@bind n Slider(1:20, default=10, show_value=true))
+"""
+
 # ╔═╡ 009fd841-932f-4c13-853b-577c04d462c2
-begin
-	n_choice = md"""
-	``n = `` $(@bind n Slider(1:20, default=10, show_value=true))
-	"""
-	TwoColumn(n_choice, legend_choice)
-end
+legend_choice
 
 # ╔═╡ 520dabd5-edef-4356-b0c3-0809dcbfe32c
 random_points = [randn(2) for k = 1:n];
@@ -233,8 +232,11 @@ md"""
 If an LP has an optimal solution, then at least one of the vertices of the polyhedron is also an optimal solution.
 """
 
+# ╔═╡ f4497538-926b-4469-bb73-01215dcfedd3
+n_choice
+
 # ╔═╡ 18785e7c-79a9-4b2d-914a-f88f93c3e096
-TwoColumn(n_choice, legend_choice)
+legend_choice
 
 # ╔═╡ 2e0a8059-5021-48e5-91bc-1061ac4692dd
 theta_choice = md"""
@@ -289,16 +291,19 @@ The optimization problem $(\mathrm{P})$ is called an Integer Linear Program (ILP
 2. The feasible set $\mathcal{X} = \{x \in \mathbb{Z}^d: Ax \leq b\}$ is the intersection of a polyhedron with the integer lattice
 """
 
+# ╔═╡ c2c93acc-3464-448f-a289-fc3459ca654b
+n_choice
+
 # ╔═╡ f0bdf06d-41bc-4d60-b773-c6de357dd025
-TwoColumn(n_choice, legend_choice)
+legend_choice
 
 # ╔═╡ 8032f005-c043-4180-ab58-78e7df9fc85a
-begin
-	scale_choice = md"""
-	scale = $(@bind scale Slider(1:6; default=3, show_value=true))
-	"""
-	TwoColumn(theta_choice, scale_choice)
-end
+theta_choice
+
+# ╔═╡ 7a77dec7-2df3-4ac1-96ff-c7aba714fb60
+scale_choice = md"""
+scale = $(@bind scale Slider(1:6; default=3, show_value=true))
+"""
 
 # ╔═╡ 20941d80-614a-40e9-9a90-7931fc076d49
 let
@@ -328,17 +333,19 @@ let
 		end
 	end
 
-	scatter!(
-		first.(integer_points),
-		last.(integer_points),
-		ratio=:equal, color=:blue, label="integer points"
-	)
-	
-	optimum = integer_points[argmax([dot(c, cand) for cand in integer_points])]
-	scatter!(
-		[optimum[1]], [optimum[2]],
-		color=:red, markershape=:square, markersize=5, label="optimum"
-	)
+	if !isempty(integer_points)
+		scatter!(
+			first.(integer_points),
+			last.(integer_points),
+			ratio=:equal, color=:blue, label="integer points"
+		)
+		
+		optimum = integer_points[argmax([dot(c, cand) for cand in integer_points])]
+		scatter!(
+			[optimum[1]], [optimum[2]],
+			color=:red, markershape=:square, markersize=5, label="optimum"
+		)
+	end
 	
 	plot!(title="Solving an Integer Linear Program", legend=display_legend)
 end
@@ -484,6 +491,9 @@ termination_status(simple_model)
 # ╔═╡ 4a5dad31-466a-4ec6-a2e9-e81f2471aa26
 value(simple_model[:x]), value(simple_model[:y])
 
+# ╔═╡ a6fd3819-2fd4-4e65-8b48-e01d83baea88
+legend_choice
+
 # ╔═╡ 4f897915-9045-42f3-bbc7-44efbf5d5522
 integer_variables_choice
 
@@ -504,7 +514,7 @@ let
 		[value(simple_model[:y])],
 		color=:red, markershape=:square, markersize=5, label="optimum"
 	)
-	plot!(title="Plotting a JuMP model and its solution", legend=:topleft)
+	plot!(title="Plotting a JuMP model and its solution", legend=display_legend)
 end
 
 # ╔═╡ b4082060-e48c-49e4-bf42-8f1d3664afd0
@@ -1848,10 +1858,12 @@ version = "1.4.1+0"
 # ╟─5423ae84-54f7-4685-b130-08cb938c3e56
 # ╟─560d047c-ae49-43ba-bd82-7bb9cc4504c9
 # ╟─67dacadf-59be-46bf-9ab0-86f2e193e11e
-# ╟─8e163dba-4b0f-4509-b9af-fe603b3bf639
+# ╟─0f8afcba-a835-4c5d-a538-891f3585b2a4
+# ╟─130f58cb-86c3-4f56-9f7d-07fe74ef8988
 # ╠═4985e6b2-5def-416e-8616-87e7052834ee
 # ╟─471d1b01-8bb7-4b4e-aab0-a4b2726c9bf6
 # ╟─f18f72d7-79c8-41ac-ba54-db0021773d70
+# ╟─9a86b424-5799-418f-98bc-302a3474ebab
 # ╟─009fd841-932f-4c13-853b-577c04d462c2
 # ╠═520dabd5-edef-4356-b0c3-0809dcbfe32c
 # ╟─5d7d7a26-1ac6-460d-84c7-423d828c8640
@@ -1862,14 +1874,17 @@ version = "1.4.1+0"
 # ╟─588c18f2-ee3b-495d-b71c-d9987fcf286f
 # ╟─b6eb9f03-d9df-40d2-8dd4-b6818bfcd18f
 # ╟─0cc01ce5-3f94-4bc0-9c21-0b78a189d584
+# ╟─f4497538-926b-4469-bb73-01215dcfedd3
 # ╟─18785e7c-79a9-4b2d-914a-f88f93c3e096
 # ╟─2e0a8059-5021-48e5-91bc-1061ac4692dd
 # ╟─6719c6a0-a12b-481a-8698-561d73d5a80d
 # ╟─c52707fa-e636-42eb-8374-184783afb310
 # ╟─3e1520af-f119-4620-8d28-baa29cc88c6a
 # ╟─ddc30da9-2b66-4c66-b32c-f6513134199f
+# ╟─c2c93acc-3464-448f-a289-fc3459ca654b
 # ╟─f0bdf06d-41bc-4d60-b773-c6de357dd025
 # ╟─8032f005-c043-4180-ab58-78e7df9fc85a
+# ╟─7a77dec7-2df3-4ac1-96ff-c7aba714fb60
 # ╟─20941d80-614a-40e9-9a90-7931fc076d49
 # ╟─9545e44c-3451-4b98-98fa-22621ab04974
 # ╟─2860aec8-77a9-4f50-bb66-88f54615fb63
@@ -1890,6 +1905,7 @@ version = "1.4.1+0"
 # ╠═dddb8989-7e6b-4e3c-9748-604034d26409
 # ╠═5f29131d-ba5e-4bbd-af6e-e02eab7f39c4
 # ╠═4a5dad31-466a-4ec6-a2e9-e81f2471aa26
+# ╟─a6fd3819-2fd4-4e65-8b48-e01d83baea88
 # ╟─4f897915-9045-42f3-bbc7-44efbf5d5522
 # ╟─3092ff36-abc2-4702-8977-06ec23565a44
 # ╟─b4082060-e48c-49e4-bf42-8f1d3664afd0
