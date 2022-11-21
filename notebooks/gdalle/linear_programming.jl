@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.14
+# v0.19.16
 
 using Markdown
 using InteractiveUtils
@@ -64,13 +64,51 @@ An optimization problem is formulated as
 - ``\mathcal{X}`` is the set of feasible solutions
 - ``x \in \mathcal{X}`` is the constraint
 - ``f(x)`` is the objective / cost function
+"""
 
+# ╔═╡ cf5e0bb0-46ab-4d62-b30a-3a1c6b110924
+md"""
 Solving the problem means finding
 
 - the optimal value $\mathrm{val}(P)$
 - an optimal solution $x^* \in \mathrm{argmin}\{f(x): x \in \mathcal{X}\}$
 
 Instance of a problem = one particular input with its numerical values.
+"""
+
+# ╔═╡ eafd6112-50e1-41ca-a8ef-d70ff9b923a4
+md"""
+## Formulating optimization problems
+"""
+
+# ╔═╡ d8ddc081-595f-4ffe-8a79-1aca945fe14e
+md"""
+**Knapsack**
+"""
+
+# ╔═╡ 1be613ed-6dbf-4a1f-969c-b18317918cd9
+md"""
+**Bin packing**
+"""
+
+# ╔═╡ 7acb80e5-52ce-4f4a-8f25-eab05a6bce3f
+md"""
+**Coloring**
+"""
+
+# ╔═╡ fdeccf04-b336-481e-bde3-c29138f1f824
+md"""
+**Shortest path**
+"""
+
+# ╔═╡ da436d05-8ba3-410e-a00b-5dbf29795771
+md"""
+**Network flow**
+"""
+
+# ╔═╡ b408eed8-0533-4e68-82c9-9c037a840b4b
+md"""
+**Quadratic assignment**
 """
 
 # ╔═╡ 5423ae84-54f7-4685-b130-08cb938c3e56
@@ -92,9 +130,15 @@ A polyhedron $\mathcal{P} = \{x \in \mathbb{R}^d: Ax \leq b\}$ is a finite inter
 """
 
 # ╔═╡ 8e163dba-4b0f-4509-b9af-fe603b3bf639
-md"""
-m = $(@bind m Slider(1:20, default=10, show_value=true))
-"""
+begin
+	m_choice = md"""
+	m = $(@bind m Slider(1:20, default=10, show_value=true))
+	"""
+	legend_choice = md"""
+	legend = $(@bind display_legend CheckBox(true))
+	"""
+	TwoColumn(m_choice, legend_choice)
+end
 
 # ╔═╡ 4985e6b2-5def-416e-8616-87e7052834ee
 random_A, random_b = randn(m, 2), ones(m);
@@ -114,7 +158,7 @@ let
 		)
 	end
 	plot!(intersect(P, square), ratio=:equal, color=:blue, alpha=0.3, label="polyhedron")
-	plot!(title="Intersection of $m half-spaces", legend=true)
+	plot!(title="Intersection of $m half-spaces", legend=display_legend)
 end
 
 # ╔═╡ f18f72d7-79c8-41ac-ba54-db0021773d70
@@ -123,9 +167,12 @@ The Minkowski-Weyl theorem gives another possible representation of a polyhedron
 """
 
 # ╔═╡ 009fd841-932f-4c13-853b-577c04d462c2
-n_choice = md"""
-``n = `` $(@bind n Slider(1:20, default=10, show_value=true))
-"""
+begin
+	n_choice = md"""
+	``n = `` $(@bind n Slider(1:20, default=10, show_value=true))
+	"""
+	TwoColumn(n_choice, legend_choice)
+end
 
 # ╔═╡ 520dabd5-edef-4356-b0c3-0809dcbfe32c
 random_points = [randn(2) for k = 1:n];
@@ -134,14 +181,14 @@ random_points = [randn(2) for k = 1:n];
 let
 	P = polyhedron(convexhull(random_points...));
 	removevredundancy!(P)
-	plot(xlim=(-2,2), ylim=(-2,2), aspect_ratio=:equal)
+	plot(aspect_ratio=:equal)
 	scatter!(
 		first.(random_points),
 		last.(random_points),
 		ratio=:equal, color=:blue, label="points"
 	)
 	plot!(P, color=:blue, alpha=0.3, label="polyhedron")
-	plot!(title="Convex hull of $n points", legend=true)
+	plot!(title="Convex hull of $n points", legend=display_legend)
 end
 
 # ╔═╡ 911e5476-c6a6-4b9c-887f-cfc86a790c06
@@ -160,7 +207,7 @@ let
 	half_spaces = [HalfSpace(a, b) for (a, b) in zip(a_vals, b_vals)];
 	P = polyhedron(intersect(half_spaces...));
 	md"""
-	A random polyhedron with 20 constraints in dimension $nb_dimensions has $(npoints(P)) vertices.
+	A random polyhedron with 20 constraints in **dimension $nb_dimensions** has **$(npoints(P)) vertices**.
 	"""
 end
 
@@ -178,13 +225,16 @@ The optimization problem $(\mathrm{P})$ is called a Linear Program (LP) if:
 
 # ╔═╡ b6eb9f03-d9df-40d2-8dd4-b6818bfcd18f
 md"""
-## The simplex algorithm
+### The simplex algorithm
 """
 
 # ╔═╡ 0cc01ce5-3f94-4bc0-9c21-0b78a189d584
 md"""
 If an LP has an optimal solution, then at least one of the vertices of the polyhedron is also an optimal solution.
 """
+
+# ╔═╡ 18785e7c-79a9-4b2d-914a-f88f93c3e096
+TwoColumn(n_choice, legend_choice)
 
 # ╔═╡ 2e0a8059-5021-48e5-91bc-1061ac4692dd
 theta_choice = md"""
@@ -193,7 +243,7 @@ theta_choice = md"""
 
 # ╔═╡ 6719c6a0-a12b-481a-8698-561d73d5a80d
 let
-	plot(xlim=(-2,2), ylim=(-2,2),)
+	plot(aspect_ratio=:equal)
 	
 	P = polyhedron(convexhull(random_points...));
 	removevredundancy!(P)
@@ -215,13 +265,16 @@ let
 		color=:red, markershape=:square, markersize=5, label="optimum"
 	)
 	
-	plot!(title="Solving a Linear Program", legend=true)
+	plot!(title="Solving a Linear Program", legend=display_legend)
 end
 
 # ╔═╡ c52707fa-e636-42eb-8374-184783afb310
 md"""
-The simplex algorithm jumps between neighboring polyhedron vertices until the objective can no longer be improved.
-Although its worst-case complexity is exponential, it is extremely fast in practice, which means it is successfully used on large-scale industrial problems.
+The [simplex algorithm](https://en.wikipedia.org/wiki/Simplex_algorithm) for LPs jumps between neighboring polyhedron vertices until the objective can no longer be improved.
+Although its worst-case complexity is exponential, it is extremely fast on average.
+
+[Interior point methods](https://en.wikipedia.org/wiki/Interior-point_method) are another class of algorithm for LPs with polynomial worst-case complexity.
+In other words, LPs are easy to solve both in theory and in practice.
 """
 
 # ╔═╡ 3e1520af-f119-4620-8d28-baa29cc88c6a
@@ -237,32 +290,37 @@ The optimization problem $(\mathrm{P})$ is called an Integer Linear Program (ILP
 """
 
 # ╔═╡ f0bdf06d-41bc-4d60-b773-c6de357dd025
-n_choice
+TwoColumn(n_choice, legend_choice)
 
 # ╔═╡ 8032f005-c043-4180-ab58-78e7df9fc85a
-theta_choice
-
-# ╔═╡ 6499efab-71c8-4aa0-b7ad-c47b3643fef0
-md"""
-``\mathrm{scale} = `` $(@bind scale Slider(1:6; default=3, show_value=true))
-"""
+begin
+	scale_choice = md"""
+	scale = $(@bind scale Slider(1:6; default=3, show_value=true))
+	"""
+	TwoColumn(theta_choice, scale_choice)
+end
 
 # ╔═╡ 20941d80-614a-40e9-9a90-7931fc076d49
 let
-	xlim = (-2*scale, 2*scale)
-	ylim = (-2*scale, 2*scale)
-	plot(xlim=xlim, ylim=ylim)
+	plot(aspect_ratio=:equal)
 	
 	P = polyhedron(convexhull(scale .* random_points...));
 	removevredundancy!(P)
-	plot!(P, ratio=:equal, color=:blue, alpha=0.3, label="polyhedron")
+	plot!(P, color=:blue, alpha=0.3, label="polyhedron")
+
+	real_vertices = collect(points(P))
+
+	xmin = minimum(first, real_vertices)
+	xmax = maximum(first, real_vertices)
+	ymin = minimum(last, real_vertices)
+	ymax = maximum(last, real_vertices)
 	
 	c = 0.5 * scale * [cosd(angle), sind(angle)]
 	plot!([0., c[1]], [0., c[2]], color=:black, lw=2, arrow=true, label=L"objective $-c$")
 
 	integer_points = Vector{Float64}[]
-	for x in floor(Int, xlim[1]):ceil(Int, xlim[2])
-		for y in floor(Int, ylim[1]):ceil(Int, ylim[2])
+	for x in floor(Int, xmin):ceil(Int, xmax)
+		for y in floor(Int, ymin):ceil(Int, ymax)
 			point = [x, y]
 			if point in P
 				push!(integer_points, point)
@@ -282,26 +340,82 @@ let
 		color=:red, markershape=:square, markersize=5, label="optimum"
 	)
 	
-	plot!(title="Solving an Integer Linear Program", legend=true)
+	plot!(title="Solving an Integer Linear Program", legend=display_legend)
 end
+
+# ╔═╡ 9545e44c-3451-4b98-98fa-22621ab04974
+md"""
+Unlike LPs, ILPs are not easy to solve in theory: they are NP-hard, which means it is likely that no polynomial algorithm exists.
+"""
+
+# ╔═╡ 2860aec8-77a9-4f50-bb66-88f54615fb63
+md"""
+### The notion of relaxation
+"""
+
+# ╔═╡ 5da62499-8f00-4424-9fde-e260b551291c
+md"""
+To every ILP
+```math
+\min_x c^\top x \quad \text{s.t.} \quad x \in \mathbb{Z}^d \text{ and } Ax \leq b \tag{ILP}
+```
+we can associate a continuous relaxation
+```math
+\min_x c^\top x \quad \text{s.t.} \quad x \in \mathbb{R}^d \text{ and } Ax \leq b \tag{LP}
+```
+where the integrality constraints are removed.
+It is much faster to solve and provides a lower bound on the value of the original problem:
+```math
+\mathrm{val}(\mathrm{LP}) \leq \mathrm{val}(\mathrm{ILP})
+```
+"""
 
 # ╔═╡ ad833a42-52ca-4c7a-a79b-a80aac1c4fd1
 md"""
-## The Branch & Bound algorithm
+### The Branch & Bound algorithm
+"""
+
+# ╔═╡ 9337cc5c-47b2-4429-928c-adc74997aacc
+md"""
+The [Branch & Bound](https://en.wikipedia.org/wiki/Branch_and_bound) algorithm for ILPs enumerates integer solutions during an arborescent search.
+To avoid exploring the full tree, it splits the initial polyhedron into smaller ones, using continuous relaxations to compute bounds and prune useless branches.
+Its success depends heavily on the quality of the relaxation (how close it is to the original problem).
 """
 
 # ╔═╡ 3b7279a2-fedb-40f4-88de-360d9ba762ec
 md"""
-## Total unimodularity
+### Total unimodularity
+"""
+
+# ╔═╡ d1e89f1c-b76e-4443-876c-4fd162677125
+md"""
+For some problem structures, it just happens that the polyhedron vertices all have integer components.
+In that case, the ILP and its continuous relaxations are equivalent, which is very good news in terms of complexity.
+No need to use Branch & Bound, a simplex will be enough!
+
+A sufficient condition for this to happen is [total unimodularity](https://en.wikipedia.org/wiki/Unimodular_matrix#Total_unimodularity) of the constraint matrix $A$.
+The following types of constraints display this kind of behavior:
+- shortest path
+- network flow
+- matching
+- spanning tree
 """
 
 # ╔═╡ 7433d1d8-3c9b-44b8-9d78-4392ea08739f
 md"""
 ## Key takeaways
 
-1. Linear Programs are easy to solve
-2. Most Integer Linear Programs are hard to solve
-3. Some ILPs are easy to solve thanks to special structure
+!!! danger "In theory"
+	- Linear Programs are easy to solve
+	- Most Integer Linear Programs are hard to solve
+	- Some ILPs are easy to solve thanks to special structure
+"""
+
+# ╔═╡ ebb7978d-7e5c-4692-99c1-2df75c8cc301
+md"""
+!!! info "In practice"
+	- Commercial solvers can tackle very large ILPs, out of the box or with some additional work by the user (e.g. decomposition methods).
+	- Oftentimes an approximate solution (e.g. from a heuristic) is more than enough
 """
 
 # ╔═╡ 1bfb3dd8-4a50-4a89-b9bc-19126de7f095
@@ -318,76 +432,201 @@ The package [documentation](https://jump.dev/) is a very useful read.
 
 # ╔═╡ 7b16eb29-0034-47d9-a5d0-30de5943fbeb
 md"""
-## A simple (I)LP
+## A simple example
 """
 
 # ╔═╡ a54b93ca-48f1-49b2-af34-a1d8d7f7c415
 md"""
-To tackle an (I)LP using JuMP, we first have to initialize the model and define which solver will be used.
+To tackle an (I)LP using JuMP.jl, we first have to initialize the model and define which solver will be used.
 We then add variables, constraints and an objective (in any order).
 
-Due to a specificity of Pluto, it is necessary to build and solve the model in a single cell.
+Since this is Pluto, we need to create and modify the model in a single cell to avoid confusing its cell dependency tracker.
 """
 
 # ╔═╡ 0afb035d-da9b-4d36-a7db-bedd10a3dbbb
 integer_variables_choice = md"""
-`integer_variables = ` $(@bind integer_variables CheckBox())
+integer variables = $(@bind integer_variables CheckBox())
 """
 
 # ╔═╡ f66442b9-18da-4917-8536-8403f13d8b59
-begin
-	model = Model(HiGHS.Optimizer)
+simple_model = let
+	model = Model()
 
-	if integer_variables
-		@variable(model, x >= 0, Int)
-		@variable(model, y >= 0, Int)
-	else
-		@variable(model, x >= 0)
-		@variable(model, y >= 0)
-	end
+	@variable(model, x >= 0)
+	@variable(model, y >= 0)
 	
 	@constraint(model, -x + y <= 2)
 	@constraint(model, 8x + 2y <= 17)
 	
 	@objective(model, Max, 5.5x + 2.1y)
-	
+
+	if integer_variables
+		set_integer(x)
+		set_integer(y)
+	end
+
+	set_optimizer(model, HiGHS.Optimizer)
+	set_silent(model)
 	optimize!(model)
+
+	model
 end;
 
 # ╔═╡ 8b3bcac2-7942-4749-9dd2-d930687cf407
-model
-
-# ╔═╡ 46abf254-71f3-4298-bfed-5e4322e7c49f
-obj = objective_function(model)
+simple_model
 
 # ╔═╡ dddb8989-7e6b-4e3c-9748-604034d26409
-Print(model)
+Print(simple_model)
 
 # ╔═╡ 5f29131d-ba5e-4bbd-af6e-e02eab7f39c4
-termination_status(model)
+termination_status(simple_model)
 
 # ╔═╡ 4a5dad31-466a-4ec6-a2e9-e81f2471aa26
-value(model[:x]), value(model[:y])
+value(simple_model[:x]), value(simple_model[:y])
+
+# ╔═╡ 4f897915-9045-42f3-bbc7-44efbf5d5522
+integer_variables_choice
 
 # ╔═╡ 3092ff36-abc2-4702-8977-06ec23565a44
 let
 	plot(
-		polyhedron(model),
+		polyhedron(simple_model),
 		aspect_ratio=:equal,
 		color=:blue, alpha=0.3, label="feasible set"
 	)
 	plot!(
-		0.2 .* [0, objective_function(model).terms[model[:x]]],
-		0.2 .* [0, objective_function(model).terms[model[:y]]],
+		0.2 .* [0, objective_function(simple_model).terms[simple_model[:x]]],
+		0.2 .* [0, objective_function(simple_model).terms[simple_model[:y]]],
 		arrow=true, color=:black, lw=2, label=L"objective $c$"
 	)
 	scatter!(
-		[value(model[:x])], 
-		[value(model[:y])],
+		[value(simple_model[:x])], 
+		[value(simple_model[:y])],
 		color=:red, markershape=:square, markersize=5, label="optimum"
 	)
 	plot!(title="Plotting a JuMP model and its solution", legend=:topleft)
 end
+
+# ╔═╡ b4082060-e48c-49e4-bf42-8f1d3664afd0
+md"""
+## The role of macros
+"""
+
+# ╔═╡ 968401ab-7763-4dd0-b45b-1ec916ba2b13
+md"""
+In the model above, variables, constraints and objectives are added with macros.
+This is an illustration of [metaprogramming](https://docs.julialang.org/en/v1/manual/metaprogramming/): using Julia to interact with your code itself.
+This [tutorial](https://en.wikibooks.org/wiki/Introducing_Julia/Metaprogramming) is perhaps clearer than the official docs.
+"""
+
+# ╔═╡ ff17fdb2-da29-48dc-9ca3-02d87d7053cb
+md"""
+### Looking under the hood
+"""
+
+# ╔═╡ e0477bbd-c279-4fb9-8420-df4c9a7e74df
+md"""
+You have already encountered macros before.
+Let's take a look at what they do with `@macroexpand`.
+"""
+
+# ╔═╡ b42c5e0d-b5f4-4687-8bc8-8a3777a645be
+@assert 1 == 1
+
+# ╔═╡ e937dfae-9506-4684-b3fa-f621a2d72afd
+@macroexpand @assert 1 == 1
+
+# ╔═╡ 1c752a29-c431-4c8f-bafe-a091008e8f40
+@show exp(1)
+
+# ╔═╡ 6f4b8552-9f61-4156-838a-053b53d87725
+@macroexpand @show exp(1)
+
+# ╔═╡ 5b412b36-ff71-4789-b7aa-402581838b92
+@elapsed exp(1)
+
+# ╔═╡ fffb66f7-e917-4747-abcc-9f02a9a98e6d
+@macroexpand @elapsed exp(1)
+
+# ╔═╡ a8f80d4f-428f-4a37-97bb-0b0d78afad27
+md"""
+### Expressions
+"""
+
+# ╔═╡ 06592404-aa03-411f-98f9-c9d4ec521063
+md"""
+Expressions are an intermediate representation of Julia syntax that is parsed but not executed.
+An expression can be created with `:(...)` or with `quote; ...; end`. 
+"""
+
+# ╔═╡ 20d68b54-5c6d-4ba3-bd2a-1b71c4c31b66
+let
+	ex = :(1 + 2)
+	ex, eval(ex)
+end
+
+# ╔═╡ af560292-243e-4bea-907d-e8bb4658093b
+md"""
+Julia expressions are stored as trees.
+"""
+
+# ╔═╡ 6e84c401-2c73-4193-ae2f-27a6530a6aca
+let
+	ex = :(a * b + c / d)
+	dump(ex)
+end
+
+# ╔═╡ 14314c03-3fd7-40bf-9f5e-8c2c640628ee
+md"""
+### Why macros?
+"""
+
+# ╔═╡ 99f141e0-6eec-48b9-9bff-f55a5c77b3d7
+md"""
+Macros are nothing but functions that take arguments and generate expressions based on them.
+They are necessary because their output is generated before runtime, which gives it the same status as run of the mill code that you could write.
+
+In the case of JuMP.jl, macros save the user a lot of boilerplate. 
+"""
+
+# ╔═╡ 76a742b0-842f-441a-bb42-6fbc3f5488d2
+let
+	model = Model()
+	@macroexpand @variable(model, x)
+end
+
+# ╔═╡ 67337333-4ac9-4708-bf61-80b9fee557d2
+let
+	model = Model()
+	@variable(model, x)
+	@macroexpand @constraint(model, x >= 0)
+end
+
+# ╔═╡ 47be698b-c86b-4997-9ce7-8fdec47d49f7
+md"""
+But in general macros make it possible to do things that would be impossible with plain functions.
+For instance, `@show` displays both the expression and the result of evaluating it, which requires interacting with the code itself (a function cannot do that).
+"""
+
+# ╔═╡ 65f2cdb7-80ff-43cf-82cb-9106d26627b1
+md"""
+## A more advanced example
+"""
+
+# ╔═╡ a7e23cfe-5604-4b29-ac5f-0f8ca750e34b
+md"""
+### Network flow with JuMP.jl and Graphs.jl
+"""
+
+# ╔═╡ 415c49e2-b972-4764-a24b-87856cdf3a6b
+md"""
+See [GraphsOptim.jl](https://github.com/gdalle/GraphsOptim.jl).
+"""
+
+# ╔═╡ 4f12214b-25ff-4947-ba1e-75b768c73c0d
+md"""
+### The flow polytope
+"""
 
 # ╔═╡ e97e0b7e-d95d-430d-b0bb-8fda6b0dcc90
 md"""
@@ -396,6 +635,7 @@ md"""
 - Boyd, S. and Vandenberghe, L. (2004), *[Convex optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)*
 - Matousek, I. and Gärtner, B. (2007), *[Understanding and using Linear Programming](https://blogs.epfl.ch/extrema/documents/Maison%2020.05.10.pdf)*
 - Williams, H. P. (2013), *[Model building in mathematical programming](https://www.researchgate.net/file.PostFileLoader.html?id=546b5d0bd685cc9e2b8b45d4&assetKey=AS:273636437495809@1442251418466)*
+- Conforti, M., Cornuéjols, G. and Zambelli, G. (2014), *[Integer programming](https://solab.kaist.ac.kr/files/IP/IP2017/2014_Integer%20Prog_Conforti-Cornuejols-Zambelli.pdf)*
 - Kochenderfer, M. J. and Wheeler, T. A. (2019), *[Algorithms for optimization](https://algorithmsbook.com/optimization/)*
 - Kochenderfer, M. J., Wheeler, T. A. and Wray, K. H. (2022), *[Algorithms for decision-making](https://algorithmsbook.com/)*
 """
@@ -428,7 +668,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.2"
 manifest_format = "2.0"
-project_hash = "e2ec275c544f6c304d1adf3cc3454c9c5f857e4a"
+project_hash = "1436da2614f78dc0d3475123a6ef51084c5bb010"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -1597,6 +1837,14 @@ version = "1.4.1+0"
 # ╟─7335dcd2-bbef-464f-b88a-ad7d2a3c01da
 # ╟─9e8cb5f5-6def-40db-bfd8-7e4693fcce25
 # ╟─9cbf2977-a5de-4e4a-b5c8-1e9e1c156704
+# ╟─cf5e0bb0-46ab-4d62-b30a-3a1c6b110924
+# ╟─eafd6112-50e1-41ca-a8ef-d70ff9b923a4
+# ╟─d8ddc081-595f-4ffe-8a79-1aca945fe14e
+# ╟─1be613ed-6dbf-4a1f-969c-b18317918cd9
+# ╟─7acb80e5-52ce-4f4a-8f25-eab05a6bce3f
+# ╟─fdeccf04-b336-481e-bde3-c29138f1f824
+# ╟─da436d05-8ba3-410e-a00b-5dbf29795771
+# ╟─b408eed8-0533-4e68-82c9-9c037a840b4b
 # ╟─5423ae84-54f7-4685-b130-08cb938c3e56
 # ╟─560d047c-ae49-43ba-bd82-7bb9cc4504c9
 # ╟─67dacadf-59be-46bf-9ab0-86f2e193e11e
@@ -1614,18 +1862,24 @@ version = "1.4.1+0"
 # ╟─588c18f2-ee3b-495d-b71c-d9987fcf286f
 # ╟─b6eb9f03-d9df-40d2-8dd4-b6818bfcd18f
 # ╟─0cc01ce5-3f94-4bc0-9c21-0b78a189d584
+# ╟─18785e7c-79a9-4b2d-914a-f88f93c3e096
 # ╟─2e0a8059-5021-48e5-91bc-1061ac4692dd
 # ╟─6719c6a0-a12b-481a-8698-561d73d5a80d
 # ╟─c52707fa-e636-42eb-8374-184783afb310
 # ╟─3e1520af-f119-4620-8d28-baa29cc88c6a
 # ╟─ddc30da9-2b66-4c66-b32c-f6513134199f
-# ╠═f0bdf06d-41bc-4d60-b773-c6de357dd025
-# ╠═8032f005-c043-4180-ab58-78e7df9fc85a
-# ╟─6499efab-71c8-4aa0-b7ad-c47b3643fef0
+# ╟─f0bdf06d-41bc-4d60-b773-c6de357dd025
+# ╟─8032f005-c043-4180-ab58-78e7df9fc85a
 # ╟─20941d80-614a-40e9-9a90-7931fc076d49
+# ╟─9545e44c-3451-4b98-98fa-22621ab04974
+# ╟─2860aec8-77a9-4f50-bb66-88f54615fb63
+# ╟─5da62499-8f00-4424-9fde-e260b551291c
 # ╟─ad833a42-52ca-4c7a-a79b-a80aac1c4fd1
+# ╟─9337cc5c-47b2-4429-928c-adc74997aacc
 # ╟─3b7279a2-fedb-40f4-88de-360d9ba762ec
+# ╟─d1e89f1c-b76e-4443-876c-4fd162677125
 # ╟─7433d1d8-3c9b-44b8-9d78-4392ea08739f
+# ╟─ebb7978d-7e5c-4692-99c1-2df75c8cc301
 # ╟─1bfb3dd8-4a50-4a89-b9bc-19126de7f095
 # ╟─79e62b31-920a-4e3b-af2c-acdf0919a569
 # ╟─7b16eb29-0034-47d9-a5d0-30de5943fbeb
@@ -1633,11 +1887,35 @@ version = "1.4.1+0"
 # ╟─0afb035d-da9b-4d36-a7db-bedd10a3dbbb
 # ╠═f66442b9-18da-4917-8536-8403f13d8b59
 # ╠═8b3bcac2-7942-4749-9dd2-d930687cf407
-# ╠═46abf254-71f3-4298-bfed-5e4322e7c49f
 # ╠═dddb8989-7e6b-4e3c-9748-604034d26409
 # ╠═5f29131d-ba5e-4bbd-af6e-e02eab7f39c4
 # ╠═4a5dad31-466a-4ec6-a2e9-e81f2471aa26
-# ╠═3092ff36-abc2-4702-8977-06ec23565a44
+# ╟─4f897915-9045-42f3-bbc7-44efbf5d5522
+# ╟─3092ff36-abc2-4702-8977-06ec23565a44
+# ╟─b4082060-e48c-49e4-bf42-8f1d3664afd0
+# ╟─968401ab-7763-4dd0-b45b-1ec916ba2b13
+# ╟─ff17fdb2-da29-48dc-9ca3-02d87d7053cb
+# ╟─e0477bbd-c279-4fb9-8420-df4c9a7e74df
+# ╠═b42c5e0d-b5f4-4687-8bc8-8a3777a645be
+# ╠═e937dfae-9506-4684-b3fa-f621a2d72afd
+# ╠═1c752a29-c431-4c8f-bafe-a091008e8f40
+# ╠═6f4b8552-9f61-4156-838a-053b53d87725
+# ╠═5b412b36-ff71-4789-b7aa-402581838b92
+# ╠═fffb66f7-e917-4747-abcc-9f02a9a98e6d
+# ╟─a8f80d4f-428f-4a37-97bb-0b0d78afad27
+# ╟─06592404-aa03-411f-98f9-c9d4ec521063
+# ╠═20d68b54-5c6d-4ba3-bd2a-1b71c4c31b66
+# ╟─af560292-243e-4bea-907d-e8bb4658093b
+# ╠═6e84c401-2c73-4193-ae2f-27a6530a6aca
+# ╟─14314c03-3fd7-40bf-9f5e-8c2c640628ee
+# ╟─99f141e0-6eec-48b9-9bff-f55a5c77b3d7
+# ╠═76a742b0-842f-441a-bb42-6fbc3f5488d2
+# ╠═67337333-4ac9-4708-bf61-80b9fee557d2
+# ╟─47be698b-c86b-4997-9ce7-8fdec47d49f7
+# ╟─65f2cdb7-80ff-43cf-82cb-9106d26627b1
+# ╟─a7e23cfe-5604-4b29-ac5f-0f8ca750e34b
+# ╟─415c49e2-b972-4764-a24b-87856cdf3a6b
+# ╟─4f12214b-25ff-4947-ba1e-75b768c73c0d
 # ╟─e97e0b7e-d95d-430d-b0bb-8fda6b0dcc90
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
