@@ -86,6 +86,21 @@ md"""
 **Knapsack**
 """
 
+# ╔═╡ 8308c1c0-a1f3-4d2d-a63c-431744e49f81
+md"""
+Set of $I$ items with value $v_i$ and a weight $w_i$. Maximize the value while keeping the total weight under $W$
+
+- Decision variable: $x_i = 1$ if we put item $i$ in the bag, $0$ otherwise
+- Objective function: total value $\sum_{i=1}^{I} v_i x_i$
+- Constraint: total weight bound $\sum_{i=1}^{I} w_i x_i \leq W$
+
+This is an Integer Linear Program:
+
+```math
+\min_{x \in \mathbb{R}^I} \sum_{i=1}^{I} v_i x_i \quad \text{s.t.} \quad \begin{cases} x_i \in \{0, 1\} ~ \forall i \in [I] \\ \sum_{i=1}^{I} w_i x_i \leq W \end{cases}
+```
+"""
+
 # ╔═╡ 1be613ed-6dbf-4a1f-969c-b18317918cd9
 md"""
 **Bin packing**
@@ -94,6 +109,22 @@ md"""
 # ╔═╡ 7acb80e5-52ce-4f4a-8f25-eab05a6bce3f
 md"""
 **Coloring**
+"""
+
+# ╔═╡ a4a4db0c-3b3a-49f0-8358-2dea09957ccd
+md"""
+Train platforming problem: trains as graph vertices, incompatibilities as edges
+
+Given a graph $G = (V, E)$, assign a color to each vertex so that no two adjacent vertices share the same color. We have $C$ colors in total
+
+- Decision variable:
+  - ``x_v \in [C]`` is the color of the vertex $\implies$ constraint programming model, not linear
+  - ``x_{v, c} = 1`` if vertex $v$ gets color $c$
+  - ``y_c = 1`` if the color $c$ is used, and $0$ otherwise, i.e. $y_c = \max\{x_{v, c}: v \in V\}$
+- Objective function: number of colors... $\sum_{c=1}^{C} y_c$
+- Constraints:
+  - For all vertices $u$ and $v$ such that $(u, v) \in E$, for all colors $c$, we impose $x_{u, v} + x_{v, c} \leq 1$
+  - For all colors $c$, we impose $\frac{1}{\lvert V \rvert} \sum_{v \in V} x_{v, c} \leq y_c$ and for all $v \in V$, $y_c \leq x_{v, c}$
 """
 
 # ╔═╡ fdeccf04-b336-481e-bde3-c29138f1f824
@@ -464,7 +495,7 @@ simple_model = let
 	
 	@constraint(model, -x + y <= 2)
 	@constraint(model, 8x + 2y <= 17)
-	
+
 	@objective(model, Max, 5.5x + 2.1y)
 
 	if integer_variables
@@ -541,10 +572,10 @@ Let's take a look at what they do with `@macroexpand`.
 """
 
 # ╔═╡ b42c5e0d-b5f4-4687-8bc8-8a3777a645be
-@assert 1 == 1
+@assert 1 == 2
 
 # ╔═╡ e937dfae-9506-4684-b3fa-f621a2d72afd
-@macroexpand @assert 1 == 1
+@macroexpand @assert 1 == 2
 
 # ╔═╡ 1c752a29-c431-4c8f-bafe-a091008e8f40
 @show exp(1)
@@ -676,7 +707,7 @@ Polyhedra = "~0.7.5"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.2"
+julia_version = "1.8.3"
 manifest_format = "2.0"
 project_hash = "1436da2614f78dc0d3475123a6ef51084c5bb010"
 
@@ -1850,8 +1881,10 @@ version = "1.4.1+0"
 # ╟─cf5e0bb0-46ab-4d62-b30a-3a1c6b110924
 # ╟─eafd6112-50e1-41ca-a8ef-d70ff9b923a4
 # ╟─d8ddc081-595f-4ffe-8a79-1aca945fe14e
+# ╟─8308c1c0-a1f3-4d2d-a63c-431744e49f81
 # ╟─1be613ed-6dbf-4a1f-969c-b18317918cd9
 # ╟─7acb80e5-52ce-4f4a-8f25-eab05a6bce3f
+# ╟─a4a4db0c-3b3a-49f0-8358-2dea09957ccd
 # ╟─fdeccf04-b336-481e-bde3-c29138f1f824
 # ╟─da436d05-8ba3-410e-a00b-5dbf29795771
 # ╟─b408eed8-0533-4e68-82c9-9c037a840b4b
