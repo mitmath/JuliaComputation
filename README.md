@@ -81,7 +81,7 @@ Homework solutions will be put online after each deadline.
 | 21  | T   | 11/22 | Dalle             | Formulating and solving linear programs                   |                                                                                                                                                                                                                      | [Linear programming](https://mit-c25.netlify.app/notebooks/gdalle/linear_programming)                                                                                                                       |
 |     | R   | 11/24 | *Thanksgiving*    |                                                           |
 | 22  | T   | 11/29 | Dalle             | Differentiating through combinatorial optimization layers | [Paper](https://arxiv.org/abs/2207.13513), [JuliaCon talk](https://youtu.be/yB86STwZB_M)                                                                                                                             |
-| 23  | R   | 12/1  | Urschel           |                                                           |
-| 24  | T   | 12/6  | Urschel           |                                                           |
+| 23  | R   | 12/1  | Urschel           |   Computational Sports Mathematics                                                      |
+| 24  | T   | 12/6  | Urschel           |        Computational Sports Mathematics                                                     |
 | 25  | R   | 12/8  | Edelman           | Discrete and Continuous, are they so very different?      |                                                                                                                                                                                                                      |
 | 26  | T   | 12/13 | Class Party?      |                                                           |
