@@ -74,7 +74,7 @@ It should not only contain function docstrings, but also present a mathematical 
 
 In this project, a major focus should be code efficiency.
 Make use of all the tools that you have discovered in the class.
-Don't be afraid to discuss the questions that you faced, and the answers that you found. 
+Don't be afraid to discuss the questions that you faced, and the answers that you found.
 """
 
 # ╔═╡ 3eff3936-4713-43a8-b4c5-ac0245086fab
@@ -130,7 +130,7 @@ md"""
 
 # ╔═╡ 0f2d2902-a4d9-4a25-96ac-685e6a1da5dd
 md"""
-To make this challenge more fun, we encourage teams to compete against each other. 
+To make this challenge more fun, we encourage teams to compete against each other.
 We thus created a [Google Sheets](https://docs.google.com/spreadsheets/d/1aiFdtYymErgXhLLqcXC50fYtiBA16Gzb8NaxFVOqxPo/edit?usp=sharing) where you can enter your team information and your current best performance.
 The computation time column is mostly intended for orders of magnitude: since you all have different hardware, precise comparison is impossible.
 
@@ -195,18 +195,15 @@ Before pushing, try running the tests and building the documentation locally.
 **Ignoring files**
 
 PkgTemplates.jl generates a file called `.gitignore`, which tells Git to avoid tracking certain files.
-You will need to make two modifications to it:
-- Remove the line `/Manifest.toml`. Since HashCode2014.jl is not a registered package, the `Project.toml` alone is not enough to tell people where to find it, so you need the `Manifest.toml` as well.
-- Insert a line containing `.CondaPkg`. When you add HashCode2014.jl as a dependency, some Python packages will be stored there, but you don't need to push them to GitHub.
+You will need to insert a line in this file containing `.CondaPkg`. When you add HashCode2014.jl as a dependency, some Python packages will be stored there, but you don't need to push them to GitHub.
 
 **Testing**
 
-Because you are working with an unregistered dependency (HashCode2014.jl), setting up test dependencies can be rather tricky.
-We recommend you do it the old-fashioned way, by adding an [`[extras]` section inside the main `Project.toml`](https://pkgdocs.julialang.org/v1/creating-packages/#Test-specific-dependencies-in-Julia-1.0-and-1.1).
-It is a [known pain point](https://github.com/JuliaLang/Pkg.jl/issues/1788) of the package manager.
+You should copy the basic `runtests.jl` structure we suggested in the course on good programming practices.
+While doing so, you might find that
 
-If you copied the basic `runtests.jl` structure we suggested, you might find that [Aqua.jl](https://github.com/JuliaTesting/Aqua.jl) is very picky on certain aspects.
-Read its documentation to understand why and how you can get the tests to pass.
+- You need to set up additional test-specific dependencies (see the documentation for Pkg.jl to learn how)
+- [Aqua.jl](https://github.com/JuliaTesting/Aqua.jl) is very picky on certain aspects. Read its documentation to understand why and how you can get the tests to pass.
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
