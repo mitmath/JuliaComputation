@@ -480,7 +480,7 @@ end;
 
 # ╔═╡ 4885f35e-1875-4dca-8bad-f8ae94cb98b3
 md"""
-First, `friends_naive` is more tedious to write and read, beause everything has to be in the same place.
+First, `friends_naive` is more tedious to write and read, because everything has to be in the same place.
 Second, it is not easy to extend _a posteriori_.
 And third, this paradigm often leads to less efficient functions.
 Indeed, since multiple dispatch selects the appropriate method based on argument types, it can generate shorter machine code than the full `if / else` statement.
@@ -496,7 +496,7 @@ md"""
 
 
 # ╔═╡ c491ca01-5a0b-4f91-825c-67f597aa788a
-hint(md"You might get an arror due to an ambiguous method. This means multiple dispatch has failed because there is no single most specific implementation. How do you fix this?")
+hint(md"You might get an error due to an ambiguous method. This means multiple dispatch has failed because there is no single most specific implementation. How do you fix this?")
 
 # ╔═╡ d96068be-4ac9-4ff9-ae3e-4807df555a42
 md"""

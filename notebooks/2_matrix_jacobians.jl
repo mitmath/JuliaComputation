@@ -296,7 +296,7 @@ expand.( kron(I2,X^2) + kron(X',X) + kron(X'^2,I2) )
 md"""
 # 3) The LU Decomposition
 
-Recall the LU Decomposition factors a matrix into unit lower-trianguar and upper triangular:
+Recall the LU Decomposition factors a matrix into unit lower-triangular and upper triangular:
 """
 
 # ╔═╡ c28d1043-259f-4045-8148-031da91dc818

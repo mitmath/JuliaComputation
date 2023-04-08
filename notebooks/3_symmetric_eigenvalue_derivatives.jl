@@ -71,13 +71,13 @@ so that $(I-xx^T)Ax$ is the gradient of ``\frac{1}{2}x^TAx`` on the sphere.
 
 To get the gradient we needed two things:
 * A linearization of the function that is correct on tangents and
-* A direction that is tangent (satisifes the linearized constraint)
+* A direction that is tangent (satisfies the linearized constraint)
 
 ### Gradient of a general scalar function on the sphere:
 
 ``df= g(x)^T dx = ((I-xx^T)g(x))^Tdx``
 
-Project the unconstrainted gradient to the sphere to get the constrained gradient.  It is the direction of maximal increase on the sphere.
+Project the unconstrained gradient to the sphere to get the constrained gradient.  It is the direction of maximal increase on the sphere.
 
 
 """
@@ -148,7 +148,7 @@ md"""
 
 # ╔═╡ 1023e972-bd69-45ae-974a-1a093a57ece4
 md"""
-`` S = Q \Lambda Q^T`` is the eigendecomposition of a symmetric ``S`` with ``\Lambda`` diagonal containing eigenvalues, and ``Q`` othogonal with columns as eigenvectors.
+`` S = Q \Lambda Q^T`` is the eigendecomposition of a symmetric ``S`` with ``\Lambda`` diagonal containing eigenvalues, and ``Q`` orthogonal with columns as eigenvectors.
 $(br)
 
 ``dS = dQ \Lambda Q^T + Q d\Lambda Q^T + Q Λ dQ^T`` which may be written
