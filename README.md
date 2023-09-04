@@ -5,7 +5,7 @@
 **MIT's numbering scheme gone nuts:** (1.C25/6.C25/12.C25/16.C25/18.C25/22.C25)  
 This course is part of the [Common Ground](https://computing.mit.edu/cross-cutting/common-ground-for-computing-education/common-ground-subjects/).  
 
-**Lectures:** Tuesdays & Thursdays 1-2:30 PM in room 2-131  
+**Lectures:** Tuesdays & Thursdays 1-2:30 PM in room 2-142 
 
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg) 
 
