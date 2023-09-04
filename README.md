@@ -10,8 +10,8 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 **Prerequisites:** 6.100A, 18.03, 18.06 or equivalents (meaning some programming, dif eqs, and lin alg) 
 
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, J. Williams  
-**Teaching Assistants:** Jeremiah DeGreeff, [Guillaume Dalle](https://gdalle.github.io/)  
-**Office Hours:** Tuesdays (Jeremiah) & Thursdays (Guillaume) 5-6 PM in room 2-361 + on Zoom.
+**Teaching Assistants:** 
+**Office Hours:** TBD
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas. No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
