@@ -57,7 +57,7 @@ Without submitting anything we'd also like you to login and try out JuliaHub, wh
 
 # ╔═╡ 31a8fbf8-e6ce-11ea-2c66-4b4d02b41995
 md"""## Homework Logistics
-Homeworks are in the form of [Pluto notebooks](https://github.com/fonsp/Pluto.jl). Your must complete them and submit them on [Canvas](https://canvas.mit.edu/courses/5637) (if you are an MIT student.).
+Homeworks are in the form of [Pluto notebooks](https://github.com/fonsp/Pluto.jl). Your must complete them and submit them on [Canvas](https://canvas.mit.edu/courses/21713) (if you are an MIT student.).
 
 Homeworks will be released on Thursdays and due on Thursdays 11:59pm Eastern time.
 

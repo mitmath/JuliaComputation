@@ -17,7 +17,7 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
 **Links:** Worth bookmarking.  
 
-| [Piazza](https://piazza.com/mit/fall2022/179e6) | [Canvas](https://canvas.mit.edu/courses/15758) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| [Piazza](https://piazza.com/class/lm7pcjq3cbq2fm) | [Canvas](https://canvas.mit.edu/courses/21713) | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
 | ----------------------------------------------- | ---------------------------------------------- | ------------------------------- | ---------------------------------------- |
 | Discussion                                      | HW submission                                  | Language                        | GPUs                                     |
 
