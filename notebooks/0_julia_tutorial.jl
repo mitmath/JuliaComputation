@@ -15,7 +15,7 @@ end
 # ╔═╡ 05b0eb5c-37ae-11ed-2a1e-e565ae78b5db
 md"""
 # Julia Basics Tutorial
-This is a tutorial notebook designed for [Julia: Solving Real-World Problems with Computation, Fall 2022](https://github.com/mitmath/JuliaComputation).
+This is a tutorial notebook designed for [Julia: Solving Real-World Problems with Computation, Fall 2023](https://github.com/mitmath/JuliaComputation).
 
 This notebook is targeted at students who are already experienced with basic programming language concepts and have used one or more languages but are new to Julia. We focus on the semantics that are different from other languages and may be surprising to new Julia programmers. More advanced topics such as generic types, macros, multithreaded code, and performance analysis will be saved for later in the term.
 """
