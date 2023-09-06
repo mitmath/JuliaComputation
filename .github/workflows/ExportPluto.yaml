@@ -4,8 +4,7 @@ on:
         paths-ignore:
             - "README.md"
         branches:
-            - main
-            - master
+            - Fall22
     workflow_dispatch:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
@@ -18,7 +17,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout this repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Install Julia
               uses: julia-actions/setup-julia@v1
@@ -35,9 +34,9 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: pluto_state_cache
-                  key: ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}-${{ hashFiles('**/*jl') }}
+                  key: ${{ runner.os }}-pluto_state_cache-fall22-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}-${{ hashFiles('**/*jl') }}
                   restore-keys: |
-                      ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}
+                      ${{ runner.os }}-pluto_state_cache-fall22-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}
 
 
             - name: Run & export Pluto notebooks
@@ -55,5 +54,5 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages
+                  BRANCH: Fall22-gh-pages
                   FOLDER: .
