@@ -9,7 +9,7 @@ on:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
 concurrency:
-    group: pluto-export
+    group: pluto-export-fall22
     cancel-in-progress: true
 
 jobs:
