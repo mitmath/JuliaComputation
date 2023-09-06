@@ -13,17 +13,22 @@ concurrency:
     group: pluto-export
     cancel-in-progress: true
 
+# This action needs permission to write the exported HTML file to the gh-pages branch.
+permissions:
+    contents: write
+    # (all other permission fields default to "none")
+
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout this repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Install Julia
               uses: julia-actions/setup-julia@v1
               with:
-                  version: 1.8
+                  version: "1.9"
 
             - name: Cache Julia artifacts & such
               uses: julia-actions/cache@v1
@@ -52,8 +57,9 @@ jobs:
 
 
             - name: Deploy to gh-pages
-              uses: JamesIves/github-pages-deploy-action@releases/v3
+              uses: JamesIves/github-pages-deploy-action@releases/v4
               with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages
-                  FOLDER: .
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: gh-pages
+                  folder: .
+                  single-commit: true
