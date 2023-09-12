@@ -36,7 +36,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
 2. Abstractions: By the end of the course students will understand the value of and be able to use abstractions that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)  Students will also grow to appreciate how abstraction is in the very fabric of Julia as compared to other programming languages.
-3. Open Source and group collaborations: By the end of the course students will learn how to participate in a larger open source project and also learn how programming language can help break down barriers between areas making real the dream of scientific bilinguals that is being promoted at MIT. (See for example [Reif in the NYT back in 2018](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).)
+3. Open Source and group collaborations: By the end of the course students will learn how to participate in a larger open source project and also learn how programming language can help break down barriers between areas making real the dream of scientific bilinguals that is being promoted at MIT. (See for example [former MIT President Reif in the NYT back in 2018](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).)
    
 
 ## Homeworks at a glance
