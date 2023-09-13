@@ -1,5 +1,8 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2023 (under construction)
 
+## Announcement
+Office Hours this evening Wed 9/13 4:30pm-5:30pm 2-135
+
 ## Logistics
 
 **MIT's numbering scheme gone nuts:** (1.C25/6.C25/12.C25/16.C25/18.C25/22.C25)  
