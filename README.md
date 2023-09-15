@@ -1,7 +1,7 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2023 (under construction)
 
 ## Announcement
-Office Hours this evening Wed 9/13 4:30pm-5:30pm 2-135
+Office Hours are Wednesdays 4:30pm-5:30pm 2-135.
 
 ## Logistics
 
@@ -35,11 +35,11 @@ Class is appropriate for those who enjoy math and wish to see math being used in
 
 While not exactly the same as our past [Computational Thinking Class](https://computationalthinking.mit.edu/)... not entirely different either.
 
-## Intended Learning Objectives
+## Course Objectives
 
 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
-2. Abstractions: By the end of the course students will understand the value of and be able to use abstractions that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)  Students will also grow to appreciate how abstraction is in the very fabric of Julia as compared to other programming languages.
-3. Open Source and group collaborations: By the end of the course students will learn how to participate in a larger open source project and also learn how programming language can help break down barriers between areas making real the dream of scientific bilinguals that has been promoted at MIT. (See for example [former MIT President Reif in the NYT back in 2018](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).)
+2. Abstractions: By the end of the course students will be able to use the unique abstractions that exist in the Julia language to write code that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)
+3. Open Source and group collaborations: By the end of the course students will be able to participate in a larger open source project and also will have experienced how programming language can help break down barriers between areas making real the dream of scientific bilinguals that has been promoted at MIT. (See for example [former MIT President Reif in the NYT back in 2018](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).)
    
 
 ## Homeworks at a glance
