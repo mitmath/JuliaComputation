@@ -23,7 +23,7 @@ end
 md"""
 Homework 2 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 21, 2023 (version 1)
+Release date: Thursday, Sep 21, 2023 (version 1.1)
 
 **Due date: Thursday, Sep 28, 2023 (11:59pm EST)**
 
@@ -45,7 +45,7 @@ md"""
 md"""
 For each function $f(x)$, work out the linear transformation $f'(x)$ such that $df = f'(x) dx$.
 Check your answers numerically using Julia by computing $f(x+e)-f(x)$ for some random $x$ and (small) $e$, and comparing with $f'(x)e$.
-Then, check your answer by calculating $f'(x)e$ using automatic differentiation (choose between ForwardDiff and Zygote and justify your decision).
+Then, check your answer by calculating $f'(x)e$ using automatic differentiation (choose between ForwardDiff (i.e., forward mode AD) and Zygote (i.e., reverse-mode AD) and justify your decision).
 We use lowercase $x$ for vectors and uppercase $X$ for matrices.
 """
 
@@ -150,7 +150,7 @@ end
 
 # ╔═╡ db004480-9456-4e3d-aa7f-8069d30dff3d
 md"""
-TAs, fill this in
+We saw in the last question that it was slower to calculate the whole Jacobian every time, but we could also precompute the Jacobian instead, which is what you'll do this time.
 """
 
 # ╔═╡ 1acfd97d-4a44-4b30-abd9-fdaafb209120
@@ -1849,7 +1849,7 @@ version = "1.4.1+0"
 # ╠═86a96dbb-c018-45b2-b6dd-35bd47051f7f
 # ╠═ed3beb6f-42ac-4787-b4f1-78169e53678b
 # ╠═4fcc5b25-0df2-4125-9e5a-9357e56f8e13
-# ╠═db004480-9456-4e3d-aa7f-8069d30dff3d
+# ╟─db004480-9456-4e3d-aa7f-8069d30dff3d
 # ╠═1acfd97d-4a44-4b30-abd9-fdaafb209120
 # ╠═5dbd09bb-60f9-4c08-a89f-440f082d5b43
 # ╠═9be9d847-36ce-4461-aa85-5da3e82cc1ec
