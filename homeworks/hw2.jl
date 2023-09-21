@@ -23,7 +23,7 @@ end
 md"""
 Homework 2 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 21, 2023 (version 1.1)
+Release date: Thursday, Sep 21, 2023 (version 1.2)
 
 **Due date: Thursday, Sep 28, 2023 (11:59pm EST)**
 
@@ -45,7 +45,8 @@ md"""
 md"""
 For each function $f(x)$, work out the linear transformation $f'(x)$ such that $df = f'(x) dx$.
 Check your answers numerically using Julia by computing $f(x+e)-f(x)$ for some random $x$ and (small) $e$, and comparing with $f'(x)e$.
-Then, check your answer by calculating $f'(x)e$ using automatic differentiation (choose between ForwardDiff (i.e., forward mode AD) and Zygote (i.e., reverse-mode AD) and justify your decision).
+Then, check your answer by calculating $f'(x)e$ using automatic differentiation.
+Use ForwardDiff.jl or Zygote.jl to calculate the gradient or Jacobian and apply it to $$dx$$; justify your decision of which library to use for each problem.
 We use lowercase $x$ for vectors and uppercase $X$ for matrices.
 """
 
@@ -95,6 +96,12 @@ md"""
 Your explanation of forward-mode or reverse-mode goes here
 """
 
+# ╔═╡ 5e3025b9-8661-45fe-8b4c-550a99b62dad
+hint(md"""
+Recall that ForwardDiff uses forward-mode AD and Zygote uses reverse-mode AD.
+Check the dimensions of each problem to decide which to use.
+""")
+
 # ╔═╡ 990ccc09-fdca-4d78-a601-f3abd81bd1ef
 let n = 4, x = rand(n), e = 1e-4 * rand(n)
 	println("Derivative estimates:")
@@ -103,8 +110,8 @@ let n = 4, x = rand(n), e = 1e-4 * rand(n)
 	@show df1_ad(x)(e)
 
 	println("\nError estimates:")
-	@show f1(x + e) - f1(x) - df1(x)(e)
-	@show df1_ad(x)(e) - df1(x)(e)
+	@show abs(f1(x + e) - f1(x) - df1(x)(e)) / 1e-4
+	@show abs(df1_ad(x)(e) - df1(x)(e)) / 1e-4
 end
 
 # ╔═╡ 02c89128-2599-4fba-a8b5-310f90770c8d
@@ -184,8 +191,8 @@ let n = 4, x = rand(n), e = 1e-4 * rand(n)
 	@show df2_ad(x)(e)
 	
 	println("\nError estimates:")
-	@show norm(f2(x + e) - f2(x) - df2(x)(e))
-	@show norm(df2_ad(x)(e) - df2(x)(e))
+	@show norm(f2(x + e) - f2(x) - df2(x)(e)) / 1e-4
+	@show norm(df2_ad(x)(e) - df2(x)(e)) / 1e-4
 end
 
 # ╔═╡ 42cf1696-e3c4-4ca4-8098-a69afe16951a
@@ -244,8 +251,8 @@ let m = 2, n = 4, X = rand(n, m), e = 1e-4 * rand(n, m), θ = rand(n)
 	@show df3_ad_jvp(X; θ)(e)
 
 	println("\nError estimates:")
-	@show norm(f3(X + e; θ) - f3(X; θ) - df3(X; θ)(e))
-	@show norm(df3_ad_jvp(X; θ)(e) - df3(X; θ)(e))
+	@show norm(f3(X + e; θ) - f3(X; θ) - df3(X; θ)(e)) / 1e-4
+	@show norm(df3_ad_jvp(X; θ)(e) - df3(X; θ)(e)) / 1e-4
 end
 
 # ╔═╡ 39d7205b-4de0-4e60-9def-39c3cdc09f52
@@ -292,21 +299,22 @@ let n = 4, X = rand(n, n), e = 1e-4 * rand(n, n)
 	@show df4_ad_jvp(X)(e)
 	
 	println("\nError estimates:")
-	@show norm(f4(X + e) - f4(X) - df4(X)(e))
-	@show norm(df4_ad_jvp(X)(e) - df4(X)(e))
+	@show norm(f4(X + e) - f4(X) - df4(X)(e)) / 1e-4
+	@show norm(df4_ad_jvp(X)(e) - df4(X)(e)) / 1e-4
 end
 
 # ╔═╡ a20cff57-1d2e-4885-8ac3-c6a2892d0dc6
 md"""
-# The gradient is the transpose of the derivative
+# Gradients
 """
 
 # ╔═╡ 6b2c55c4-a5c2-461a-a20e-d94c792618b5
 md"""
-In class, you learned that the gradient is the adjoint of the derivative.
-The derivative is a linear map from small changes to input to small changes in output.
-The gradient is a linear map from the output space to the input space.
-We generally only call it a gradient when the output is a scalar, which makes the gradient a linear map from the real line to the input space, which can simply be represented by a an element of the input space; this is why we say the gradient has the same shape as the input and represent the derivative as the dot product of a small change in the input with the gradient.
+In class, you learned that the gradient is the transpose of the Jacobian when the input is a vector and the output is a scalar.
+The derivative (represented by the Jacobian) is a linear map from small changes to input to small changes in output.
+The gradient therefore represents a linear map from the output space (i.e., the real line) to the input space (even if the input is a matrix instead of a vector; it just gets harder to talk about a Jacobian in that case, so we can no longer say that the gradient is the transpose).
+The gradient has the same shape as the input and we can represent the derivative as the dot product of a small change in the input with the gradient.
+(Recall that in class we talked about a matrix dot product, so even when the input is a matrix the derivative can return the dot product of the gradient matrix and the small change in the input matrix.)
 """
 
 # ╔═╡ 6dc1df96-7b97-4218-94c7-bc9325ee33bd
@@ -321,7 +329,7 @@ For example, if we want the function to increase by $$0.001$$, we adjust the inp
 # ╔═╡ 899a4c62-5f12-43f6-b9f0-37ef5c618bb3
 md"""
 !!! danger "Question"
-	What other linear algebra concept is your classmate mixing up with the adjoint in this statement?
+	What other linear algebra concept is your classmate mixing up with the transpose in this statement?
 	Explain.
 """
 
@@ -335,7 +343,7 @@ In other words, $$AB = 1 = I_1$$.
 
 Can you remember from your linear algebra class what operation you apply to a matrix $$A$$ to get a matrix $$B$$ such that $$AB = I$$?
 Be careful!
-In this case, $$BA$$ is an $$n \times n$$ matrix and usually won't also be $$I$$.
+In this case, $$A$$ and $$B$$ aren't necessarily square, and, though $$BA$$ is an $$n \times n$$ matrix, it usually won't also be $$I$$.
 """)
 
 # ╔═╡ 55d20a84-4329-4b0f-bd1f-d03900b62659
@@ -1841,6 +1849,7 @@ version = "1.4.1+0"
 # ╠═7ea92756-daa2-4ab0-8ade-f563539cc051
 # ╠═077912b2-c7e2-4ba0-95f6-0ec1793cee45
 # ╠═b66be168-28a8-4052-a38f-8e31a9b173e1
+# ╟─5e3025b9-8661-45fe-8b4c-550a99b62dad
 # ╠═990ccc09-fdca-4d78-a601-f3abd81bd1ef
 # ╟─02c89128-2599-4fba-a8b5-310f90770c8d
 # ╠═03d733fd-ee7c-4d53-9006-dabae8287ade
