@@ -23,7 +23,7 @@ end
 md"""
 Homework 2 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 21, 2023 (version 1.2)
+Release date: Thursday, Sep 21, 2023 (version 1.3)
 
 **Due date: Thursday, Sep 28, 2023 (11:59pm EST)**
 
@@ -484,14 +484,14 @@ end
 md"""
 ## Question 8 (Optional)
 
-Your classmate finally understands that their understanding of the adjoint was incorrect, so the algorithm they designed doesn't do exactly what they thought it would.
+Your classmate finally understands that their understanding of the gradient was incorrect, so the algorithm they designed doesn't do exactly what they thought it would.
 But now they're curious about an algorithm that does do what they were thinking. 
 """
 
 # ╔═╡ 718431be-47e6-42dc-9627-a5034ac139ad
 md"""
 !!! danger "Task"
-	Considering their original mistake of mixing up adjoint with another linear algebra concept, write a new optimization algorithm that does decrease the objective function by about $$\eta$$ at every step.
+	Considering their original mistake of mixing up the transpose with another linear algebra concept, write a new optimization algorithm that does decrease the objective function by about $$\eta$$ at every step.
 	In this case, for ease of implementation, you can assume $$x$$ is a vector.
 """
 
