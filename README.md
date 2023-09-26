@@ -1,7 +1,7 @@
 # Julia: Solving Real-World Problems with Computation, Fall 2023 (under construction)
 
 ## Announcement
-Office Hours are Wednesdays 4:30pm-5:30pm 2-135.
+Office Hours are Wednesdays 4:30pm-5:30pm in 2-135.
 
 ## Logistics
 
@@ -15,7 +15,7 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, [G. Dalle](https://gdalle.github.io/)
 
 **Teaching Assistants:**
-**Office Hours:** TBD
+**Office Hours:** Wednesdays 4:30pm-5:30pm in 2-135
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas. No exams.  
 **Lecture Recordings:** Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
