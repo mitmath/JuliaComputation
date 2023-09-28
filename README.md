@@ -14,7 +14,8 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 
 **Instructors:** A. Edelman, R. Ferrari, Y. Marzouk, P. Persson (UCB), S. Silvestri, J. Urschel, [G. Dalle](https://gdalle.github.io/)
 
-**Teaching Assistants:**
+**Teaching Assistants:** Jacob Hansen (jahansen@mit.edu), Nicholas Klugman (nklugman@mit.edu)
+
 **Office Hours:** Wednesdays 4:30pm-5:30pm in 2-135
 
 **Grading:** Homeworks that may be spaced one or two weeks, to be submitted on canvas. No exams.  
