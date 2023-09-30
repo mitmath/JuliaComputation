@@ -2,8 +2,8 @@
 # v0.19.27
 
 #> [frontmatter]
-#> title = "HW1a - Pokémon"
-#> date = "2022-09-15"
+#> title = "HW3 - Pokémon"
+#> date = "2023-09-28"
 
 using Markdown
 using InteractiveUtils
@@ -31,9 +31,9 @@ end
 
 # ╔═╡ d20423a3-a6d8-4b7a-83c7-f1539fcc4d72
 md"""
-Release date: Thursday, Sep 21, 2022
+Release date: Thursday, Sep 28, 2023
 
-**Due date: Thursday, Oct 12, 2022 (11:59pm EST)**
+**Due date: Thursday, Oct 12, 2023 (11:59pm EST)**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
