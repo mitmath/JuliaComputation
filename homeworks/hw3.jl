@@ -977,7 +977,7 @@ md"""
 let
 	if @isdefined count_descendants
 		try
-			check = count_descendants(Integer) == 17
+			check = count_descendants(Integer) == 15
 			if check
 				correct()
 			else
@@ -1475,7 +1475,7 @@ md"""
 
 	Sum up your answers in the table below.
 	If you think a given `MatrixMultiplier` is incorrect, provide a code example where it throws an error.
-	If you think a given `MatrixMultiplier` is type-unstable, provide a code example where `@code_warntype` contains red flags.
+	If you think a given `MatrixMultiplier` is type-unstable, provide a code example where `@code_warntype` contains red flags (with exception of MatrixMultiplier1, where @code_warntype cannot catch that it is type unstable)
 """
 
 # ╔═╡ 859c6786-8561-4a3e-b63d-c6377d960718
