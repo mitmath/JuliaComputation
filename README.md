@@ -53,6 +53,7 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW2](https://mit-c25-fall23.netlify.app/homeworks/hw2) | Sep 21   | Sep 28 | Matrix Calculus           |
 | [HW3](https://mit-c25-fall23.netlify.app/homeworks/hw3) | Sep 28   | Oct 12 | Julia Types               |
 | [HW4](https://mit-c25-fall23.netlify.app/homeworks/hw4) | Oct 12   | Oct 19 | Seam Carving              |
+| [HW5](https://mit-c25-fall23.netlify.app/homeworks/hw5) | Oct 19   | Oct 26 | Performance & Parallelism |
 
 Each student gets to turn in one homework late without justification.
 Further late turn ins must be justified.
