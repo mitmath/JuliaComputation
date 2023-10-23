@@ -23,7 +23,7 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Nov 19, 2023 (version 1)
+Release date: Thursday, Nov 19, 2023 (version 1.1)
 
 **Due date: Thursday, Nov 26, 2023 at 11:59pm EST**
 
@@ -678,6 +678,7 @@ end
 md"""
 !!! danger "Task 4.1"
 	The `nbody!` function contains 3 nested loops: on `s`, `i` and `j`.
+	(The loop on `j` is within `update_acceleration!`.)
 	Which one of them
 	1. can be parallelized easily?
 	1. could be parallelized if we modified the code a little bit?
