@@ -38,11 +38,11 @@ end
 
 # ╔═╡ c6bd612e-21c4-4e2d-91ac-42fe4f611364
 md"""
-Homework 4 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
+Homework 7 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Saturday, Oct 15, 2022 (version 1)
+Release date: Thursday Nov 2, 2023 (version 1)
 
-**Due date: Saturday, Oct 22, 2022 at 11:59pm EST**
+**Due date: Thursday Nov 9, 2023 at 11:59pm EST**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
