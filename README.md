@@ -55,7 +55,8 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 | [HW4](https://mit-c25-fall23.netlify.app/homeworks/hw4)         | Oct 12   | Oct 19 | Seam Carving                  | [HW4 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw4_solutions) |
 | [HW5](https://mit-c25-fall23.netlify.app/homeworks/hw5)         | Oct 19   | Oct 26 | Performance & Parallelism     |                                                                                      |
 | [HW6](https://mit-c25-fall23.netlify.app/homeworks/hw6)         | Oct 26   | Nov 2 | Challenge Checkin 1            |                                                                                      |
-| [HW7](https://mit-c25-fall23.netlify.app/homeworks/hw7)         | Oct 19   | Oct 26 | Survey and Climate ODEs     |                                                                                      |
+| [HW7](https://mit-c25-fall23.netlify.app/homeworks/hw7)         | Nov 2   | Nov 9 | Survey and Climate ODEs     |                                                                                      |
+| [HW8](https://mit-c25-fall23.netlify.app/homeworks/hw8)         | Nov 9   | Nov 16 | Challenge Problem Check-In 2     |                                                                                      |
 | ...                                                             | ...      | ...    | ...                           |                                                                                      |
 | [Challenge](https://gdalle.github.io/IntroJulia/challenge.html) | Oct 17   | Dec 5  | Google Streetview car routing |                                                                                      |
 
