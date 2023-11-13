@@ -23,9 +23,9 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Nov 19, 2023 (version 1.1)
+Release date: Thursday, Oct 19, 2023 (version 1.1)
 
-**Due date: Thursday, Nov 26, 2023 at 11:59pm EST**
+**Due date: Thursday, Oct 26, 2023 at 11:59pm EST**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
