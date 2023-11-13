@@ -23,7 +23,7 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Nov 19, 2023 (version 1.1)
+Release date: Thursday, Nov 19, 2023 (version 1.2)
 
 **Due date: Thursday, Nov 26, 2023 at 11:59pm EST**
 
@@ -740,7 +740,7 @@ md"""
 
 # ╔═╡ cc734b56-93b2-40c3-acbb-2d18b028ae21
 md"""
-!!! danger "Task 5.1"
+!!! danger "Task 4.2"
 	Implement `nbody_threaded!` as a multithreaded version of `nbody!`
 """
 
