@@ -23,7 +23,7 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Oct 19, 2023 (version 1.2)
+Release date: Thursday, Oct 19, 2023 (version 1.3)
 
 **Due date: Thursday, Oct 26, 2023 at 11:59pm EST**
 
@@ -144,7 +144,7 @@ This benchmark shows zero allocation, which is what we actually expect.
 # ╔═╡ 4d636f82-8330-41fe-80fc-e96bb66e503a
 md"""
 !!! danger "Task 1.1"
-	Write a function that compares matrix addition and multiplication based on the time per operation.
+	Write a function that compares matrix addition and multiplication based on the time _per operation_.
 """
 
 # ╔═╡ a35a7ec2-9ebf-4cdc-9ae4-b7954302fe20
@@ -190,8 +190,8 @@ begin
 	times_mul = Float64[]
 	@progress for n in n_values
 		ta, tm = compare_add_mul(n)
-		push!(times_add, ta / n^2)
-		push!(times_mul, tm / n^3)
+		push!(times_add, ta)
+		push!(times_mul, tm)
 	end
 end
 
