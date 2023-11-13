@@ -1,4 +1,4 @@
-# Julia: Solving Real-World Problems with Computation, Fall 2023 (under construction)
+# Julia: Solving Real-World Problems with Computation, Fall 2023
 
 ## Announcement
 
@@ -67,7 +67,7 @@ It is a necessary, but not sufficient condition.
 
 Homework solutions will be put online after each deadline.
 
-## Lectures at a glance   (future based on the 2022 class, will be modified based on students' interest this year)
+## Lectures at a glance
 
 | #   | Day | Date  | Lecturer          | Topic                                                | Slides / Notes                                                                                                                                    | Notebooks                                                                                                                                                                                                                                                                                                                                                                |
 | --- | --- | ----- | ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
