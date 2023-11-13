@@ -23,7 +23,7 @@ end
 md"""
 Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Oct 19, 2023 (version 1.3)
+Release date: Thursday, Oct 19, 2023 (version 1.1)
 
 **Due date: Thursday, Oct 26, 2023 at 11:59pm EST**
 
@@ -65,19 +65,22 @@ catch e
 	@info "CUDA.jl is not working correctly on this machine"
 end
 
-# ╔═╡ 0c98d84e-00f4-43ce-847f-f1a3ff9b4e2a
+# ╔═╡ ccce9e18-a32f-49c7-9cdf-b465d999272e
+tick(done) = done ? "✓" : "∅"
+
+# ╔═╡ c6194c33-f55d-447b-9382-7a3b1e91e4cd
 md"# 1. Benchmarking"
 
-# ╔═╡ a89ec761-8c1d-4984-944f-2e3b1cc7dbe9
+# ╔═╡ 0f68a1bd-32e0-4250-a32d-b75c8290d647
 md"""
 To start with, let us note that Julia already has a useful built-in macro called `@time`.
 When you put it before a function call, it measures the CPU time, memory use and number of allocations required.
 """
 
-# ╔═╡ ee3e173f-a8d7-490d-966b-213c9678c99c
+# ╔═╡ f422640a-0f18-4590-a2c4-728628b89030
 @time rand(1000, 1000);
 
-# ╔═╡ db911c10-4f16-4a9b-ae75-77ed4b0fbcc7
+# ╔═╡ 67e7def5-17e0-4647-9486-3b18489db3e0
 md"""
 But `@time` has a few drawbacks:
 - it only runs the function one time, which means estimates are noisy
@@ -87,67 +90,67 @@ But `@time` has a few drawbacks:
 Here are some examples.
 """
 
-# ╔═╡ e1af9a3e-792d-4557-b889-e38c95a8860a
+# ╔═╡ 03cba3a4-024a-4d0a-ab67-9a24a3cced9a
 @time cos.(rand(1000, 1000));
 
-# ╔═╡ 41589942-1d0d-42cc-8523-24e582b3d3f6
+# ╔═╡ 20aea1d3-f6cd-4536-97de-e4769deb2760
 md"""
 The first time you run the previous cell, most of the time will actually be spent compiling the function.
 If you run it a second time, the benchmarking result will be completely different.
 """
 
-# ╔═╡ 71da98e7-b7a3-4b82-a551-5953ce001f73
+# ╔═╡ 639a2344-0e5f-4c74-885a-c65224bc4ea0
 let
 	x = rand(1000, 1000)
 	sum(abs2, x)  # run once to compile
 	@time sum(abs2, x)
 end; 
 
-# ╔═╡ fc307c99-4444-4e9f-8194-c60634286b4e
+# ╔═╡ 83ed1131-0f05-4047-b21f-ceb34e9a50cd
 md"""
 In the previous cell, there is no reason for the sum to allocate anything: this is just an artefact due to the global variable `x`.
 """
 
-# ╔═╡ 7652a2bd-27e9-4d47-93b5-4ada74516524
+# ╔═╡ 5545b148-cd3e-4b0c-a0d8-6c73ea4f962d
 md"""
 For all of these reasons, [`BenchmarkTools.jl`](https://github.com/JuliaCI/BenchmarkTools.jl) is a much better option.
 Its `@btime` macro does basically the same job as `@time`, but runs the function several times and circumvents global variables, as long as they are "interpolated" with a `$` sign.
 """
 
-# ╔═╡ 5b752d74-be2a-4e04-9a38-b566a28bf8a4
+# ╔═╡ 56f2eee6-8245-4ea3-923d-059042d74cd8
 @btime rand(1000, 1000);
 
-# ╔═╡ 333f28a1-0ae7-4933-a25d-dfea1f08d20b
+# ╔═╡ 4524383b-a27a-4ec7-9dad-2d3cce0eebfe
 md"""
 This benchmark is pretty comparable to the one given by `@time`.
 """
 
-# ╔═╡ 1ceffc88-f8a4-4b14-b7cb-23ca8e7a796e
+# ╔═╡ 7171dd77-4201-49c3-8484-57c885d82e1b
 @btime sin.(rand(1000, 1000));
 
-# ╔═╡ 5e0b101f-a9fe-4702-9c7c-bf199c3ebf10
+# ╔═╡ afa1d614-1409-48c2-bff6-24760ea13698
 md"""
 This benchmark does not include compilation time, because the first run of the function is just one of many.
 """
 
-# ╔═╡ 56badd88-f661-4a6d-95b4-1c62709ada38
+# ╔═╡ 6f8c2682-cc7b-4baa-9d1c-b2167906d93a
 let
 	x = randn(1000, 1000); 
 	@btime sum(abs2, $x); 
 end
 
-# ╔═╡ 09156ec4-2146-4f8d-a5ac-7fed1951d9d1
+# ╔═╡ 143eb4c2-8df0-495c-ac65-4ac9c48c072e
 md"""
 This benchmark shows zero allocation, which is what we actually expect.
 """
 
-# ╔═╡ 4d636f82-8330-41fe-80fc-e96bb66e503a
+# ╔═╡ aca11e74-2345-4726-a830-34f99d51dfcc
 md"""
 !!! danger "Task 1.1"
-	Write a function that compares matrix addition and multiplication based on the time _per operation_.
+	Write a function that compares matrix addition and multiplication based on the time per operation.
 """
 
-# ╔═╡ a35a7ec2-9ebf-4cdc-9ae4-b7954302fe20
+# ╔═╡ fe2c200c-0209-4a49-8497-d8b2e2da0ab5
 hint(md"
 Unlike `@btime`, which prints a bunch of information but returns the result of the function, `@belapsed` actually returns the elapsed CPU time.
 Don't forget to interpolate the arguments.
@@ -156,34 +159,35 @@ Remember that for a given size $n$, addition requires $n^2$ operations while mul
 You should divide the output of `@belapsed` by these factors.
 ")
 
-# ╔═╡ 18e3412d-2195-4db7-b4dc-f8eeda903d49
+# ╔═╡ 0f8993cc-a924-4e0a-8398-b9966982ce23
 function compare_add_mul(n)
-	# write your code here
-	time_add = 1.0 # change this line
-	time_mul = 1.0 # change this line
+	A = rand(n, n)
+	B = rand(n, n)
+	time_add = ( @belapsed $A + $B ) / n^2
+	time_mul = ( @belapsed $A * $B ) / ( 2 * n^3 )
 	return time_add, time_mul
 end
 
-# ╔═╡ 44bf3996-78e5-4b20-830e-5ae1a87aacfc
+# ╔═╡ 7cef61c1-bb81-4fce-aba7-b7c25245a156
 answer_11 = compare_add_mul(10)
 
-# ╔═╡ b7a09982-c27b-44ea-a3b6-447d0b5a2f8c
+# ╔═╡ 4b817ce7-12bd-47bb-bdff-98fcfb6a4fdf
 compare_add_mul(100)
 
-# ╔═╡ 359d45f7-ca56-4249-a973-eb200249dc25
+# ╔═╡ d1b0d430-9f26-4639-88a1-b0deb89b3bf0
 md"""
 !!! danger "Task 1.2"
 	Now, we'll use your function to plot the normalized time per operation for matrix addition and multiplication, using sizes $n \in \{3, 10, 30, 100, 300\}$.
 	Comment on what you observe and explain the difference you see between matrix addition and multiplication.
 """
 
-# ╔═╡ a9751721-6f63-44e3-ace5-9f01dcff0350
+# ╔═╡ c5ba5f8e-7e85-40e7-8522-9ef6e7fa5439
 md"""
 The loop over $n$ may take a little time, don't be scared.
 We've put the `@progress` macro from [`ProgressLogging`](https://github.com/JuliaLogging/ProgressLogging.jl) in front of the `for` keyword to track its progress.
 """
 
-# ╔═╡ 07e18600-b466-44fc-9835-ff2d4b0fd80f
+# ╔═╡ dd018449-2a2e-4e06-b799-ef8ee1ef456c
 begin
 	n_values = [3, 10, 30, 100, 300]
 	times_add = Float64[]
@@ -195,7 +199,7 @@ begin
 	end
 end
 
-# ╔═╡ 1d497d40-7e84-45e4-a914-5e443d51ff45
+# ╔═╡ c1539339-c285-4846-9391-0d661979bcf0
 begin
 	plot(
 		xlabel="matrix size", ylabel="normalized operation cost (s)",
@@ -205,29 +209,31 @@ begin
 	scatter!(n_values, times_mul, label="matrix multiplication")
 end
 
-# ╔═╡ 9c4f44ef-fb59-4a21-950e-68eb456952e7
+# ╔═╡ 7f4e6db5-241e-46e2-940f-e3c3bb240c45
 answer_12 = md"""
-Your comment here
+Both operations decrease with matrix size, but this is more true of multiplication, as addition seems to flatten out.
+Matrix multiplication produces $n^2$ outputs with $n^3$ operations, which means that the cost of allocating memory for each entry of the output gets spread out over $n$ operations.
+Matrix multiplication produces $n^2$ outputs with $n^2$ operations, so the memory allocation can't be spread out as much.
 """
 
-# ╔═╡ 1e71d8ef-389d-46fe-8c34-976ac3b64b5e
+# ╔═╡ f1b7ca9b-6bfa-433b-80e4-85cf415a7c54
 md"""
 # 2. Writing good serial code
 """
 
-# ╔═╡ 333c4431-248c-44f6-a2f3-77d881bf4c7e
+# ╔═╡ 59e709e2-be53-4312-b3d3-744895a58866
 md"""
 Before parallelizing our code, it's important to ensure the serial version is efficient.
 Often, this is enough to get the speedup we were looking for from parallelism.
 Even if it isn't, it's a necessary step to getting good parallel code (and it's easier to do now than after we've parallelized the code).
 """
 
-# ╔═╡ db22c241-d99a-44e4-b5a2-c0283dc5d61a
+# ╔═╡ c176313c-249d-44c3-89b3-30909fe0f142
 md"""
 ## 2.1 Memory managment
 """
 
-# ╔═╡ 438c1219-2171-466d-a425-f20fc775d856
+# ╔═╡ 948cf826-eaff-4759-b7e3-616b9f56664c
 md"""
 Since Julia is a high-level language, you don't need to care about memory to write correct code.
 New objects are allocated transparently, and once you no longer need them, the Garbage Collector (GC) automatically frees their memory slots.
@@ -237,71 +243,74 @@ If you want to write fast code, you might need to work "in place" (mutating exis
 This is emphasized [several](https://docs.julialang.org/en/v1/manual/performance-tips/#Measure-performance-with-[@time](@ref)-and-pay-attention-to-memory-allocation) [times](https://docs.julialang.org/en/v1/manual/performance-tips/#Pre-allocating-outputs) in the Julia performance tips.
 """
 
-# ╔═╡ 9ee41c2b-e4f3-4da2-b772-243f77cd5587
+# ╔═╡ cb2d2cd7-9abb-43b8-b39d-dee16df84496
 md"""
 A common pattern is broadcasted operations, which can look like `x .+ y` (the `.` goes in front for short operators) or `exp.(x)` (the `.` goes behind for functions).
 They allow you to work directly with array components, instead of allocating new arrays.
 This leads to performance gains, as explained [here](https://docs.julialang.org/en/v1/manual/performance-tips/#More-dots:-Fuse-vectorized-operations).
 """
 
-# ╔═╡ 049b57c3-9dd2-45ae-8b9f-438e7c896ac4
+# ╔═╡ da2a4742-85a2-4241-98f2-5d0962cecc19
 md"""
 !!! danger "Task 2.1"
 	Try to explain the difference in speed and memory use between the following code snippets.
 """
 
-# ╔═╡ 52ed22c5-ef4e-4248-9615-3b250e5f83af
+# ╔═╡ 219d7835-bcff-421b-8aa5-78897042dcbe
 let
 	x = rand(100, 100)
 	y = rand(100, 100)
 	@btime $x += 2 * $y
 end;
 
-# ╔═╡ 880659cd-1766-489b-8c9c-f5408b7cf760
+# ╔═╡ b8e6362e-bd36-429a-abf2-33b26b2cd136
 let
 	x = rand(100, 100)
 	y = rand(100, 100)
 	@btime $x .+= 2 .* $y
 end;
 
-# ╔═╡ fad5383e-83aa-4dbe-bbd7-67a9bef27cec
+# ╔═╡ e37212da-0520-433d-bcfe-1cb3fc82ecdd
 hint(md"`x += y` is syntactically equivalent to `x = x + y`.")
 
-# ╔═╡ f216ae0d-eff2-4abf-b4bc-877f613dd1b1
+# ╔═╡ c128907b-84e3-4126-8caa-33958b6b3bb2
 answer_21 = md"""
-Your answer here
+The first snippet allocates a new array for `2y`, another one for `x + 2y`, and then points `x` to that new array.
+The second snipped uses `x` directly to compute and store `x + 2y` componentwise.
 """
 
-# ╔═╡ fa62fdab-36b4-4fc2-aee6-b4f2ee72be8d
+# ╔═╡ a4d83a55-5b62-413c-b990-47d7550e0c0e
 md"""
 Whenever possible, you may also want to use or write mutating versions of critical functions.
 By convention, such functions get a `!` suffix to warn about their side effects.
 """
 
-# ╔═╡ aceaf48e-2be3-4fde-855f-62e1a8e4eea0
+# ╔═╡ bcf951b4-7e16-4b7a-bbbb-85a8eb5fe27a
 md"""
 !!! danger "Task 2.2"
 	Write a function that compares mutating and non-mutating matrix multiplication.
 """
 
-# ╔═╡ 6952a006-605b-463a-8d51-dbcb5c957b48
+# ╔═╡ 089baba0-029a-4bef-823d-2e35683be689
 hint(md"
 Take a look at the documentation for the three-argument function `mul!(C, A, B)`, and compare it with `A * B`.
 Don't forget to interpolate the arguments
 ")
 
-# ╔═╡ 2b9a78dd-fed1-4c82-8ef9-c18273639957
+# ╔═╡ 9b7884c6-78d7-4ad9-9749-91575c1bc140
 function compare_mul!_mul(n)
-	# Your code goes here
-	time_mul! = 0.0 # Change this line
-	time_mul = 0.0 # Change this line
+	A = rand(n, n)
+	B = rand(n, n)
+	C = similar(B)
+	time_mul! = @belapsed mul!($C, $A, $B)
+	time_mul = @belapsed (C = $A * $B)
 	return time_mul!, time_mul
 end
 
-# ╔═╡ d99166df-efa3-417c-965b-9ff9273de575
+# ╔═╡ 67237335-50d0-4ab3-b1c6-42f8fccefa0a
 answer_22 = compare_mul!_mul(10)
 
-# ╔═╡ 06fb0635-9ae4-4c22-b61a-da0737bf0a6d
+# ╔═╡ 616d0c4f-6e84-4129-8d99-a8d7e15055f4
 compare_mul!_mul(100)
 
 # ╔═╡ 5e31e98e-0688-4b9d-aa81-0f49a793c71a
@@ -332,12 +341,21 @@ hint(md"Use `SVector(Tuple(x))` to convert `x` into a static vector")
 
 # ╔═╡ eb61a025-c36f-4c96-bf3f-029bc3a2cecf
 let
-	# Your code here
+	for n in (2, 20, 200)
+		a, b = rand(n), rand(n)
+		sa, sb = SVector(Tuple(a)), SVector(Tuple(b))
+		ma, mb = MVector(Tuple(a)), MVector(Tuple(b))
+		println("Size $n")
+		@btime $a + $b
+		@btime $sa + $sb
+		@btime $ma + $mb
+	end
 end
 
 # ╔═╡ 27f75a0b-3b90-4982-b411-2b7907f9b7d7
 answer_23 = md"""
-Your answer here
+In all cases, `SVector` is much faster than `MVector` and generates less allocations.
+Furthermore, the benefits of static sizing decrease as the array size increases.
 """
 
 # ╔═╡ e7fbd945-bd94-4639-a9b2-ef2aa78f6600
@@ -440,12 +458,16 @@ hint(md"Try to modify a `Dict` from various threads and see what happens")
 
 # ╔═╡ 7df074c1-1f24-475d-b446-1c16f9c86538
 let
-	# Your code here
+	d = Dict{Int,Int}()
+	Threads.@threads for i in 1:10_000
+		d[i] = 1
+	end
+	length(d)
 end
 
 # ╔═╡ 95dfeb17-7134-41e1-8015-dc14845f369a
 answer_31 = md"""
-Your answer here
+No, `Dict` is not thread-safe
 """
 
 # ╔═╡ 570e7ebe-252f-4cd7-b3a5-31232e5642ec
@@ -527,12 +549,20 @@ hint(md"In practice you won't see the effect of not waiting for this very fast k
 
 # ╔═╡ d7a4e9c6-2a39-4004-b3a6-0beb63d34a47
 let
-	# Your code here
+	a = CuVector(ones(1024))
+	device = KernelAbstractions.get_device(a)  # where the array is stored
+	workgroupsize = device isa GPU ? 256 : Threads.nthreads()  # how much parallelism
+	@info "Kernel" device workgroupsize
+	kernel! = double_kernel!(device, workgroupsize)  # prepare kernel for device
+	event = kernel!(a; ndrange=length(a))  # specify range for i & launch kernel
+	wait(event)  # wait for the computation to finish on the device
+	sum(a)
 end
 
 # ╔═╡ 51ad839c-42cd-4da5-a92c-a6e047fd4ec8
 answer_32 = md"""
-Your answer here
+The device switches from `CPU()` to `CUDADevice()`.
+Without waiting, the result may be displayed by the CPU before the operation is completed on the GPU.
 """
 
 # ╔═╡ b1f56b3f-85dc-4580-aa30-ef2ba0021c4d
@@ -543,17 +573,17 @@ But there are many situations where vectorization is not so obvious, and things 
 Besides, the broadcasting syntax is just a facade that generates new kernels on the fly for every operation, which means writing your own kernels is often more efficient.
 """
 
-# ╔═╡ 8339952b-9ff4-48aa-9509-2740d1aaac8c
+# ╔═╡ 9b65f47f-f569-4aee-9250-af169d13d604
 md"""
 # 4. Simulating the $n$-body problem
 """
 
-# ╔═╡ 38697a0b-0f70-4101-b7e1-c37d3ad98fbb
+# ╔═╡ 7ddb816c-3db4-496b-be8b-508ec6a55680
 md"""
 We'll now practice by writing a simulation for the [$n$-body problem](https://en.wikipedia.org/wiki/N-body_problem).
 """
 
-# ╔═╡ 9b65f47f-f569-4aee-9250-af169d13d604
+# ╔═╡ 43b394d8-ad5c-4aed-b24e-6bb12fbafef4
 md"""
 ## 4.1 Serial simulation
 """
@@ -687,9 +717,9 @@ md"""
 
 # ╔═╡ 23ef2c59-6301-4e42-81e2-6c4481f4bb9b
 answer_41 = md"""
-1. Your answer here
-2. Your answer here
-3. Your answer here
+1. The loop on `i`. Calculating the accelaration of each particle is independent; `update_acceleration!` modifies only `accelertions[i]`, which isn't accessed by any `update_acceleration!` for any other `i`. 
+2. The loop on `j`. $\texttt{a}_\texttt{i}$ is updated for each `j`, so just adding `Threads.@threads` to the loop on `j` would fail to properly calculate $\texttt{a}_\texttt{i}$. However, separate accumulation for each thread followed by a final accumulation step across threads would not be difficult and would allow parallelization over this loop. Such is unnecessary, though, since parallelizing the loop on `i` would be easier.
+3. The loop on `s`. Since this loop is going forward in time, each step depends on the one before it, so parallelization is nonsensical.
 """
 
 # ╔═╡ 3cd38682-aa95-4d27-831f-814641b92754
@@ -745,7 +775,18 @@ md"""
 """
 
 # ╔═╡ cc92ac8f-8430-4ee1-8090-31b4dbd0253b
-# Your code here
+function nbody_threaded!(particles::Particles; Δt, steps)
+    (; masses, positions, last_positions, accelerations) = particles
+	n = length(masses)
+    for s in 1:steps
+        Threads.@threads for i in 1:n
+            update_acceleration!(accelerations, masses, positions, i)
+        end
+        Threads.@threads for i in 1:n
+            update_position!(positions, last_positions, accelerations, i, Δt)
+        end
+    end
+end
 
 # ╔═╡ 9ffe6c48-20f7-4866-af2e-22977315fa60
 let
@@ -789,11 +830,24 @@ md"""
 hint(md"Try playing with the number of particles")
 
 # ╔═╡ 3313e718-9cd2-41d9-8615-b72871f9fda5
-# Your code here
+let
+	n, d, Δt, steps = 5, 2, 0.01, 10
+	particles = initialize_particles(Array; n=n, d=d)
+	@btime nbody!($particles; Δt=$Δt, steps=$steps)
+	@btime nbody_threaded!($particles; Δt=$Δt, steps=$steps)
+end
+
+# ╔═╡ c9d8aed0-5ed5-4d72-9031-ccc536f1c8dc
+let
+	n, d, Δt, steps = 500, 2, 0.01, 10
+	particles = initialize_particles(Array; n=n, d=d)
+	@btime nbody!($particles; Δt=$Δt, steps=$steps)
+	@btime nbody_threaded!($particles; Δt=$Δt, steps=$steps)
+end
 
 # ╔═╡ 904e5a60-65ce-419e-9f8c-32b29a98d0f4
 answer_43 = md"""
-Your answer here
+We observe a multithreading speedup compared to serial when the number of particles becomes large.
 """
 
 # ╔═╡ 09d5ed7f-5c78-470b-a832-d6ce951dc8a2
@@ -812,20 +866,32 @@ hint(md"Start by writing two kernels `update_accelerations_kernel!` and `update_
 
 # ╔═╡ f8eef0e0-eaa8-4161-be01-b8551af21f1f
 @kernel function update_accelerations_kernel!(accelerations, masses, positions)
-    # Your code here
+    i = @index(Global, Linear)
+    update_acceleration!(accelerations, masses, positions, i)
 end
 
 # ╔═╡ f83755c7-d6ff-4438-b9a5-659561d1b6dc
 @kernel function update_positions_kernel!(
 	positions, last_positions, accelerations, Δt
 )
-    # Your code here
+    i = @index(Global, Linear)
+    update_position!(positions, last_positions, accelerations, i, Δt)
 end
 
 # ╔═╡ f7e8e7c9-d71d-48ee-9909-a6a5a4e06d1b
 function nbody_gpu!(particles::Particles; Δt, steps)
 	(; masses, positions, last_positions, accelerations) = particles
-	# Your code here
+	n = length(masses)
+	device = KernelAbstractions.get_device(particles.positions)
+	workgroupsize = device isa GPU ? 256 : Threads.nthreads()
+    kernel1! = update_accelerations_kernel!(device, workgroupsize)
+    kernel2! = update_positions_kernel!(device, workgroupsize)
+    for s in 1:steps
+        ev1 = kernel1!(accelerations, masses, positions; ndrange=n)
+        wait(ev1)
+        ev2 = kernel2!(positions, last_positions, accelerations, Δt; ndrange=n)
+        wait(ev2)
+    end
 end
 
 # ╔═╡ ba83ffdd-480e-496e-b8d6-4475cffd9ea8
@@ -887,16 +953,29 @@ md"""
 
 # ╔═╡ 2db23a84-50f2-4b28-9ea2-218cd850a157
 let
-	# Your code here
+	if (@isdefined nbody_threaded!) && (@isdefined nbody_gpu!) && CUDA.has_cuda_gpu()
+		n, d, Δt, steps = 5000, 2, 0.01, 10
+		particles_cpu = initialize_particles(Array; n=n, d=d)
+		@btime nbody_threaded!($particles_cpu; Δt=$Δt, steps=$steps)
+		@btime nbody_gpu!($particles_cpu; Δt=$Δt, steps=$steps)
+	end
+end
+
+# ╔═╡ db0bc994-8f7b-4570-9ad1-a60e7265366e
+let
+	if (@isdefined nbody_threaded!) && (@isdefined nbody_gpu!) && CUDA.has_cuda_gpu()
+		n, d, Δt, steps = 5000, 2, 0.01, 10
+		particles_cpu = initialize_particles(Array; n=n, d=d)
+		particles_gpu = initialize_particles(CuArray; n=n, d=d)
+		@btime nbody_threaded!($particles_cpu; Δt=$Δt, steps=$steps)
+		@btime nbody_gpu!($particles_gpu; Δt=$Δt, steps=$steps)
+	end
 end
 
 # ╔═╡ dc7cfac4-2076-4b7b-b469-d3399cdb88e2
 answer_45 = md"""
-Your answer here
+We observe a GPU speedup compared to multithreading when the number of particles becomes very large.
 """
-
-# ╔═╡ ccce9e18-a32f-49c7-9cdf-b465d999272e
-tick(done) = done ? "✓" : "∅"
 
 # ╔═╡ 45e5d832-a12b-4512-903a-80899f3cc2a4
 md"""
@@ -2279,47 +2358,48 @@ version = "1.4.1+1"
 # ╟─2ae0f053-a759-4f09-b265-143003a7da1e
 # ╠═ec43be3f-2ae1-41fa-b630-4de63271fbb3
 # ╠═2e70ac93-80ac-44bb-a7e0-06a89a2a0188
-# ╟─0c98d84e-00f4-43ce-847f-f1a3ff9b4e2a
-# ╟─a89ec761-8c1d-4984-944f-2e3b1cc7dbe9
-# ╠═ee3e173f-a8d7-490d-966b-213c9678c99c
-# ╟─db911c10-4f16-4a9b-ae75-77ed4b0fbcc7
-# ╠═e1af9a3e-792d-4557-b889-e38c95a8860a
-# ╟─41589942-1d0d-42cc-8523-24e582b3d3f6
-# ╠═71da98e7-b7a3-4b82-a551-5953ce001f73
-# ╟─fc307c99-4444-4e9f-8194-c60634286b4e
-# ╟─7652a2bd-27e9-4d47-93b5-4ada74516524
-# ╠═5b752d74-be2a-4e04-9a38-b566a28bf8a4
-# ╟─333f28a1-0ae7-4933-a25d-dfea1f08d20b
-# ╠═1ceffc88-f8a4-4b14-b7cb-23ca8e7a796e
-# ╟─5e0b101f-a9fe-4702-9c7c-bf199c3ebf10
-# ╠═56badd88-f661-4a6d-95b4-1c62709ada38
-# ╟─09156ec4-2146-4f8d-a5ac-7fed1951d9d1
-# ╟─4d636f82-8330-41fe-80fc-e96bb66e503a
-# ╟─a35a7ec2-9ebf-4cdc-9ae4-b7954302fe20
-# ╠═18e3412d-2195-4db7-b4dc-f8eeda903d49
-# ╠═44bf3996-78e5-4b20-830e-5ae1a87aacfc
-# ╠═b7a09982-c27b-44ea-a3b6-447d0b5a2f8c
-# ╟─359d45f7-ca56-4249-a973-eb200249dc25
-# ╟─a9751721-6f63-44e3-ace5-9f01dcff0350
-# ╠═07e18600-b466-44fc-9835-ff2d4b0fd80f
-# ╠═1d497d40-7e84-45e4-a914-5e443d51ff45
-# ╠═9c4f44ef-fb59-4a21-950e-68eb456952e7
-# ╟─1e71d8ef-389d-46fe-8c34-976ac3b64b5e
-# ╟─333c4431-248c-44f6-a2f3-77d881bf4c7e
-# ╟─db22c241-d99a-44e4-b5a2-c0283dc5d61a
-# ╟─438c1219-2171-466d-a425-f20fc775d856
-# ╟─9ee41c2b-e4f3-4da2-b772-243f77cd5587
-# ╟─049b57c3-9dd2-45ae-8b9f-438e7c896ac4
-# ╠═52ed22c5-ef4e-4248-9615-3b250e5f83af
-# ╠═880659cd-1766-489b-8c9c-f5408b7cf760
-# ╟─fad5383e-83aa-4dbe-bbd7-67a9bef27cec
-# ╠═f216ae0d-eff2-4abf-b4bc-877f613dd1b1
-# ╟─fa62fdab-36b4-4fc2-aee6-b4f2ee72be8d
-# ╟─aceaf48e-2be3-4fde-855f-62e1a8e4eea0
-# ╟─6952a006-605b-463a-8d51-dbcb5c957b48
-# ╠═2b9a78dd-fed1-4c82-8ef9-c18273639957
-# ╠═d99166df-efa3-417c-965b-9ff9273de575
-# ╠═06fb0635-9ae4-4c22-b61a-da0737bf0a6d
+# ╟─ccce9e18-a32f-49c7-9cdf-b465d999272e
+# ╟─c6194c33-f55d-447b-9382-7a3b1e91e4cd
+# ╟─0f68a1bd-32e0-4250-a32d-b75c8290d647
+# ╠═f422640a-0f18-4590-a2c4-728628b89030
+# ╟─67e7def5-17e0-4647-9486-3b18489db3e0
+# ╠═03cba3a4-024a-4d0a-ab67-9a24a3cced9a
+# ╟─20aea1d3-f6cd-4536-97de-e4769deb2760
+# ╠═639a2344-0e5f-4c74-885a-c65224bc4ea0
+# ╟─83ed1131-0f05-4047-b21f-ceb34e9a50cd
+# ╟─5545b148-cd3e-4b0c-a0d8-6c73ea4f962d
+# ╠═56f2eee6-8245-4ea3-923d-059042d74cd8
+# ╟─4524383b-a27a-4ec7-9dad-2d3cce0eebfe
+# ╠═7171dd77-4201-49c3-8484-57c885d82e1b
+# ╟─afa1d614-1409-48c2-bff6-24760ea13698
+# ╠═6f8c2682-cc7b-4baa-9d1c-b2167906d93a
+# ╟─143eb4c2-8df0-495c-ac65-4ac9c48c072e
+# ╟─aca11e74-2345-4726-a830-34f99d51dfcc
+# ╟─fe2c200c-0209-4a49-8497-d8b2e2da0ab5
+# ╠═0f8993cc-a924-4e0a-8398-b9966982ce23
+# ╠═7cef61c1-bb81-4fce-aba7-b7c25245a156
+# ╠═4b817ce7-12bd-47bb-bdff-98fcfb6a4fdf
+# ╟─d1b0d430-9f26-4639-88a1-b0deb89b3bf0
+# ╟─c5ba5f8e-7e85-40e7-8522-9ef6e7fa5439
+# ╠═dd018449-2a2e-4e06-b799-ef8ee1ef456c
+# ╠═c1539339-c285-4846-9391-0d661979bcf0
+# ╠═7f4e6db5-241e-46e2-940f-e3c3bb240c45
+# ╟─f1b7ca9b-6bfa-433b-80e4-85cf415a7c54
+# ╟─59e709e2-be53-4312-b3d3-744895a58866
+# ╟─c176313c-249d-44c3-89b3-30909fe0f142
+# ╟─948cf826-eaff-4759-b7e3-616b9f56664c
+# ╟─cb2d2cd7-9abb-43b8-b39d-dee16df84496
+# ╟─da2a4742-85a2-4241-98f2-5d0962cecc19
+# ╠═219d7835-bcff-421b-8aa5-78897042dcbe
+# ╠═b8e6362e-bd36-429a-abf2-33b26b2cd136
+# ╟─e37212da-0520-433d-bcfe-1cb3fc82ecdd
+# ╠═c128907b-84e3-4126-8caa-33958b6b3bb2
+# ╟─a4d83a55-5b62-413c-b990-47d7550e0c0e
+# ╟─bcf951b4-7e16-4b7a-bbbb-85a8eb5fe27a
+# ╟─089baba0-029a-4bef-823d-2e35683be689
+# ╠═9b7884c6-78d7-4ad9-9749-91575c1bc140
+# ╠═67237335-50d0-4ab3-b1c6-42f8fccefa0a
+# ╠═616d0c4f-6e84-4129-8d99-a8d7e15055f4
 # ╟─5e31e98e-0688-4b9d-aa81-0f49a793c71a
 # ╟─0333d1f7-be89-4a26-931b-372f3085c618
 # ╟─b7f9507f-b956-4453-ba66-4787d6b2b313
@@ -2358,9 +2438,9 @@ version = "1.4.1+1"
 # ╠═d7a4e9c6-2a39-4004-b3a6-0beb63d34a47
 # ╠═51ad839c-42cd-4da5-a92c-a6e047fd4ec8
 # ╟─b1f56b3f-85dc-4580-aa30-ef2ba0021c4d
-# ╟─8339952b-9ff4-48aa-9509-2740d1aaac8c
-# ╟─38697a0b-0f70-4101-b7e1-c37d3ad98fbb
 # ╟─9b65f47f-f569-4aee-9250-af169d13d604
+# ╟─7ddb816c-3db4-496b-be8b-508ec6a55680
+# ╟─43b394d8-ad5c-4aed-b24e-6bb12fbafef4
 # ╟─01b6edaf-a83f-429f-9108-35b43f6d299c
 # ╟─8429ef19-3306-4d85-b8f6-194a04711dd2
 # ╠═2087f4f2-9d85-4358-bf7f-9ea53db7eead
@@ -2385,6 +2465,7 @@ version = "1.4.1+1"
 # ╟─c1ad1392-005d-4c99-826f-be9c7c240f88
 # ╟─4a330f54-a220-466c-af5e-ad70d5387d5b
 # ╠═3313e718-9cd2-41d9-8615-b72871f9fda5
+# ╠═c9d8aed0-5ed5-4d72-9031-ccc536f1c8dc
 # ╠═904e5a60-65ce-419e-9f8c-32b29a98d0f4
 # ╟─09d5ed7f-5c78-470b-a832-d6ce951dc8a2
 # ╟─449d8103-dc1f-4496-bd90-a4718d9f30ea
@@ -2397,7 +2478,7 @@ version = "1.4.1+1"
 # ╟─a02b2923-bfb0-4cfa-bf05-c1e37d0f9420
 # ╟─4c1f3efe-2374-4471-ae5f-48d7eff4d379
 # ╠═2db23a84-50f2-4b28-9ea2-218cd850a157
+# ╠═db0bc994-8f7b-4570-9ad1-a60e7265366e
 # ╠═dc7cfac4-2076-4b7b-b469-d3399cdb88e2
-# ╟─ccce9e18-a32f-49c7-9cdf-b465d999272e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
