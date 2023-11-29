@@ -20,12 +20,19 @@ md"""
 # Google Hashcode Optimization Challenge: Repository Submission
 
 ### Overview
-This final project report is your opportunity to showcase the culmination of your skills and knowledge gained throughout the course. You've already made it quite a ways, completing various parts through hw6 and hw8. Your repository will now be graded based on the following attributes, each carrying a specific weight towards your final score. While we won't be grading hashly by any means, previous points were awarded by completion, while these points are awarded more by quality. 
+This final project report is your opportunity to showcase the culmination of your skills and knowledge gained throughout the course. You've already made it quite a ways, completing various parts through hw6 and hw8. Your repository will now be graded based on the following attributes, each carrying a specific weight towards your final score.
 
 ### Grading Attributes and Tasks
 
 #### 1. Documentation (3/10 Points)
 **Task**: Create a comprehensive documentation page and a clear README for your Julia package.
+
+The documentation website will serve as a report. It should contain the following pages:
+
+- A tutorial aimed at users of your code
+- A list of all the docstrings
+- A mathematical description of your algorithms
+- A critical discussion of their implementation and performance
 - Ensure your documentation covers all aspects of using your package.
 - The README should provide a quick start guide, installation instructions, and examples.
 
