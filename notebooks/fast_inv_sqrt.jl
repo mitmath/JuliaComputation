@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.32
+# v0.19.29
 
 #> [frontmatter]
 #> title = "Fast Inverse Square Root"
@@ -81,6 +81,12 @@ function inv_sqrt( number )
     return 1 / sqrt(number)
 end
 
+# ╔═╡ 689c5e83-bea8-4c55-afb7-4de66390cad5
+md"### Accuracy comparison"
+
+# ╔═╡ 450feb25-55ee-49ee-935a-f8d215f7a8ad
+md"### Speed comparison"
+
 # ╔═╡ 8ba712b7-85da-45e7-a361-5edc0432415e
 let
 	x = 0.001f0:0.001f0:1.0f0
@@ -109,7 +115,7 @@ But, that leads us to one burning question:
 
 # ╔═╡ 57e2aec8-8c1f-46c3-8d5d-f9bac77a20e0
 md"""
-!!! danger "Activity 1: Does anyone know C?"
+!!! danger "Activity 1: Does anyone here know C?"
 	There's a lot going on in `Q_rsqrt`, but one of the most cofusing lines to someone who doesn't know C is the one labeled "evil floating point bit level hacking," but it's essential to understanding what's going on.
 	Can anyone tell me what the following two lines do?
 	```C
@@ -117,6 +123,24 @@ md"""
 	y  = * ( float * ) &i;
 	```
 """
+
+# ╔═╡ 255a2d77-f890-4bbd-90a6-cb7fcf7b920d
+answer_box(md"""
+Let's break down the line `i = * ( long * ) &y;` into its three parts:
+1. `&y`: This gets the reference to `y`. 
+   `y` is a floating point number stored somewhere in memory and `&y` gets a pointer to that piece of memory.
+2. `( long * )`: This is a type casting in C.
+   In particular, `&y` had type `float *`, since it was a pointer to a float.
+   Here, the code casts that to a pointer to a `long` (a 32-bit signed integer in C).
+3. ` * `: This derefernces the pointer; it reads from the place in memory that the pointer is pointing to.
+   The type of the pointer tells this command how to read the memory.
+   A 32-bit integer (`long`) and a 32-bit floating point number (`float`) are both stored as 32 0's or 1's, and how to interpret those 0's and 1's is the information stored in the type.
+
+So, the line `i = * ( long * ) &y;` reads the bits of `y` as if they represented a 32-bit integer instead of a 32-bit floating point number, and stores that integer in `i`.
+It "reinterprets" the bits.
+
+The line `y  = * ( float * ) &i;` does the same thing in reverse---it reads the bits of `i` as if they represented a 32-bit floating point number instead of a 32-bit integer, and stores that floating point number in `y`.
+""")
 
 # ╔═╡ 24ce88da-c4e6-4e84-92f7-49ba3b3491ac
 md"""
@@ -142,32 +166,32 @@ end
 
 # ╔═╡ 9aef30cc-1661-48ce-b26c-b7e7a0fa81a4
 let
-	x = 0.001f0:0.001f0:1.0f0
+	x = 0.063f0:0.001f0:1.0f0
 	y_normal = inv_sqrt.(x)
 	y_quake = Q_rsqrt.(x)
 
-	plot(x, y_normal, label="Using sqrt")
-	plot!(x, y_quake, label="Quake")
+	scatter(x, y_normal, label="Using sqrt")
+	plot!(x, y_quake, label="Quake", linewidth=3, title="From 2^-4 to 2^0")
 end
 
 # ╔═╡ 8a95044d-4e6a-4e59-bf5a-322b2f7274ab
 let
-	x = 1.0f0:0.1f0:10.0f0
+	x = 1.0f0:0.1f0:16.0f0
 	y_normal = inv_sqrt.(x)
 	y_quake = Q_rsqrt.(x)
 
-	plot(x, y_normal, label="Using sqrt")
-	plot!(x, y_quake, label="Quake")
+	scatter(x, y_normal, label="Using sqrt")
+	plot!(x, y_quake, label="Quake", linewidth=3, title="From 2^0 to 2^4")
 end
 
 # ╔═╡ 12f8bc93-8dfa-4e0c-b037-7d09093a63b8
 let
-	x = 10.0f0:1.0f0:100.0f0
+	x = 16.0f0:1.0f0:256.0f0
 	y_normal = inv_sqrt.(x)
 	y_quake = Q_rsqrt.(x)
 
-	plot(x, y_normal, label="Using sqrt")
-	plot!(x, y_quake, label="Quake")
+	scatter(x, y_normal, label="Using sqrt")
+	plot!(x, y_quake, label="Quake", linewidth=3, title="From 2^4 to 2^8")
 end
 
 # ╔═╡ dffd72a2-a814-4c3d-9dd1-c0e1d58b1c51
@@ -210,6 +234,15 @@ Letting the sign bit be $\sigma$, the exponent be $e$, and the fraction (also kn
 $$\chi_{float} = (-1)^\sigma \left(2^{e - 127}\right) \left(1 + \frac{m}{2^{23}}\right).$$
 """
 
+# ╔═╡ a31c585d-21ce-468e-a18f-0ed2cbbb03b7
+aside(md"""
+!!! question "Check your understanding"
+	Look at the (base-2) scientific notation for $-12$.
+	Can you guess the values of $\sigma, e,$ and $\frac{m}{2^{23}}$?
+
+	Check your guesses by changing `false` to `true` in the code to get the full description.
+""")
+
 # ╔═╡ 5008eef1-861e-4010-828c-2dacdbdeacff
 md"## First try: Ignore the mantissa"
 
@@ -228,6 +261,26 @@ md"""
 	What some easy and some difficult?
 	Would any be easier with our floating point representation?
 """
+
+# ╔═╡ 2006d955-773f-47be-84c7-008e2a2734a2
+answer_box(md"""
+You should probably be able to do the inverse square roots of $100, 100^{-3}, 10^8,$ and $2^{30}$ in your head (they're $\frac{1}{10}, 1000, 10^{-4},$ and $2^{-15}$, respectively), but the last one you probably can't convert to scientific notation in your head.
+
+Whenver the number can be written as $m^{2n}$, we can quickly do the inverse square root to get $m^{-n}$.
+Since scientific notation is $a \times 10^b$, whenever our input has $a=1$ and an even $b$ (i.e., is a power of 100), we can very quickly just halve and negate $b$ to give the answer.
+
+Our floating point representation is instead $a \times 2^b$, so the easy numbers in this format will be powers of four, because then we can just think about the exponent.
+""")
+
+# ╔═╡ 775be446-ea43-4c92-9508-34c6d1bd8d62
+aside(md"""
+!!! question "Check your understanding"
+	When you represent a power of four in the floating point representation above, 24 of the bits are 0.
+	Can you figure out which 24?
+
+	Hint: if you think it's actually 25, you may be forgetting the offset.
+	And if you thought it was 24, but after reading this hint you thing it might be 23, there's something else you're forgetting.
+""")
 
 # ╔═╡ 83ce84ed-ea45-4df1-a8ca-2a20fe18d610
 md"""
@@ -265,8 +318,8 @@ let
 	y_exact = inv_sqrt.(x)
 	y_approx = first_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="First try")
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="First try", linewidth=3)
 end
 
 # ╔═╡ b9b2f39b-b114-4ae8-8c15-e0482b68c55e
@@ -275,24 +328,52 @@ As expcted, it's exact for powers of four!
 Let's see how it does between powers of four.
 """
 
+# ╔═╡ 3b651cb4-f2f2-430e-b670-5834421706c6
+md"""
+!!! danger "Wait!"
+	Before you look at the following graphs, try to predict what our code will do between powers of two.
+	What part of the floating point representation stored the information about where we are between powers of two?
+    What happened to those bits in `first_try`?
+"""
+
 # ╔═╡ c904916d-119e-4eb5-8ae3-4e837be97cef
 let
-	x = 0.001f0:0.001f0:1.0f0
+	x = 0.063f0:0.001f0:1.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = first_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="First try")
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try", linewidth=3)
 end
 
 # ╔═╡ 0448cc27-38a3-4b86-9506-2e072078b562
 let
-	x = 1.0f0:0.1f0:10.0f0
+	x = 1.0f0:0.1f0:16.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = first_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="First try")
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try", linewidth=3)
+end
+
+# ╔═╡ f7774fd4-05f5-4937-b005-0c7f0c8b0614
+aside(md"""
+!!! warning "Déjà vu"
+	If you thought for a moment that you've just seen the same graph three times, there's a reason for that.
+	First, look at the axes to convince yourself they're different, but then look carefully at the ranges chosen in $x$.
+	The first graph has $x$ range from $2^{-4}$ to $2^0$, the second has $2^0$ to $2^4$, and the third has $2^4$ to $2^8$.
+	They're all spanning four powers of $2$.
+	What about our algorithm and what about the function we're approximating gives it this almost periodic looking behavior on that particular scale?
+""")
+
+# ╔═╡ df66cd9e-34a8-48ec-bd9e-e19a99be2e77
+let
+	x = 16.0f0:1.0f0:256.0f0
+	y_exact = inv_sqrt.(x)
+	y_approx = first_try.(x)
+
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try", linewidth=3)
 end
 
 # ╔═╡ 0b8b5dbf-8cb3-4b86-b1cb-bf7f9d09eb68
@@ -307,11 +388,16 @@ md"## Second try: Add a step of Newton's method"
 md"""
 Taking inspiration from the original Quake algorithm, let's add a step of Newton's method.
 
-[Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method) is a root-finding algorithm based on linear approximation.
+[Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method) is an iterative root-finding algorithm based on linear approximation.
+Given a guess for the root, it gives you a new, hopefully better, guess.
+Repeating the process to get gradually better guesses often converges to the true root.
 
 Calculating $x = \frac{1}{\sqrt{t}}$ is the same as finding a root of $f(x) = \frac{1}{x^2} - t$.
+The line commented "1st iteration" in `Q_rsqrt` is a single iteration of Newton's method on this function.
+Generally Newton's method takes many iterations, but it seems that whatever bit hacking is going on befor Newton's method gives a close enough estimate that only one step of Newton's method is required for convergence.
+(You can even see where they used to have two steps, but found the second was unnecessary, so commented it out.)
 
-The graphic below is courtesy of Wikimedia Commons: Original:  Olegalexandrov Vector:  Pbroks13, Public domain.
+Let's take a closer look at Newton's method before applying it.
 """
 
 # ╔═╡ 015ada79-56de-4f1e-9758-6b6541f392fe
@@ -333,20 +419,21 @@ md"""
 """
 
 # ╔═╡ 39034cdc-800f-4a30-8845-84dd4b7307c4
-Foldable("Answer",md"""
+answer_box(md"""
 When we have an estimate $x_n$, the linear approximation is given by 
 
 $$y = f'(x_n) (x - x_n) + f(x_n).$$
 This line has its root at the $x_{n+1}$ that satisfies
 
 $$0 = f'(x_n) (x_{n+1} - x_n) + f(x_n),$$
-which is
+which means
 
 $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.$$
 """)
 
 # ╔═╡ bae2fcf1-82a5-4e88-b9d1-a778b2e036ef
 md"""
+Now, back to the problem at hand.
 In our case, $f'(x) = -\frac{2}{x^3}$, so
 
 $$\begin{align}
@@ -355,8 +442,25 @@ $$\begin{align}
 			&= x_n \left( 1.5 - 0.5 t x_n^2 \right)
 \end{align}$$
 
-Our second try just adds one iteration of this formula:
+That's exactly the assignment done in the following line from the original code, so we know we're on the right track.
+```C
+y  = y * ( threehalfs - ( x2 * y * y ) );  // 1st iteration
+```
+
+Our second try at approximating $\frac{1}{\sqrt{t}}$ just adds one iteration of this formula:
 """
+
+# ╔═╡ 684ae767-6fba-4387-8d1a-df35219aae41
+aside(md"""
+!!! warning "Why that f(x)?"
+	The choice of $f(x) = \frac{1}{x^2} - t$ was neither unique nor arbitrary.
+	Other candidates include $f(x) = \frac{1}{x} - \sqrt{t}$, $f(x) = x^2 - \frac{1}{t}$, and $f(x) = 1 - t x^2$, among infinitely many other functions that have $\frac{1}{\sqrt{t}}$ as a root.
+
+	However, the choice of $f(x) = \frac{1}{x^2} - t$ has led to an update rule with no floating point division, only multiplicaiton and subtraction.
+	This provided a minor speed boost in a clearly highly optimized function, since floating point multiplication is slower than floating point division.
+	
+	Derive the update rule for each of the other candidates above and you'll see that they all include floating point division (or worse, square root).
+""")
 
 # ╔═╡ 194294d9-36fc-400e-90e0-817b8ccdb880
 function second_try(number::Float32)
@@ -366,22 +470,32 @@ end
 
 # ╔═╡ eb56506d-5262-41ac-a021-776a8db76ad4
 let
-	x = 0.001f0:0.001f0:1.0f0
+	x = 0.063f0:0.001f0:1.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = second_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="First try + 1 Newton step")
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try + 1 Newton step", linewidth=3)
 end
 
 # ╔═╡ 2f7ce643-5f79-4c3b-9893-67cfb588b9ca
 let
-	x = 1.0f0:0.1f0:10.0f0
+	x = 1.0f0:0.1f0:16.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = second_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="First try + 1 Newton step")
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try + 1 Newton step", linewidth=3)
+end
+
+# ╔═╡ 79b47c58-f95c-46f8-914e-acd029988c13
+let
+	x = 16.0f0:1.0f0:256.0f0
+	y_exact = inv_sqrt.(x)
+	y_approx = second_try.(x)
+
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="First try + 1 Newton step", linewidth=3)
 end
 
 # ╔═╡ 5f1bf8b3-7eb1-4ef3-85f1-67b9c5af2788
@@ -391,8 +505,105 @@ A single Newton step isn't enough to overcome throwing away the entire mantissa,
 (You can try doing a few more Newton steps, but you'll find that you would need too many for it to actually be a speed up compared to `1/sqrt(x)`.)
 """
 
+# ╔═╡ d2c79538-f143-410e-a4fe-b6de1b09d7f0
+md"## Third try: Don't delete the mantissa"
+
+# ╔═╡ e6ffb0c9-f190-486d-9cf1-e01507676323
+md"""
+We started our first try by specializing to powers of four, when $m = 0$.
+In that case, we operated just on the exponent, by applying the offset, multiplying by $-\frac{1}{2}$, then re-applying the offset.
+
+To extract the exponent, we shifted the exponent bits all the way over to the least siginficant bits, where the mantissa is usually stored, but we were assuming it was zero anyway.
+We could, however, do the math on the exponent in-place.
+Then, we at least won't throw away the mantissa and maybe we can find something to change it however it needs after we handle the exponent.
+
+To do so, instead of shifting `i` to the right 23 places, let's shift the offset to the left 23 places.
+"""
+
+# ╔═╡ fdd5f2ae-56f4-4da1-8df7-40c08eb1c1da
+function third_try(number::Float32)
+	i = reinterpret(Int32, number)      # get the bits
+	offset = Int32(127) << 23 			# shift the offset into the exponent places
+	j = i - offset 						# remove the offset from the exponent
+	new_j = -(j >> 1)     				# bitshift by one is the same as divide by two
+	new_i = new_j + offset   			# re-offset
+	return reinterpret(Float32, new_i) 
+end
+
+# ╔═╡ 17b0a791-6376-4fe0-abd2-02c72e6e3a3d
+md"""
+There are many subtle points and edge cases to what we just did.
+Here are just a few:
+* What happens when $e-127$ is negative?
+  (We end up using the sign bit, but only for a moment, and by the end we're no longer using it.)
+* When we shift and negate the whole number, don't we change mantissa?
+  (Yes, and we'll carefully examine how soon.)
+* We even shift the least significant bit of the exponent into the mantissa; surely that's counter-productive?
+
+Before we think too deeply about these subtleties, let's see how we've done with this small change.
+
+We'll start on powers of four, since we should still be exact on them.
+"""
+
+# ╔═╡ d2509072-1409-4576-8505-0791308bfb47
+let
+	x = Float32.(4.0 .^ (-3:3))
+	y_exact = inv_sqrt.(x)
+	y_approx = third_try.(x)
+
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="Third try", linewidth=3)
+end
+
+# ╔═╡ 480e0bc3-8e25-4bd7-88a8-b5d3f5436dc6
+md"""
+As expected.
+Now, let's look between them.
+"""
+
+# ╔═╡ 7aa572a6-8e44-4ef9-acdb-5e7d78965406
+let
+	x = 0.063f0:0.001f0:1.0f0
+	y_exact = inv_sqrt.(x)
+	y_approx = third_try.(x)
+
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="Third try", linewidth=3)
+end
+
+# ╔═╡ 92ac5498-4872-42ad-a307-abb919c15ed9
+let
+	x = 1.0f0:0.1f0:16.0f0
+	y_exact = inv_sqrt.(x)
+	y_approx = third_try.(x)
+
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="Third try", linewidth=3)
+end
+
+# ╔═╡ 6709aeba-eb03-49e5-8e17-a2a2f10e581f
+let
+	x = 16.0f0:1.0f0:256.0f0
+	y_exact = inv_sqrt.(x)
+	y_approx = third_try.(x)
+
+	scatter(x, y_exact, label="Exact", linewidth=3)
+	plot!(x, y_approx, label="Third try", linewidth=3)
+end
+
+# ╔═╡ 9fad9c30-1155-422a-a6a3-f1869088fe6c
+md"""
+That's amazing improvement between the powers of four!
+Far better than one step of Newton's method provided.
+
+But, why?
+
+Keeping the mantissa is a good start, but why did the same operation as the exponent do so well for the mantissa?
+To answer that question, we're driven to our last resort: algebra.
+"""
+
 # ╔═╡ 5188fd89-36f0-437c-b793-f3e3316e4a3d
-md"## Third try: Algebra"
+md"## Understanding the third try"
 
 # ╔═╡ cc5af7ef-83d4-48fd-82cc-3f2e74c95933
 md"""
@@ -430,17 +641,19 @@ $$\begin{gather}
 	\chi_{int} = 2^{23}e + m.
 \end{gather}$$
 
-Now we've moved the $m$ into a logarithm, and to move it out, we use a linear approximation of $\log_2(1+x)$.
+Now we've moved the $m$ into a logarithm.
+To move it out, we use a linear approximation of $\log_2(1+x)$.
 Since $m \in [0, 2^{23}), x\in [0, 1)$.
-Let's use the approximation $\log_2(1 + x) \approx x$.
-As shown below, it's accurate at both endpoints, and decently close throughout the interval.
+Let's use the secant approximation from the endpoints of that interval.
+Since $\log_2(1 + 0) = 0$ and $\log_2(1 + 1) = 1$ our secant approximation is $\log_2(1 + x) \approx x$.
+As shown below, it's accurate at both endpoints (by definition), and decently close throughout the interval.
 """
 
 # ╔═╡ 7081b5b0-2dcc-4ab5-a26f-33965137902f
 let
 	x = 0:0.001:1
-	plot(x, x, label="y = x")
-	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright)
+	plot(x, x, label="y = x", linewidth=3)
+	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright, linewidth=3)
 end
 
 # ╔═╡ 51cd4bce-dbc0-416e-9d8a-e5553f947c20
@@ -455,8 +668,33 @@ $$\begin{gather}
 so, we have the following approximate relation between the logarithm of a floating point number and the integer that results from interpreting it as an integer:
 
 $$\log_2(\chi_{float}) \approx 2^{-23}\chi_{int} - 127.$$
+"""
 
-We now use the property of logarithms that $a \log_2(b) = \log_2(b^a)$. 
+# ╔═╡ dd096ed9-fa6c-43c1-88e2-6c1b4843a942
+md"""
+!!! tip "Take note!"
+	The approximate formula we've just derived is essential to how `Q_rsqrt` works!
+	
+	That formula is saying that when you interpret the bits of the floating point number as an integer, you're approximately taking a scaled and shifted logarithm.
+	
+	Consider again the case where $\chi_{float}$ is a power of four ($1.0 \times 2^{2n}$).
+	The base-two logarithm will just be the exponent, $2n$.
+	That information is stored in the $e$ bits of $\chi_{int}$, which we can get by performing a 23-bit right shift (which multiplies by $2^{-23}$), and then applying the offset (subtracting $127$).
+
+	This formula exactly represents the following lines from `first_try`:
+	```julia
+	i = reinterpret(Int32, number)      # get the bits
+	e = i >> 23                         # get just the exponent bits
+	exponent = e - Int32(127)           # offset to get the exponent
+	```
+
+	What the algebra has added for us, is a justification (through the approximation of $\log_2(1 + x)$ by $x$) for this formula applying even when $m \ne 0$.
+	That's why we get decent results between powers of four.
+"""
+
+# ╔═╡ 098c0aa6-6566-4b35-a657-5fffb8f74188
+md"""
+To continue, we use the property of logarithms that $a \log_2(b) = \log_2(b^a)$. 
 We then have
 
 $$\begin{align}
@@ -467,49 +705,50 @@ $$\begin{align}
 
 Using our relationship between the logarithm and the interpretation as an integer, we have shown that if you interpret $(381)2^{22} -\frac{\chi_{int}}{2}$ as a floating point number, you approximately have $\chi_{float}^{-\frac{1}{2}} = \frac{1}{\sqrt{\chi_{float}}}$.
 
-Let's try out this algorithm!
+It turns out that this is exactly what we did in `third_try`:
+
+```julia
+function third_try(number::Float32)
+	i = reinterpret(Int32, number)      # get the bits
+	offset = Int32(127) << 23 			# shift the offset into the exponent places
+	j = i - offset 						# remove the offset from the exponent
+	new_j = -(j >> 1)     				# bitshift by 1 is the same as divide by 2
+	new_i = new_j + offset   			# re-offset
+	return reinterpret(Float32, new_i) 
+end
+```
+
+$\begin{align}
+	\texttt{number} &= \chi_{float} \\
+	\texttt{i} 		&= \chi_{int} \\
+	\texttt{offset} &= (127) 2^{23} \\
+	\texttt{j} 		&= \chi_{int} - (127) 2^{23} \\
+	\texttt{new\_j} &= -\frac{1}{2} \left(\chi_{int} - (127) 2^{23} \right) \\
+					&= \frac{1}{2}(127) 2^{23} - \frac{\chi_{int}}{2} \\
+	\texttt{new\_i} &= \frac{3}{2}(127) 2^{23} - \frac{\chi_{int}}{2} \\
+					&= (381) 2^{22} - \frac{\chi_{int}}{2} \\
+\end{align}$
 """
 
-# ╔═╡ d4138219-eab7-4caf-93ec-7bcdb0351ff7
-function third_try( number::Float32 )
-    χ_int = reinterpret(Int32, number) 
-    χ_int_new = Int32(381*2^22) - ( χ_int >> 1 ) 
-    return reinterpret(Float32, χ_int_new) 
-end
+# ╔═╡ 72f19468-68c5-4800-bb34-54731929856e
+aside(md"""
+!!! question "Check your understanding"
+	See if you can figure out expressions for third roots or inverse fourth roots.
+	Does the math still work when the root isn't a power of two (i.e., square root, fourth root, eight root) or when you aren't taking the reciprocal?
+	Would you be able to write as efficient code if the root weren't a power of two?
+	How about without the reciprocal?
 
-# ╔═╡ 40ca14f0-bb0a-4748-859f-303fb2cf99bf
-let
-	x = 0.001f0:0.001f0:1.0f0
-	y_exact = inv_sqrt.(x)
-	y_approx = third_try.(x)
+	How about if we were to use `double` instead of `float`?
+	They have a different offset and number of bits for the exponent and mantissa, but otherwise the same format.
+""")
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try")
-end
-
-# ╔═╡ 4448e71a-7a2e-4d55-acbf-e63381439eb5
-let
-	x = 1.0f0:0.1f0:10.0f0
-	y_exact = inv_sqrt.(x)
-	y_approx = third_try.(x)
-
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try")
-end
-
-# ╔═╡ fd54fed5-cbef-4415-8ee5-60feab828ae7
-let
-	x = 10.0f0:1.0f0:100.0f0
-	y_exact = inv_sqrt.(x)
-	y_approx = third_try.(x)
-
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try")
-end
-
-# ╔═╡ 13dbe16f-908c-464c-9227-505bc031c125
+# ╔═╡ 6833d950-0c20-49f9-8e3a-ac4ba5e1a2aa
 md"""
-Much closer!
+This careful examination shows us that our magic number $(381) 2^{22} = \frac{3}{2}(127)2^{23}$ comes from the offset in the exponent.
+It has three components: $127$, which is the offset, $2^{23}$, which corresponds to the exponent being stored $23$ bits from the right, and $\frac{3}{2} = 1 - \left(-\frac{1}{2}\right)$, coming from the $-\frac{1}{2}$ power we used to take an inverse square root.
+The same explains the $-\frac{1}{2}$ coefficient on $\chi_{int}$.
+
+Looking back at our graphs, they were closer than we initially expected, but still not quite perfect.
 Let's see if we can fix the last bit with a Newton step.
 """
 
@@ -518,39 +757,49 @@ md"## Fourth try: Newton again"
 
 # ╔═╡ 69b68bfb-c07d-4cee-b81a-19ebfaf85ad1
 function fourth_try(number::Float32)
-	y = third_try(number)
-	y  = y * ( 1.5f0 - ( number * 0.5f0 * y * y ) ) # Newton step
+	χ_int = reinterpret(Int32, number) 
+    χ_int_new = Int32(381*2^22) - ( χ_int >> 1 ) 
+    y = reinterpret(Float32, χ_int_new) 
+	
+	y = y * ( 1.5f0 - ( number * 0.5f0 * y * y ) ) # Newton step
+
+	return y
 end
 
 # ╔═╡ 61f3f04f-27dd-42ad-86ca-9f2048dfd726
 let
-	x = 0.001f0:0.001f0:1.0f0
+	x = 0.063f0:0.001f0:1.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = fourth_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try + 1 Newton step")
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="Third try + 1 Newton step", linewidth=3)
 end
 
 # ╔═╡ a4389c3a-093b-4a81-ab58-5b2b11860663
 let
-	x = 1.0f0:0.1f0:10.0f0
+	x = 1.0f0:0.1f0:16.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = fourth_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try + 1 Newton step")
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="Third try + 1 Newton step", linewidth=3)
 end
 
 # ╔═╡ 5d081a0f-7631-4cea-a6a1-362f2176d335
 let
-	x = 10.0f0:1.0f0:100.0f0
+	x = 16.0f0:1.0f0:256.0f0
 	y_exact = inv_sqrt.(x)
 	y_approx = fourth_try.(x)
 
-	plot(x, y_exact, label="Exact")
-	plot!(x, y_approx, label="Third try + 1 Newton step")
+	scatter(x, y_exact, label="Exact")
+	plot!(x, y_approx, label="Third try + 1 Newton step", linewidth=3)
 end
+
+# ╔═╡ 86f751fe-6090-4e20-9dc5-c23f3af58d66
+md"""
+At least visually, it's a near perfect match.
+"""
 
 # ╔═╡ 74f2355f-c5fd-4d43-a166-d26ce891a451
 md"# Comparing with Quake"
@@ -566,7 +815,7 @@ function Q_rsqrt( number::Float32 )
     x2 = number * 0.5f0
     y = number
 
-    i = reinterpret(Int32, y)                   # evil floating point bit level hacking
+    i = reinterpret(Int32, y)                   # evil floating point bit level hack
     i  = 0x5f3759df - ( i >> 1 )                # what the ****?
     y = reinterpret(Float32, i) 
 
@@ -580,7 +829,10 @@ function fourth_try( number::Float32 )
 	χ_int = reinterpret(Int32, number) 
     χ_int_new = Int32(381*2^22) - ( χ_int >> 1 ) 
     y = reinterpret(Float32, χ_int_new)
+
 	y = y * ( 1.5f0 - ( number * 0.5f0 * y * y ) ) # Newton step
+	
+	return y
 end
 ```
 
@@ -599,10 +851,37 @@ We're so close, but we're off by:
 # ╔═╡ 14d7b1c3-55bf-4f0e-b060-43382e2eec64
 381*2^22 - 0x5f3759df 
 
-# ╔═╡ a0fc2e17-16c7-476b-8ee0-4bc05b68b20b
+# ╔═╡ f1acd0e6-899c-4278-9bbf-19c6c87c1b04
 md"""
 This comes from Quake using a different linear approximation from us.
-Let's consider adding a bias to our linear approximation:
+Let's go back to our algebra for a moment.
+Just before our linear approximation, we had:
+
+$$\begin{gather}
+	\log_2(\chi_{float}) = e - 127 + \log_2 \left(1 + \frac{m}{2^{23}}\right), \\
+	\chi_{int} = 2^{23}e + m.
+\end{gather}$$
+
+This time, let's solve for $e$ in the second equation,
+
+$$e = 2^{-23}(\chi_{int} - m),$$
+
+and plug it into the first:
+
+$$\begin{align}
+	\log_2(\chi_{float}) &= 2^{-23}(\chi_{int} - m) - 127 + \log_2 \left(1 + \frac{m}{2^{23}}\right) \\
+		&= 2^{-23} \chi_{int} - 127 + \left( \log_2 \left(1 + \frac{m}{2^{23}}\right) - \frac{m}{2^{23}} \right).
+\end{align}$$
+
+This exact expression (not an approximation!) is the same as the approximate formula formula we had earlier relating the floating-point and integer interpretations of the same bits, except that it has this $\log_2 \left(1 + \frac{m}{2^{23}}\right) - \frac{m}{2^{23}}$ term that depends on the mantissa.
+The linear approximation we did earlier, $\log_2(1+x) \approx x$, approximated this term as zero.
+
+One nice thing about our earlier approximation was that it didn't just get rid of the logarithm, it actually got rid of the dependence of this formula on $m$ apart from $\chi_{int}$.
+We didn't have to separate out the mantissa bits and handle them separately.
+
+The only way to preserve that propery with a new approximation is for us to still approximate $\log_2 (1 + x) - x$ as a constant, but that constant doesn't have to be $0$.
+Let's call that constant $\alpha$.
+Then we have the following affine approximation
 
 $$\log_2(1 + x) \approx x + \alpha$$
 """
@@ -621,22 +900,13 @@ md"""
 # ╔═╡ 8c004611-99bf-46e1-9b63-e02404b97720
 let
 	x = 0:0.001:1
-	plot(x, x .+ α_slider, label="y = x + α")
-	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright)
+	plot(x, x .+ α_slider, label="y = x + α", linewidth=3)
+	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright, linewidth=3)
 end
 
 # ╔═╡ ab09f51c-945d-4316-8600-338ea6a26720
 md"""
-This comes from Quake using a different linear approximation from us.
-
-If we add a bias to our linear approximation: $\log_2(1 + x) \approx x + \alpha$, we get,
-
-$$\begin{gather}
-	\log_2(\chi_{float}) \approx e + \frac{m}{2^{23}} - 127 + \alpha, \\
-	\chi_{int} = 2^{23}e + m,
-\end{gather}$$
-
-so, we have a different approximate relation between the logarithm of a floating point number and the integer that results from interpreting it as an integer:
+With this new approximation, we have a different approximate relation between the logarithm of a floating point number and the integer that results from interpreting it as an integer:
 
 $$\log_2(\chi_{float}) \approx 2^{-23}\chi_{int} - 127 + \alpha.$$
 
@@ -657,8 +927,8 @@ To find the $\alpha$ used in Quake, we set $3(127 - \alpha)2^{22} = \texttt{0x5f
 # ╔═╡ 7f6d9993-b222-4bcb-9705-6c56607db7f2
 let
 	x = 0:0.001:1
-	plot(x, x .+ α, label="y = x + α")
-	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright)
+	plot(x, x .+ α, label="y = x + α", linewidth=3)
+	plot!(x, log.(2, 1 .+ x), label="y = log2(1+x)", legend=:bottomright, linewidth=3)
 end
 
 # ╔═╡ 367e7ed7-c96e-40d7-9fc1-ca46db168bbd
@@ -671,8 +941,11 @@ md"# Beating Quake"
 
 # ╔═╡ 7d5e4a43-5937-4231-b073-bd85236f483e
 md"""
-We can do slightly better than the original Quake by using a more exact bias than they did.
-For whatever reason, they didn't use the average difference between the two curves as their bias. If we do, we can achieve lower average error than they did.
+We can do slightly better than the original Quake by using a more exact approximation than they did.
+A natural value for $\alpha$ is the average value of $\log_2(1 + x) - x$ on $[0,1)$, since it minimizes our mean squared error (MSE).
+For whatever reason, this isn't the value used in Quake, but it's what we'll use now. 
+By doing so, we can achieve lower average error than they did.
+There are other potential options, for example minimizing mean absolute error or maximum error, but we'll stick to minimizing MSE.
 """
 
 # ╔═╡ b7a6ef9b-1f38-447e-8d9d-3b53451c105d
@@ -699,7 +972,7 @@ end
 
 # ╔═╡ b1b4042a-cca6-4f38-a5d2-154a6a92dcc5
 let
-	x = 0.001f0:0.001f0:1.0f0
+	x = 0.063f0:0.001f0:1.0f0
 		
 	y_exact = inv_sqrt.(x)
 	y_approx = final_try.(x)
@@ -711,13 +984,13 @@ let
 	@show mean(err_ours)
 	@show(mean(err_quake))
 	
-	plot(x, err_quake, label="Error using Quake bias")
-	plot!(x, err_ours, label="Error using our bias")
+	plot(x, err_quake, label="Error using Quake bias", linewidth=3)
+	plot!(x, err_ours, label="Error using our bias", linewidth=3)
 end
 
 # ╔═╡ f5813664-ce3c-4f4e-9f2e-3148ca232ff1
 let
-	x = 1.0f0:0.1f0:10.0f0
+	x = 1.0f0:0.1f0:16.0f0
 	
 	y_exact = inv_sqrt.(x)
 	y_approx = final_try.(x)
@@ -729,13 +1002,13 @@ let
 	@show mean(err_ours)
 	@show(mean(err_quake))
 
-	plot(x, err_quake, label="Error using Quake bias")
-	plot!(x, err_ours, label="Error using our bias")
+	plot(x, err_quake, label="Error using Quake bias", linewidth=3)
+	plot!(x, err_ours, label="Error using our bias", linewidth=3)
 end
 
 # ╔═╡ d9f4a3cf-2c66-4c81-a23c-97386009ad48
 let
-	x = 10.0f0:1.0f0:100.0f0
+	x = 16.0f0:1.0f0:256.0f0
 		
 	y_exact = inv_sqrt.(x)
 	y_approx = final_try.(x)
@@ -747,9 +1020,34 @@ let
 	@show mean(err_ours)
 	@show(mean(err_quake))
 
-	plot(x, err_quake, label="Error using Quake bias")
-	plot!(x, err_ours, label="Error using our bias")
+	plot(x, err_quake, label="Error using Quake bias", linewidth=3)
+	plot!(x, err_ours, label="Error using our bias", linewidth=3)
 end
+
+# ╔═╡ 51f23d3f-f545-45e1-b593-95542d77ee40
+md"""
+!!! danger "Activity 5: Doing even better (Optional, Advanced)"
+	We got a more accurate estimate by updating our linear approximation with a bias to match the average value with that of the function it was approximating.
+	We limited ourselves to changing the offset because we wanted to replace $\log_2 \left( 1 + \frac{m}{2^{23}} \right) - \frac{m}{2^{23}}$ with a term that didn't depend on $m$ apart from $\chi_{int}$.
+	We could potentially get a better fit if instead of replacing the expression with a constant, we replaced it with a simple expression in terms of $m$ and then extracted $m$ from $\chi_{int}$.
+
+	We can extract $m$ from $\chi_{int}$ using the bitwise-and operation.
+	That would be written as 
+	`00000000011111111111111111111111 & chi_int`,
+	or more concisely as
+	`0x7FFFFF & chi_int`
+	in either C or Julia.
+	The zeros wipe away the sign bit and the exponent bits, while the ones maintain the mantissa bits.
+	
+	Try seeing if you can come up with a better approximation of $\log_2 ( 1 + x ) - x$; perhaps a parabola?
+	Then, write some code that operates on $m$ to get the corrective term and add it in to `third_try`.
+	See if your code is still faster than `1 / sqrt( number )`.
+	Can you get both more accurate and faster than `Q_rsqrt`?
+	Can you come up with an approximation that's close enough that you can remove the Newton step?
+	Alternatively, it may be better to use this masking trick to separately handle the exponent and mantissa.
+	
+	Good luck!
+"""
 
 # ╔═╡ 12985fd3-213d-4275-b87f-e92f239baf87
 md"# Utilities"
@@ -791,10 +1089,10 @@ end
 display_float(Float32(2.0), true)
 
 # ╔═╡ d3aa545f-009f-45fe-864d-bf425ec63234
-display_float(Float32(-12.0))
+display_float(Float32(-12.0), false)
 
 # ╔═╡ fd9830cb-6816-4a5b-81f2-c304e9d00ed3
-display_float(Float32(pi), true)
+display_float(Float32(π), true)
 
 # ╔═╡ f33ac63c-b2d3-46dd-8238-d0cde3b6466b
 display_float(Float32(-3.0), true)
@@ -826,7 +1124,7 @@ PlutoUI = "~0.7.52"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.9.4"
+julia_version = "1.9.3"
 manifest_format = "2.0"
 project_hash = "2d3ad58d4a9e7944364e03fe9b01a4bbaf7fa7c3"
 
@@ -1313,12 +1611,12 @@ version = "0.3.1"
 [[deps.LibCURL]]
 deps = ["LibCURL_jll", "MozillaCACerts_jll"]
 uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-version = "0.6.4"
+version = "0.6.3"
 
 [[deps.LibCURL_jll]]
 deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.4.0+0"
+version = "7.84.0+0"
 
 [[deps.LibGit2]]
 deps = ["Base64", "NetworkOptions", "Printf", "SHA"]
@@ -1327,7 +1625,7 @@ uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 [[deps.LibSSH2_jll]]
 deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
 uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.0+1"
+version = "1.10.2+0"
 
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -2161,7 +2459,7 @@ version = "1.1.6+0"
 [[deps.nghttp2_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.52.0+1"
+version = "1.48.0+0"
 
 [[deps.p7zip_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -2196,9 +2494,11 @@ version = "1.4.1+1"
 # ╟─6fce0d3b-01db-4597-9bad-ce4a3df465ac
 # ╟─3f65daf9-96f9-44a8-b396-2b785e779a45
 # ╟─1fce9542-b0d7-43cd-872e-964265b48a06
+# ╟─689c5e83-bea8-4c55-afb7-4de66390cad5
 # ╠═9aef30cc-1661-48ce-b26c-b7e7a0fa81a4
 # ╠═8a95044d-4e6a-4e59-bf5a-322b2f7274ab
 # ╠═12f8bc93-8dfa-4e0c-b037-7d09093a63b8
+# ╟─450feb25-55ee-49ee-935a-f8d215f7a8ad
 # ╠═8ba712b7-85da-45e7-a361-5edc0432415e
 # ╠═dffd72a2-a814-4c3d-9dd1-c0e1d58b1c51
 # ╟─86eacaf7-67f0-40a3-a29c-4669229cd47b
@@ -2206,6 +2506,7 @@ version = "1.4.1+1"
 # ╟─c4e3008c-d544-4a87-8659-93026a381584
 # ╟─8b923508-0369-42bf-8cc8-6d3166b1f307
 # ╟─57e2aec8-8c1f-46c3-8d5d-f9bac77a20e0
+# ╟─255a2d77-f890-4bbd-90a6-cb7fcf7b920d
 # ╟─24ce88da-c4e6-4e84-92f7-49ba3b3491ac
 # ╠═b655a525-f832-4c51-8980-cf8aeb4ef4d6
 # ╟─c6c400af-9021-44a3-9039-7ef81c178caf
@@ -2214,17 +2515,23 @@ version = "1.4.1+1"
 # ╟─ca6e2b22-d244-4925-ac25-065fc1178df9
 # ╟─cb14ccc4-be9a-447f-860a-6b307de799fc
 # ╠═f95adaf6-3263-43c2-b4e2-1c1fcfd166ea
+# ╟─a31c585d-21ce-468e-a18f-0ed2cbbb03b7
 # ╠═d3aa545f-009f-45fe-864d-bf425ec63234
 # ╠═fd9830cb-6816-4a5b-81f2-c304e9d00ed3
 # ╟─5008eef1-861e-4010-828c-2dacdbdeacff
 # ╟─b4b8f416-18c8-40d5-89fc-39f99d732ec6
+# ╟─2006d955-773f-47be-84c7-008e2a2734a2
+# ╟─775be446-ea43-4c92-9508-34c6d1bd8d62
 # ╟─83ce84ed-ea45-4df1-a8ca-2a20fe18d610
 # ╠═f0ba969b-fa16-42e8-997b-654c4f71e7fd
 # ╟─01d979b5-4dce-4ab2-98de-02424788a8ce
 # ╠═3bde82cf-4995-4ae1-82ac-cd8e62c8576a
 # ╟─b9b2f39b-b114-4ae8-8c15-e0482b68c55e
-# ╠═c904916d-119e-4eb5-8ae3-4e837be97cef
+# ╟─3b651cb4-f2f2-430e-b670-5834421706c6
+# ╟─c904916d-119e-4eb5-8ae3-4e837be97cef
 # ╠═0448cc27-38a3-4b86-9506-2e072078b562
+# ╟─f7774fd4-05f5-4937-b005-0c7f0c8b0614
+# ╠═df66cd9e-34a8-48ec-bd9e-e19a99be2e77
 # ╟─0b8b5dbf-8cb3-4b86-b1cb-bf7f9d09eb68
 # ╟─311a15f6-f956-4116-9500-7a3cab3646ef
 # ╟─bcdd7c50-6498-4419-830d-f3ce5ef3bfa5
@@ -2233,38 +2540,50 @@ version = "1.4.1+1"
 # ╟─eddd244b-6df6-4d66-ad94-aeb694c0a6be
 # ╟─39034cdc-800f-4a30-8845-84dd4b7307c4
 # ╟─bae2fcf1-82a5-4e88-b9d1-a778b2e036ef
+# ╟─684ae767-6fba-4387-8d1a-df35219aae41
 # ╠═194294d9-36fc-400e-90e0-817b8ccdb880
 # ╠═eb56506d-5262-41ac-a021-776a8db76ad4
 # ╠═2f7ce643-5f79-4c3b-9893-67cfb588b9ca
+# ╠═79b47c58-f95c-46f8-914e-acd029988c13
 # ╟─5f1bf8b3-7eb1-4ef3-85f1-67b9c5af2788
+# ╟─d2c79538-f143-410e-a4fe-b6de1b09d7f0
+# ╟─e6ffb0c9-f190-486d-9cf1-e01507676323
+# ╠═fdd5f2ae-56f4-4da1-8df7-40c08eb1c1da
+# ╟─17b0a791-6376-4fe0-abd2-02c72e6e3a3d
+# ╟─d2509072-1409-4576-8505-0791308bfb47
+# ╟─480e0bc3-8e25-4bd7-88a8-b5d3f5436dc6
+# ╠═7aa572a6-8e44-4ef9-acdb-5e7d78965406
+# ╠═92ac5498-4872-42ad-a307-abb919c15ed9
+# ╠═6709aeba-eb03-49e5-8e17-a2a2f10e581f
+# ╟─9fad9c30-1155-422a-a6a3-f1869088fe6c
 # ╟─5188fd89-36f0-437c-b793-f3e3316e4a3d
 # ╟─cc5af7ef-83d4-48fd-82cc-3f2e74c95933
 # ╟─0f1c3e22-f9ba-45ad-8f09-2624c21fb7a3
 # ╟─596fe10e-a0eb-42ed-ac30-d840dfc32049
 # ╠═7081b5b0-2dcc-4ab5-a26f-33965137902f
 # ╟─51cd4bce-dbc0-416e-9d8a-e5553f947c20
-# ╠═d4138219-eab7-4caf-93ec-7bcdb0351ff7
-# ╠═40ca14f0-bb0a-4748-859f-303fb2cf99bf
-# ╠═4448e71a-7a2e-4d55-acbf-e63381439eb5
-# ╠═fd54fed5-cbef-4415-8ee5-60feab828ae7
-# ╟─13dbe16f-908c-464c-9227-505bc031c125
+# ╟─dd096ed9-fa6c-43c1-88e2-6c1b4843a942
+# ╟─098c0aa6-6566-4b35-a657-5fffb8f74188
+# ╟─72f19468-68c5-4800-bb34-54731929856e
+# ╟─6833d950-0c20-49f9-8e3a-ac4ba5e1a2aa
 # ╟─14965359-348f-43de-9ed1-7ad2b57709b3
 # ╠═69b68bfb-c07d-4cee-b81a-19ebfaf85ad1
 # ╠═61f3f04f-27dd-42ad-86ca-9f2048dfd726
 # ╠═a4389c3a-093b-4a81-ab58-5b2b11860663
 # ╠═5d081a0f-7631-4cea-a6a1-362f2176d335
+# ╟─86f751fe-6090-4e20-9dc5-c23f3af58d66
 # ╟─74f2355f-c5fd-4d43-a166-d26ce891a451
 # ╟─2ddaaa10-c4d6-4ede-88e1-31aefbdf5cbd
 # ╠═eb396f10-20fc-4a81-b592-631f8c5b05a7
 # ╟─a8e8a8f1-ab1f-49be-be73-557ac7e53192
 # ╠═14d7b1c3-55bf-4f0e-b060-43382e2eec64
-# ╟─a0fc2e17-16c7-476b-8ee0-4bc05b68b20b
+# ╟─f1acd0e6-899c-4278-9bbf-19c6c87c1b04
 # ╟─7e32af84-3fe6-4dab-b4e0-aefbb648c564
 # ╟─c0677178-9ef7-4090-ab44-db5cc4fc6db8
 # ╟─8c004611-99bf-46e1-9b63-e02404b97720
 # ╟─ab09f51c-945d-4316-8600-338ea6a26720
 # ╠═732e87ca-b274-44d7-8b56-c11619d781fd
-# ╠═7f6d9993-b222-4bcb-9705-6c56607db7f2
+# ╟─7f6d9993-b222-4bcb-9705-6c56607db7f2
 # ╟─367e7ed7-c96e-40d7-9fc1-ca46db168bbd
 # ╟─dd066c53-8648-4a36-acef-62a1868dbab8
 # ╟─7d5e4a43-5937-4231-b073-bd85236f483e
@@ -2274,6 +2593,7 @@ version = "1.4.1+1"
 # ╠═b1b4042a-cca6-4f38-a5d2-154a6a92dcc5
 # ╠═f5813664-ce3c-4f4e-9f2e-3148ca232ff1
 # ╠═d9f4a3cf-2c66-4c81-a23c-97386009ad48
+# ╟─51f23d3f-f545-45e1-b593-95542d77ee40
 # ╟─12985fd3-213d-4275-b87f-e92f239baf87
 # ╟─e252bfdd-7340-4c3a-8621-86402987fe85
 # ╟─f33ac63c-b2d3-46dd-8238-d0cde3b6466b
