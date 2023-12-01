@@ -457,7 +457,7 @@ aside(md"""
 	Other candidates include $f(x) = \frac{1}{x} - \sqrt{t}$, $f(x) = x^2 - \frac{1}{t}$, and $f(x) = 1 - t x^2$, among infinitely many other functions that have $\frac{1}{\sqrt{t}}$ as a root.
 
 	However, the choice of $f(x) = \frac{1}{x^2} - t$ has led to an update rule with no floating point division, only multiplicaiton and subtraction.
-	This provided a minor speed boost in a clearly highly optimized function, since floating point multiplication is slower than floating point division.
+	This provided a minor speed boost in a clearly highly optimized function, since floating point division is slower than floating point multiplication.
 	
 	Derive the update rule for each of the other candidates above and you'll see that they all include floating point division (or worse, square root).
 """)
