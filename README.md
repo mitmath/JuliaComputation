@@ -46,20 +46,20 @@ While not exactly the same as our past [Computational Thinking Class](https://co
 
 ## Homeworks at a glance
 
-| Homework                                                        | Assigned | Due    | Topic                         | Solution                                                                             |
-| --------------------------------------------------------------- | -------- | ------ | ----------------------------- | ------------------------------------------------------------------------------------ |
-| [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0)         | Sep 7    | Sep 14 | Getting Started               |                                                                                      |
-| [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1)         | Sep 14   | Sep 21 | Automatic Differentiation     | [HW1 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw1_solutions) |
-| [HW2](https://mit-c25-fall23.netlify.app/homeworks/hw2)         | Sep 21   | Sep 28 | Matrix Calculus               | [HW2 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw2_solutions) |
-| [HW3](https://mit-c25-fall23.netlify.app/homeworks/hw3)         | Sep 28   | Oct 12 | Julia Types                   | [HW3 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw3_solutions) |
-| [HW4](https://mit-c25-fall23.netlify.app/homeworks/hw4)         | Oct 12   | Oct 19 | Seam Carving                  | [HW4 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw4_solutions) |
-| [HW5](https://mit-c25-fall23.netlify.app/homeworks/hw5)         | Oct 19   | Oct 26 | Performance & Parallelism     | [HW5 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw5_solutions) |
-| [HW6](https://mit-c25-fall23.netlify.app/homeworks/hw6)         | Oct 26   | Nov 2 | Challenge Checkin 1            |                                                                                      |
-| [HW7](https://mit-c25-fall23.netlify.app/homeworks/hw7)         | Nov 2    | Nov 9 | Survey and Climate ODEs        |  [HW7 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw7_solutions)  |
-| [HW8](https://mit-c25-fall23.netlify.app/homeworks/hw8)         | Nov 9    | Nov 16 | Challenge Problem Check-In 2  |                                                                                      |
-| [HW9](https://mit-c25-fall23.netlify.app/homeworks/hw9)         | Nov 16    | Nov 28 | Matrix representations & atmospheric temperatures  |                                                                                      |
-| [HW10](https://mit-c25-fall23.netlify.app/homeworks/hw10)         | Nov 28    | Dec 5 | Challenge Problem Final Submission  |                                                                                      |
-| [Challenge](https://gdalle.github.io/IntroJulia/challenge.html) | Oct 17   | Dec 5  | Google Streetview car routing |                                                                                      |
+| Homework                                                        | Assigned | Due    | Topic                                              | Solution                                                                             |
+| --------------------------------------------------------------- | -------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0)         | Sep 7    | Sep 14 | Getting Started                                    |                                                                                      |
+| [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1)         | Sep 14   | Sep 21 | Automatic Differentiation                          | [HW1 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw1_solutions) |
+| [HW2](https://mit-c25-fall23.netlify.app/homeworks/hw2)         | Sep 21   | Sep 28 | Matrix Calculus                                    | [HW2 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw2_solutions) |
+| [HW3](https://mit-c25-fall23.netlify.app/homeworks/hw3)         | Sep 28   | Oct 12 | Julia Types                                        | [HW3 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw3_solutions) |
+| [HW4](https://mit-c25-fall23.netlify.app/homeworks/hw4)         | Oct 12   | Oct 19 | Seam Carving                                       | [HW4 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw4_solutions) |
+| [HW5](https://mit-c25-fall23.netlify.app/homeworks/hw5)         | Oct 19   | Oct 26 | Performance & Parallelism                          | [HW5 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw5_solutions) |
+| [HW6](https://mit-c25-fall23.netlify.app/homeworks/hw6)         | Oct 26   | Nov 2  | Challenge Checkin 1                                |                                                                                      |
+| [HW7](https://mit-c25-fall23.netlify.app/homeworks/hw7)         | Nov 2    | Nov 9  | Survey and Climate ODEs                            | [HW7 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw7_solutions) |
+| [HW8](https://mit-c25-fall23.netlify.app/homeworks/hw8)         | Nov 9    | Nov 16 | Challenge Problem Check-In 2                       |                                                                                      |
+| [HW9](https://mit-c25-fall23.netlify.app/homeworks/hw9)         | Nov 16   | Nov 28 | Matrix representations & atmospheric temperatures  | [HW9 solutions](https://mit-c25-fall23.netlify.app/homework_solutions/hw9_solutions) |
+| [HW10](https://mit-c25-fall23.netlify.app/homeworks/hw10)       | Nov 28   | Dec 5  | Challenge Problem Final Submission                 |                                                                                      |
+| [Challenge](https://gdalle.github.io/IntroJulia/challenge.html) | Oct 17   | Dec 5  | Google Streetview car routing                      |                                                                                      |
 
 Each student gets to turn in one homework late without justification.
 Further late turn ins must be justified.
