@@ -1,8 +1,4 @@
-# Julia: Solving Real-World Problems with Computation, Fall 2023
-
-## Announcement
-
-Office Hours are Wednesdays 4:30pm-5:30pm in 2-135.
+# Julia: Solving Real-World Problems with Computation, Fall 2024 <br>*(course material work in progress)*
 
 ## Logistics
 
