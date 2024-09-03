@@ -68,7 +68,6 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 ## Grading
 |  | Percent |Comment | 
-| ------------------------------------------------- | ---------------------------------------------- | ------------------------------- | 
 | Three Class Presentations       | 25%            |                         |
 |Final Project            | 35%  |   |
 |Class Participation   |    15% |  |
