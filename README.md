@@ -67,6 +67,12 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 
 ## Grading
+| ABCD | Canvas TBA | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| ------------------------------------------------- | ---------------------------------------------- | ------------------------------- | ---------------------------------------- |
+| Three Class Presentations       | 25             | Language                        | GPUs                                     |
+
+
+
 |-------------------|----------|-----|
 |3 Class Presentations    | 25% |   |
 |Final Project            | 35%  |   |
