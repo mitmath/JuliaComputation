@@ -56,7 +56,16 @@ Class is appropriate for those who enjoy math and wish to see math being used in
 
 While not exactly the same as our past [Computational Thinking Class](https://computationalthinking.mit.edu/)... not entirely different either.
 
-## Course Objectives
+## Course Objective
+Make mathematics your playground:
+Throughout the course, students will be encouraged to adopt a new approach to thinking about, learning, and communicating technical systems and concepts.
+We will demonstrate and produce Julia code which exemplifies a living, interactive approach to make math a fun and playful experience.  
+Perhaps similar to a CIM class (though this class is NOT officially a CIM , sorry)
+we will have students present early versions of notebooks, with critiques (and
+you get to critique the professor too).  Nearly all university classes emphasize communication through writing and presentations, this class adds
+*communication through computation*.
+
+
 
 <!----- 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
  2. Abstractions: By the end of the course students will be able to use the unique abstractions that exist in the Julia language to write code that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)
