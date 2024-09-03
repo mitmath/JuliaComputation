@@ -66,6 +66,14 @@ you get to critique the professor too).  Nearly all university classes emphasize
 *communication through computation*.
 
 
+## Grading
+|-------------------|----------|
+|Class Participation   |    15% | comment
+|Homeworks               |  25%|
+|3 Class Presentations    | 25%|
+|Final Project            |35% |
+|-------------------|----------|
+
 
 <!----- 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
  2. Abstractions: By the end of the course students will be able to use the unique abstractions that exist in the Julia language to write code that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)
@@ -73,8 +81,7 @@ you get to critique the professor too).  Nearly all university classes emphasize
 ----->
 
 
-## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation
-is a must.)
+## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
 
 | #   | Day | Date  | Lecturer          | Topic                                                | Slides / Notes                                                                                                                                    | Notebooks                                                                                                                                                                                                                                                                                                                                                                |
 | --- | --- | ----- | ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
