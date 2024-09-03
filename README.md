@@ -69,9 +69,9 @@ you get to critique the professor too).  Nearly all university classes emphasize
 ## Grading
 |-------------------|----------|-----|
 |Class Participation   |    15% | comment |
-|Homeworks               |  25%|
-|3 Class Presentations    | 25%|
-|Final Project            |35% |
+|Homeworks               |  25%|   |
+|3 Class Presentations    | 25%|   |
+|Final Project            |35% |   |
 |-------------------|----------|_____|
 
 
