@@ -67,12 +67,12 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 
 ## Grading
-|-------------------|----------|
-|Class Participation   |    15% | comment
+|-------------------|----------|-----|
+|Class Participation   |    15% | comment |
 |Homeworks               |  25%|
 |3 Class Presentations    | 25%|
 |Final Project            |35% |
-|-------------------|----------|
+|-------------------|----------|_____|
 
 
 <!----- 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
