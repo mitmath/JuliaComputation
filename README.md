@@ -70,17 +70,8 @@ you get to critique the professor too).  Nearly all university classes emphasize
 |  | Percent |Comment | 
 | ------------------------------------------------- | ---------------------------------------------- | ------------------------------- | 
 | Three Class Presentations       | 25%            |                         |
-
-
-
-|-------------------|----------|-----|
-|3 Class Presentations    | 25% |  1 make a pre  |
 |Final Project            | 35%  |   |
-|-------------------|----------|----|
-
-
-
-|Class Participation   |    15% | comment |
+|Class Participation   |    15% |  |
 |Homeworks               |  25%|   |
 
 <!----- 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
