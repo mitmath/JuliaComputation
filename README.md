@@ -78,6 +78,11 @@ you get to critique the professor too).  Nearly all university classes emphasize
  2. Abstractions: By the end of the course students will be able to use the unique abstractions that exist in the Julia language to write code that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)
 3. Open Source and group collaborations: By the end of the course students will be able to participate in a larger open source project and also will have experienced how programming language can help break down barriers between areas making real the dream of scientific bilinguals that has been promoted at MIT. (See for example [former MIT President Reif in the NYT back in 2018](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).)
 ----->
+## Homeworks at a glance
+
+| Homework                                                        | Assigned | Due    | Topic                                              | Solution                                                                             |
+| --------------------------------------------------------------- | -------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0)         | Sep 7    | Sep 14 | Getting Started                                    |                                                                                      |
 
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
