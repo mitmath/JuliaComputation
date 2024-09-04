@@ -82,7 +82,7 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 | Homework                                                        | Assigned | Due    | Topic                                              | Solution                                                                             |
 | --------------------------------------------------------------- | -------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0)         | Sep 7    | Sep 14 | Getting Started                                    |                                                                                      |
+| [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0-2024)         | Sep 4    | Sep 11 | Getting Started                                    |                                                                                      |
 
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
