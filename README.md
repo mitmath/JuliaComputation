@@ -41,9 +41,9 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 **Lecture Recordings:** ( Hopefully) Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
 **Links:** Worth bookmarking.  
 
-| Piazza TBA | Canvas TBA | [Julia](https://julialang.org/) | [JuliaHub](https://juliahub.com/ui/Home) |
+| Piazza TBA | Canvas TBA | [Julia](https://julialang.org/) |  |
 | ------------------------------------------------- | ---------------------------------------------- | ------------------------------- | ---------------------------------------- |
-| Discussion                                        | HW submission                                  | Language                        | GPUs                                     |
+| Discussion                                        | HW submission                                  | Language                        |                                      |
 
 ## Description
 
