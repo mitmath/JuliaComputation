@@ -33,9 +33,10 @@ This course is part of the [Common Ground](https://computing.mit.edu/cross-cutti
 
 **Instructors:** A. Edelman, more TBA
 
-**Teaching Assistants:** TBA
+**Teaching Assistants:** Raye Kimmerer
 
-**Office Hours:** TBA
+**Office Hours:** 
+- Raye on Friday's 2:30 - 3:30PM in 32-G780. A map can be found here: [Map](https://www.csail.mit.edu/sites/default/files/resources/maps/7G/G780.gif), be sure you take the Gates tower elevators **not** the Dreyfoos tower elevators!!!
 
 
 **Lecture Recordings:** ( Hopefully) Available on Canvas under the Panopto Video tab. Should be published the evening after each lecture.  
