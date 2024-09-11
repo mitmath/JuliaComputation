@@ -3,6 +3,8 @@ on:
     push:
         paths-ignore:
             - "README.md"
+            - "homeworks_old"
+            - "homeworks_old2"
         branches:
             - Fall24
             - main
@@ -29,7 +31,7 @@ jobs:
             - name: Install Julia
               uses: julia-actions/setup-julia@v1
               with:
-                  version: "1.9"
+                  version: "1.10"
 
             - name: Cache Julia artifacts & such
               uses: julia-actions/cache@v1
