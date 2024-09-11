@@ -68,6 +68,11 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 ## Grading
 
+Projects may be teams of 1, 2, or 3.
+
+Homework:              25%
+Class Participation: 10%
+
 
 Project 1:   20%  (fairly soon)
 Take an existing Pluto notebook from computationalthinking.mit.edu or some other place with our permission.  Modify the notebook to make it substantially better, possibly by adding content, but more importantly making it better from a communications standpoint. Choose between signing up to do an in class presentation or making a video of your notebook.
