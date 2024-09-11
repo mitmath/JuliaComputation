@@ -33,7 +33,7 @@ end
 md"""
 Homework 1a of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 11, 2024 (version 1)
+Release date: Thursday, Sep 11, 2024 (version 2)
 
 **Due date: Thursday, Sep 18, 2024 (11:59pm EST)**
 
