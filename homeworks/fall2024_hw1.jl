@@ -31,14 +31,17 @@ end
 
 # ╔═╡ d20423a3-a6d8-4b7a-83c7-f1539fcc4d72
 md"""
-Homework 1a of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
+Homework 1 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
-Release date: Thursday, Sep 11, 2024 (version 1)
+Release date: Wednesday, Sep 11, 2024 (version 1)
 
-**Due date: Thursday, Sep 18, 2024 (11:59pm EST)**
+**Due date: Wednesday, Sep 28, 2024 (11:59pm EST)**
 
 Submission by: Jazzy Doe (jazz@mit.edu)
 """
+
+# ╔═╡ 817a5053-f3a4-43e2-9a7c-d1530b326218
+
 
 # ╔═╡ 00992802-9ead-466b-8b01-bcaf0614b0c6
 student = (name = "Jazzy Doe", kerberos_id = "jazz")
@@ -1421,9 +1424,9 @@ version = "3.0.3+0"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "2984284a8abcfcc4784d95a9e2ea4e352dd8ede7"
+git-tree-sha1 = "4b415b6cccb9ab61fec78a621572c82ac7fa5776"
 uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.9.36"
+version = "0.9.35"
 
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -1583,9 +1586,9 @@ version = "1.0.3"
 
 [[deps.LoweredCodeUtils]]
 deps = ["JuliaInterpreter"]
-git-tree-sha1 = "c2b5e92eaf5101404a58ce9c6083d595472361d6"
+git-tree-sha1 = "1ce1834f9644a8f7c011eb0592b7fd6c42c90653"
 uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.0.2"
+version = "3.0.1"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "65f28ad4b594aebe22157d6fac869786a255b7eb"
@@ -2321,6 +2324,7 @@ version = "1.4.1+1"
 
 # ╔═╡ Cell order:
 # ╟─d20423a3-a6d8-4b7a-83c7-f1539fcc4d72
+# ╠═817a5053-f3a4-43e2-9a7c-d1530b326218
 # ╠═00992802-9ead-466b-8b01-bcaf0614b0c6
 # ╟─1896271c-e5bf-428c-bc3e-7780e71a065f
 # ╠═fcafb864-249b-11ed-3b73-774e1742704a
