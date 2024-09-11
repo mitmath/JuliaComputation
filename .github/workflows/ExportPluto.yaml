@@ -4,7 +4,7 @@ on:
         paths-ignore:
             - "README.md"
         branches:
-            - Fall23
+            - Fall24
             - main
             - master
     workflow_dispatch:
