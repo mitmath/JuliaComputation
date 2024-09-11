@@ -5,6 +5,7 @@ on:
             - "README.md"
             - "homeworks_old"
             - "homeworks_old2"
+            - "notebooks"
         branches:
             - Fall24
             - main
