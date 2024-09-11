@@ -67,12 +67,21 @@ you get to critique the professor too).  Nearly all university classes emphasize
 
 
 ## Grading
-|  | Percent |Comment | 
-|--|--|--|
-| Three Class Presentations       | 25%            |                         |
-|Final Project            | 35%  |   |
-|Class Participation   |    15% |  |
-|Homeworks               |  25%|   |
+
+
+Project 1:   20%  (fairly soon)
+Take an existing Pluto notebook from computationalthinking.mit.edu or some other place with our permission.  Modify the notebook to make it substantially better, possibly by adding content, but more importantly making it better from a communications standpoint. Choose between signing up to do an in class presentation or making a video of your notebook.
+
+Project 2a: 10% (around the middle of the term)
+Make a notebook of material from another class you are taking. Pretend you are presenting the material the C25 way rather than the way you learned it.  
+
+Project 2b: 5%
+Critique another team’s Project 2a, giving constructive suggestions.
+
+Project 3:  30%  (towards the end of term)
+Use your Project 2a, incorporating suggestions, to make an amazing Pluto notebook, with a video of your presentation.  
+
+
 
 <!----- 1. Making mathematics your playground: By the end of the course, students will be able to write interactive Julia code that aids in their understanding of new mathematical systems or concepts.
  2. Abstractions: By the end of the course students will be able to use the unique abstractions that exist in the Julia language to write code that can be part of a huge ecosystem.  (By contrast many  "one-off"  homeworks in traditional courses are not able, by their very nature, to reveal the value of abstraction.)
