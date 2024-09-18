@@ -99,6 +99,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | --------------------------------------------------------------- | -------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0-2024)         | Sep 4    | Sep 11 | Getting Started                                    |                                                                                      |
 | [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1-2024) | Sep 11|Sep 18||
+|  [HW2](https://canvas.mit.edu/courses/27400/assignments/363066) | Sep 18 |Varies||
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
 
