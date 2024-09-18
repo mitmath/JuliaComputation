@@ -110,7 +110,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | 2   | M   | 9/9  | Edelman           |  Maybe you know Random Variables, but not as types?                            | [slides](https://docs.google.com/presentation/d/1hjbKbdZkC0mG_tlwakAa3mpFlhgEKU3HaJCBw1YZ0iQ/edit#slide=id.g2fda8e38e1e_1_0)  [Pluto Video](https://www.youtube.com/watch?v=IAF8DjrQSSk)|   [Random Variables As Types](https://computationalthinking.mit.edu/Fall24/data_science/random_variables_as_types/)                                                                                   |                                                                                                                                                                                                      |
 | 3   | W   | 9/13  | Edelman           |   Let's Really Learn Julia Now                         | |   [Jeremiah's Nice C25 Tutorial](https://mit-c25-fall23.netlify.app/notebooks/0_julia_tutorial)                                                                                                                   
 |4| M| 9/16| Edelman |  When do I prefer Jupyter to Pluto?  || [Jupyter Notebook: Julia is Fast](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/3_Julia%20is%20fast.ipynb) [Jupyter Notebook: Autodiff](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/4.%20AutoDiff.ipynb) 
-|5|W|9/18| Edelman |Automatic Differentiation| |
+|5|W|9/18| Edelman |Automatic Differentiation|  [Reverse Mode AutoDiff in Pluto](https://simeonschaub.github.io/ReverseModePluto/notebook.jl) |
 |6|M|9/23| Student Projects |||
 |7|W|9/25| Student Projects |||
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
