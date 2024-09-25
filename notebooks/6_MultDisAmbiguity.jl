@@ -19,13 +19,13 @@ md"""
 """
 
 # ╔═╡ f01c27c9-e246-4a11-a856-5e1103b541db
-f(a::Number, b::Integer) = "(ℝ , ℤ)"
+f(a::Real, b::Integer) = "(ℝ , ℤ)"
 
 # ╔═╡ 83a1215f-93fe-4844-8cd8-2243cd4f2925
-f(a::Integer, b:: Number) = "(ℤ , ℝ)"
+f(a::Integer, b:: Real) = "(ℤ , ℝ)"
 
 # ╔═╡ e5d21d57-856e-4c15-87fc-82471afceb35
-f(a::Number, b:: Number) = "(ℝ , ℝ)"
+f(a::Real, b:: Real) = "(ℝ , ℝ)"
 
 # ╔═╡ 7d98b956-7445-4ec1-8fff-db27ff7ab3dd
 f(1.0,1.0)
