@@ -112,7 +112,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |4| M| 9/16| Edelman |  When do I prefer Jupyter to Pluto?  || [Jupyter Notebook: Julia is Fast](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/3_Julia%20is%20fast.ipynb) [Jupyter Notebook: Autodiff](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/4.%20AutoDiff.ipynb) 
 |5|W|9/18| Edelman |Automatic Differentiation||  [Reverse Mode AutoDiff in Pluto](https://simeonschaub.github.io/ReverseModePluto/notebook.html) 
 |6|M|9/23| Edelman | Ambiguous Multiple Dispatch, Discrete and Continuous||  [Ambiguous Multiple Dispatch](https://mit-c25-fall23.netlify.app/notebooks/6_MultDisAmbiguity)    |
-|7|W|9/25| Edelman |||
+|7|W|9/25| Edelman | Parametric Types with software applications to Dif Eqs ||
 |8|M|9/30| Student Projects |||
 | Upcoming...|
 |15|M|10/28| R. Ferrari |||
