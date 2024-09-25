@@ -111,8 +111,13 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | 3   | W   | 9/13  | Edelman           |   Let's Really Learn Julia Now                         | |   [Jeremiah's Nice C25 Tutorial](https://mit-c25-fall23.netlify.app/notebooks/0_julia_tutorial)                                                                                                                   
 |4| M| 9/16| Edelman |  When do I prefer Jupyter to Pluto?  || [Jupyter Notebook: Julia is Fast](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/3_Julia%20is%20fast.ipynb) [Jupyter Notebook: Autodiff](https://github.com/mitmath/JuliaComputation/blob/Fall24/notebooks/4.%20AutoDiff.ipynb) 
 |5|W|9/18| Edelman |Automatic Differentiation||  [Reverse Mode AutoDiff in Pluto](https://simeonschaub.github.io/ReverseModePluto/notebook.html) 
-|6|M|9/23| Student Projects |||
-|7|W|9/25| Student Projects |||
+|6|M|9/23| Edelman | Ambiguous Multiple Dispatch, Discrete and Continuous||
+|7|W|9/25| Edelman |||
+|8|M|9/30| Student Projects |||
+| Upcoming...|
+|15|M|10/28| R. Ferrari |||
+|16|W|10/30| R. Ferrari |||
+
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
 | MOSTLY IGNORE BELOW|
 | 4   | T   | 9/19  | Edelman           | Matrix Calculus                                      | [Matrix Calc 1](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p)                              | [Matrix Jacobians](<https://mit-c25-fall22.netlify.app/notebooks/2_matrix_jacobians>), [Finite Differences](<https://mit-c25-fall22.netlify.app/notebooks/2_finite_differences>)                                                                                                                                                                                         |
