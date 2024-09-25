@@ -117,7 +117,6 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | Upcoming...|
 |15|M|10/28| R. Ferrari |||
 |16|W|10/30| R. Ferrari |||
-
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
 | MOSTLY IGNORE BELOW|
 | 4   | T   | 9/19  | Edelman           | Matrix Calculus                                      | [Matrix Calc 1](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p)                              | [Matrix Jacobians](<https://mit-c25-fall22.netlify.app/notebooks/2_matrix_jacobians>), [Finite Differences](<https://mit-c25-fall22.netlify.app/notebooks/2_finite_differences>)                                                                                                                                                                                         |
