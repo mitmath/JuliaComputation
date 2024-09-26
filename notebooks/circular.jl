@@ -45,12 +45,15 @@ end
 @bind β Slider([.5,1,4,10,100,1000,1e10]; default=1, show_value=true)
 
 # ╔═╡ e4418523-234c-4faa-a29b-43484013b322
-@bind n Slider(2:8; default=3, show_value=true)
+@bind n Slider(2:17; default=3, show_value=true)
 
 # ╔═╡ 63cd9672-d3d2-4b2a-8076-f98b60dc11e6
 begin
-  e = eigvals(circular(3,β))
-  plot([e./e[1];1],label=false,aspect_ratio = :equal )
+  e = eigvals(circular(n,β))
+  ϕ = sort(angle.(e))
+  ϕ .-= ϕ[1]
+  append!(ϕ,0)
+  plot(cos.(ϕ),sin.(ϕ),label=false,aspect_ratio = :equal )
   θ = (0:.01:1).*2π
   plot!(cos.(θ),sin.(θ),label=false)
 end
