@@ -76,10 +76,10 @@ let
 	t = 50_000
     m = [ smallabs(circular2(n)) for i=1:t]
 	display((mean(m),var(m)))
-    stephist(m,normalize=true)
+    stephist(m,normalize=true,label="dense")
 	mh = [ smallabs(circular(n,2)) for i=1:t]
 	display((mean(mh),var(mh)))
-	stephist!(mh,normalize=true)
+	stephist!(mh,normalize=true,label="Hessenberg")
 	
 end
 
