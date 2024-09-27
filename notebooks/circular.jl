@@ -67,6 +67,12 @@ function circular2(n)
 	U = qr(A).Q .* cis.(2π*rand(n))
 end
 
+# ╔═╡ 148317c1-e48f-4d39-833c-b51d2c43e5fd
+function circular1(n)
+	A = randn(n,n) .+ im * randn(n,n)
+	U = qr(A).Q * transpose( Matrix(qr(A).Q ))
+end
+
 # ╔═╡ e14122da-9861-401c-bb56-3693b25e6e15
 circular2(5)
 
@@ -83,8 +89,20 @@ let
 	
 end
 
-# ╔═╡ 77bd8022-bb83-4e7d-adb6-f49c6bb74134
-sqrt(.36)
+# ╔═╡ 63bf73bf-b312-49cc-a909-c043bfc80fd1
+circular1(5)
+
+# ╔═╡ 82ce98e9-37a9-4023-ac62-5c092a8fa932
+let
+	n = 5
+	t = 50_000
+    m = [ smallabs(circular1(n)) for i=1:t]
+	display((mean(m),var(m)))
+    stephist(m,normalize=true,label="dense")
+	mh = [ smallabs(circular(n,1)) for i=1:t]
+	display((mean(mh),var(mh)))
+	stephist!(mh,normalize=true,label="Hessenberg")	
+end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1236,8 +1254,10 @@ version = "1.4.1+1"
 # ╠═63cd9672-d3d2-4b2a-8076-f98b60dc11e6
 # ╠═02db4122-8e3c-477c-b1ef-d9c236787910
 # ╠═14b4a088-ff74-43f3-b301-4057593c0447
+# ╠═148317c1-e48f-4d39-833c-b51d2c43e5fd
 # ╠═e14122da-9861-401c-bb56-3693b25e6e15
 # ╠═5cd13d1b-9bb4-4a19-9e6a-07e214572639
-# ╠═77bd8022-bb83-4e7d-adb6-f49c6bb74134
+# ╠═63bf73bf-b312-49cc-a909-c043bfc80fd1
+# ╠═82ce98e9-37a9-4023-ac62-5c092a8fa932
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
