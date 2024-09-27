@@ -15,7 +15,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 6486e004-c95b-4fcd-936e-6508a0e0283c
-using LinearAlgebra, PlutoUI
+using LinearAlgebra, StatsBase, PlutoUI
 
 # ╔═╡ fab8681e-0be3-4d97-a0cb-2ad57472282a
 using Plots
@@ -53,10 +53,38 @@ begin
   ϕ = sort(angle.(e))
   ϕ .-= ϕ[1]
   append!(ϕ,0)
-  plot(cos.(ϕ),sin.(ϕ),label=false,aspect_ratio = :equal )
+  plot(cis.(ϕ),label=false,aspect_ratio = :equal )
   θ = (0:.01:1).*2π
-  plot!(cos.(θ),sin.(θ),label=false)
+  plot!(cis.(θ),label=false)
 end
+
+# ╔═╡ 02db4122-8e3c-477c-b1ef-d9c236787910
+smallabs(U) = minimum(abs.(angle.(eigvals(Matrix(U)))))
+
+# ╔═╡ 14b4a088-ff74-43f3-b301-4057593c0447
+function circular2(n)
+	A = randn(n,n) .+ im * randn(n,n)
+	U = qr(A).Q .* cis.(2π*rand(n))
+end
+
+# ╔═╡ e14122da-9861-401c-bb56-3693b25e6e15
+circular2(5)
+
+# ╔═╡ 5cd13d1b-9bb4-4a19-9e6a-07e214572639
+let
+	n = 5
+	t = 50_000
+    m = [ smallabs(circular2(n)) for i=1:t]
+	display((mean(m),var(m)))
+    stephist(m,normalize=true)
+	mh = [ smallabs(circular(n,2)) for i=1:t]
+	display((mean(mh),var(mh)))
+	stephist!(mh,normalize=true)
+	
+end
+
+# ╔═╡ 77bd8022-bb83-4e7d-adb6-f49c6bb74134
+sqrt(.36)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -64,10 +92,12 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
+StatsBase = "~0.34.3"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -76,7 +106,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "6e9b10408ad430728e6187bdd1c3f8c71698b429"
+project_hash = "7b8203dbbe986d66cb4ddfe6db1b6ccaff902edb"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -1204,5 +1234,10 @@ version = "1.4.1+1"
 # ╠═f9f00c9d-633a-4734-838f-3ffdcef6efe0
 # ╠═e4418523-234c-4faa-a29b-43484013b322
 # ╠═63cd9672-d3d2-4b2a-8076-f98b60dc11e6
+# ╠═02db4122-8e3c-477c-b1ef-d9c236787910
+# ╠═14b4a088-ff74-43f3-b301-4057593c0447
+# ╠═e14122da-9861-401c-bb56-3693b25e6e15
+# ╠═5cd13d1b-9bb4-4a19-9e6a-07e214572639
+# ╠═77bd8022-bb83-4e7d-adb6-f49c6bb74134
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
