@@ -15,10 +15,13 @@ macro bind(def, element)
 end
 
 # ╔═╡ 6486e004-c95b-4fcd-936e-6508a0e0283c
-using LinearAlgebra, StatsBase, PlutoUI
+using LinearAlgebra, StatsBase, PlutoUI, GenericLinearAlgebra
 
 # ╔═╡ fab8681e-0be3-4d97-a0cb-2ad57472282a
 using Plots
+
+# ╔═╡ 5fcb9846-0a0d-4517-8eff-90f580172b82
+using Quaternions
 
 # ╔═╡ 5455f492-7c41-11ef-3315-19809ebaffc3
 function circular(n,β)
@@ -40,6 +43,9 @@ end
 UpperHessenberg(z)
 end
 
+
+# ╔═╡ db8c16a0-79df-4cc0-9c69-a6bcfcd23a1c
+circular(3,2)
 
 # ╔═╡ f9f00c9d-633a-4734-838f-3ffdcef6efe0
 @bind β Slider([.5,1,4,10,100,1000,1e10]; default=1, show_value=true)
@@ -68,53 +74,163 @@ function circular2(n)
 end
 
 # ╔═╡ 148317c1-e48f-4d39-833c-b51d2c43e5fd
-function circular1(n)
+function circular1(n) #β=1
 	A = randn(n,n) .+ im * randn(n,n)
 	U = qr(A).Q * transpose( Matrix(qr(A).Q ))
 end
 
-# ╔═╡ e14122da-9861-401c-bb56-3693b25e6e15
-circular2(5)
-
 # ╔═╡ 5cd13d1b-9bb4-4a19-9e6a-07e214572639
+# ╠═╡ disabled = true
+#=╠═╡
 let
 	n = 5
-	t = 50_000
+	t = 50
     m = [ smallabs(circular2(n)) for i=1:t]
 	display((mean(m),var(m)))
     stephist(m,normalize=true,label="dense")
 	mh = [ smallabs(circular(n,2)) for i=1:t]
 	display((mean(mh),var(mh)))
-	stephist!(mh,normalize=true,label="Hessenberg")
-	
+	title!("β=2 n=$n t=$t")
+	stephist!(mh,normalize=true,label="Hessenberg")	
 end
+  ╠═╡ =#
 
 # ╔═╡ 63bf73bf-b312-49cc-a909-c043bfc80fd1
 circular1(5)
 
 # ╔═╡ 82ce98e9-37a9-4023-ac62-5c092a8fa932
+# ╠═╡ disabled = true
+#=╠═╡
 let
-	n = 5
-	t = 50_000
+	n = 10
+	t = 50
     m = [ smallabs(circular1(n)) for i=1:t]
 	display((mean(m),var(m)))
     stephist(m,normalize=true,label="dense")
 	mh = [ smallabs(circular(n,1)) for i=1:t]
 	display((mean(mh),var(mh)))
+	title!("β=1 n=$n t=$t")
 	stephist!(mh,normalize=true,label="Hessenberg")	
 end
+  ╠═╡ =#
+
+# ╔═╡ 686fae20-6ed7-444c-9085-0f97d8432303
+function circularm(n,β)
+   e = eigvals(circular(n,β))
+   m2 = sum(e.^2)
+   m11 = (sum(e)^2-m2)/2
+   (m2,m11)
+end
+
+# ╔═╡ 5ede4dd3-c432-4108-b22d-ab72200f91f1
+
+
+# ╔═╡ aaa6835c-7d8f-4208-ab5d-0b06de61dbb8
+let
+	n = 3
+	t = 10000
+	β = 5 #-4/5
+	# β = 1 # -1
+	# β = 2  # -1
+    v = [ circularm(n,β) for i=1:t]
+	# m2 = mean(first.(v))
+	# m11 = mean(last.(v))
+    #   mean( first.(v) .* conj.(last.(v)))
+	# 3/mean(abs.(last.(v)).^2) - 1  #   3/|m11|²-1 = β
+
+	mean(first.(v).*conj(last.(v))) , -6β/( (β+1)*(β+2))
+end
+
+# ╔═╡ dd7e4afa-323e-4287-a8a0-f1448fb669ac
+5/7
+
+# ╔═╡ fb3ec55c-db9f-4897-b4d0-3a07a3ba859c
+# ╠═╡ disabled = true
+#=╠═╡
+let
+	n = 5
+	β = 50000
+	t = 50
+	mh = [ smallabs(circular(n,β)) for i=1:t] * 180/π
+	display((mean(mh),var(mh)))
+	stephist(mh,normalize=true,label="Hessenberg")	
+	title!("β=$β n=$n t=$t")
+end
+  ╠═╡ =#
+
+# ╔═╡ 37236855-5f7d-4d4a-8046-116a51dbae7f
+function circular4(n) #β=4
+	A = randn(2n,2n) + im * randn(2n, 2n)
+	U = Matrix(qr(A).Q).* cis.(2π*rand(2n))
+	Z = kron( [0 -1;1 0], Matrix(I,n,n) )
+	-Z * transpose(U) * Z  * U
+end
+
+# ╔═╡ 2443d72e-42f4-4f66-8170-04633f9b9031
+M = circular4(2)
+
+# ╔═╡ 662e1079-13d9-4c26-b359-96556bbf75ee
+ ℍ2ℂ(q::Quaternion) = [q.s+im*q.v1 q.v2+im*q.v3 
+                      -q.v2+im*q.v3     q.s-im*q.v1 ]
+
+# ╔═╡ b11d81bd-b6d7-4325-9012-c65efb859d02
+ℍ2ℂ(M::Matrix) = hvcat(size(M,1),ℍ2ℂ.(M)...)
+
+# ╔═╡ a173bcd2-c02a-4897-9fbe-b7bde52f354b
+negatej(q::Quaternion) = Quaternion(q.s,q.v1,-q.v2,q.v3)
+
+# ╔═╡ 61e9b1b5-95c5-4974-83b6-53387e93ded6
+function jdual(M)
+	negatej.(transpose(M))
+end
+
+# ╔═╡ b58a06f2-ad63-4742-abf8-bf491842b1f2
+function circular4q(n) #β=4
+	A = quat.( randn(n,n), randn(n,n), randn(n,n), randn(n,n))
+	U =  quat(0,0,1,0) * Matrix(qr(A).Q) * quat(0,0,1,0)  * jdual(Matrix(qr(A).Q))  #<-- this might be right
+end
+
+# ╔═╡ 5e4d9a97-db38-445e-8982-7813b9656546
+let
+	n = 5
+	t = 5000
+    m = [ smallabs(circular4(n)) for i=1:t]
+	
+    stephist(m,normalize=true,label="dense")
+	mh = [ smallabs(circular(n,4)) for i=1:t]
+    mq = [ smallabs(ℍ2ℂ(circular4q(n))) for i=1:t]
+	title!("β=4 n=$n t=$t")
+	stephist!(mh,normalize=true,label="Hessenberg")	
+	stephist!(mq,normalize=true,label="Quaternionic Way")	
+end
+
+# ╔═╡ d426a597-d198-4d16-9ca1-4600c84d968f
+Z  = circular4q(3)
+
+# ╔═╡ b17edbda-3a23-48a1-8413-2a5350a29e86
+eigvals(ℍ2ℂ(Z))
+
+# ╔═╡ 228f2a0c-2a52-432d-9dda-45f22dda4a4a
+A = [quat( [rand(1:5) for i=1:4]...) for i=1:2,j=1:2]
+
+# ╔═╡ bc6bb958-7b18-4324-bc1d-644d543f9842
+jdual(A)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+GenericLinearAlgebra = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+Quaternions = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
+GenericLinearAlgebra = "~0.3.13"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
+Quaternions = "~0.7.5"
 StatsBase = "~0.34.3"
 """
 
@@ -124,7 +240,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "7b8203dbbe986d66cb4ddfe6db1b6ccaff902edb"
+project_hash = "d5477210c2247950b3cde5a6471f10197fb68f21"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -338,6 +454,12 @@ deps = ["Artifacts", "Bzip2_jll", "Cairo_jll", "FFMPEG_jll", "Fontconfig_jll", "
 git-tree-sha1 = "a8863b69c2a0859f2c2c87ebdc4c6712e88bdf0d"
 uuid = "d2c73de3-f751-5644-a686-071e5b155ba9"
 version = "0.73.7+0"
+
+[[deps.GenericLinearAlgebra]]
+deps = ["LinearAlgebra", "Printf", "Random", "libblastrampoline_jll"]
+git-tree-sha1 = "f47136cac29a9b7a8a88dbce1195394978091edb"
+uuid = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
+version = "0.3.13"
 
 [[deps.Gettext_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "XML2_jll"]
@@ -778,6 +900,12 @@ git-tree-sha1 = "729927532d48cf79f49070341e1d918a65aba6b0"
 uuid = "e99dba38-086e-5de3-a5b1-6e4c66e897c3"
 version = "6.7.1+1"
 
+[[deps.Quaternions]]
+deps = ["LinearAlgebra", "Random", "RealDot"]
+git-tree-sha1 = "9a46862d248ea548e340e30e2894118749dc7f51"
+uuid = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
+version = "0.7.5"
+
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
@@ -785,6 +913,12 @@ uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 [[deps.Random]]
 deps = ["SHA"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+[[deps.RealDot]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "9f0a1b71baaf7650f4fa8a1d168c7fb6ee41f0c9"
+uuid = "c1ae055f-0cd5-4b69-90a6-9a35b1a98df9"
+version = "0.1.0"
 
 [[deps.RecipesBase]]
 deps = ["PrecompileTools"]
@@ -1249,15 +1383,33 @@ version = "1.4.1+1"
 # ╠═6486e004-c95b-4fcd-936e-6508a0e0283c
 # ╠═fab8681e-0be3-4d97-a0cb-2ad57472282a
 # ╠═5455f492-7c41-11ef-3315-19809ebaffc3
+# ╠═db8c16a0-79df-4cc0-9c69-a6bcfcd23a1c
 # ╠═f9f00c9d-633a-4734-838f-3ffdcef6efe0
 # ╠═e4418523-234c-4faa-a29b-43484013b322
 # ╠═63cd9672-d3d2-4b2a-8076-f98b60dc11e6
 # ╠═02db4122-8e3c-477c-b1ef-d9c236787910
 # ╠═14b4a088-ff74-43f3-b301-4057593c0447
 # ╠═148317c1-e48f-4d39-833c-b51d2c43e5fd
-# ╠═e14122da-9861-401c-bb56-3693b25e6e15
+# ╠═2443d72e-42f4-4f66-8170-04633f9b9031
 # ╠═5cd13d1b-9bb4-4a19-9e6a-07e214572639
 # ╠═63bf73bf-b312-49cc-a909-c043bfc80fd1
 # ╠═82ce98e9-37a9-4023-ac62-5c092a8fa932
+# ╠═5e4d9a97-db38-445e-8982-7813b9656546
+# ╠═d426a597-d198-4d16-9ca1-4600c84d968f
+# ╠═b17edbda-3a23-48a1-8413-2a5350a29e86
+# ╠═686fae20-6ed7-444c-9085-0f97d8432303
+# ╠═5ede4dd3-c432-4108-b22d-ab72200f91f1
+# ╠═aaa6835c-7d8f-4208-ab5d-0b06de61dbb8
+# ╠═dd7e4afa-323e-4287-a8a0-f1448fb669ac
+# ╠═5fcb9846-0a0d-4517-8eff-90f580172b82
+# ╠═fb3ec55c-db9f-4897-b4d0-3a07a3ba859c
+# ╠═37236855-5f7d-4d4a-8046-116a51dbae7f
+# ╠═662e1079-13d9-4c26-b359-96556bbf75ee
+# ╠═b11d81bd-b6d7-4325-9012-c65efb859d02
+# ╠═a173bcd2-c02a-4897-9fbe-b7bde52f354b
+# ╠═61e9b1b5-95c5-4974-83b6-53387e93ded6
+# ╠═b58a06f2-ad63-4742-abf8-bf491842b1f2
+# ╠═228f2a0c-2a52-432d-9dda-45f22dda4a4a
+# ╠═bc6bb958-7b18-4324-bc1d-644d543f9842
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
