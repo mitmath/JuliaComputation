@@ -15,7 +15,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 6486e004-c95b-4fcd-936e-6508a0e0283c
-using LinearAlgebra, StatsBase, PlutoUI, GenericLinearAlgebra
+using LinearAlgebra, StatsBase, PlutoUI, SpecialFunctions
 
 # ╔═╡ fab8681e-0be3-4d97-a0cb-2ad57472282a
 using Plots
@@ -114,6 +114,12 @@ let
 end
   ╠═╡ =#
 
+# ╔═╡ d426a597-d198-4d16-9ca1-4600c84d968f
+Z  = circular4q(3)
+
+# ╔═╡ b17edbda-3a23-48a1-8413-2a5350a29e86
+eigvals(ℍ2ℂ(Z))
+
 # ╔═╡ 686fae20-6ed7-444c-9085-0f97d8432303
 function circularm(n,β)
    e = eigvals(circular(n,β))
@@ -129,17 +135,19 @@ end
 let
 	n = 3
 	t = 10000
-	β = 5 #-4/5
-	# β = 1 # -1
-	# β = 2  # -1
+	β = 1
+	
     v = [ circularm(n,β) for i=1:t]
-	# m2 = mean(first.(v))
-	# m11 = mean(last.(v))
-    #   mean( first.(v) .* conj.(last.(v)))
-	# 3/mean(abs.(last.(v)).^2) - 1  #   3/|m11|²-1 = β
-
-	mean(first.(v).*conj(last.(v))) , -6β/( (β+1)*(β+2))
+    m2 = first.(v)
+	m11 = last.(v)
+   
+	# 3/mean(abs.(m11).^2) - 1  , β #  3/|m11|²-1 = β
+	#  mean(m2.*conj(m11)) , -2β/(β+2), -6β/( (β+1)*(β+2)) # n = 2, 3
+	mean(abs.(m2).^2), (2π)^(-n)* (β/4+.5)^2 * gamma(1+n*β/2)/gamma(1+β/2)^n
 end
+
+# ╔═╡ 6666dce5-8772-4436-a116-fc9b6173bc28
+10/7
 
 # ╔═╡ dd7e4afa-323e-4287-a8a0-f1448fb669ac
 5/7
@@ -169,31 +177,10 @@ end
 # ╔═╡ 2443d72e-42f4-4f66-8170-04633f9b9031
 M = circular4(2)
 
-# ╔═╡ 662e1079-13d9-4c26-b359-96556bbf75ee
- ℍ2ℂ(q::Quaternion) = [q.s+im*q.v1 q.v2+im*q.v3 
-                      -q.v2+im*q.v3     q.s-im*q.v1 ]
-
-# ╔═╡ b11d81bd-b6d7-4325-9012-c65efb859d02
-ℍ2ℂ(M::Matrix) = hvcat(size(M,1),ℍ2ℂ.(M)...)
-
-# ╔═╡ a173bcd2-c02a-4897-9fbe-b7bde52f354b
-negatej(q::Quaternion) = Quaternion(q.s,q.v1,-q.v2,q.v3)
-
-# ╔═╡ 61e9b1b5-95c5-4974-83b6-53387e93ded6
-function jdual(M)
-	negatej.(transpose(M))
-end
-
-# ╔═╡ b58a06f2-ad63-4742-abf8-bf491842b1f2
-function circular4q(n) #β=4
-	A = quat.( randn(n,n), randn(n,n), randn(n,n), randn(n,n))
-	U =  quat(0,0,1,0) * Matrix(qr(A).Q) * quat(0,0,1,0)  * jdual(Matrix(qr(A).Q))  #<-- this might be right
-end
-
 # ╔═╡ 5e4d9a97-db38-445e-8982-7813b9656546
 let
 	n = 5
-	t = 5000
+	t = 15000
     m = [ smallabs(circular4(n)) for i=1:t]
 	
     stephist(m,normalize=true,label="dense")
@@ -204,33 +191,21 @@ let
 	stephist!(mq,normalize=true,label="Quaternionic Way")	
 end
 
-# ╔═╡ d426a597-d198-4d16-9ca1-4600c84d968f
-Z  = circular4q(3)
-
-# ╔═╡ b17edbda-3a23-48a1-8413-2a5350a29e86
-eigvals(ℍ2ℂ(Z))
-
-# ╔═╡ 228f2a0c-2a52-432d-9dda-45f22dda4a4a
-A = [quat( [rand(1:5) for i=1:4]...) for i=1:2,j=1:2]
-
-# ╔═╡ bc6bb958-7b18-4324-bc1d-644d543f9842
-jdual(A)
-
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
-GenericLinearAlgebra = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Quaternions = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
-GenericLinearAlgebra = "~0.3.13"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
 Quaternions = "~0.7.5"
+SpecialFunctions = "~2.4.0"
 StatsBase = "~0.34.3"
 """
 
@@ -240,7 +215,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "d5477210c2247950b3cde5a6471f10197fb68f21"
+project_hash = "4aadc0bfa083dbcc0fec18591f4522480020ff68"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -298,12 +273,10 @@ deps = ["ColorTypes", "FixedPointNumbers", "LinearAlgebra", "Requires", "Statist
 git-tree-sha1 = "a1f44953f2382ebb937d60dafbe2deea4bd23249"
 uuid = "c3611d14-8923-5661-9e6a-0046d554d3a4"
 version = "0.10.0"
+weakdeps = ["SpecialFunctions"]
 
     [deps.ColorVectorSpace.extensions]
     SpecialFunctionsExt = "SpecialFunctions"
-
-    [deps.ColorVectorSpace.weakdeps]
-    SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 
 [[deps.Colors]]
 deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
@@ -454,12 +427,6 @@ deps = ["Artifacts", "Bzip2_jll", "Cairo_jll", "FFMPEG_jll", "Fontconfig_jll", "
 git-tree-sha1 = "a8863b69c2a0859f2c2c87ebdc4c6712e88bdf0d"
 uuid = "d2c73de3-f751-5644-a686-071e5b155ba9"
 version = "0.73.7+0"
-
-[[deps.GenericLinearAlgebra]]
-deps = ["LinearAlgebra", "Printf", "Random", "libblastrampoline_jll"]
-git-tree-sha1 = "f47136cac29a9b7a8a88dbce1195394978091edb"
-uuid = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
-version = "0.3.13"
 
 [[deps.Gettext_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "XML2_jll"]
@@ -778,6 +745,12 @@ git-tree-sha1 = "7493f61f55a6cce7325f197443aa80d32554ba10"
 uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
 version = "3.0.15+1"
 
+[[deps.OpenSpecFun_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "13652491f6856acfd2db29360e1bbcd4565d04f1"
+uuid = "efe28fd5-8261-553b-a9e1-b2916fc3738e"
+version = "0.5.5+0"
+
 [[deps.Opus_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "6703a85cb3781bd5909d48730a67205f3f31a575"
@@ -986,6 +959,18 @@ version = "1.2.1"
 deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
 uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 version = "1.10.0"
+
+[[deps.SpecialFunctions]]
+deps = ["IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
+git-tree-sha1 = "2f5d4697f21388cbe1ff299430dd169ef97d7e14"
+uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
+version = "2.4.0"
+
+    [deps.SpecialFunctions.extensions]
+    SpecialFunctionsChainRulesCoreExt = "ChainRulesCore"
+
+    [deps.SpecialFunctions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
 
 [[deps.Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
@@ -1400,16 +1385,10 @@ version = "1.4.1+1"
 # ╠═686fae20-6ed7-444c-9085-0f97d8432303
 # ╠═5ede4dd3-c432-4108-b22d-ab72200f91f1
 # ╠═aaa6835c-7d8f-4208-ab5d-0b06de61dbb8
+# ╠═6666dce5-8772-4436-a116-fc9b6173bc28
 # ╠═dd7e4afa-323e-4287-a8a0-f1448fb669ac
 # ╠═5fcb9846-0a0d-4517-8eff-90f580172b82
 # ╠═fb3ec55c-db9f-4897-b4d0-3a07a3ba859c
 # ╠═37236855-5f7d-4d4a-8046-116a51dbae7f
-# ╠═662e1079-13d9-4c26-b359-96556bbf75ee
-# ╠═b11d81bd-b6d7-4325-9012-c65efb859d02
-# ╠═a173bcd2-c02a-4897-9fbe-b7bde52f354b
-# ╠═61e9b1b5-95c5-4974-83b6-53387e93ded6
-# ╠═b58a06f2-ad63-4742-abf8-bf491842b1f2
-# ╠═228f2a0c-2a52-432d-9dda-45f22dda4a4a
-# ╠═bc6bb958-7b18-4324-bc1d-644d543f9842
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
