@@ -4,211 +4,193 @@
 using Markdown
 using InteractiveUtils
 
-# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
-macro bind(def, element)
-    quote
-        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
-        local el = $(esc(element))
-        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
-        el
-    end
+# ╔═╡ df9a4768-81ae-11ef-3f3e-e1408e0fd133
+using LinearAlgebra,PlutoUI, Distributions, Plots, Quaternions, GenericLinearAlgebra
+
+# ╔═╡ 59adca81-b8a5-4bc4-9b77-bc01be31e834
+TableOfContents(title="📚 Table of Contents", indent=true, depth=4, aside=true)
+
+# ╔═╡ f31b98a5-69d9-440a-b0e3-23cb64e5984c
+md"""
+# Jacobi Ensembles
+"""
+
+# ╔═╡ 4520eabe-5fba-42bb-a917-25f39f408cc6
+function J1E(a,b,n)
+    A = randn(n+a,n)
+	B = randn(n+b,n)
+	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
 end
 
-# ╔═╡ 6486e004-c95b-4fcd-936e-6508a0e0283c
-using LinearAlgebra, StatsBase, PlutoUI, SpecialFunctions
-
-# ╔═╡ fab8681e-0be3-4d97-a0cb-2ad57472282a
-using Plots
-
-# ╔═╡ 5fcb9846-0a0d-4517-8eff-90f580172b82
-using Quaternions
-
-# ╔═╡ 5455f492-7c41-11ef-3315-19809ebaffc3
-function circular(n,β)
-
-# Compute Schur Parameters (Verblunsky coefficients)
-rn  = rand(n-1)        # Random numbers for schur magnitudes
-rp  = rand(n-1)        # Random numbers for schur phases
-e = (β/2).*(1:(n-1))   # The Theta_subscripts (v-1)/2
-a = sqrt.(1 .- rn.^(1 ./ e)) # Schur parameters from Theta
-ρ = sqrt.(1 .- a.^2)     # Complementary Parameters
-a = a .* exp.(2π*im*rp)  # Random Phase
-# Compute unitary upper Hessenberg
-z = exp(2π*im*rand())
-for j=1:n-1
-    z=[1 zeros(1,j); zeros(j, 1) z]
-    G=[a[j] ρ[j];ρ[j] -a[j]']
-    z[1:2,:]=G*z[1:2,:]
-end
-UpperHessenberg(z)
+# ╔═╡ ca028a51-2f9b-475b-9db9-470b87cd0f32
+function J2E(a,b,n)
+    A = randn(Complex{Float64},n+a,n)
+	B = randn(Complex{Float64},n+b,n)
+	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
 end
 
-
-# ╔═╡ db8c16a0-79df-4cc0-9c69-a6bcfcd23a1c
-circular(3,2)
-
-# ╔═╡ 02db4122-8e3c-477c-b1ef-d9c236787910
-smallabs(U) = minimum(abs.(angle.(eigvals(Matrix(U)))))
-
-# ╔═╡ 14b4a088-ff74-43f3-b301-4057593c0447
-function circular2(n)
-	A = randn(n,n) .+ im * randn(n,n)
-	U = qr(A).Q .* cis.(2π*rand(n))
-end
-
-# ╔═╡ 148317c1-e48f-4d39-833c-b51d2c43e5fd
-function circular1(n) #β=1
-	A = randn(n,n) .+ im * randn(n,n)
-	U = qr(A).Q * transpose( Matrix(qr(A).Q ))
-end
-
-# ╔═╡ e4418523-234c-4faa-a29b-43484013b322
-@bind n Slider(2:17; default=3, show_value=true)
-
-# ╔═╡ f9f00c9d-633a-4734-838f-3ffdcef6efe0
-@bind β Slider([.5,1,4,10,50,100,1000,1e10]; default=1, show_value=true)
-
-# ╔═╡ 63cd9672-d3d2-4b2a-8076-f98b60dc11e6
-begin
-  e = eigvals(circular(n,β))
-  ϕ = sort(angle.(e))
-  ϕ .-= ϕ[1]
-  append!(ϕ,0)
-  plot(cis.(ϕ),label=false,aspect_ratio = :equal )
-  θ = (0:.01:1).*2π
-  plot!(cis.(θ),label=false)
-end
-
-# ╔═╡ 5cd13d1b-9bb4-4a19-9e6a-07e214572639
-begin
-
-	t = 20
-
- #    m = [ smallabs(circular2(n)) for i=1:t]
-	# display((mean(m),var(m)))
- #    stephist(m,normalize=true,label="dense")
-	mh = [ smallabs(circular(n,β)) for i=1:t]
-	#display((mean(mh),var(mh)))
-	
-	stephist(mh,normalize=true,label="Hessenberg")	
-	title!("β=$β n=$n t=$t")
-end
-
-# ╔═╡ a6be0162-84fd-408c-b3d6-d3cee3b58b61
-
-
-# ╔═╡ 63bf73bf-b312-49cc-a909-c043bfc80fd1
-circular1(5)
-
-# ╔═╡ 82ce98e9-37a9-4023-ac62-5c092a8fa932
-# ╠═╡ disabled = true
-#=╠═╡
-let
-	n = 10
-	t = 50
-    m = [ smallabs(circular1(n)) for i=1:t]
-	display((mean(m),var(m)))
-    stephist(m,normalize=true,label="dense")
-	mh = [ smallabs(circular(n,1)) for i=1:t]
-	display((mean(mh),var(mh)))
-	title!("β=1 n=$n t=$t")
-	stephist!(mh,normalize=true,label="Hessenberg")	
-end
-  ╠═╡ =#
-
-# ╔═╡ d426a597-d198-4d16-9ca1-4600c84d968f
-Z  = circular4q(3)
-
-# ╔═╡ b17edbda-3a23-48a1-8413-2a5350a29e86
-eigvals(ℍ2ℂ(Z))
-
-# ╔═╡ 686fae20-6ed7-444c-9085-0f97d8432303
-function circularm(n,β)
-   e = eigvals(circular(n,β))
-   m2 = sum(e.^2)
-   m11 = (sum(e)^2-m2)/2
-   (m2,m11)
-end
-
-# ╔═╡ 5ede4dd3-c432-4108-b22d-ab72200f91f1
-
-
-# ╔═╡ aaa6835c-7d8f-4208-ab5d-0b06de61dbb8
-let
-	n = 3
-	t = 10000
-	β = 1
-	
-    v = [ circularm(n,β) for i=1:t]
-    m2 = first.(v)
-	m11 = last.(v)
+# ╔═╡ 3fba3ecf-4779-4c4b-b367-b12c00d13dff
+function orthogonal(n)
    
-	# 3/mean(abs.(m11).^2) - 1  , β #  3/|m11|²-1 = β
-	#  mean(m2.*conj(m11)) , -2β/(β+2), -6β/( (β+1)*(β+2)) # n = 2, 3
-	mean(abs.(m2).^2), (2π)^(-n)* (β/4+.5)^2 * gamma(1+n*β/2)/gamma(1+β/2)^n
+Q = qr(randn(n,n)).Q .* rand([-1,1],n)
+while( det(Q)<0)
+	 Q = qr(randn(n,n)).Q .* rand([-1,1],n)
+end
+e = real.(eigvals(Q))[1:2:n]
+e =	sqrt.((e .+ 1)/2)
+
 end
 
-# ╔═╡ 6666dce5-8772-4436-a116-fc9b6173bc28
-10/7
+# ╔═╡ 709c796d-80da-4eea-8c58-0c51e1aff570
+ℍ2ℂ(q::Quaternion) = [q.s+im*q.v1 q.v2+im*q.v3 
+                      -q.v2+im*q.v3     q.s-im*q.v1 ]
 
-# ╔═╡ dd7e4afa-323e-4287-a8a0-f1448fb669ac
-5/7
+# ╔═╡ c89113f5-55a3-4fdf-a0fe-c4550487fe00
+function symp_unitary(n)
 
-# ╔═╡ fb3ec55c-db9f-4897-b4d0-3a07a3ba859c
-# ╠═╡ disabled = true
-#=╠═╡
-let
-	n = 5
-	β = 50000
-	t = 50
-	mh = [ smallabs(circular(n,β)) for i=1:t] * 180/π
-	display((mean(mh),var(mh)))
-	stephist(mh,normalize=true,label="Hessenberg")	
-	title!("β=$β n=$n t=$t")
-end
-  ╠═╡ =#
-
-# ╔═╡ 37236855-5f7d-4d4a-8046-116a51dbae7f
-function circular4(n) #β=4
-	A = randn(2n,2n) + im * randn(2n, 2n)
-	U = Matrix(qr(A).Q).* cis.(2π*rand(2n))
-	Z = kron( [0 -1;1 0], Matrix(I,n,n) )
-	-Z * transpose(U) * Z  * U
-end
-
-# ╔═╡ 2443d72e-42f4-4f66-8170-04633f9b9031
-M = circular4(2)
-
-# ╔═╡ 5e4d9a97-db38-445e-8982-7813b9656546
-let
-	n = 5
-	t = 15000
-    m = [ smallabs(circular4(n)) for i=1:t]
 	
-    stephist(m,normalize=true,label="dense")
-	mh = [ smallabs(circular(n,4)) for i=1:t]
-    mq = [ smallabs(ℍ2ℂ(circular4q(n))) for i=1:t]
-	title!("β=4 n=$n t=$t")
-	stephist!(mh,normalize=true,label="Hessenberg")	
-	stephist!(mq,normalize=true,label="Quaternionic Way")	
+	
+Q = qr(randn(QuaternionF64,n,n)).Q 
+	Q = hvcat(n,ℍ2ℂ.(Matrix(Q))...)
+
+#  e = eigvals(hvcat(n,Q...))
+	
+# e = real.(e)[1:2:2n]
+# e =	sqrt.((e .+ 1)/2)
+
 end
+
+# ╔═╡ 2c23ab90-6623-48fc-bac4-296bb5cbc917
+let
+	Q = symp_unitary(2)
+  Q'Q
+end
+
+# ╔═╡ 5e58d900-6a42-4899-a6d3-ff79a99f9990
+let
+	n=8
+symp_unitary(n)
+end
+
+# ╔═╡ c7229a4d-2b1c-4bd5-aac3-68ec2ee5212f
+let
+	t = 500
+	n = 2
+    m_orth = [ minimum(abs.(symp_unitary(n))) for i = 1:t]
+	a =  b = .5
+
+
+	
+   
+	# m1 = [  minimum(abs.(JβE(a,b,n÷2,2))) for i = 1:t] 
+	# stephist(m_orth,label="orth")
+	
+ #    stephist!(m1,label="Jacobi")
+	# title!("a=$a, b=$b, β=2")	
+	
+	
+	
+end
+
+# ╔═╡ 0dba0b42-4df5-4142-ad92-62ca603c3941
+symp_unitary(2)
+
+# ╔═╡ d07354ab-8834-4194-97a2-263c71b4ff4a
+randn(QuaternionF64,1)
+
+# ╔═╡ 84e64bbc-12a7-4ce6-9721-dc3098939f2a
+orthogonal(4)
+
+# ╔═╡ 96ee753d-4843-4418-a1c5-477707a0fa14
+7÷2
+
+# ╔═╡ 0808d006-811f-4084-8cbe-de4d6d9b5c55
+function J4E(a,b,n)
+    A = randn(Quaternion{Float64},n+a,n)
+	B = randn(Quaternion{Float64},n+b,n)
+	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
+end
+
+# ╔═╡ e48ef58a-6a1a-4862-885f-890e877cb0f7
+J1E(2,2,2)
+
+# ╔═╡ c4c0876c-8389-4262-80ae-1cf0b358d2b6
+function JβE(a,b,n,β)
+	# exponents (β/2)(a+1)-1, (β/2)(b+1)-1 on [0,1]
+	i = 1:n
+	c² = rand.( Beta.( (β/2)*(a.+i),(β/2)*(b.+i)) )
+	s² = 1 .- c²
+	i = 1:n-1
+	c′² = rand.( Beta.( (β/2)*i,(β/2)*(a+b+1 .+i)) )
+	s′² = 1 .- c′²
+	c = sqrt.(c²); s = sqrt.(s²); c′=sqrt.(c′²); s′=sqrt.(s′²)
+	σ = svdvals(Bidiagonal(reverse(c .* [s′;1]), reverse(-s[2:n].*c′),:U))
+
+end
+
+# ╔═╡ d933b5a4-6838-4cdb-92ab-9d244b470787
+let
+	t = 50000
+	n = 4
+    m_orth = [ minimum(abs.(orthogonal(n))) for i = 1:t]
+	a = -.5
+
+	
+    n%2 == 0 ? b=-.5 : b = .5
+	
+   
+	m1 = [  minimum(abs.(JβE(a,b,n÷2,2))) for i = 1:t] 
+	stephist(m_orth,label="orth")
+	
+    stephist!(m1,label="Jacobi")
+	title!("a=$a, b=$b, β=2")	
+	
+	
+	
+end
+
+# ╔═╡ 5d955227-162c-4faf-a05b-3583437924df
+begin
+	t = 50
+	a = 5
+	b = 2
+	n = 2
+	β = .5
+
+	m2 = [ minimum(JβE(a,b,n,β)) for i = 1:t]
+	stephist(m2)
+	
+	if β==1
+	  m1 = [  minimum(J1E(a,b,n)) for i = 1:t]; stephist!(m1)
+	end
+	if β==2
+	  m1 = [  minimum(J2E(a,b,n)) for i = 1:t]; stephist!(m1)
+	end
+	title!("a=$a, b=$b, β=$β")
+	plot!(legend=false)
+	
+	
+end
+
+# ╔═╡ 7b6486a9-4487-4d81-9c78-3c86c641431c
+minimum(abs.(orthogonal(4)))
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+GenericLinearAlgebra = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Quaternions = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
-SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
-StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
+Distributions = "~0.25.111"
+GenericLinearAlgebra = "~0.3.13"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
-Quaternions = "~0.7.5"
-SpecialFunctions = "~2.4.0"
-StatsBase = "~0.34.3"
+Quaternions = "~0.7.6"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -217,13 +199,19 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "4aadc0bfa083dbcc0fec18591f4522480020ff68"
+project_hash = "fc3821ac4d0685c00a018645bb56cede2998a7c7"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
 git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
 version = "1.3.2"
+
+[[deps.AliasTables]]
+deps = ["PtrArrays", "Random"]
+git-tree-sha1 = "9876e1e164b144ca45e9e3198d0b689cadfed9ff"
+uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
+version = "1.1.3"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -339,6 +327,22 @@ git-tree-sha1 = "9e2f36d3c96a820c678f2f1f1782582fcf685bae"
 uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 version = "1.9.1"
 
+[[deps.Distributions]]
+deps = ["AliasTables", "FillArrays", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SpecialFunctions", "Statistics", "StatsAPI", "StatsBase", "StatsFuns"]
+git-tree-sha1 = "e6c693a0e4394f8fda0e51a5bdf5aef26f8235e9"
+uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
+version = "0.25.111"
+
+    [deps.Distributions.extensions]
+    DistributionsChainRulesCoreExt = "ChainRulesCore"
+    DistributionsDensityInterfaceExt = "DensityInterface"
+    DistributionsTestExt = "Test"
+
+    [deps.Distributions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    DensityInterface = "b429d917-457f-4dbc-8f4c-0cc954292b1d"
+    Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
 [[deps.DocStringExtensions]]
 deps = ["LibGit2"]
 git-tree-sha1 = "2fb1e02f2b635d0845df5d7c167fec4dd739b00d"
@@ -382,6 +386,18 @@ version = "4.4.4+1"
 
 [[deps.FileWatching]]
 uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
+
+[[deps.FillArrays]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "6a70198746448456524cb442b8af316927ff3e1a"
+uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
+version = "1.13.0"
+weakdeps = ["PDMats", "SparseArrays", "Statistics"]
+
+    [deps.FillArrays.extensions]
+    FillArraysPDMatsExt = "PDMats"
+    FillArraysSparseArraysExt = "SparseArrays"
+    FillArraysStatisticsExt = "Statistics"
 
 [[deps.FixedPointNumbers]]
 deps = ["Statistics"]
@@ -430,6 +446,12 @@ git-tree-sha1 = "a8863b69c2a0859f2c2c87ebdc4c6712e88bdf0d"
 uuid = "d2c73de3-f751-5644-a686-071e5b155ba9"
 version = "0.73.7+0"
 
+[[deps.GenericLinearAlgebra]]
+deps = ["LinearAlgebra", "Printf", "Random", "libblastrampoline_jll"]
+git-tree-sha1 = "f47136cac29a9b7a8a88dbce1195394978091edb"
+uuid = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
+version = "0.3.13"
+
 [[deps.Gettext_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "XML2_jll"]
 git-tree-sha1 = "9b02998aba7bf074d14de89f9d37ca24a1a0b046"
@@ -464,6 +486,12 @@ deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll",
 git-tree-sha1 = "401e4f3f30f43af2c8478fc008da50096ea5240f"
 uuid = "2e76f6c2-a576-52d4-95c1-20adfe4de566"
 version = "8.3.1+0"
+
+[[deps.HypergeometricFunctions]]
+deps = ["LinearAlgebra", "OpenLibm_jll", "SpecialFunctions"]
+git-tree-sha1 = "7c4195be1649ae622304031ed46a2f4df989f1eb"
+uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
+version = "0.3.24"
 
 [[deps.Hyperscript]]
 deps = ["Test"]
@@ -769,6 +797,12 @@ deps = ["Artifacts", "Libdl"]
 uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
 version = "10.42.0+1"
 
+[[deps.PDMats]]
+deps = ["LinearAlgebra", "SparseArrays", "SuiteSparse"]
+git-tree-sha1 = "949347156c25054de2db3b166c52ac4728cbad65"
+uuid = "90014a1f-27ba-587c-ab20-58faa44d9150"
+version = "0.11.31"
+
 [[deps.Pango_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "FriBidi_jll", "Glib_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "e127b609fb9ecba6f201ba7ab753d5a605d53801"
@@ -851,6 +885,11 @@ version = "1.4.3"
 deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
+[[deps.PtrArrays]]
+git-tree-sha1 = "77a42d78b6a92df47ab37e177b2deac405e1c88f"
+uuid = "43287f4e-b6f4-7ad1-bb20-aadabca52c3d"
+version = "1.2.1"
+
 [[deps.Qt6Base_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Vulkan_Loader_jll", "Xorg_libSM_jll", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_cursor_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "libinput_jll", "xkbcommon_jll"]
 git-tree-sha1 = "492601870742dcd38f233b23c3ec629628c1d724"
@@ -875,11 +914,23 @@ git-tree-sha1 = "729927532d48cf79f49070341e1d918a65aba6b0"
 uuid = "e99dba38-086e-5de3-a5b1-6e4c66e897c3"
 version = "6.7.1+1"
 
+[[deps.QuadGK]]
+deps = ["DataStructures", "LinearAlgebra"]
+git-tree-sha1 = "cda3b045cf9ef07a08ad46731f5a3165e56cf3da"
+uuid = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
+version = "2.11.1"
+
+    [deps.QuadGK.extensions]
+    QuadGKEnzymeExt = "Enzyme"
+
+    [deps.QuadGK.weakdeps]
+    Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
+
 [[deps.Quaternions]]
 deps = ["LinearAlgebra", "Random", "RealDot"]
-git-tree-sha1 = "9a46862d248ea548e340e30e2894118749dc7f51"
+git-tree-sha1 = "994cc27cdacca10e68feb291673ec3a76aa2fae9"
 uuid = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
-version = "0.7.5"
+version = "0.7.6"
 
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
@@ -923,6 +974,18 @@ deps = ["UUIDs"]
 git-tree-sha1 = "838a3a4188e2ded87a4f9f184b4b0d78a1e91cb7"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.0"
+
+[[deps.Rmath]]
+deps = ["Random", "Rmath_jll"]
+git-tree-sha1 = "852bd0f55565a9e973fcfee83a84413270224dc4"
+uuid = "79098fc4-a85e-5d69-aa6a-4863f24498fa"
+version = "0.8.0"
+
+[[deps.Rmath_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "58cdd8fb2201a6267e1db87ff148dd6c1dbd8ad8"
+uuid = "f50d1b31-88e8-58de-be2c-1cc44531875f"
+version = "0.5.1+0"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -990,6 +1053,24 @@ deps = ["DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missin
 git-tree-sha1 = "5cf7606d6cef84b543b483848d4ae08ad9832b21"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 version = "0.34.3"
+
+[[deps.StatsFuns]]
+deps = ["HypergeometricFunctions", "IrrationalConstants", "LogExpFunctions", "Reexport", "Rmath", "SpecialFunctions"]
+git-tree-sha1 = "b423576adc27097764a90e163157bcfc9acf0f46"
+uuid = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+version = "1.3.2"
+
+    [deps.StatsFuns.extensions]
+    StatsFunsChainRulesCoreExt = "ChainRulesCore"
+    StatsFunsInverseFunctionsExt = "InverseFunctions"
+
+    [deps.StatsFuns.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    InverseFunctions = "3587e190-3f89-42d0-90ee-14403ec27112"
+
+[[deps.SuiteSparse]]
+deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
+uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
 
 [[deps.SuiteSparse_jll]]
 deps = ["Artifacts", "Libdl", "libblastrampoline_jll"]
@@ -1367,31 +1448,26 @@ version = "1.4.1+1"
 """
 
 # ╔═╡ Cell order:
-# ╠═6486e004-c95b-4fcd-936e-6508a0e0283c
-# ╠═fab8681e-0be3-4d97-a0cb-2ad57472282a
-# ╠═5455f492-7c41-11ef-3315-19809ebaffc3
-# ╠═db8c16a0-79df-4cc0-9c69-a6bcfcd23a1c
-# ╠═63cd9672-d3d2-4b2a-8076-f98b60dc11e6
-# ╠═02db4122-8e3c-477c-b1ef-d9c236787910
-# ╠═14b4a088-ff74-43f3-b301-4057593c0447
-# ╠═148317c1-e48f-4d39-833c-b51d2c43e5fd
-# ╠═2443d72e-42f4-4f66-8170-04633f9b9031
-# ╠═e4418523-234c-4faa-a29b-43484013b322
-# ╠═f9f00c9d-633a-4734-838f-3ffdcef6efe0
-# ╠═5cd13d1b-9bb4-4a19-9e6a-07e214572639
-# ╠═a6be0162-84fd-408c-b3d6-d3cee3b58b61
-# ╠═63bf73bf-b312-49cc-a909-c043bfc80fd1
-# ╠═82ce98e9-37a9-4023-ac62-5c092a8fa932
-# ╠═5e4d9a97-db38-445e-8982-7813b9656546
-# ╠═d426a597-d198-4d16-9ca1-4600c84d968f
-# ╠═b17edbda-3a23-48a1-8413-2a5350a29e86
-# ╠═686fae20-6ed7-444c-9085-0f97d8432303
-# ╠═5ede4dd3-c432-4108-b22d-ab72200f91f1
-# ╠═aaa6835c-7d8f-4208-ab5d-0b06de61dbb8
-# ╠═6666dce5-8772-4436-a116-fc9b6173bc28
-# ╠═dd7e4afa-323e-4287-a8a0-f1448fb669ac
-# ╠═5fcb9846-0a0d-4517-8eff-90f580172b82
-# ╠═fb3ec55c-db9f-4897-b4d0-3a07a3ba859c
-# ╠═37236855-5f7d-4d4a-8046-116a51dbae7f
+# ╠═df9a4768-81ae-11ef-3f3e-e1408e0fd133
+# ╠═59adca81-b8a5-4bc4-9b77-bc01be31e834
+# ╟─f31b98a5-69d9-440a-b0e3-23cb64e5984c
+# ╠═4520eabe-5fba-42bb-a917-25f39f408cc6
+# ╠═ca028a51-2f9b-475b-9db9-470b87cd0f32
+# ╠═3fba3ecf-4779-4c4b-b367-b12c00d13dff
+# ╠═709c796d-80da-4eea-8c58-0c51e1aff570
+# ╠═c89113f5-55a3-4fdf-a0fe-c4550487fe00
+# ╠═2c23ab90-6623-48fc-bac4-296bb5cbc917
+# ╠═5e58d900-6a42-4899-a6d3-ff79a99f9990
+# ╠═c7229a4d-2b1c-4bd5-aac3-68ec2ee5212f
+# ╠═0dba0b42-4df5-4142-ad92-62ca603c3941
+# ╠═d07354ab-8834-4194-97a2-263c71b4ff4a
+# ╠═84e64bbc-12a7-4ce6-9721-dc3098939f2a
+# ╠═d933b5a4-6838-4cdb-92ab-9d244b470787
+# ╠═96ee753d-4843-4418-a1c5-477707a0fa14
+# ╠═0808d006-811f-4084-8cbe-de4d6d9b5c55
+# ╠═e48ef58a-6a1a-4862-885f-890e877cb0f7
+# ╠═c4c0876c-8389-4262-80ae-1cf0b358d2b6
+# ╠═5d955227-162c-4faf-a05b-3583437924df
+# ╠═7b6486a9-4487-4d81-9c78-3c86c641431c
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
