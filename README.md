@@ -114,6 +114,10 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |6|M|9/23| Edelman | Ambiguous Multiple Dispatch, Discrete and Continuous||  [Ambiguous Multiple Dispatch](https://mit-c25-fall23.netlify.app/notebooks/6_MultDisAmbiguity)    |
 |7|W|9/25| Edelman | Parametric Types with software applications to Dif Eqs || [Parametric Types](https://mit-c25-fall23.netlify.app/notebooks/7_ptypes)  , [ODES with parametric types](https://computationalthinking.mit.edu/Fall24/climate_science/odes_and_parameterized_types/)|
 |8|M|9/30| Student Projects |||
+|9|W|10/2| Student Projects |||
+|10|M|10/7| Student Projects |||
+|11|W|10/9| Student Projects |||
+|  |M|10/14| Indigenous People's Day |||
 | Upcoming...|
 |15|M|10/28| R. Ferrari |||
 |16|W|10/30| R. Ferrari |||
