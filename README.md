@@ -103,7 +103,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | HW3      |     Oct 9 |  Oct 16 |
 | HW4 Project 2a | Oct 16 | Oct 30 |
 | HW5  |  Oct 30 |  Nov 6 |
-| HW6 |  Nov 6 |  Nov 13 | Nov 20 |
+| HW6 |  Nov 6 |  Nov 13 |  |
 | HW7 Final Project | Nov 20  |  Dec 9 |
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
