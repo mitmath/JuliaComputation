@@ -548,7 +548,7 @@ Base.getindex(ls::LazyMatrixSum, i, j) = ls.m1[i, j] + ls.m2[i, j]
 
 # ╔═╡ d4f96362-7945-4a18-99dd-52a94f6cc65b
 md"""
-Homework 5 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
+Homework 3 of the MIT Course [_Julia: solving real-world problems with computation_](https://github.com/mitmath/JuliaComputation)
 
 Release date: Thursday, Oct 10, 2024 (version 3)
 
