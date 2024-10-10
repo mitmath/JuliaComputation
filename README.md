@@ -100,7 +100,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0-2024)         | Sep 4    | Sep 11 | Getting Started                                    |                                                                                      |
 | [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1-2024) | Sep 11|Sep 18||
 |  [HW2](https://canvas.mit.edu/courses/27400/assignments/363066) | Sep 18 |Oct 9 ||
-| [HW3](https://mit-c25-fall23.netlify.app/homeworks/hw1-2024)      |     Oct 10 |  Oct 23 |
+| [HW3](https://mit-c25-fall23.netlify.app/homeworks/HW3)      |     Oct 10 |  Oct 23 |
 | HW4 Project 2a | Oct 16 | Oct 30 |
 | HW5  |  Oct 30 |  Nov 6 |
 | HW6 |  Nov 6 |  Nov 13 |  |
