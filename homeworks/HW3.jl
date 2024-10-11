@@ -616,7 +616,7 @@ md"""
 let
 	if @isdefined count_descendants
 		try
-			check = count_descendants(Integer) == 17
+			check = count_descendants(Integer) == 15
 			if check
 				correct()
 			else
