@@ -4,180 +4,38 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ df9a4768-81ae-11ef-3f3e-e1408e0fd133
-using LinearAlgebra,PlutoUI, Distributions, Plots, Quaternions, GenericLinearAlgebra
+# ╔═╡ 3d749f15-c24e-4096-88b8-4d30e7db9eb1
+using PlutoUI, Random, LinearAlgebra, Plots, Distributions, StatsBase
 
-# ╔═╡ 59adca81-b8a5-4bc4-9b77-bc01be31e834
-TableOfContents(title="📚 Table of Contents", indent=true, depth=4, aside=true)
-
-# ╔═╡ f31b98a5-69d9-440a-b0e3-23cb64e5984c
-md"""
-# Jacobi Ensembles
-"""
-
-# ╔═╡ 4520eabe-5fba-42bb-a917-25f39f408cc6
-function J1E(a,b,n)
-    A = randn(n+a,n)
-	B = randn(n+b,n)
-	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
+# ╔═╡ 9d72468d-5d07-4a94-bf57-f22a51e25158
+begin
+  n = 1000 # size of fourier matrix
+  t = 10000 # trials
+  p=25; q=25;	# make sure p > q
 end
 
-# ╔═╡ ca028a51-2f9b-475b-9db9-470b87cd0f32
-function J2E(a,b,n)
-    A = randn(Complex{Float64},n+a,n)
-	B = randn(Complex{Float64},n+b,n)
-	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
+# ╔═╡ 803ba7c2-dfa6-4009-af33-5985b19909f6
+# create random unitary
+unitary(n) = qr(randn(ComplexF64,n,n)).Q
+
+# ╔═╡ aef312b2-87f7-11ef-0240-e7dce3394b2e
+# Create Fourier Matrix
+function fourier(n)
+	i = 0:n-1
+	(i' .+ i)
+	(cis(2π/n) .^ (i' .* i)) ./ sqrt(n)
 end
 
-# ╔═╡ 3fba3ecf-4779-4c4b-b367-b12c00d13dff
-function orthogonal(n;sign=1)
-   
-Q = qr(randn(n,n)).Q .* rand([-1,1],n)
- 
-Q[1,:] *= sign * det(Q)
-
-  
-# while( (sign*det(Q))<0)	
-# 	 Q = qr(randn(n,n)).Q .* rand([-1,1],n)
-# end
-# e = real.(eigvals( Matrix(Q)))
-# e =	sqrt.((e .+ 1.0000001)/2)[2:2:n]
-#e
-	e = angle.(eigvals( Matrix(Q)))
+# ╔═╡ d75f2a85-f385-4f96-a695-b7992c0ae0ee
+function jacdet(a,b,n)	
+	i = 1:n
+	c² = rand.( Beta.( (a.+i),(b.+i)) )	
+	i = 1:n-1
+	s′² =     rand.( Beta.( (a+b+1 .+i),i) )
+	sqrt(prod(c²) * prod(s′²))
 end
 
-# ╔═╡ bda2ba3a-3174-4250-9bd6-d820b3a92c7e
-function unitary(n;SU=true)
-   
-Q = qr(randn(ComplexF64,n,n)).Q .* cis.(2π*rand(n))
- 
-SU && ( Q[1,:] *= conj(det(Q)) )
-
-
-e = angle.(eigvals( Matrix(Q)))
-
-
-end
-
-# ╔═╡ 0fc02e3c-5582-40fe-8893-d6143346619f
-function unitary2(n;SU=true)
-   
-Q = qr(randn(ComplexF64,n,n)).Q .* cis.(2π*rand(n))
- 
-
-SU && (Q *= conj(det(Q))^(1/n))
-	
-e = angle.(eigvals( Matrix(Q)))
-end
-
-# ╔═╡ fa9c518a-0096-4db5-8111-5df86d303c63
-let
-	n = 4
-    e = (unitary(n,SU=false))
-	e = cis.(sort(e))
-	plot( [e;e[1]])
-	plot!( cis.(2π*(0:100)./100) , aspectratio=1)
-	hline!([0])
-end
-
-# ╔═╡ 9de79732-5fab-4960-a148-c2b27159a37a
-let
-	t = 50000
-	n = 6
-	
-	
-
-
-
-# m1 = vcat([ unitary(n,SU=false) for i=1:t]...)	
-# m2= vcat([  unitary2(n) for i=1:t]...)	
-	m3= vcat([  orthogonal(n,sign=-1) for i=1:t]...)	
-    
-	# stephist(m1,label="m1",normalize=true,bins=200)
-	
- #    stephist!(m2,label="m2",normalize=true,bins=200)
-	stephist(m3,label="m3",normalize=true,bins=200)
-		
-	hline!([1/(2π)],ylims=[0,.5])
-	plot!(x->1/(2π) .- (-1)^n* cos.(n*x)/(n*π), linewidth=3, alpha=.2, color=:green )
-	
-	
-end
-
-# ╔═╡ 2d047c0e-6d26-41ca-a17d-2dad06874cfc
-orthogonal(3,sign=-1)
-
-# ╔═╡ 709c796d-80da-4eea-8c58-0c51e1aff570
-ℍ2ℂ(q::Quaternion) = [q.s+im*q.v1 q.v2+im*q.v3 
-                      -q.v2+im*q.v3     q.s-im*q.v1 ]
-
-# ╔═╡ c89113f5-55a3-4fdf-a0fe-c4550487fe00
-function symp_unitary(n)
-
-	
-	
-Q = qr(randn(QuaternionF64,n,n)).Q 
-	Q = hvcat(n,ℍ2ℂ.(Matrix(Q))...)
-
-#  e = eigvals(hvcat(n,Q...))
-	
-# e = real.(e)[1:2:2n]
-# e =	sqrt.((e .+ 1)/2)
-
-end
-
-# ╔═╡ 2c23ab90-6623-48fc-bac4-296bb5cbc917
-let
-	Q = symp_unitary(2)
-  Q'Q
-end
-
-# ╔═╡ 5e58d900-6a42-4899-a6d3-ff79a99f9990
-let
-	n=8
-symp_unitary(n)
-end
-
-# ╔═╡ c7229a4d-2b1c-4bd5-aac3-68ec2ee5212f
-let
-	t = 500
-	n = 2
-    m_orth = [ minimum(abs.(symp_unitary(n))) for i = 1:t]
-	a =  b = .5
-
-
-	
-   
-	# m1 = [  minimum(abs.(JβE(a,b,n÷2,2))) for i = 1:t] 
-	# stephist(m_orth,label="orth")
-	
- #    stephist!(m1,label="Jacobi")
-	# title!("a=$a, b=$b, β=2")	
-	
-	
-	
-end
-
-# ╔═╡ 0dba0b42-4df5-4142-ad92-62ca603c3941
-symp_unitary(2)
-
-# ╔═╡ d07354ab-8834-4194-97a2-263c71b4ff4a
-randn(QuaternionF64,1)
-
-# ╔═╡ 96ee753d-4843-4418-a1c5-477707a0fa14
-7÷2
-
-# ╔═╡ 0808d006-811f-4084-8cbe-de4d6d9b5c55
-function J4E(a,b,n)
-    A = randn(Quaternion{Float64},n+a,n)
-	B = randn(Quaternion{Float64},n+b,n)
-	sqrt.( 1 ./ (1 .+1 ./ (svdvals(A,B)).^2))
-end
-
-# ╔═╡ e48ef58a-6a1a-4862-885f-890e877cb0f7
-J1E(2,2,2)
-
-# ╔═╡ c4c0876c-8389-4262-80ae-1cf0b358d2b6
+# ╔═╡ 71ac48bc-e5fb-488f-9a06-304baf56f298
 function JβE(a,b,n,β)
 	# exponents (β/2)(a+1)-1, (β/2)(b+1)-1 on [0,1]
 	i = 1:n
@@ -191,70 +49,63 @@ function JβE(a,b,n,β)
 
 end
 
-# ╔═╡ d933b5a4-6838-4cdb-92ab-9d244b470787
-let
-	t = 50000
-	n = 5
-	sign = -1
-    m_orth = [ minimum(abs.(orthogonal(n;sign=sign))) for i = 1:t]
-	a = -.5 * sign
-	
-    n%2 == 0 ? b=-.5*sign : b = .5*sign
- 
-   
-	m1 = [  minimum(abs.(JβE(a,b,n÷2-(sign==-1)&(n%2==0),2))) for i = 1:t] 
-	plot()
-	stephist!(m_orth,label="orth",normalize=true)
-	
-    stephist!(m1,label="Jacobi",normalize=true)
-	title!("a=$a, b=$b, β=2")	
-	
-	
-	
-end
+# ╔═╡ a1dd57ce-a5e0-4212-a307-17c52864aaa6
 
-# ╔═╡ a5e70ebe-0e94-43ec-a1c0-7be9771166e9
-plot(sort(2*JβE(0.5, 0.5, 100, 2000).^2 .- 1))
 
-# ╔═╡ 5d955227-162c-4faf-a05b-3583437924df
+# ╔═╡ 77fd07d4-9556-415b-bee3-429c5fa78521
 begin
-	t = 50
-	a = 5
-	b = 2
-	n = 2
-	β = .5
-
-	m2 = [ minimum(JβE(a,b,n,β)) for i = 1:t]
-	stephist(m2)
-	
-	if β==1
-	  m1 = [  minimum(J1E(a,b,n)) for i = 1:t]; stephist!(m1)
-	end
-	if β==2
-	  m1 = [  minimum(J2E(a,b,n)) for i = 1:t]; stephist!(m1)
-	end
-	title!("a=$a, b=$b, β=$β")
-	plot!(legend=false)
-	
-	
+	stephist(log.(v),label="fourier",normalize=true, bins=50)
+	stephist!(log.(w), label="jacobi",normalize=true, bin=50,lw=2,alpha=.2)
 end
+
+# ╔═╡ 57ef027e-4f1a-4fb8-9e26-02d144ee04bb
+begin
+	v = Float64[]; w=Float64[];
+	F = fourier(n)
+	for i = 1:t
+		rows = sample(1:n, p; replace=false)
+		cols = sample(1:n, q; replace=false)
+	     v = [v ;abs(det( F[rows,cols]) )]
+		w = [w; jacdet(p-q,n-p-q,q)]
+		
+	end
+	
+	
+ end
+
+# ╔═╡ 4ac235b4-25b7-4702-9696-6a99acc5a88e
+# ╠═╡ disabled = true
+#=╠═╡
+begin
+	v = Float64[]; w=Float64[];
+	F = fourier(n)
+	for i = 1:t
+		rows = sample(1:n, p; replace=false)
+		cols = sample(1:n, q; replace=false)
+	     v = [v ;svdvals( F[rows,cols]) ]
+		w = [w; JβE(p-q,n-p-q,q,2)]
+		
+	end
+	
+	
+ end
+  ╠═╡ =#
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
-GenericLinearAlgebra = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-Quaternions = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 Distributions = "~0.25.111"
-GenericLinearAlgebra = "~0.3.13"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
-Quaternions = "~0.7.6"
+StatsBase = "~0.34.3"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -263,7 +114,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "fc3821ac4d0685c00a018645bb56cede2998a7c7"
+project_hash = "adf1950165367dad299b3e3e7976aebd3c498102"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -510,12 +361,6 @@ git-tree-sha1 = "a8863b69c2a0859f2c2c87ebdc4c6712e88bdf0d"
 uuid = "d2c73de3-f751-5644-a686-071e5b155ba9"
 version = "0.73.7+0"
 
-[[deps.GenericLinearAlgebra]]
-deps = ["LinearAlgebra", "Printf", "Random", "libblastrampoline_jll"]
-git-tree-sha1 = "f47136cac29a9b7a8a88dbce1195394978091edb"
-uuid = "14197337-ba66-59df-a3e3-ca00e7dcff7a"
-version = "0.3.13"
-
 [[deps.Gettext_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "XML2_jll"]
 git-tree-sha1 = "9b02998aba7bf074d14de89f9d37ca24a1a0b046"
@@ -604,9 +449,9 @@ version = "0.21.4"
 
 [[deps.JpegTurbo_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "c84a835e1a09b289ffcd2271bf2a337bbdda6637"
+git-tree-sha1 = "25ee0be4d43d0269027024d75a24c24d6c6e590c"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
-version = "3.0.3+0"
+version = "3.0.4+0"
 
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -990,12 +835,6 @@ version = "2.11.1"
     [deps.QuadGK.weakdeps]
     Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
 
-[[deps.Quaternions]]
-deps = ["LinearAlgebra", "Random", "RealDot"]
-git-tree-sha1 = "994cc27cdacca10e68feb291673ec3a76aa2fae9"
-uuid = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
-version = "0.7.6"
-
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
@@ -1003,12 +842,6 @@ uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 [[deps.Random]]
 deps = ["SHA"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-
-[[deps.RealDot]]
-deps = ["LinearAlgebra"]
-git-tree-sha1 = "9f0a1b71baaf7650f4fa8a1d168c7fb6ee41f0c9"
-uuid = "c1ae055f-0cd5-4b69-90a6-9a35b1a98df9"
-version = "0.1.0"
 
 [[deps.RecipesBase]]
 deps = ["PrecompileTools"]
@@ -1466,9 +1299,9 @@ version = "1.18.0+0"
 
 [[deps.libpng_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Zlib_jll"]
-git-tree-sha1 = "d7015d2e18a5fd9a4f47de711837e980519781a4"
+git-tree-sha1 = "b70c870239dc3d7bc094eb2d6be9b73d27bef280"
 uuid = "b53b4c65-9356-5827-b1ea-8c7a1a84506f"
-version = "1.6.43+1"
+version = "1.6.44+0"
 
 [[deps.libvorbis_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Ogg_jll", "Pkg"]
@@ -1512,30 +1345,15 @@ version = "1.4.1+1"
 """
 
 # ╔═╡ Cell order:
-# ╠═df9a4768-81ae-11ef-3f3e-e1408e0fd133
-# ╠═59adca81-b8a5-4bc4-9b77-bc01be31e834
-# ╟─f31b98a5-69d9-440a-b0e3-23cb64e5984c
-# ╠═4520eabe-5fba-42bb-a917-25f39f408cc6
-# ╠═ca028a51-2f9b-475b-9db9-470b87cd0f32
-# ╠═3fba3ecf-4779-4c4b-b367-b12c00d13dff
-# ╠═bda2ba3a-3174-4250-9bd6-d820b3a92c7e
-# ╠═0fc02e3c-5582-40fe-8893-d6143346619f
-# ╠═fa9c518a-0096-4db5-8111-5df86d303c63
-# ╠═9de79732-5fab-4960-a148-c2b27159a37a
-# ╠═2d047c0e-6d26-41ca-a17d-2dad06874cfc
-# ╠═d933b5a4-6838-4cdb-92ab-9d244b470787
-# ╠═709c796d-80da-4eea-8c58-0c51e1aff570
-# ╠═c89113f5-55a3-4fdf-a0fe-c4550487fe00
-# ╠═2c23ab90-6623-48fc-bac4-296bb5cbc917
-# ╠═5e58d900-6a42-4899-a6d3-ff79a99f9990
-# ╠═c7229a4d-2b1c-4bd5-aac3-68ec2ee5212f
-# ╠═0dba0b42-4df5-4142-ad92-62ca603c3941
-# ╠═d07354ab-8834-4194-97a2-263c71b4ff4a
-# ╠═96ee753d-4843-4418-a1c5-477707a0fa14
-# ╠═0808d006-811f-4084-8cbe-de4d6d9b5c55
-# ╠═e48ef58a-6a1a-4862-885f-890e877cb0f7
-# ╠═c4c0876c-8389-4262-80ae-1cf0b358d2b6
-# ╠═a5e70ebe-0e94-43ec-a1c0-7be9771166e9
-# ╠═5d955227-162c-4faf-a05b-3583437924df
+# ╠═3d749f15-c24e-4096-88b8-4d30e7db9eb1
+# ╠═9d72468d-5d07-4a94-bf57-f22a51e25158
+# ╠═77fd07d4-9556-415b-bee3-429c5fa78521
+# ╠═803ba7c2-dfa6-4009-af33-5985b19909f6
+# ╠═aef312b2-87f7-11ef-0240-e7dce3394b2e
+# ╠═d75f2a85-f385-4f96-a695-b7992c0ae0ee
+# ╠═71ac48bc-e5fb-488f-9a06-304baf56f298
+# ╠═a1dd57ce-a5e0-4212-a307-17c52864aaa6
+# ╠═57ef027e-4f1a-4fb8-9e26-02d144ee04bb
+# ╠═4ac235b4-25b7-4702-9696-6a99acc5a88e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
