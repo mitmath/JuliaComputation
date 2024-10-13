@@ -99,7 +99,12 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | --------------------------------------------------------------- | -------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [HW0](https://mit-c25-fall23.netlify.app/homeworks/hw0-2024)         | Sep 4    | Sep 11 | Getting Started                                    |                                                                                      |
 | [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1-2024) | Sep 11|Sep 18||
-|  [HW2](https://canvas.mit.edu/courses/27400/assignments/363066) | Sep 18 |Varies||
+|  [HW2](https://canvas.mit.edu/courses/27400/assignments/363066) | Sep 18 |Oct 9 ||
+| [HW3](https://mit-c25-fall23.netlify.app/homeworks/HW3)      |     Oct 10 |  Oct 23 |
+| HW4 Project 2a | Oct 16 | Oct 30 |
+| HW5  |  Oct 30 |  Nov 6 |
+| HW6 |  Nov 6 |  Nov 13 |  |
+| HW7 Final Project | Nov 20  |  Dec 9 |
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
 
@@ -114,10 +119,16 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |6|M|9/23| Edelman | Ambiguous Multiple Dispatch, Discrete and Continuous||  [Ambiguous Multiple Dispatch](https://mit-c25-fall23.netlify.app/notebooks/6_MultDisAmbiguity)    |
 |7|W|9/25| Edelman | Parametric Types with software applications to Dif Eqs || [Parametric Types](https://mit-c25-fall23.netlify.app/notebooks/7_ptypes)  , [ODES with parametric types](https://computationalthinking.mit.edu/Fall24/climate_science/odes_and_parameterized_types/)|
 |8|M|9/30| Student Projects |||
+|9|W|10/2| Student Projects |||
+|10|M|10/7| Student Projects |||
+|11|W|10/9| Student Projects |||
+|  |M|10/14| Indigenous People's Day |||
 | Upcoming...|
 |15|M|10/28| R. Ferrari |||
 |16|W|10/30| R. Ferrari |||
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
+|26 | W |12/11| Class Party|
+
 | MOSTLY IGNORE BELOW|
 | 4   | T   | 9/19  | Edelman           | Matrix Calculus                                      | [Matrix Calc 1](https://docs.google.com/presentation/d/1TGZ5I3ZP907-itZrslKF4miReNzV1dAOXNU4QMCHkd8/edit#slide=id.p)                              | [Matrix Jacobians](<https://mit-c25-fall22.netlify.app/notebooks/2_matrix_jacobians>), [Finite Differences](<https://mit-c25-fall22.netlify.app/notebooks/2_finite_differences>)                                                                                                                                                                                         |
 | 5   | R   | 9/21  | Edelman           | Matrix Calculus                                      | [Matrix Calc 2](https://docs.google.com/presentation/d/1IuwijmdWCes1Quh1gJxbHoMbA50Tk0xxXnaPvu3tQjQ/edit#slide=id.g15504621cdd_0_0)               | [Linear Transformations](https://mit-c25-fall22.netlify.app/notebooks/3_linear_transformations), [Symmetric Eigenproblems](https://mit-c25-fall22.netlify.app/notebooks/3_symmetric_eigenvalue_derivatives)                                                                                                                                                              |
