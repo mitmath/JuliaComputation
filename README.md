@@ -123,9 +123,14 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |10|M|10/7| Student Projects |||
 |11|W|10/9| Student Projects |||
 |  |M|10/14| Indigenous People's Day |||
+| 12  | W   | 10/16  | Edelman             | Economic Model of Climate                            | [Slides](slides_old/ClimateMARGO.pdf)                                                                                                             | [Economic Model](https://computationalthinking.mit.edu/Fall23/climate_science/inverse_climate_model/), [Optimization with JUMP](https://computationalthinking.mit.edu/Fall23/climate_science/optimization_with_JuMP/)                                                                                                                                                    |
+| 13 | M  | 10/21  | Edelman           | Snowball Earth    | [Snowball Earth and hysteresis](https://computationalthinking.mit.edu/Fall23/climate_science/climate2_snowball_earth/) 
+|14| W| 10/23 | Edelman | Lead up to Climate||
+|15|M|10/28| R. Ferrari | Climate Science||
+|16|W|10/30| R. Ferrari | Climate Science||
+|17|W|11/4|  | Parallel and GPU Computing ||
+|18|W|11/6| | Parallel and GPU Computing ||
 | Upcoming...|
-|15|M|10/28| R. Ferrari |||
-|16|W|10/30| R. Ferrari |||
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
 |26 | W |12/11| Class Party|
 
