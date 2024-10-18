@@ -128,7 +128,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |14| W| 10/23 | Edelman | Lead up to Climate||
 |15|M|10/28| R. Ferrari | Climate Science||
 |16|W|10/30| R. Ferrari | Climate Science||
-|17|W|11/4|  | Parallel and GPU Computing ||
+|17|M|11/4|  | Parallel and GPU Computing ||
 |18|W|11/6| | Parallel and GPU Computing ||
 | Upcoming...|
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
