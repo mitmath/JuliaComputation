@@ -15,7 +15,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 0fe4b455-96a0-491e-ba02-7e4898a38bd8
-using Plots, PlutoUI
+using Plots , PlutoUI
 
 # ╔═╡ 93ba762a-7460-4229-84ad-a8fca85a025c
 import HypertextLiteral: @htl
