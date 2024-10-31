@@ -101,8 +101,8 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | [HW1](https://mit-c25-fall23.netlify.app/homeworks/hw1-2024) | Sep 11|Sep 18||
 |  [HW2](https://canvas.mit.edu/courses/27400/assignments/363066) | Sep 18 |Oct 9 ||
 | [HW3](https://mit-c25-fall23.netlify.app/homeworks/HW3)      |     Oct 10 |  Oct 23 |
-| HW4 Project 2a | Oct 21 | Oct 30 |
-| HW5  |  Oct 30 |  Nov 6 |
+| [HW4A](https://canvas.mit.edu/courses/27400/assignments/367532) | Oct 24 | Nov 1 |
+| [HW4B](https://canvas.mit.edu/courses/27400/assignments/367534)  |  Oct 23 |  Nov 8 |
 | HW6 |  Nov 6 |  Nov 13 |  |
 | HW7 Final Project | Nov 20  |  Dec 9 |
 
@@ -127,9 +127,10 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | 13 | M  | 10/21  | Ferrari           | Intro to Climate    | [Slides](notebooks/13_ferari_lecture1.pdf) |
 |14| W| 10/23 | Ferrari | Energy Balance Models ||
 |15|M|10/28| Souza | Climate Emulators||
-|16|W|10/30| Edelman | Snowball Earth |[Snowball Earth and hysteresis](https://computationalthinking.mit.edu/Fall23/climate_science/climate2_snowball_earth/)  |
+|16|W|10/30| Edelman |  Intro to HPC  |   |
 |17|M|11/4|  | Parallel and GPU Computing ||
 |18|W|11/6| | Parallel and GPU Computing ||
+|19|W|11/8 | Edelman | Snowball Earth |[Snowball Earth and hysteresis]
 | Upcoming...|
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
 |26 | W |12/11| Class Party|
