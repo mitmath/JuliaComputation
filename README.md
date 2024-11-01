@@ -127,7 +127,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | 13 | M  | 10/21  | Ferrari           | Intro to Climate    | [Slides](notebooks/13_ferari_lecture1.pdf) |
 |14| W| 10/23 | Ferrari | Energy Balance Models ||
 |15|M|10/28| Souza | Climate Emulators||
-|16|W|10/30| Edelman |  Intro to HPC  |   |
+|16|W|10/30| Edelman |  Intro to HPC  |  [Top 500](https://top500.org/), [HPC Slides](https://docs.google.com/presentation/d/1i6w4p26r_9lu_reHYZDIVnzh-4SdERVAoSI5i42lBU8/edit#slide=id.p)  |
 |17|M|11/4|  | Parallel and GPU Computing ||
 |18|W|11/6| | Parallel and GPU Computing ||
 |19|W|11/8 | Edelman | Snowball Earth |[Snowball Earth and hysteresis]
