@@ -132,8 +132,14 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |18|W|11/6| | Parallel and GPU Computing ||
 |    | M | 11/11 | Veterans Day  |  |  |
 |19|W|11/13 | Edelman | Snowball Earth |[Snowball Earth and hysteresis]
-| Upcoming...|
+|  20  | M | 11/18 | Veterans Day  |  |  |
+|21|W|11/20 | Edelman ||
+|22|M|11/22 | Edelman ||
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
+| Upcoming...|
+|23|M|12/2 |  ||
+|24|W|12/4 |  ||
+|25 |M|12/9 |  ||
 |26 | W |12/11| Class Party|
 
 | MOSTLY IGNORE BELOW|
