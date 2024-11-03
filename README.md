@@ -136,7 +136,6 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |21|W|11/20 | Edelman ||
 |22|M|11/22 | Edelman ||
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
-| Upcoming...|
 |23|M|12/2 |  ||
 |24|W|12/4 |  ||
 |25 |M|12/9 |  ||
