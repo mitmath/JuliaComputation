@@ -103,7 +103,7 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 | [HW3](https://mit-c25-fall23.netlify.app/homeworks/HW3)      |     Oct 10 |  Oct 23 |
 | [HW4A](https://canvas.mit.edu/courses/27400/assignments/367532) | Oct 24 | Nov 1 |
 | [HW4B](https://canvas.mit.edu/courses/27400/assignments/367534)  |  Oct 23 |  Nov 8 |
-| HW6 |  Nov 6 |  Nov 13 |  |
+|  |   |  |  |
 | HW7 Final Project | Nov 20  |  Dec 9 |
 
 ## Lectures at a glance (Lectures being updated from 2023 as we go, but this semester there will be many more student presentations and discussions.  Participation is a must.)
