@@ -136,9 +136,9 @@ Use your Project 2a, incorporating suggestions, to make an amazing Pluto noteboo
 |21|W|11/20 | Edelman |   Snowball Earth |[Snowball Earth and hysteresis] |
 |22|M|11/25 | Edelman | Advection and Diffusion |
 ||W| 11/27| Class Cancelled, Thanksgving Travel |||
-|23|M|12/2 |  ||
-|24|W|12/4 |  ||
-|25 |M|12/9 |  ||
+|23|M|12/2 | Student Projects ||
+|24|W|12/4 |  Student Projects||
+|25 |M|12/9 | Student Projects  ||
 |26 | W |12/11| Class Party|
 
 | MOSTLY IGNORE BELOW|
