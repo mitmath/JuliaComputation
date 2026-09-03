@@ -17,6 +17,10 @@ Fall 2026 course page, under construction.
 - **Room:** 45-102
 - **MIT listing:** [Department of Mathematics course list](https://math.mit.edu/academics/classes.html)
 
+## Description
+
+This year's experiment is that LLMs may let us learn ideas that once felt out of reach, even when our background is uneven or incomplete. Each project will start with one such idea, build a computational way into it, and teach it to the class in the spirit of a seminar.
+
 ## Previous Offering
 
 - [Fall 2024](https://github.com/mitmath/JuliaComputation/tree/Fall24)
