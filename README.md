@@ -1,4 +1,4 @@
-# Julia: Solving Real-World Problems with Computation, Fall 2024 <br>*(course material work in progress)*
+# Julia: Solving Real-World Problems with Computation, Fall 2024 <br>
 
 
 |  |  |
