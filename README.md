@@ -21,6 +21,41 @@ Fall 2026 course page, under construction.
 
 This year's experiment is that LLMs may let us learn ideas that once felt out of reach, even when our background is uneven or incomplete. Each project will start with one such idea, build a computational way into it, and teach it to the class in the spirit of a seminar.
 
+## Calendar
+
+Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/current-key-dates).
+
+| # | Day | Date | Note |
+|---|---|---|---|
+| 1 | W | Sep 9 |  |
+| 2 | M | Sep 14 |  |
+| 3 | W | Sep 16 |  |
+| 4 | M | Sep 21 |  |
+| 5 | W | Sep 23 |  |
+| 6 | M | Sep 28 |  |
+| 7 | W | Sep 30 |  |
+| 8 | M | Oct 5 |  |
+| 9 | W | Oct 7 |  |
+|  | M | Oct 12 | Indigenous Peoples Day - holiday |
+| 10 | T | Oct 13 | Monday schedule of classes |
+| 11 | W | Oct 14 |  |
+| 12 | M | Oct 19 |  |
+| 13 | W | Oct 21 |  |
+| 14 | M | Oct 26 |  |
+| 15 | W | Oct 28 |  |
+| 16 | M | Nov 2 |  |
+| 17 | W | Nov 4 |  |
+| 18 | M | Nov 9 |  |
+|  | W | Nov 11 | Veterans Day - holiday |
+| 19 | M | Nov 16 |  |
+| 20 | W | Nov 18 |  |
+| 21 | M | Nov 23 |  |
+|  | W | Nov 25 | Class canceled for Thanksgiving |
+| 22 | M | Nov 30 |  |
+| 23 | W | Dec 2 |  |
+| 24 | M | Dec 7 |  |
+| 25 | W | Dec 9 | Class party |
+
 ## Previous Offering
 
 - [Fall 2024](https://github.com/mitmath/JuliaComputation/tree/Fall24)
