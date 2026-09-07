@@ -17,9 +17,19 @@ Fall 2026 course page, under construction.
 - **Room:** 45-102
 - **MIT listing:** [Department of Mathematics course list](https://math.mit.edu/academics/classes.html)
 
-## Description
+## Teaching Experiment
 
-This year's experiment is that LLMs may let us learn ideas that once felt out of reach, even when our background is uneven or incomplete. Each project will start with one such idea, build a computational way into it, and teach it to the class in the spirit of a seminar.
+We are working with two core beliefs:
+
+1. Humans like to learn, at least when it is not too stressful.
+2. LLMs can help us leapfrog our learning.
+
+We will use LLMs to learn something beyond our prerequisites. Perhaps some of you will learn general relativity, or Lie algebra, or how a car does regenerative braking, but the key requirements are:
+
+1. The material is something you conventionally would not have the background for, and you are on the honor system here.
+2. You learn it, create a Julia notebook (LLMs allowed!), and teach it to all of us, seminar style.
+
+For the rest of the class, we want you engaged and asking questions.
 
 ## Calendar
 
