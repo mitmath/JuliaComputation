@@ -24,7 +24,7 @@ We are working with two core beliefs:
 1. Humans like to learn, at least when it is not too stressful.
 2. LLMs can help us leapfrog our learning.
 
-We will use LLMs to learn something beyond our prerequisites. Perhaps some of you will learn general relativity, or Lie algebra, or how a car does regenerative braking, but the key requirements are:
+We will use LLMs to learn something beyond our prerequisites. Perhaps some of you will learn general relativity, a sophisticated climate model, Lie algebra, or how a car does regenerative braking, but the key requirements are:
 
 1. The material is something you conventionally would not have the background for, and you are on the honor system here.
 2. You learn it, create a Julia notebook (LLMs allowed!), and teach it to all of us, seminar style.
