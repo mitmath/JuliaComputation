@@ -31,6 +31,20 @@ We will use LLMs to learn something beyond our prerequisites. Perhaps some of yo
 
 For the rest of the class, we want you engaged and asking questions.
 
+## Grading
+
+Projects may be completed individually or in small groups, with each student responsible for understanding and presenting their part.
+
+- **Homework:** 25%
+- **Class participation and questions:** 10%
+- **Learning proposal:** 10%
+- **Project notebook and development:** 25%
+- **Final seminar presentation:** 30%
+
+The first homework is a proposal for what you want to learn. Explain what interests you about the subject, what you hope to understand, and why it is a genuine reach beyond your current background. You should convince us that this is something you would not ordinarily be prepared to learn in this class without help, and that it is substantial enough for a notebook and a seminar-style presentation.
+
+Project presentations will begin around the halfway point of the semester. The second half of the course will be devoted to student presentations, questions, and discussion.
+
 ## Calendar
 
 Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/current-key-dates).
@@ -50,20 +64,20 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 10 | T | Oct 13 |  | Monday schedule of classes |
 | 11 | W | Oct 14 |  |  |
 | 12 | M | Oct 19 |  |  |
-| 13 | W | Oct 21 |  |  |
-| 14 | M | Oct 26 |  |  |
-| 15 | W | Oct 28 |  |  |
-| 16 | M | Nov 2 |  |  |
-| 17 | W | Nov 4 |  |  |
-| 18 | M | Nov 9 |  |  |
+| 13 | W | Oct 21 |  | Student presentations |
+| 14 | M | Oct 26 |  | Student presentations |
+| 15 | W | Oct 28 |  | Student presentations |
+| 16 | M | Nov 2 |  | Student presentations |
+| 17 | W | Nov 4 |  | Student presentations |
+| 18 | M | Nov 9 |  | Student presentations |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 |  |  |
-| 20 | W | Nov 18 |  |  |
-| 21 | M | Nov 23 |  |  |
+| 19 | M | Nov 16 |  | Student presentations |
+| 20 | W | Nov 18 |  | Student presentations |
+| 21 | M | Nov 23 |  | Student presentations |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
-| 22 | M | Nov 30 |  |  |
-| 23 | W | Dec 2 |  |  |
-| 24 | M | Dec 7 |  |  |
+| 22 | M | Nov 30 |  | Student presentations |
+| 23 | W | Dec 2 |  | Student presentations |
+| 24 | M | Dec 7 |  | Student presentations |
 | 25 | W | Dec 9 |  | Class party |
 
 ## Previous Offering
