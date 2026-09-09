@@ -1,4 +1,4 @@
-# Julia: Solving Real-World Problems with Computation, Fall 2026 <br>*(course material work in progress)*
+ # Julia: Solving Real-World Problems with Computation, Fall 2026 <br>*(course material work in progress)*
 
 |  |  |
 |:---|---|
@@ -67,7 +67,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 10 | T | Oct 13 |  | Monday schedule of classes |
 | 11 | W | Oct 14 |  |  |
 | 12 | M | Oct 19 |  |  |
-| 13 | W | Oct 21 |  | Student presentations |
+| 13 | W | Oct 21 |  | |
 | 14 | M | Oct 26 |  | Student presentations |
 | 15 | W | Oct 28 |  | Student presentations |
 | 16 | M | Nov 2 |  | Student presentations |
@@ -76,7 +76,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 |  |  |
 | 20 | W | Nov 18 |  |  |
-| 21 | M | Nov 23 |  |  |
+| 21 | M | Nov 23 |  | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
 | 22 | M | Nov 30 |  | Student presentations |
 | 23 | W | Dec 2 |  | Student presentations |
