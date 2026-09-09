@@ -73,9 +73,23 @@ md"""
 - [The Guardian's report and context](https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-elusive-maths-problem)
 - [Steven Strogatz's post on X](https://x.com/stevenstrogatz/status/2097390631303663840?s=46&t=FGZ6qOY7zA1xiXb4dlU5ZA)
 - [The Clay Mathematics Institute problem statement](https://www.claymath.org/millennium-problems/navier-stokes-equation/)
+- [OpenAI's announcement](https://openai.com/index/navier-stokes-solution/)
+- [Buckmaster's statement about the work and the credit dispute](https://cims.nyu.edu/~tristanb/statement.pdf)
+- [A MathOverflow discussion of the relationship and controversy](https://mathoverflow.net/questions/515016/relevance-of-the-work-of-alp%C3%B6ge-and-buckmaster-to-navier-stokes)
 
 As you read, separate three claims: a numerical experiment, a convincing mathematical
 argument, and a proof that meets the Clay problem's exact requirements.
+
+### What is the relation to the original Navier–Stokes problem?
+
+Tao's post is an explanation of a mechanism in nearby equations; it is not a solution by
+Tao of the original Navier–Stokes problem. The Boussinesq preprint linked below proves a
+finite-time blow-up result for a forced inviscid Boussinesq system, and related work treats
+forced three-dimensional Euler. These equations are close enough to be informative, but
+they are not the original unforced three-dimensional incompressible Navier–Stokes equation
+with viscosity. OpenAI's separate announcement claims a result for forced Navier–Stokes and
+says it is not claiming the Clay prize; that claim, its proof, and the surrounding credit
+and data-use dispute should be treated as material for scrutiny, not as settled history.
 """
 
 # ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0005
