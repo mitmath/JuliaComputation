@@ -31,6 +31,8 @@ We will use LLMs to learn something beyond our prerequisites. Perhaps some of yo
 
 For the rest of the class, we want you engaged and asking questions.
 
+For a current example of this approach, see the [Navier–Stokes in the news Pluto notebook](notebooks/navier_stokes_news.jl).
+
 ## Grading
 
 Projects may be completed individually or in small groups, with each student responsible for understanding and presenting their part.
