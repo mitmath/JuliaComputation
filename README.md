@@ -72,11 +72,11 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 15 | W | Oct 28 |  | Student presentations |
 | 16 | M | Nov 2 |  | Student presentations |
 | 17 | W | Nov 4 |  | Student presentations |
-| 18 | M | Nov 9 |  | Student presentations |
+| 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 |  | Student presentations |
-| 20 | W | Nov 18 |  | Student presentations |
-| 21 | M | Nov 23 |  | Student presentations |
+| 19 | M | Nov 16 |  |  |
+| 20 | W | Nov 18 |  |  |
+| 21 | M | Nov 23 |  |  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
 | 22 | M | Nov 30 |  | Student presentations |
 | 23 | W | Dec 2 |  | Student presentations |
