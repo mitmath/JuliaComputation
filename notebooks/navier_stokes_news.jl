@@ -157,6 +157,93 @@ but it cannot by itself prove that every smooth three-dimensional solution stays
 or that one particular solution becomes singular.
 """
 
+# ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0010
+md"""
+## The ODE hiding inside the recent blow-up construction
+
+The new work by Alpöge and Buckmaster studies several fluid equations, including forced
+inviscid Boussinesq and three-dimensional Euler. In a carefully chosen oscillatory-wave
+ansatz, the wave amplitudes obey an exact two-variable ODE. In a simplified frozen setting,
+the equations are
+
+$$\dot{\Theta}=\frac{A\sin\phi}{\lambda r}\,\Omega,\qquad
+\dot{\Omega}=\lambda r\sin\phi\,\Theta.$$
+
+When $0<\phi<\pi$, the matrix has eigenvalues
+$\pm\sqrt{A\sin\phi}$. Along the growing eigenline, the amplitudes grow like
+$e^{\sqrt{A\sin\phi}\,t}$. This is the instability that one can see directly in an ODE;
+the difficult PDE proof arranges many increasingly fine waves and fits infinitely many
+stages into finite time.
+
+This is not itself a proof of Navier–Stokes blow-up. It is a window into the mechanism.
+See [Tao's explanation](https://terrytao.wordpress.com/2026/09/07/finite-time-blowup/)
+and the [Boussinesq preprint](https://cims.nyu.edu/~tristanb/boussinesq.pdf).
+
+Wave amplitude `A`: $(@bind A_wave Slider(0.1:0.1:4.0; default=1.0, show_value=true))
+
+Wave angle `φ`: $(@bind phi Slider(0.1:0.1:3.0; default=1.6, show_value=true))
+
+Frequency scale `λr`: $(@bind lambda_r Slider(0.5:0.5:4.0; default=1.0, show_value=true))
+
+Time window: $(@bind t_wave Slider(0.1:0.05:3.0; default=1.5, show_value=true))
+"""
+
+# ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0011
+function wave_amplitudes(A_wave, phi, lambda_r, t_wave)
+    growth_rate = sqrt(max(A_wave * sin(phi), 0.0))
+    times = collect(range(0, t_wave; length=300))
+    theta0 = -1.0
+    omega0 = (lambda_r / sqrt(A_wave)) * theta0
+    theta = theta0 .* exp.(growth_rate .* times)
+    omega = omega0 .* exp.(growth_rate .* times)
+    return times, theta, omega, growth_rate
+end
+
+# ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0012
+begin
+    wave_times, theta, omega, growth_rate = wave_amplitudes(A_wave, phi, lambda_r, t_wave)
+    plot(wave_times, abs.(theta); label="|Θ(t)|", lw=3,
+        xlabel="time", ylabel="amplitude", title="ODE growth rate = $(round(growth_rate, digits=3))")
+    plot!(wave_times, abs.(omega); label="|Ω(t)|", lw=3)
+end
+
+# ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0013
+md"""
+## A one-line comparison that really blows up
+
+The simplest calculus model for self-amplification is
+
+$$\dot{Y}=cY^2,\qquad Y(0)=Y_0.$$
+
+Separating variables gives
+
+$$Y(t)=\frac{Y_0}{1-cY_0t},\qquad T_* = \frac{1}{cY_0}.$$
+
+The graph becomes infinite at the finite time $T_*$. This is an exact ODE calculation,
+not a discretization artifact. But it is only a comparison model: replacing a PDE by this
+ODE loses spatial transport, pressure, incompressibility, viscosity, and the geometry of
+vortex stretching. The mathematical challenge is proving that the full PDE can organize
+those effects so that a mechanism like this survives.
+
+Initial value `Y₀`: $(@bind Y0_blow Slider(0.2:0.1:2.0; default=1.0, show_value=true))
+
+Amplification `c`: $(@bind c_blow Slider(0.2:0.1:2.0; default=1.0, show_value=true))
+
+Requested time: $(@bind t_blow Slider(0.0:0.01:3.0; default=0.8, show_value=true))
+"""
+
+# ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0014
+begin
+    blowup_time = 1 / (c_blow * Y0_blow)
+    safe_time = min(t_blow, 0.98 * blowup_time)
+    blowup_times = collect(range(0, max(safe_time, 0.001); length=300))
+    blowup_values = Y0_blow ./ (1 .- c_blow .* Y0_blow .* blowup_times)
+    plot(blowup_times, blowup_values; label="Y(t)", lw=3, color=:crimson,
+        xlabel="time", ylabel="Y", xlims=(0, 1.02 * blowup_time),
+        title="Exact ODE blow-up at T⋆ = $(round(blowup_time, digits=3))")
+    vline!([blowup_time]; label="T⋆", ls=:dash, color=:black)
+end
+
 # ╔═╡ 0b31c0d4-8d68-4e06-b3ef-6e7c5cda0009
 md"""
 ## Questions for class
@@ -181,4 +268,9 @@ let us check the answer.
 # ╠═0b31c0d4-8d68-4e06-b3ef-6e7c5cda0006
 # ╠═0b31c0d4-8d68-4e06-b3ef-6e7c5cda0007
 # ╟─0b31c0d4-8d68-4e06-b3ef-6e7c5cda0008
+# ╟─0b31c0d4-8d68-4e06-b3ef-6e7c5cda0010
+# ╠═0b31c0d4-8d68-4e06-b3ef-6e7c5cda0011
+# ╠═0b31c0d4-8d68-4e06-b3ef-6e7c5cda0012
+# ╟─0b31c0d4-8d68-4e06-b3ef-6e7c5cda0013
+# ╠═0b31c0d4-8d68-4e06-b3ef-6e7c5cda0014
 # ╟─0b31c0d4-8d68-4e06-b3ef-6e7c5cda0009
