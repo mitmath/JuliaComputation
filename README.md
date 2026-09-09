@@ -38,10 +38,9 @@ For a current example of this approach, see the [Navier–Stokes in the news Plu
 Projects may be completed individually or in small groups, with each student responsible for understanding and presenting their part.
 
 - **Homework:** 25%
-- **Class participation and questions:** 10%
-- **Learning proposal:** 10%
-- **Project notebook and development:** 25%
-- **Final seminar presentation:** 30%
+- **Two class presentations:** 25%
+- **Class participation and questions:** 15%
+- **Final Project Notebook:** 35%
 
 The first homework is a proposal for what you want to learn. Explain what interests you about the subject, what you hope to understand, and why it is a genuine reach beyond your current background. You should convince us that this is something you would not ordinarily be prepared to learn in this class without help, and that it is substantial enough for a notebook and a seminar-style presentation.
 
