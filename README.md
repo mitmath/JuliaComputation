@@ -42,7 +42,13 @@ Projects may be completed individually or in small groups, with each student res
 - **Class participation and questions:** 15%
 - **Final Project Notebook:** 35%
 
-The first homework is a proposal for what you want to learn. Explain what interests you about the subject, what you hope to understand, and why it is a genuine reach beyond your current background. You should convince us that this is something you would not ordinarily be prepared to learn in this class without help, and that it is substantial enough for a notebook and a seminar-style presentation.
+## Homework 1
+
+[Homework 1: Getting Started and Multiple Dispatch](homeworks/hw1-2026.jl) was released Monday, September 14, 2026 and is due Monday, September 21, 2026 at 11:59pm Eastern time.
+
+This assignment combines the setup and introductory Julia exercises from the former HW0 with the types and multiple-dispatch exercises from the former HW1.
+
+The first homework gets everyone set up and introduces the Julia ideas needed for the projects later in the semester. The project proposal will follow separately.
 
 Project presentations will begin around the halfway point of the semester. The second half of the course will be devoted to student presentations, questions, and discussion.
 
