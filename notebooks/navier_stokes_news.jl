@@ -116,6 +116,36 @@ md"""
 As you read, separate three claims: a numerical experiment, a convincing mathematical
 argument, and a proof that meets the Clay problem's exact requirements.
 
+### What should we learn from the AI angle?
+
+There are two claims that are easy to bundle together:
+
+| Claim | What the evidence can support | What it does **not** show |
+|:--|:--|:--|
+| AI can do difficult, novel technical work. | A system may produce a surprising construction, calculation, or piece of code. | That the system understands every assumption or that the result is correct. |
+| Domain structure no longer matters. | A generator can sometimes make useful progress before it has all the usual background. | That definitions, invariants, test cases, and proof checkers have become decoration. |
+
+For this notebook, the most useful pattern is **generator + verifier**. An LLM can help
+you translate the equations, suggest an experiment, or write a first version of the
+code. You then check the signs, units, boundary conditions, limiting cases, and numerical
+behavior. In a proof, the corresponding verification layer is a precise statement and
+a checkable mathematical artifact, not a confident explanation or a press release.
+
+### A useful analogy: Lean, compilers, and Dyad
+
+Lean is not a magical source of mathematical truth. A person or an AI can propose a
+proof, but Lean's small trusted kernel checks whether that proof follows from the formal
+definitions and rules. A compiler plays a similar role for programs: it understands the
+language's structure well enough to reject malformed code and translate valid code, even
+though it cannot guarantee that the program does what its author intended.
+
+Dyad is interesting in this same spirit. The important question is not whether an agent
+can generate an impressive engineering artifact. It is whether the surrounding system
+contains enough human-built structure -- interfaces, invariants, simulations, tests, and
+error messages -- to make the artifact checkable and composable. That structure may be
+hidden from the final user, but it is not decoration. It is what turns generation into
+engineering.
+
 ### What is the relation to the original Navier–Stokes problem?
 
 Tao's post is an explanation of a mechanism in nearby equations; it is not a solution by
