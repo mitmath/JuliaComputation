@@ -978,7 +978,7 @@ basic_pokemon = [Snorlax(), Charmander(), Squirtle(), Bulbasaur(), Pikachu()]
 # ╔═╡ 176c6971-483f-408c-abc2-994546a5f57f
 simulation(
 	basic_pokemon;
-	n=100, m=100, T=100_000
+	n=100, m=100, T=2_000
 )
 
 # ╔═╡ 876837a1-06b7-4b86-829d-4edeae166dc3
@@ -990,13 +990,13 @@ all_pokemon = vcat(basic_pokemon, eevees, Philip(5))
 # ╔═╡ 97541230-5515-4b78-b211-2a01a2d9ed83
 simulation(
 	all_pokemon;
-	n=100, m=100, T=100_000
+	n=100, m=100, T=2_000
 )
 
 # ╔═╡ e3478b55-7100-49c8-809f-4a8bf15071f3
 simulation(
 	all_pokemon;
-	consider_friends=true, n=100, m=100, T=100_000
+	consider_friends=true, n=100, m=100, T=2_000
 )
 
 # ╔═╡ d4324265-e4af-4f00-ab00-d65976d8d583

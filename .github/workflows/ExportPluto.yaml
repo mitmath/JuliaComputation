@@ -58,7 +58,7 @@ jobs:
                   
                   import PlutoSliderServer
 
-                  PlutoSliderServer.github_action("."; Export_cache_dir="pluto_state_cache")'
+                  PlutoSliderServer.export_notebook("homeworks/hw1-2026.jl"; Export_cache_dir="pluto_state_cache")'
 
 
             - name: Deploy to gh-pages
