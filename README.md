@@ -44,7 +44,7 @@ Projects may be completed individually or in small groups, with each student res
 
 ## Homework 1
 
-[Homework 1: Getting Started and Multiple Dispatch](homeworks/hw1-2026.jl) was released Monday, September 14, 2026 and is due Monday, September 21, 2026 at 11:59pm Eastern time.
+[Homework 1: Getting Started and Multiple Dispatch](homeworks/hw1-2026.jl) was released Monday, September 14, 2026 and is due Monday, September 21, 2026 at 11:59pm Eastern time. A [readable static HTML version](https://mitmath.github.io/JuliaComputation/homeworks/hw1-2026.html) will be generated automatically.
 
 This assignment combines the setup and introductory Julia exercises from the former HW0 with the types and multiple-dispatch exercises from the former HW1.
 

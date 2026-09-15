@@ -8,6 +8,7 @@ on:
             - "notebooks"
         branches:
             - Fall24
+            - Fall26
             - main
             - master
     workflow_dispatch:
