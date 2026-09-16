@@ -48,6 +48,10 @@ Projects may be completed individually or in small groups, with each student res
 
 This assignment combines the setup and introductory Julia exercises from the former HW0 with the types and multiple-dispatch exercises from the former HW1.
 
+## Homework 2
+
+[Homework 2: Choose a reach project](homeworks/hw2-2026.jl) is the first step toward the final project. Choose an ambitious topic, explain why it is a reach for you, begin asking questions and learning, and create a first Julia notebook with an interactive element when appropriate. LLMs are allowed, but students may also work without them. This assignment will be refined as the projects develop.
+
 The first homework gets everyone set up and introduces the Julia ideas needed for the projects later in the semester. The project proposal will follow separately.
 
 Project presentations will begin around the halfway point of the semester. The second half of the course will be devoted to student presentations, questions, and discussion.
