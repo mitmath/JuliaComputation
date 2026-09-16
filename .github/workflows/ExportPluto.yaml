@@ -5,7 +5,6 @@ on:
             - "README.md"
             - "homeworks_old"
             - "homeworks_old2"
-            - "notebooks"
         branches:
             - Fall24
             - Fall26
@@ -58,7 +57,8 @@ jobs:
                   
                   import PlutoSliderServer
 
-                  PlutoSliderServer.export_notebook("homeworks/hw1-2026.jl"; Export_cache_dir="pluto_state_cache")'
+                  PlutoSliderServer.export_notebook("homeworks/hw1-2026.jl"; Export_cache_dir="pluto_state_cache")
+                  PlutoSliderServer.export_notebook("notebooks/navier_stokes_news.jl"; Export_cache_dir="pluto_state_cache")'
 
 
             - name: Deploy to gh-pages

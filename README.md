@@ -94,6 +94,10 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 - **Slides:** [Introduction to class](https://docs.google.com/presentation/d/1nynXHjTxmgrZgcAz5Uq6Rrjeswi8DGIgRjElQuVki4A/edit?usp=sharing)
 - **Notebooks:** [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Julia tutorial](notebooks/0_julia_tutorial.jl), [Hyperbolic Corgi](notebooks/1_hyperbolic_corgi.jl), [Images](notebooks/1_images.jl), [Abstraction](notebooks/1_abstraction.jl), and [Navier–Stokes in the news](notebooks/navier_stokes_news.jl)
 
+## Lecture 2
+
+- **Claude session:** [Navier–Stokes discussion](https://claude.ai/share/c1d24436-7e4b-4501-86ec-ec1e4b26ac55)
+
 ## Previous Offering
 
 - [Fall 2024](https://github.com/mitmath/JuliaComputation/tree/Fall24)
