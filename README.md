@@ -101,6 +101,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 ## Lecture 2
 
 - **Claude session:** [Navier–Stokes discussion](https://claude.ai/share/c1d24436-7e4b-4501-86ec-ec1e4b26ac55)
+- **Julia tutorial:** [Jeremiah's Nice C25 Tutorial](notebooks/0_julia_tutorial.jl)
 
 ## Previous Offering
 
