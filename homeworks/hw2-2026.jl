@@ -8,8 +8,8 @@ using InteractiveUtils
 md"""
 # HW2: Choose a reach project
 
-**Released:** to be announced  
-**Due:** to be announced
+
+Due: Sept 28
 
 This is the first step toward a polished final presentation. Choose something
 ambitious that you would like to understand, begin learning it, and make a
