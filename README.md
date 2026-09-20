@@ -50,7 +50,7 @@ This assignment combines the setup and introductory Julia exercises from the for
 
 ## Homework 2
 
-[Homework 2: Choose a reach project](homeworks/hw2-2026.jl) is the first step toward the final project. Choose an ambitious topic, explain why it is a reach for you, begin asking questions and learning, and create a first Julia notebook with an interactive element when appropriate. LLMs are allowed, but students may also work without them. This assignment will be refined as the projects develop.
+[Homework 2: Choose a reach project](homeworks/hw2-2026.jl) is the first step toward the final project. Choose an ambitious topic, explain why it is a reach for you, begin asking questions and learning, and create a first Julia notebook with an interactive element when appropriate. LLMs are allowed, but students may also work without them. This assignment will be refined as the projects develop. A [readable static HTML version](https://mitmath.github.io/JuliaComputation/homeworks/hw2-2026.html) will be generated automatically.
 
 The first homework gets everyone set up and introduces the Julia ideas needed for the projects later in the semester. The project proposal will follow separately.
 
