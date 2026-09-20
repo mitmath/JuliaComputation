@@ -103,6 +103,10 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 - **Claude session:** [Navier–Stokes discussion](https://claude.ai/share/c1d24436-7e4b-4501-86ec-ec1e4b26ac55)
 - **Julia tutorial:** [Jeremiah's Nice C25 Tutorial](notebooks/0_julia_tutorial.jl)
 
+## Lecture 3
+
+- **Notes:** [Random Variables as Types](notebooks/7_ptypes.jl), [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>)
+
 ## Previous Offering
 
 - [Fall 2024](https://github.com/mitmath/JuliaComputation/tree/Fall24)
