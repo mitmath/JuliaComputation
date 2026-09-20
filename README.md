@@ -96,7 +96,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 ## Lecture 1: Communicate with Computation
 
 - **Slides:** [Introduction to class](https://docs.google.com/presentation/d/1nynXHjTxmgrZgcAz5Uq6Rrjeswi8DGIgRjElQuVki4A/edit?usp=sharing)
-- **Notebooks:** [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Julia tutorial](notebooks/0_julia_tutorial.jl), [Hyperbolic Corgi](notebooks/1_hyperbolic_corgi.jl), [Images](notebooks/1_images.jl), [Abstraction](notebooks/1_abstraction.jl), and [Navier–Stokes in the news](notebooks/navier_stokes_news.jl)
+- **Notebooks:** [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Julia tutorial](notebooks/0_julia_tutorial.jl), [Hyperbolic Corgi](notebooks/1_hyperbolic_corgi.jl), [Images](notebooks/1_images.jl), [Abstraction](notebooks/1_abstraction.jl), and [Navier–Stokes in the news](notebooks/navier_stokes_news.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/navier_stokes_news.html))
 
 ## Lecture 2
 
@@ -105,7 +105,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 
 ## Lecture 3
 
-- **Notes:** [Random Variables as Types](notebooks/7_ptypes.jl), [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>)
+- **Notes:** [Random Variables as Types](notebooks/7_ptypes.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/7_ptypes.html)), [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>)
 
 ## Previous Offering
 

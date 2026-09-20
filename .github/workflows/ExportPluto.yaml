@@ -59,6 +59,7 @@ jobs:
 
                   PlutoSliderServer.export_notebook("homeworks/hw1-2026.jl"; Export_cache_dir="pluto_state_cache")
                   PlutoSliderServer.export_notebook("homeworks/hw2-2026.jl"; Export_cache_dir="pluto_state_cache")
+                  PlutoSliderServer.export_notebook("notebooks/7_ptypes.jl"; Export_cache_dir="pluto_state_cache")
                   PlutoSliderServer.export_notebook("notebooks/navier_stokes_news.jl"; Export_cache_dir="pluto_state_cache")'
 
 
