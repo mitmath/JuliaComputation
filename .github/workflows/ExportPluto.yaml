@@ -57,10 +57,14 @@ jobs:
                   
                   import PlutoSliderServer
 
-                  PlutoSliderServer.export_notebook("homeworks/hw1-2026.jl"; Export_cache_dir="pluto_state_cache")
-                  PlutoSliderServer.export_notebook("homeworks/hw2-2026.jl"; Export_cache_dir="pluto_state_cache")
-                  PlutoSliderServer.export_notebook("notebooks/7_ptypes.jl"; Export_cache_dir="pluto_state_cache")
-                  PlutoSliderServer.export_notebook("notebooks/navier_stokes_news.jl"; Export_cache_dir="pluto_state_cache")'
+                  for notebook in ["homeworks/hw1-2026.jl", "homeworks/hw2-2026.jl", "notebooks/7_ptypes.jl", "notebooks/navier_stokes_news.jl"]
+                      try
+                          @info "Exporting notebook" notebook
+                          PlutoSliderServer.export_notebook(notebook; Export_cache_dir="pluto_state_cache")
+                      catch err
+                          @warn "Notebook export failed; continuing with the other pages" notebook exception=(err, catch_backtrace())
+                      end
+                  end'
 
 
             - name: Deploy to gh-pages
