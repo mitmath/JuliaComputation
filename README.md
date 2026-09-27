@@ -65,10 +65,10 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | # | Day | Date | Lecturer | Note |
 |---|---|---|---|---|
 | 1 | W | Sep 9 | Edelman |  |
-| 2 | M | Sep 14 | Edelman |  |
-| 3 | W | Sep 16 | Edelman |  |
-| 4 | M | Sep 21 | Urschel |  |
-| 5 | W | Sep 23 | Edelman |  |
+| 2 | M | Sep 14 | Edelman | Julia and Navier-Stokes |
+| 3 | W | Sep 16 | Edelman | Julia speed, random variables as types |
+| 4 | M | Sep 21 | Urschel | John Urschel on floating point formats |
+| 5 | W | Sep 23 | Edelman | Automatic differentiation |
 | 6 | M | Sep 28 | Edelman |  |
 | 7 | W | Sep 30 | Urschel |  |
 | 8 | M | Oct 5 |  |  |
@@ -96,16 +96,21 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 ## Lecture 1: Communicate with Computation
 
 - **Slides:** [Introduction to class](https://docs.google.com/presentation/d/1nynXHjTxmgrZgcAz5Uq6Rrjeswi8DGIgRjElQuVki4A/edit?usp=sharing)
-- **Notebooks:** [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Julia tutorial](notebooks/0_julia_tutorial.jl), [Hyperbolic Corgi](notebooks/1_hyperbolic_corgi.jl), [Images](notebooks/1_images.jl), [Abstraction](notebooks/1_abstraction.jl), and [Navier–Stokes in the news](notebooks/navier_stokes_news.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/navier_stokes_news.html))
+- **Notebooks:** [Intro to Julia](https://gdalle.github.io/IntroJulia/), [Julia tutorial](notebooks/0_julia_tutorial.jl), [Hyperbolic Corgi](notebooks/1_hyperbolic_corgi.jl), [Images](notebooks/1_images.jl), and [Abstraction](notebooks/1_abstraction.jl)
 
-## Lecture 2
+## Lecture 2: Julia and Navier-Stokes
 
 - **Claude session:** [Navier–Stokes discussion](https://claude.ai/share/c1d24436-7e4b-4501-86ec-ec1e4b26ac55)
 - **Julia tutorial:** [Jeremiah's Nice C25 Tutorial](notebooks/0_julia_tutorial.jl)
+- **Notebook:** [Navier–Stokes in the news](notebooks/navier_stokes_news.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/navier_stokes_news.html))
 
-## Lecture 3
+## Lecture 3: Julia speed, random variables as types
 
 - **Notes:** [Random Variables as Types](notebooks/7_ptypes.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/7_ptypes.html)), [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>)
+
+## Lecture 4: John Urschel on floating point formats
+
+## Lecture 5: Automatic differentiation
 
 ## Previous Offering
 
