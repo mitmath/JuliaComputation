@@ -116,7 +116,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 
 ## Lecture 6: Reverse mode automatic differentiation
 
-- **Notebook:** [Reverse Mode AutoDiff](https://simeonschaub.github.io/ReverseModePluto/notebook.html)
+- **Notebook:** [Reverse Mode AutoDiff](https://simeon.schaub.rocks/ReverseModePluto/notebook.html)
 
 ## Previous Offering
 
