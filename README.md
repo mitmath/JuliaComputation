@@ -112,7 +112,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 
 ## Lecture 5: Automatic differentiation
 
-- **Notebooks:** [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>), [Automatic Differentiation](<notebooks/4. AutoDiff.ipynb>)
+- **Notebooks:** [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>), [Automatic Differentiation](notebooks/AutoDiff_lecture5.ipynb)
 
 ## Lecture 6: Reverse mode automatic differentiation
 
