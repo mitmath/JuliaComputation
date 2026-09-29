@@ -1,0 +1,18 @@
+[Export]
+baked_notebookfile = false
+baked_state = false
+# slider_server_url="https://computationalthinking-sliderserver-c25.plutojl.org"
+exclude = [
+    "notebooks_old/*",
+    "homeworks_old/*",
+]
+
+[SliderServer]
+port = 80
+host = "0.0.0.0"
+exclude = [
+    "notebooks_old/*",
+    "homeworks_old/*",
+    # don't run the interactive sliderserver for homeworks
+    "*/hw*.jl",
+]
