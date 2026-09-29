@@ -69,7 +69,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 3 | W | Sep 16 | Edelman | Julia speed, random variables as types |
 | 4 | M | Sep 21 | Urschel | John Urschel on floating point formats |
 | 5 | W | Sep 23 | Edelman | Automatic differentiation |
-| 6 | M | Sep 28 | Edelman |  |
+| 6 | M | Sep 28 | Edelman | Reverse mode automatic differentiation |
 | 7 | W | Sep 30 | Urschel |  |
 | 8 | M | Oct 5 |  |  |
 | 9 | W | Oct 7 |  |  |
@@ -111,6 +111,12 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 ## Lecture 4: John Urschel on floating point formats
 
 ## Lecture 5: Automatic differentiation
+
+- **Notebooks:** [Julia Is Fast](<notebooks/3_Julia is fast.ipynb>), [Automatic Differentiation](<notebooks/4. AutoDiff.ipynb>)
+
+## Lecture 6: Reverse mode automatic differentiation
+
+- **Notebook:** [Reverse Mode AutoDiff](https://simeonschaub.github.io/ReverseModePluto/notebook.html)
 
 ## Previous Offering
 
