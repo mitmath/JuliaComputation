@@ -71,8 +71,8 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 5 | W | Sep 23 | Edelman | Automatic differentiation |
 | 6 | M | Sep 28 | Edelman | Reverse mode automatic differentiation |
 | 7 | W | Sep 30 | John Urschel | Ranking teams with linear algebra |
-| 8 | M | Oct 5 |  | Applied math in the age of AI and TOP500 supercomputers |
-| 9 | W | Oct 7 |  |  |
+| 8 | M | Oct 5 | Edelman | Applied math in the age of AI and TOP500 supercomputers |
+| 9 | W | Oct 7 | Edelman |  |
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
 | 10 | T | Oct 13 |  | Monday schedule of classes |
 | 11 | W | Oct 14 |  |  |
