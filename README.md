@@ -82,7 +82,8 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 8 | M | Oct 5 | Edelman | Applied math in the age of AI and TOP500 supercomputers |
 | 9 | W | Oct 7 | Edelman |  |
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
-| 10 | T | Oct 13 |  | Monday schedule of classes |
+| 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
+|  |  |  | Laura Lerebours |  |
 | 11 | W | Oct 14 |  |  |
 | 12 | M | Oct 19 |  |  |
 | 13 | W | Oct 21 |  | |
