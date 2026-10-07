@@ -54,6 +54,14 @@ This assignment combines the setup and introductory Julia exercises from the for
 
 The first homework gets everyone set up and introduces the Julia ideas needed for the projects later in the semester. The project proposal will follow separately.
 
+## Homework 3
+
+[Homework 3: Automatic Differentiation](homeworks/hw3-2026.jl) introduces dual
+numbers, forward- and reverse-mode differentiation, and Jacobians. It is due
+**Monday, October 19, 2026 at 11:59 PM EDT**. A [readable static HTML
+version](https://mitmath.github.io/JuliaComputation/homeworks/hw3-2026.html)
+will be generated automatically.
+
 Project presentations will begin around the halfway point of the semester. The second half of the course will be devoted to student presentations, questions, and discussion.
 
 Sign up for a presentation date between Oct 21 and Dec 7 by making a GitHub pull request. We may be able to have two or three projects on a date, and teams of two are allowed. Students who present earlier in the semester will receive a little extra credit for being courageous.

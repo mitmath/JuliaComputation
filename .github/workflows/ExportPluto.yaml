@@ -57,7 +57,7 @@ jobs:
                   
                   import PlutoSliderServer
 
-                  for notebook in ["homeworks/hw1-2026.jl", "homeworks/hw2-2026.jl", "notebooks/7_ptypes.jl", "notebooks/navier_stokes_news.jl"]
+                  for notebook in ["homeworks/hw1-2026.jl", "homeworks/hw2-2026.jl", "homeworks/hw3-2026.jl", "notebooks/7_ptypes.jl", "notebooks/navier_stokes_news.jl"]
                       try
                           @info "Exporting notebook" notebook
                           PlutoSliderServer.export_notebook(notebook; Export_cache_dir="pluto_state_cache")
