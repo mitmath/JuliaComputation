@@ -118,6 +118,12 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 
 - **Notebook:** [Reverse Mode AutoDiff](https://simeon.schaub.rocks/ReverseModePluto/notebook.html)
 
+## Lecture 7: Ranking teams with linear algebra
+
+- **Notebook:** [Ranking College Football Teams](notebooks/rankingteams.jl)
+
+This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
+
 ## Previous Offering
 
 - [Fall 2024](https://github.com/mitmath/JuliaComputation/tree/Fall24)
