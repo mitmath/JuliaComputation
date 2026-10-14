@@ -83,7 +83,6 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 9 | W | Oct 7 | Edelman |  |
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
 | 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
-|  |  |  | Laura Lerebours |  |
 | 11 | W | Oct 14 | Michelle Chen |  |
 | 11 | W | Oct 14 | Logan Reich | GCMs |
 | 12 | M | Oct 19 |  |  |
