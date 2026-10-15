@@ -84,7 +84,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
 | 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
 | 11 | W | Oct 14 | Michelle Chen | Finding Invisbile Planets with Gravity |
-| 11 | W | Oct 14 | Logan Reich | GCMs |
+| 11 | W | Oct 14 | Logan Reich | [GCMs](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
 | 12 | M | Oct 19 |  |  |
 | 13 | W | Oct 21 |  | |
 | 14 | M | Oct 26 |  | Student presentations |
@@ -136,6 +136,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 ## Lecture 8: Applied math in the age of AI and TOP500 supercomputers
 
 - [TOP500 supercomputer rankings](https://top500.org/)
+
+## October 14: General Circulation Models — Logan Reich
+
+- **Pluto notebook:** [General Circulation Models — from radiative balance to a coupled Earth system](notebooks/GCM_presentation_v2_fixed.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 
 ## Previous Offering
 
