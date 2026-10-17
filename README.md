@@ -84,7 +84,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
 | 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
 | 11 | W | Oct 14 | Michelle Chen | Finding Invisbile Planets with Gravity |
-| 11 | W | Oct 14 | Logan Reich | [Global Climate Models](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
+| 11 | W | Oct 14 | Logan Reich | [General Circulation Models](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
 | 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi |
 | 12 | M | Oct 19 | Favio Lesnjak |  |
 | 13 | W | Oct 21 | An Dinh |  |
