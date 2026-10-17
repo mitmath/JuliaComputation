@@ -89,10 +89,14 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 12 | M | Oct 19 | Favio Lesnjak |  |
 | 13 | W | Oct 21 | An Dinh |  |
 | 13 | W | Oct 21 | Thomas Shoales | Burst Altitude Effect on Radioactive Deposition |
-| 14 | M | Oct 26 |  | Student presentations |
-| 15 | W | Oct 28 |  | Student presentations |
-| 16 | M | Nov 2 |  | Student presentations |
-| 17 | W | Nov 4 |  | Student presentations |
+| 14 | M | Oct 26 | Mary Feliz, Drew Hussar |  |
+| 14 | M | Oct 26 | Rochelle Griffith |  |
+| 15 | W | Oct 28 | Jhanny Jimenez |  |
+| 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
+| 16 | M | Nov 2 | Angelina Ning |  |
+| 16 | M | Nov 2 | Maximo Del Pino |  |
+| 17 | W | Nov 4 | Jon Ebataleye |  |
+| 17 | W | Nov 4 |  |  |
 | 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 |  |  |
