@@ -85,7 +85,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
 | 11 | W | Oct 14 | Michelle Chen | Finding Invisbile Planets with Gravity |
 | 11 | W | Oct 14 | Logan Reich | [General Circulation Models](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
-| 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi |
+| 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | [Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi](notebooks/options-pricing-lecture.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/options-pricing-lecture.html)) |
 | 12 | M | Oct 19 | Favio Lesnjak |  |
 | 13 | W | Oct 21 | An Dinh |  |
 | 13 | W | Oct 21 | Thomas Shoales | Burst Altitude Effect on Radioactive Deposition |
@@ -147,6 +147,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [General Circulation Models — from radiative balance to a coupled Earth system](notebooks/GCM_presentation_v2_fixed.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
+
+## October 19: Option pricing — Kathleen Zhang and Krishna Parvataneni
+
+- **Pluto notebook:** [Option pricing: from Black–Scholes to rough volatility](notebooks/options-pricing-lecture.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/options-pricing-lecture.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 
 ## Previous Offering
 
