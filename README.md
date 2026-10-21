@@ -88,7 +88,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | [Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi](notebooks/options-pricing-lecture.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/options-pricing-lecture.html)) |
 | 12 | M | Oct 19 | Favio Lesnjak | [Kepler: Harmony to Chaos](notebooks/Favio_project.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Favio_project.html)) |
 | 13 | W | Oct 21 | An Dinh |  |
-| 13 | W | Oct 21 | Thomas Shoales | Burst Altitude Effect on Radioactive Deposition |
+| 13 | W | Oct 21 | Thomas Shoales | [Burst Altitude Effect on Radioactive Deposition](notebooks/fallout_by_height.jl) |
 | 14 | M | Oct 26 | Mary Feliz, Drew Hussar |  |
 | 14 | M | Oct 26 | Rochelle Griffith |  |
 | 15 | W | Oct 28 | Jhanny Jimenez |  |
@@ -157,6 +157,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [Kepler: Harmony to Chaos](notebooks/Favio_project.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Favio_project.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
+
+## October 21: Fallout by Height — Thomas Shoales
+
+- **Pluto notebook:** [Fallout by Height: How burst altitude controls radioactive deposition](notebooks/fallout_by_height.jl)
+- **Images:** Keep [hiroshima.jpg](notebooks/hiroshima.jpg) and [bravo_map.jpg](notebooks/bravo_map.jpg) in the same folder as the notebook when running it locally.
 
 ## Previous Offering
 
