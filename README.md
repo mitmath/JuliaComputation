@@ -87,6 +87,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 9 | W | Oct 7 | Edelman |  |
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
 | 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
+| 10 | T | Oct 13 | Laura Lerebours |  |
 | 11 | W | Oct 14 | Michelle Chen | Finding Invisbile Planets with Gravity |
 | 11 | W | Oct 14 | Logan Reich | [General Circulation Models](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
 | 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | [Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi](notebooks/options-pricing-lecture.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/options-pricing-lecture.html)) |
@@ -99,7 +100,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 16 | M | Nov 2 | Angelina Ning |  |
 | 16 | M | Nov 2 | Maximo Del Pino |  |
 | 17 | W | Nov 4 | Jon Ebataleye |  |
-| 17 | W | Nov 4 |  |  |
+| 17 | W | Nov 4 | Nathan Zhu |  |
 | 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 |  |  |
