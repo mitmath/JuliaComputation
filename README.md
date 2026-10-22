@@ -64,7 +64,7 @@ will be generated automatically.
 
 ## Homework 4
 
-[Homework 4: How Are We Learning?](https://mitmath.github.io/JuliaComputation/homeworks/hw4-2026.html) asks you to reflect honestly on how the course is working, investigate one gap in your understanding, and propose concrete improvements to the course and your own learning. It is due **Wednesday, October 28, 2026 at 11:59 PM EDT**.
+[Homework 4: How Are We Learning?](https://mitmath.github.io/JuliaComputation/homeworks/hw4-2026.html) asks you to reflect honestly on how the course is working, investigate one gap in your understanding, and propose concrete improvements to the course and your own learning. It is due **Monday, November 2, 2026 at 11:59 PM EST**.
 
 Project presentations will begin around the halfway point of the semester. The second half of the course will be devoted to student presentations, questions, and discussion.
 
