@@ -99,7 +99,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 17 | W | Nov 4 |  |  |
 | 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 |  |  |
+| 19 | M | Nov 16 |  |  | Angelina Ning
 | 20 | W | Nov 18 |  |  |
 | 21 | M | Nov 23 |  | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
