@@ -101,7 +101,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 |  |  |
 | 20 | W | Nov 18 |  |  |
-| 21 | M | Nov 23 |  | Student presentations  |
+| 21 | M | Nov 23 | Michelle Chen | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
 | 22 | M | Nov 30 |  | Student presentations |
 | 23 | W | Dec 2 |  | Student presentations |
