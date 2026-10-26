@@ -90,7 +90,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 12 | M | Oct 19 | Favio Lesnjak | [Kepler: Harmony to Chaos](notebooks/Favio_project.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Favio_project.html)) |
 | 13 | W | Oct 21 | Thomas Shoales | [Burst Altitude Effect on Radioactive Deposition](notebooks/fallout_by_height.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/fallout_by_height.html)) |
 | 14 | M | Oct 26 | Mary Feliz, Drew Hussar | [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html)) |
-| 14 | M | Oct 26 | Rochelle Griffith |  |
+| 14 | M | Oct 26 | Rochelle Griffith | [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html)) |
 | 15 | W | Oct 28 | Jhanny Jimenez |  |
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
 | 16 | M | Nov 2 | Angelina Ning |  |
@@ -169,6 +169,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 - **Pluto notebook:** [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 - **Illustration:** Keep [phase_problem_crystallography.png](notebooks/phase_problem_crystallography.png) in the same folder as the notebook when running it locally. Illustration by [explorebiology / XBio](https://commons.wikimedia.org/wiki/File:XBio_illustration_%E2%80%93_X-ray_Crystallography.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), unchanged.
+
+## October 26: How a balanced ocean makes eddies — Rochelle Griffith
+
+- **Pluto notebook:** [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 
 ## Previous Offering
 
