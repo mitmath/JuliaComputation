@@ -89,7 +89,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 12 | M | Oct 19 | Kathleen Zhang, Krishna Parvataneni | [Stochastic Volatility: Black–Scholes, Heston, and Rough Bergomi](notebooks/options-pricing-lecture.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/options-pricing-lecture.html)) |
 | 12 | M | Oct 19 | Favio Lesnjak | [Kepler: Harmony to Chaos](notebooks/Favio_project.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Favio_project.html)) |
 | 13 | W | Oct 21 | Thomas Shoales | [Burst Altitude Effect on Radioactive Deposition](notebooks/fallout_by_height.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/fallout_by_height.html)) |
-| 14 | M | Oct 26 | Mary Feliz, Drew Hussar |  |
+| 14 | M | Oct 26 | Mary Feliz, Drew Hussar | [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html)) |
 | 14 | M | Oct 26 | Rochelle Griffith |  |
 | 15 | W | Oct 28 | Jhanny Jimenez |  |
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
@@ -163,6 +163,12 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 - **Pluto notebook:** [Fallout by Height: How burst altitude controls radioactive deposition](notebooks/fallout_by_height.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/fallout_by_height.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 - **Images:** Keep [hiroshima.jpg](notebooks/hiroshima.jpg) and [bravo_map.jpg](notebooks/bravo_map.jpg) in the same folder as the notebook when running it locally.
+
+## October 26: The Phase Problem in Crystallography — Mary Feliz and Drew Hussar
+
+- **Pluto notebook:** [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
+- **Illustration:** Keep [phase_problem_crystallography.png](notebooks/phase_problem_crystallography.png) in the same folder as the notebook when running it locally. Illustration by [explorebiology / XBio](https://commons.wikimedia.org/wiki/File:XBio_illustration_%E2%80%93_X-ray_Crystallography.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), unchanged.
 
 ## Previous Offering
 
