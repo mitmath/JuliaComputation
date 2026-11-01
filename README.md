@@ -91,7 +91,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 13 | W | Oct 21 | Thomas Shoales | [Burst Altitude Effect on Radioactive Deposition](notebooks/fallout_by_height.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/fallout_by_height.html)) |
 | 14 | M | Oct 26 | Mary Feliz, Drew Hussar | [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html)) |
 | 14 | M | Oct 26 | Rochelle Griffith | [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html)) |
-| 15 | W | Oct 28 | Jhanny Jimenez |  |
+| 15 | W | Oct 28 | Jhanny Jimenez | [How many GPUs should I rent? — Queueing theory](notebooks/queueing-talk.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/queueing-talk.html)) |
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
 | 16 | M | Nov 2 | An Dinh | [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html)) |
 | 16 | M | Nov 2 | Maximo Del Pino |  |
@@ -174,6 +174,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
+
+## October 28: How many GPUs should I rent? — Jhanny Jimenez
+
+- **Pluto notebook:** [How many GPUs should I rent? — A crash course in queueing theory](notebooks/queueing-talk.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/queueing-talk.html). This snapshot includes the checkpoint answers and model comparison curves; open the Pluto notebook in Julia to change controls and rerun the simulations.
 
 ## November 2: TCP Congestion Control — An Dinh
 
