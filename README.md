@@ -93,13 +93,12 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 14 | M | Oct 26 | Rochelle Griffith | [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html)) |
 | 15 | W | Oct 28 | Jhanny Jimenez |  |
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
-| 16 | M | Nov 2 | Angelina Ning |  |
 | 16 | M | Nov 2 | Maximo Del Pino |  |
 | 17 | W | Nov 4 | Jon Ebataleye |  |
 | 17 | W | Nov 4 | Nathan Zhu |  |
 | 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 |  |  |
+| 19 | M | Nov 16 | Angelina Ning |  |
 | 20 | W | Nov 18 |  |  |
 | 21 | M | Nov 23 | Michelle Chen | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
