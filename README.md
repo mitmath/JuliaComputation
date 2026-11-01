@@ -93,6 +93,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 14 | M | Oct 26 | Rochelle Griffith | [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html)) |
 | 15 | W | Oct 28 | Jhanny Jimenez |  |
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | Bayesian Causal Inference in Human Body |
+| 16 | M | Nov 2 | An Dinh | [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html)) |
 | 16 | M | Nov 2 | Maximo Del Pino |  |
 | 17 | W | Nov 4 | Jon Ebataleye |  |
 | 17 | W | Nov 4 | Nathan Zhu |  |
@@ -173,6 +174,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
+
+## November 2: TCP Congestion Control — An Dinh
+
+- **Pluto notebook:** [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 
 ## Previous Offering
 
