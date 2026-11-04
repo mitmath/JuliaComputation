@@ -100,7 +100,8 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 18 | M | Nov 9 |  |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 | Angelina Ning |  |
-| 20 | W | Nov 18 |  |  |
+| 19 | M | Nov 16 | Raffaele Ferrari | Introduction to atmospheric radiation budget |
+| 20 | W | Nov 18 | Raffaele Ferrari | Introduction to atmospheric dynamics using Oceananigan |
 | 21 | M | Nov 23 | Michelle Chen | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
 | 22 | M | Nov 30 |  | Student presentations |
