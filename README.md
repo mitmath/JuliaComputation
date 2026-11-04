@@ -97,9 +97,8 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 16 | M | Nov 2 | Maximo Del Pino | [Why Creditors Accept Less](notebooks/Why_Creditors_Accept_Less.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Why_Creditors_Accept_Less.html)) |
 | 17 | W | Nov 4 | Jon Ebataleye |  |
 | 17 | W | Nov 4 | Nathan Zhu |  |
-| 18 | M | Nov 9 |  |  |
+| 18 | M | Nov 9 | Angelina Ning |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 | Angelina Ning |  |
 | 19 | M | Nov 16 | Raffaele Ferrari | Introduction to atmospheric radiation budget |
 | 20 | W | Nov 18 | Raffaele Ferrari | Introduction to atmospheric dynamics using Oceananigan |
 | 21 | M | Nov 23 | Michelle Chen | Student presentations  |
