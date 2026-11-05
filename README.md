@@ -95,9 +95,8 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 15 | W | Oct 28 | Yusef Hosein, Lexcea King | [Is That My Hand? — Bayesian Causal Inference in Human Body](notebooks/is_that_my_hand.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/is_that_my_hand.html)) |
 | 16 | M | Nov 2 | An Dinh | [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html)) |
 | 16 | M | Nov 2 | Maximo Del Pino | [Why Creditors Accept Less](notebooks/Why_Creditors_Accept_Less.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Why_Creditors_Accept_Less.html)) |
-| 17 | W | Nov 4 | Jon Ebataleye |  |
+| 17 | W | Nov 4 | Jon Ebataleye | [Echo State Networks](notebooks/echo_state_networks.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/echo_state_networks.html)) |
 | 17 | W | Nov 4 | Nathan Zhu |  |
-| 17 | W | Nov 4 |  | [Echo State Networks](notebooks/echo_state_networks.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/echo_state_networks.html)) |
 | 18 | M | Nov 9 | Angelina Ning |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 | Raffaele Ferrari | Introduction to atmospheric radiation budget |
