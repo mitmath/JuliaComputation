@@ -92,7 +92,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 14 | M | Oct 26 | Mary Feliz, Drew Hussar | [The Phase Problem in Crystallography](notebooks/Phase_Problem.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Phase_Problem.html)) |
 | 14 | M | Oct 26 | Rochelle Griffith | [How a balanced ocean makes eddies](notebooks/Ocean_Eddies_Presentation.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Ocean_Eddies_Presentation.html)) |
 | 15 | W | Oct 28 | Jhanny Jimenez | [How many GPUs should I rent? — Queueing theory](notebooks/queueing-talk.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/queueing-talk.html)) |
-| 15 | W | Oct 28 | Yusef Hosein, Lexcea King | [Is That My Hand? — Bayesian Causal Inference in Human Body](notebooks/is_that_my_hand.jl) |
+| 15 | W | Oct 28 | Yusef Hosein, Lexcea King | [Is That My Hand? — Bayesian Causal Inference in Human Body](notebooks/is_that_my_hand.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/is_that_my_hand.html)) |
 | 16 | M | Nov 2 | An Dinh | [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html)) |
 | 16 | M | Nov 2 | Maximo Del Pino | [Why Creditors Accept Less](notebooks/Why_Creditors_Accept_Less.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Why_Creditors_Accept_Less.html)) |
 | 17 | W | Nov 4 | Jon Ebataleye |  |
@@ -180,6 +180,11 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [How many GPUs should I rent? — A crash course in queueing theory](notebooks/queueing-talk.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/queueing-talk.html). This snapshot includes the checkpoint answers and model comparison curves; open the Pluto notebook in Julia to change controls and rerun the simulations.
+
+## October 28: Is That My Hand? — Yusef Hosein and Lexcea King
+
+- **Pluto notebook:** [Is That My Hand? — Bayesian Causal Inference in Human Body](notebooks/is_that_my_hand.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/is_that_my_hand.html). This snapshot uses the default parameter values; open the Pluto notebook in Julia to change sliders and rerun the models.
 
 ## November 2: TCP Congestion Control — An Dinh
 
