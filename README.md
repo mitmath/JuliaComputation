@@ -96,7 +96,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 16 | M | Nov 2 | An Dinh | [TCP Congestion Control](notebooks/TCP_Congestion_Control.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/TCP_Congestion_Control.html)) |
 | 16 | M | Nov 2 | Maximo Del Pino | [Why Creditors Accept Less](notebooks/Why_Creditors_Accept_Less.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/Why_Creditors_Accept_Less.html)) |
 | 17 | W | Nov 4 | Jon Ebataleye | [Echo State Networks](notebooks/echo_state_networks.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/echo_state_networks.html)) |
-| 17 | W | Nov 4 | Nathan Zhu |  |
+| 17 | W | Nov 4 | Nathan Zhu | [Ball Trajectories in Baseball](notebooks/baseball.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/baseball.html)) |
 | 18 | M | Nov 9 | Angelina Ning |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 | Raffaele Ferrari | Introduction to atmospheric radiation budget |
@@ -194,6 +194,12 @@ This notebook expects accompanying `team_data.csv` and `game_data.csv` files.
 
 - **Pluto notebook:** [Why Creditors Accept Less — A stochastic model of corporate debt restructuring](notebooks/Why_Creditors_Accept_Less.jl)
 - **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/Why_Creditors_Accept_Less.html). This is Maximo’s saved snapshot; open the Pluto notebook in Julia to change controls and rerun the simulations.
+
+## November 4: Ball Trajectories in Baseball — Nathan Zhu
+
+- **Pluto notebook:** [Ball Trajectories in Baseball](notebooks/baseball.jl)
+- **Static HTML:** [Read the notebook with rendered results](https://mitmath.github.io/JuliaComputation/notebooks/baseball.html). Open the Pluto notebook in Julia to rerun the calculations.
+- **Demo video:** The introductory video was not supplied. If available, place `baseball_demo.mp4` beside the notebook to include it.
 
 ## Previous Offering
 
