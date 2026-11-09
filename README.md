@@ -66,6 +66,10 @@ will be generated automatically.
 
 [Homework 4: How Are We Learning?](https://mitmath.github.io/JuliaComputation/homeworks/hw4-2026.html) asks you to reflect honestly on how the course is working, investigate one gap in your understanding, and propose concrete improvements to the course and your own learning. It is due **Monday, November 2, 2026 at 11:59 PM EST**.
 
+## Homework 5
+
+[Homework 5: Understanding Something Deeply](https://mitmath.github.io/JuliaComputation/homeworks/hw5-2026.html) builds on Homework 4: choose one part of your presentation to explain deeply and make a serious start. This prepares you for a **10–12 minute end-of-semester presentation, with additional time for questions**. The homework is due **Monday, November 23, 2026 at 11:59 PM EST**.
+
 ## Calendar
 
 Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/current-key-dates).
