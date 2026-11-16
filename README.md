@@ -103,7 +103,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 17 | W | Nov 4 | Nathan Zhu | [Ball Trajectories in Baseball](notebooks/baseball.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/baseball.html)) |
 | 18 | M | Nov 9 | Angelina Ning |  |
 |  | W | Nov 11 |  | Veterans Day - holiday |
-| 19 | M | Nov 16 | Raffaele Ferrari | Introduction to atmospheric radiation budget |
+| 19 | M | Nov 16 | Raffaele Ferrari | [Introduction to atmospheric radiation budget](notebooks/radiative_balance.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/radiative_balance.html)) |
 | 20 | W | Nov 18 | Raffaele Ferrari | Introduction to atmospheric dynamics using Oceananigan |
 | 21 | M | Nov 23 | Michelle Chen | Student presentations  |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
