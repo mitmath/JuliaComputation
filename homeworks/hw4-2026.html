@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homework 4: How Are We Learning? — 18.C25, Fall 2026</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; background: #f7f8fa; color: #202731; font: 18px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 800px; margin: 36px auto; padding: 36px 44px; background: #fff; border: 1px solid #dce1e7; border-radius: 10px; }
+    nav { font-size: 15px; margin-bottom: 24px; }
+    a { color: #075db8; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #075db8; outline-offset: 4px; }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 22px; }
+    h2 { font-size: 1.35rem; line-height: 1.35; margin-top: 32px; padding-top: 20px; border-top: 1px solid #dce1e7; }
+    p { margin: 0 0 17px; }
+    li { margin: 8px 0; }
+    ul, ol { padding-left: 26px; }
+    footer { margin-top: 32px; font-size: 14px; color: #566171; }
+    @media (max-width: 600px) { main { margin: 0; padding: 24px 20px; border: 0; border-radius: 0; } body { font-size: 17px; } h1 { font-size: 1.7rem; } }
+    @media print { body { background: #fff; color: #000; font-size: 11pt; } main { max-width: none; border: 0; padding: 0; margin: 0; } nav { display: none; } h2 { break-after: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Course links"><a href="https://github.com/mitmath/JuliaComputation/tree/Fall26#homework-4">Course page</a></nav>
+    <div class="markdown"><h1>Homework 4: How Are We Learning?</h1>
+<p><strong>Due Monday, November 2, 2026 at 11:59 PM EST.</strong></p>
+<p>We are experimenting with Julia and LLMs to learn beyond our usual prerequisites and teach one another.</p>
+<p>I’m concerned that impressive notebooks and presentations can hide gaps in understanding. Examine how this experiment is working, then deepen your understanding of one small part of it.</p>
+<p><strong>Plan to spend about two hours.</strong> Submit a short write-up with supporting calculations, sketches, or notebook cells.</p>
+<p><strong>The guidelines below are suggestions, not a rigid template.</strong> Your response does not have to follow them exactly: you may organize it differently, focus on the questions most relevant to your experience, and use a different length or format. You do not need to answer every question. What matters is honest reflection, a serious effort to deepen your understanding, and specific ideas for improving your learning and the course.</p>
+<h2>1. Take stock honestly</h2>
+<p>Write approximately 250–400 words addressing:</p>
+<ul>
+<li><p>Describe a moment when something became clearer. What helped?</p>
+</li>
+<li><p>Describe a moment when you could follow an explanation, code, or AI response but could not explain it yourself.</p>
+</li>
+<li><p>Give specific examples of how LLMs helped you learn—and may have let you move ahead without understanding.</p>
+</li>
+<li><p>What about our class makes deep learning easier or harder? Consider preparation, presentation pace, background knowledge, participation, and feedback.</p>
+</li>
+</ul>
+<p><strong>Honest criticism is welcome. Admitting confusion will not lower your grade.</strong></p>
+<h2>2. Find the edge of your understanding</h2>
+<p>Choose <strong>one narrowly defined idea</strong> from your presentation or a classmate’s that you do not yet understand well.</p>
+<p>Examples include why an equation has its form, what a parameter does, why an algorithm works, or how a simulation represents a physical process.</p>
+<p>Without consulting resources or another person, spend ten minutes answering:</p>
+<ol>
+<li><p>What problem does this idea help solve?</p>
+</li>
+<li><p>How does it work? Use a small example, sketch, or calculation.</p>
+</li>
+<li><p>What can you explain confidently, and where does your explanation break down?</p>
+</li>
+</ol>
+<p>Keep this first attempt, including mistakes and blanks. <strong>Do not polish it afterward.</strong></p>
+<h2>3. Spend an hour going deeper</h2>
+<p>Work on the gap you identified. You may use any resources, including an LLM, classmates, and course staff.</p>
+<p>Include:</p>
+<ul>
+<li><p><strong>A small example you can work through yourself.</strong> Trace the reasoning or computation.</p>
+</li>
+<li><p><strong>A prediction before running code.</strong> Change one input or assumption, predict the result and explain why, then investigate.</p>
+</li>
+<li><p><strong>One assumption or limitation.</strong> When might the idea or model stop being useful?</p>
+</li>
+<li><p><strong>One point where you were stuck.</strong> Show what you tried and what helped—or what remains unresolved.</p>
+</li>
+</ul>
+<p><strong>Suggestion: ask an LLM to quiz you on the depth of your understanding.</strong> You might use this prompt:</p>
+<blockquote><p>Quiz me on my understanding of [specific idea]. Ask one question at a time and wait for my answer before giving hints or explanations. Probe my reasoning with “why?” and “what if?” questions. Ask me to explain an equation in words, work through a small example, predict what changes when an assumption or parameter changes, and identify a limitation. Adapt your follow-up questions to expose gaps in my understanding rather than accepting a fluent answer.</p></blockquote>
+<p>Try answering each question yourself before asking for help. Check the LLM’s feedback against a reliable source, calculation, or experiment; it can make mistakes too. A classmate or course staff member can also quiz you.</p>
+<p>If you use an LLM, include one short exchange that affected your understanding and explain how you checked its answer. No full conversation is needed.</p>
+<h2>4. Check what changed—and help improve the course</h2>
+<p>Close your resources. Explain the idea in your own words using a <strong>different small example</strong>.</p>
+<p>Compare this with your first attempt:</p>
+<ul>
+<li><p>What can you now explain that you could not before?</p>
+</li>
+<li><p>What remains unclear?</p>
+</li>
+<li><p>What question could someone ask to check your understanding?</p>
+</li>
+<li><p>What <strong>one concrete change</strong> should we make to the course, and what <strong>one change</strong> will you make to your learning process? How would each help?</p>
+</li>
+</ul>
+<p>Be specific: “Before each presentation, give us one prerequisite idea to study and one prediction to make” is more actionable than “We need more background.”</p>
+<p><strong>Assessment:</strong> specificity and honesty of reflection, sustained effort, and the quality of your reasoning and checks. You need not master an advanced topic in an hour. A carefully investigated gap is a successful outcome.</p>
+</div>
+    <footer>18.C25 · Fall 2026</footer>
+  </main>
+</body>
+</html>
