@@ -86,7 +86,7 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 | 8 | M | Oct 5 | Edelman | Applied math in the age of AI and TOP500 supercomputers |
 | 9 | W | Oct 7 | Edelman |  |
 |  | M | Oct 12 |  | Indigenous Peoples Day - holiday |
-| 10 | T | Oct 13 | Maxwell Zhou | The Hodgkin–Huxley model and Evans function; Monday schedule of classes |
+| 10 | T | Oct 13 | Maxwell Zhou | [The Hodgkin–Huxley model and Evans function](notebooks/presentation_1.jl); Monday schedule of classes |
 | 10 | T | Oct 13 | Laura Lerebours |  |
 | 11 | W | Oct 14 | Michelle Chen | Finding Invisbile Planets with Gravity |
 | 11 | W | Oct 14 | Logan Reich | [General Circulation Models](notebooks/GCM_presentation_v2_fixed.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/GCM_presentation_v2_fixed.html)) |
