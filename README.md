@@ -105,11 +105,23 @@ Dates follow the [MIT Registrar calendar](https://registrar.mit.edu/calendar/cur
 |  | W | Nov 11 |  | Veterans Day - holiday |
 | 19 | M | Nov 16 | Raffaele Ferrari | [Introduction to atmospheric radiation budget](notebooks/radiative_balance.jl) ([static HTML](https://mitmath.github.io/JuliaComputation/notebooks/radiative_balance.html)) |
 | 20 | W | Nov 18 | Raffaele Ferrari | Introduction to atmospheric dynamics using Oceananigan |
-| 21 | M | Nov 23 | Michelle Chen | Student presentations  |
+| 21 | M | Nov 23 | Mary Feliz, Drew Hussar | End-of-semester presentation |
+| 21 | M | Nov 23 | An Dinh | End-of-semester presentation |
+| 21 | M | Nov 23 | Maxwell Zhou | End-of-semester presentation |
+| 21 | M | Nov 23 |  | Open presentation slot |
 |  | W | Nov 25 |  | Class canceled for Thanksgiving |
-| 22 | M | Nov 30 |  | Student presentations |
-| 23 | W | Dec 2 |  | Student presentations |
-| 24 | M | Dec 7 |  | Student presentations |
+| 22 | M | Nov 30 | Thomas Shoales | End-of-semester presentation |
+| 22 | M | Nov 30 | Maximo Del Pino | End-of-semester presentation |
+| 22 | M | Nov 30 | Logan Reich | End-of-semester presentation |
+| 22 | M | Nov 30 |  | Open presentation slot |
+| 23 | W | Dec 2 | Krishna Parvataneni | End-of-semester presentation |
+| 23 | W | Dec 2 | Kathleen Zhang | End-of-semester presentation |
+| 23 | W | Dec 2 | Nathan Zhu | End-of-semester presentation |
+| 23 | W | Dec 2 |  | Open presentation slot |
+| 24 | M | Dec 7 | Jon Ebataleye | End-of-semester presentation |
+| 24 | M | Dec 7 | Michelle Chen | End-of-semester presentation |
+| 24 | M | Dec 7 |  | Open presentation slot |
+| 24 | M | Dec 7 |  | Open presentation slot |
 | 25 | W | Dec 9 |  | Class party |
 
 ## Lecture 1: Communicate with Computation
